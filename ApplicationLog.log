@@ -1,0 +1,10 @@
+2015-05-12 18:20:52  INFO notizieportale.connectpool.ConnectionPool:117 - Resultset is Closed in releaseConnection method - true
+2015-05-12 18:20:52  INFO notizieportale.connectpool.ConnectionPool:125 - Connection is Closed in releaseConnection method - true
+2015-05-12 18:22:06  INFO notizieportale.connectpool.ConnectionPool:117 - Resultset is Closed in releaseConnection method - true
+2015-05-12 18:22:07  INFO notizieportale.connectpool.ConnectionPool:125 - Connection is Closed in releaseConnection method - true
+2015-05-12 18:25:48  INFO notizieportale.connectpool.ConnectionPool:117 - Resultset is Closed in releaseConnection method - true
+2015-05-12 18:25:48  INFO notizieportale.connectpool.ConnectionPool:125 - Connection is Closed in releaseConnection method - true
+2015-05-12 18:32:13  INFO notizieportale.connectpool.ConnectionPool:117 - Resultset is Closed in releaseConnection method - true
+2015-05-12 18:32:13  INFO notizieportale.connectpool.ConnectionPool:125 - Connection is Closed in releaseConnection method - true
+2015-05-12 20:10:41  INFO notizieportale.connectpool.ConnectionPool:117 - Resultset is Closed in releaseConnection method - true
+2015-05-12 20:10:41  INFO notizieportale.connectpool.ConnectionPool:125 - Connection is Closed in releaseConnection method - true
