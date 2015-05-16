@@ -13,5 +13,6 @@ public class DaoConstants {
         public static final String OBJECT_IS_ALREADY_PERSIST = "Object is already persist.";
         public static final String PERSIST_EXCEPTION = "On persist modify more then 1 record: ";
         public static final String CANT_FIND_BY_PK = "Exception on findByPK new persist data.";
+//        public static final String CANT_FIND_BY_PK = "Exception on findByPK new persist data.";
     }
 }
