@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
+import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
  */
 public class ConnectionPool {
 
-    //private InitialContext ic;
+    private InitialContext ic;
 
     private static final Logger logger = Logger.getLogger(ConnectionPool.class);
 
