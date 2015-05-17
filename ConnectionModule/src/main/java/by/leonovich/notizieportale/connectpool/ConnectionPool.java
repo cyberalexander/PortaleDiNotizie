@@ -50,7 +50,7 @@ public class ConnectionPool {
                         "org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
         dataSource = new DataSource();
         dataSource.setPoolProperties(p);
-    }
+      }
 
     /**
      * Method for get Connection from pool
