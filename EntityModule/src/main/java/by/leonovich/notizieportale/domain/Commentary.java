@@ -1,7 +1,6 @@
 package by.leonovich.notizieportale.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by alexanderleonovich on 26.04.15.
@@ -9,48 +8,32 @@ import java.util.Date;
  * in order to avoid duplication of code when writing delet method (entity object).
  * Bean class for working with entity-COMMENTARY
  */
-public class Commentary implements Serializable, Identified<Integer> {
+public class Commentary implements Serializable {
 
-    private Integer id;
-    private int user_id;
-    private int news_id;
+    private Long commentaryId;
     private String comment;
-    private String date;
+    private String commentDate;
+
+    private Person person;
+
+    private News news;
 
     public Commentary() {
     }
 
-    public Commentary(Integer id, int user_id, int news_id, String comment, String date) {
-        this.id = id;
-        this.user_id = user_id;
-        this.news_id = news_id;
+    public Commentary(Long commentaryId, String comment, String commentDate) {
+        this.commentaryId = commentaryId;
+
         this.comment = comment;
-        this.date = date;
+        this.commentDate = commentDate;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
+    public Long getCommentaryId() {
+        return commentaryId;
     }
 
-    protected void setId(Integer id) {
-        this.id = id;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public int getNews_id() {
-        return news_id;
-    }
-
-    public void setNews_id(int news_id) {
-        this.news_id = news_id;
+    protected void setCommentaryId(Long commentaryId) {
+        this.commentaryId = commentaryId;
     }
 
     public String getComment() {
@@ -61,23 +44,38 @@ public class Commentary implements Serializable, Identified<Integer> {
         this.comment = comment;
     }
 
-    public String getDate() {
-        return date;
+    public String getCommentDate() {
+        return commentDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCommentDate(String commentDate) {
+        this.commentDate = commentDate;
+    }
+
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public News getNews() {
+        return news;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
     }
 
     @Override
     public int hashCode() {
         final int prime = 37;
         int result = 17;
-        result = prime * result + id;
-        result = prime * result + user_id;
-        result = prime * result + news_id;
+        result = prime * result + (commentaryId == null ? 0 : commentaryId.hashCode());
         result = prime * result + (comment == null ? 0 : comment.hashCode());
-        result = prime * result + (date == null ? 0 : date.hashCode());
+        result = prime * result + (commentDate == null ? 0 : commentDate.hashCode());
         return result;
     }
 
@@ -97,13 +95,7 @@ public class Commentary implements Serializable, Identified<Integer> {
             return false;
         }
         Commentary other = (Commentary) obj;
-        if (id != other.id) {
-            return false;
-        }
-        if (user_id != other.user_id) {
-            return false;
-        }
-        if (news_id != other.news_id) {
+        if (commentaryId != other.commentaryId) {
             return false;
         }
         if (comment == null) {
@@ -113,11 +105,11 @@ public class Commentary implements Serializable, Identified<Integer> {
         }else if (!comment.equals(other.comment)) {
             return false;
         }
-        if (date == null) {
-            if (other.date != null) {
+        if (commentDate == null) {
+            if (other.commentDate != null) {
                 return false;
             }
-        }else if (!date.equals(other.date)) {
+        }else if (!commentDate.equals(other.commentDate)) {
             return false;
         }
         return true;
@@ -125,6 +117,6 @@ public class Commentary implements Serializable, Identified<Integer> {
 
     @Override
     public String toString() {
-        return "-=Commentary=- [id=" + id + ", user_id=" + user_id + ", news_id=" + news_id + ", comment=" + comment + ", date=" + date + "]";
+        return "-=Commentary=- [commentaryId=" + commentaryId + ", userId=" + ", comment=" + comment + ", commentDate=" + commentDate + "]";
     }
 }

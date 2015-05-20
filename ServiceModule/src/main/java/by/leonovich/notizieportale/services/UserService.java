@@ -3,7 +3,7 @@ package by.leonovich.notizieportale.services;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.domain.Identified;
-import by.leonovich.notizieportale.domain.User;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.services.util.ServiceConstants;
@@ -25,7 +25,7 @@ public class UserService implements IUserService {
     private UserService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
-            userDao = factory.getDao(User.class);
+            userDao = factory.getDao(Person.class);
         } catch (PersistException e) {
             logger.error(e);
         }
@@ -49,9 +49,9 @@ public class UserService implements IUserService {
     public boolean checkUser(String email, String password) {
         if (email != null && password != null) {
             try {
-                List<User> userList = userDao.getAll();
-                for (User userElement : userList) {
-                    if ((userElement.getEmail().equals(email)) && (userElement.getPassword().equals(password))) {
+                List<Person> personList = userDao.getAll();
+                for (Person personElement : personList) {
+                    if ((personElement.getEmail().equals(email)) && (personElement.getPassword().equals(password))) {
                         return true;
                     }
                 }
@@ -70,24 +70,24 @@ public class UserService implements IUserService {
      * @return User user
      */
     @Override
-    public User authenticationProcess(String nameOfColum, String cretery) {
-        User user = new User();
+    public Person authenticationProcess(String nameOfColum, String cretery) {
+        Person person = new Person();
         try {
-            user = (User) userDao.getByStringCretery(nameOfColum, cretery);
+            person = (Person) userDao.getByStringCretery(nameOfColum, cretery);
         } catch (PersistException e) {
             logger.error(e);
         }
-        return user;
+        return person;
     }
 
     @Override
-    public boolean registerNewUser(User user) {
-        if (user != null) {
-            List<User> userList = null;
+    public boolean registerNewUser(Person person) {
+        if (person != null) {
+            List<Person> personList = null;
             try {
-                userList = userDao.getAll();
-                for (User element : userList) {
-                    if (element.getEmail().equals(user.getEmail())) {
+                personList = userDao.getAll();
+                for (Person element : personList) {
+                    if (element.getEmail().equals(person.getEmail())) {
                         return false;
                     }
                 }
@@ -95,7 +95,7 @@ public class UserService implements IUserService {
                 e.printStackTrace();
             }
             try {
-                userDao.persist(user);
+                userDao.persist(person);
                 return true;
             } catch (PersistException e) {
                 logger.error(e);
@@ -105,7 +105,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User getUserByEmail(String email) {
+    public Person getUserByEmail(String email) {
         Identified user = null;
         if (email != null) {
             try {
@@ -114,16 +114,16 @@ public class UserService implements IUserService {
                 logger.error(e);
             }
         }
-        return (User) user;
+        return (Person) user;
     }
 
     @Override
-    public void updateUserInformation(User user) {
-        if (user.getId() != null &&
-                user.getId() != ServiceConstants.Const.ZERO &&
-                user.getId() > ServiceConstants.Const.ZERO) {
+    public void updateUserInformation(Person person) {
+        if (person.getId() != null &&
+                person.getId() != ServiceConstants.Const.ZERO &&
+                person.getId() > ServiceConstants.Const.ZERO) {
             try {
-                userDao.update(user);
+                userDao.update(person);
             } catch (PersistException e) {
                 logger.error(e);
             }

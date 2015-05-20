@@ -1,7 +1,7 @@
 package by.leonovich.notizieportale.command.usercommand;
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.User;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.UserService;
 import by.leonovich.notizieportale.util.*;
 
@@ -21,12 +21,12 @@ public class AddUserCommand implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
 
-        User user = new User();
-        user = attributesManager.parseParametersOfUser(sessionRequestContent, user);
-        if (user.getEmail() != null && user.getPassword() != null) {
-            boolean operationResult = userService.registerNewUser(user);
+        Person person = new Person();
+        person = attributesManager.parseParametersOfUser(sessionRequestContent, person);
+        if (person.getEmail() != null && person.getPassword() != null) {
+            boolean operationResult = userService.registerNewUser(person);
             if (operationResult == true) {
-                sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, userService.getUserByEmail(user.getEmail()));
+                sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, userService.getUserByEmail(person.getEmail()));
                 page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
             } else {
                 sessionRequestContent.setRequestAttribute("duplicateEmail", MessageManager.getInstance().getProperty("message.duplicateEmail"));

@@ -5,7 +5,7 @@ import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.Identified;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.User;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.exception.PersistException;
 import org.junit.Before;
@@ -29,7 +29,7 @@ public class MySqlDaoTest extends GenericDaoTest {
     @Parameterized.Parameters
     public static Collection getParameters() {
         return Arrays.asList(new Object[][]{
-                {User.class, new User()},
+                {Person.class, new Person()},
                 {News.class, new News()},
                 {Commentary.class, new Commentary()}
         });

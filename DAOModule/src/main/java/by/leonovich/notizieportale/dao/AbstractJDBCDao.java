@@ -22,7 +22,7 @@ import java.util.List;
  * @param <T>  type of object persistence
  * @param <PK> the type of the primary key
  */
-public abstract class AbstractJDBCDao<T extends Identified<PK>, PK extends Integer> implements IGenericDao<T, PK> {
+public abstract class AbstractJDBCDao<T> implements IGenericDao<T, PK> {
 
     private Connection myConnection;
     private ResultSet resultSet;

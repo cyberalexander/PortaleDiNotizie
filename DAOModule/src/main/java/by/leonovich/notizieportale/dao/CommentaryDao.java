@@ -1,6 +1,5 @@
 package by.leonovich.notizieportale.dao;
 
-import by.leonovich.notizieportale.dao.AbstractJDBCDao;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.exception.PersistException;
 
@@ -36,7 +35,7 @@ public class CommentaryDao extends AbstractJDBCDao<Commentary, Integer> {
     private class PersistCommentary extends Commentary {
         @Override
         protected void setId(Integer id) {
-            super.setId(id);
+            super.setCommentaryId(id);
         }
     }
 
@@ -67,10 +66,10 @@ public class CommentaryDao extends AbstractJDBCDao<Commentary, Integer> {
             while (resultSet.next()) {
                 PersistCommentary persistCommentary = new PersistCommentary(); // точка подмены реализации News
                 persistCommentary.setId(resultSet.getInt("F_ID"));
-                persistCommentary.setUser_id(resultSet.getInt("F_USER_ID"));
-                persistCommentary.setNews_id(resultSet.getInt("F_NEWS_ID"));
+                persistCommentary.setUserId(resultSet.getInt("F_USER_ID"));
+                persistCommentary.setNewsId(resultSet.getInt("F_NEWS_ID"));
                 persistCommentary.setComment(resultSet.getString("F_COMMENT"));
-                persistCommentary.setDate(resultSet.getString("F_DATE"));
+                persistCommentary.setCommentDate(resultSet.getString("F_DATE"));
                 resultOfParse.add(persistCommentary);
             }
         } catch (Exception e) {
@@ -82,11 +81,11 @@ public class CommentaryDao extends AbstractJDBCDao<Commentary, Integer> {
     @Override
     protected void prepareStatementForInsert(PreparedStatement statement, Commentary object) throws PersistException {
         try {
-            //Date sqlDate = convert(object.getDate());
-            statement.setInt(1, object.getUser_id());
-            statement.setInt(2, object.getNews_id());
+            //Date sqlDate = convert(object.getCommentDate());
+            statement.setInt(1, object.getUserId());
+            statement.setInt(2, object.getNewsId());
             statement.setString(3, object.getComment());
-            statement.setString(4, object.getDate());
+            statement.setString(4, object.getCommentDate());
 
         } catch (Exception e) {
             throw new PersistException(e);
@@ -96,12 +95,12 @@ public class CommentaryDao extends AbstractJDBCDao<Commentary, Integer> {
     @Override
     protected void prepareStatementForUpdate(PreparedStatement statement, Commentary object) throws PersistException {
         try {
-            //Date sqlDate = convert(object.getDate());
-            statement.setInt(1, object.getUser_id());
-            statement.setInt(2, object.getNews_id());
+            //Date sqlDate = convert(object.getCommentDate());
+            statement.setInt(1, object.getUserId());
+            statement.setInt(2, object.getNewsId());
             statement.setString(3, object.getComment());
-            statement.setString(4, object.getDate());
-            statement.setInt(5, object.getId());
+            statement.setString(4, object.getCommentDate());
+            statement.setInt(5, object.getUserId());
         } catch (Exception e) {
             throw new PersistException(e);
         }

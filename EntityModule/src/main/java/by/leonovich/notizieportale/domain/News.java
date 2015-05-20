@@ -2,6 +2,7 @@ package by.leonovich.notizieportale.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by alexanderleonovich on 11.04.15.
@@ -9,57 +10,50 @@ import java.util.Date;
  * in order to avoid duplication of code when writing delet method (entity object).
  * Bean class for working with entity-NEWS
  */
-public class News implements Serializable, Identified<Integer> {
+public class News implements Serializable{
 
-    private Integer id;
-    private String page_id;
-    private String parent_id;
+    private Long newsId;
+    private String pageId;
     private String title;
-    private String menu_title;
-    private int user_id;
+    private String menuTitle;
     private Date date;
     private String annotation;
     private String content;
+
+    private Person person;
+
+    private Category category;
+
+    private Set<Commentary> commentaries;
 
     public News() {
 
     }
 
-    public News(int id, String page_id, String parent_id, String title, String menu_title, int user_id, Date date, String annotation, String content) {
-        this.id = id;
-        this.page_id = page_id;
-        this.parent_id = parent_id;
+    public News(Long newsId, String pageId, String title, String menuTitle, Date date, String annotation, String content) {
+        this.newsId = newsId;
+        this.pageId = pageId;
         this.title = title;
-        this.menu_title = menu_title;
-        this.user_id = user_id;
+        this.menuTitle = menuTitle;
         this.date = date;
         this.annotation = annotation;
         this.content = content;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
+    public Long getNewsId() {
+        return newsId;
     }
 
-    protected void setId(int id) {
-        this.id = id;
+    protected void setNewsId(Long newsId) {
+        this.newsId = newsId;
     }
 
-    public String getPage_id() {
-        return page_id;
+    public String getPageId() {
+        return pageId;
     }
 
-    public void setPage_id(String page_id) {
-        this.page_id = page_id;
-    }
-
-    public String getParent_id() {
-        return parent_id;
-    }
-
-    public void setParent_id(String parent_id) {
-        this.parent_id = parent_id;
+    public void setPageId(String pageId) {
+        this.pageId = pageId;
     }
 
     public String getTitle() {
@@ -70,20 +64,12 @@ public class News implements Serializable, Identified<Integer> {
         this.title = title;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getMenuTitle() {
+        return menuTitle;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getMenu_title() {
-        return menu_title;
-    }
-
-    public void setMenu_title(String menu_title) {
-        this.menu_title = menu_title;
+    public void setMenuTitle(String menuTitle) {
+        this.menuTitle = menuTitle;
     }
 
     public Date getDate() {
@@ -110,16 +96,38 @@ public class News implements Serializable, Identified<Integer> {
         this.content = content;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Set<Commentary> getCommentaries() {
+        return commentaries;
+    }
+
+    public void setCommentaries(Set<Commentary> commentaries) {
+        this.commentaries = commentaries;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 37;
         int result = 17;
-        result = prime * result + id;
-        result = prime * result + (page_id == null ? 0 : page_id.hashCode());
-        result = prime * result + (parent_id == null ? 0 : parent_id.hashCode());
+        result = prime * result + (newsId == null ? 0 : newsId.hashCode());
+        result = prime * result + (pageId == null ? 0 : pageId.hashCode());
         result = prime * result + (title == null ? 0 : title.hashCode());
-        result = prime * result + (menu_title == null ? 0 : menu_title.hashCode());
-        result = prime * result + user_id;
+        result = prime * result + (menuTitle == null ? 0 : menuTitle.hashCode());
         result = prime * result + (date == null ? 0 : date.hashCode());
         result = prime * result + (annotation == null ? 0 : annotation.hashCode());
         result = prime * result + (content == null ? 0 : content.hashCode());
@@ -144,21 +152,14 @@ public class News implements Serializable, Identified<Integer> {
             return false;
         }
         News other = (News) obj;
-        if (id != other.id) {
+        if (newsId != other.newsId) {
             return false;
         }
-        if (page_id == null) {
-            if (other.page_id != null) {
+        if (pageId == null) {
+            if (other.pageId != null) {
                 return false;
             }
-        }else if (!page_id.equals(other.page_id)) {
-            return false;
-        }
-        if (parent_id == null) {
-            if (other.parent_id != null) {
-                return false;
-            }
-        }else if (!parent_id.equals(other.parent_id)) {
+        }else if (!pageId.equals(other.pageId)) {
             return false;
         }
         if (title == null) {
@@ -168,14 +169,11 @@ public class News implements Serializable, Identified<Integer> {
         }else if (!title.equals(other.title)) {
             return false;
         }
-        if (menu_title == null) {
-            if (other.menu_title != null) {
+        if (menuTitle == null) {
+            if (other.menuTitle != null) {
                 return false;
             }
-        }else if (!menu_title.equals(other.menu_title)) {
-            return false;
-        }
-        if (user_id != other.user_id) {
+        }else if (!menuTitle.equals(other.menuTitle)) {
             return false;
         }
         if (date == null) {
@@ -204,7 +202,7 @@ public class News implements Serializable, Identified<Integer> {
 
     @Override
     public String toString() {
-        return "-=News=- [id=" + id + ", page_id=" + page_id + ", parent_id=" + parent_id + ", title=" + title + ", menu_title=" + menu_title +
-                ", user_id=" + user_id + ", date=" + date + ", annotation=" + annotation + /*", content=" + content +*/ "]";
+        return "-=News=- [newsId=" + newsId + ", pageId=" + pageId + ", title=" + title + ", menuTitle=" + menuTitle +
+                ", date=" + date + ", annotation=" + annotation + /*", content=" + content +*/ "]";
     }
 }

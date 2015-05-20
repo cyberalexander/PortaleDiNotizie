@@ -24,7 +24,7 @@ public class DeleteCommentCommand implements IActionCommand {
         if (commentary != null) {
             commentaryService.deleteCommentary(commentary);
         }
-        List<Commentary> commentList = commentaryService.getCommentsByNewsIdorAuthorId("F_NEWS_ID", commentary.getNews_id());
+        List<Commentary> commentList = commentaryService.getCommentsByNewsIdorAuthorId("F_NEWS_ID", commentary.getNewsId());
         sessionRequestContent.setSessionAttribute("commentList", commentList);
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         return page;

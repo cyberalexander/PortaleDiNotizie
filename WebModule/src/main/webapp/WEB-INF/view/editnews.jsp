@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 
-<jsp:useBean id="news" class="by.leonovich.notizieportale.domain.News" scope="session"/>
+<jsp:useBean commentaryId="news" class="by.leonovich.notizieportale.domain.News" scope="session"/>
 
 
 
@@ -36,26 +36,26 @@
                 <form name="edit_news_form" method="post" action="controller">
                     <input type="hidden" name="command" value="editwritenews">
 
-                    <label for="id" class="text">ID:</label>
-                    <input id="id" name="id" value ="${news.id}" readonly/><br>
+                    <label for="commentaryId" class="text">ID:</label>
+                    <input commentaryId="commentaryId" name="commentaryId" value ="${news.commentaryId}" readonly/><br>
 
-                    <label for="page_id" class="text">PAGE_ID:</label>
-                    <input size="30" id="page_id" name="page_id" value="${news.page_id}" readonly/></br>
+                    <label for="pageId" class="text">PAGE_ID:</label>
+                    <input size="30" commentaryId="pageId" name="pageId" value="${news.pageId}" readonly/></br>
 
                     <label for="parent_id" class="text">PARENT_ID:</label>
-                    <input size="30" id="parent_id" name="parent_id" value="${news.parent_id}" readonly/><br>
+                    <input size="30" commentaryId="parent_id" name="parent_id" value="${news.parent_id}" readonly/><br>
 
                     <label for="title" class="text">Title:</label>
-                    <input size="30" id="title" name="title" value="${news.title}"/><br>
+                    <input size="30" commentaryId="title" name="title" value="${news.title}"/><br>
 
-                    <label for="menu_title" class="text">Menu title:</label>
-                    <input size="30" id="menu_title" name="menu_title" value="${news.menu_title}"/><br>
+                    <label for="menuTitle" class="text">Menu title:</label>
+                    <input size="30" commentaryId="menuTitle" name="menuTitle" value="${news.menuTitle}"/><br>
 
-                    <label for="user_id" class="text">Identificator of author:</label>
-                    <input size="30" id="user_id" name="user_id" value="${news.user_id}" readonly/><br>
+                    <label for="personId" class="text">Identificator of author:</label>
+                    <input size="30" commentaryId="personId" name="personId" value="${news.personId}" readonly/><br>
 
-                    <label for="date" class="text">Date:</label>
-                    <input size="30" id="date" name="date" value="${news.date}"/><br>
+                    <label for="commentDate" class="text">Date:</label>
+                    <input size="30" commentaryId="commentDate" name="commentDate" value="${news.commentDate}"/><br>
 
                     <p>Annotation:</p><br>
                     <textarea rows="6" cols="100"  name="annotation">${news.annotation}</textarea><br>

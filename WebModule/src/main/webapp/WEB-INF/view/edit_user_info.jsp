@@ -34,32 +34,32 @@
       <p class="errormessage"></p>
 
       <label for="name" class="text">Name:</label>
-      <input size="30" id="name" name="name" value="${user.name}"/></br>
+      <input size="30" commentaryId="name" name="name" value="${user.name}"/></br>
 
-      <label for="lastname" class="text">Lastname:</label>
-      <input size="30" id="lastname" name="lastname" value="${user.lastname}"/><br>
+      <label for="surname" class="text">Lastname:</label>
+      <input size="30" commentaryId="surname" name="surname" value="${user.surname}"/><br>
 
       <label for="email" class="text">Old email for entry to site:</label>
-      <input size="30" id="email" name="email" value="${user.email}"/><br>
+      <input size="30" commentaryId="email" name="email" value="${user.email}"/><br>
 
       <label for="email" class="text">NEW email for entry to site:</label>
-      <input size="30" id="new_email" name="new_email" placeholder="write here your new email adress"/><br>
+      <input size="30" commentaryId="new_email" name="new_email" placeholder="write here your new email adress"/><br>
 
 
       <label for="sentmemail" class="text">I want to receive messages to email about new developments on the site and in the world!</label>
-      <INPUT type="checkbox" autocomplete="on" name="sentmemail" id="sentmemail"><br>
+      <INPUT type="checkbox" autocomplete="on" name="sentmemail" commentaryId="sentmemail"><br>
 
       <label for="password" class="text">Old password:</label>
-      <input size="30" id="password" name="password" type="password" value="${user.password}"/><br>
+      <input size="30" commentaryId="password" name="password" type="password" value="${user.password}"/><br>
 
       <label for="new_password" class="text">NEW passoword:</label>
-      <input size="30" id="new_password" name="new_password" type="password"/><br>
+      <input size="30" commentaryId="new_password" name="new_password" type="password"/><br>
 
       <label for="confirm_password" class="text">Confirm new passoword:</label>
-      <input size="30" id="confirm_password" name="confirm_password" type="password"/><br>
+      <input size="30" commentaryId="confirm_password" name="confirm_password" type="password"/><br>
 
       <label for="birthday" class="text">Date:</label>
-      <input size="30" id="birthday" name="birthday" value="${user.birthday}"/><br>
+      <input size="30" commentaryId="birthday" name="birthday" value="${user.birthday}"/><br>
 
       <button type="submit" class="btn btn-primary">SAVE</button>
     </form>

@@ -4,58 +4,35 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by alexanderleonovich on 11.04.15.
- * Entity - USER. Inmplements two intarfaces: 1. Serializable; 2. Identified<Integer> (generic intarface) - interface with
- * in order to avoid duplication of code when writing delet method (entity object).
- * Bean class for working with entity-USER
+ * Created by alexanderleonovich on 20.05.15.
  */
-public class User implements Serializable, Identified<Integer> {
+public class PersonDetail implements Serializable {
 
-    private Integer id;
-    private String name;
-    private String lastname;
+    private Long personId;
     private String email;
     private String password;
     private Date birthday;
     private String role;
 
-    public User() {
+    private Person person;
 
+
+    public PersonDetail() {
     }
 
-    public User(int id, String name, String lastname, String password, String email, Date birthday, String role) {
-        this.id = id;
-        this.name = name;
-        this.lastname = lastname;
-        this.password = password;
+    public PersonDetail(Long personDetailId, String email, String password, Date birthday) {
+        this.personId = personDetailId;
         this.email = email;
+        this.password = password;
         this.birthday = birthday;
-        this.role = role;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
+    public Long getPersonId() {
+        return personId;
     }
 
-    protected void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     public String getEmail() {
@@ -90,13 +67,20 @@ public class User implements Serializable, Identified<Integer> {
         this.role = role;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 37;
         int result = 17;
-        result = prime * result + id;
-        result = prime * result + (name == null ? 0 : name.hashCode());
-        result = prime * result + (lastname == null ? 0 : lastname.hashCode());
+        result = prime * result + (personId == null ? 0 : personId.hashCode());
+        result = prime * result + (email == null ? 0 : email.hashCode());
         result = prime * result + (password == null ? 0 : password.hashCode());
         result = prime * result + (birthday == null ? 0 : birthday.hashCode());
         result = prime * result + (role == null ? 0 : role.hashCode());
@@ -118,22 +102,15 @@ public class User implements Serializable, Identified<Integer> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        User other = (User) obj;
-        if (id != other.id) {
+        PersonDetail other = (PersonDetail) obj;
+        if (personId != other.personId) {
             return false;
         }
-        if (name == null) {
-            if (other.name != null) {
+        if (email == null) {
+            if (other.email != null) {
                 return false;
             }
-        }else if (!name.equals(other.name)) {
-            return false;
-        }
-        if (lastname == null) {
-            if (other.lastname != null) {
-                return false;
-            }
-        }else if (!lastname.equals(other.lastname)) {
+        }else if (!email.equals(other.email)) {
             return false;
         }
         if (password == null) {
@@ -162,6 +139,12 @@ public class User implements Serializable, Identified<Integer> {
 
     @Override
     public String toString() {
-        return getClass() + " [id:" + id  + "; name:" + name + "; lastname:" + lastname + "; email:" + email+ "; password:" + password + "; birthday:" + birthday + "; role=" + role + "]";
+        return "PersonDetail{" +
+                "role='" + role + '\'' +
+                ", birthday=" + birthday +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", personId=" + personId +
+                '}';
     }
 }

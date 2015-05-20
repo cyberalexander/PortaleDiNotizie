@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="comment" class="by.leonovich.notizieportale.domain.Commentary" scope="session"/>
+<jsp:useBean commentaryId="comment" class="by.leonovich.notizieportale.domain.Commentary" scope="session"/>
 
 <html>
 <head>
@@ -21,7 +21,7 @@
     <c:forEach items="${commentList}" var="commentObj">
         <hr/>
         <div align="right">
-            <em>|  date: ${commentObj.date}</em><em>   |   user: ${commentObj.user_id}   |</em>
+            <em>|  commentDate: ${commentObj.commentDate}</em><em>   |   user: ${commentObj.personId}   |</em>
         </div>
 
         <p>${commentObj.comment}</p>
@@ -32,14 +32,14 @@
                     <th>
                         <form method="post" action="controller">
                             <input type="hidden" name="command" value="editwritecomment"/>
-                            <input type="hidden" name="comment_id" value="${commentObj.id}">
+                            <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
                             <button type="submit" class="btn btn-default">edit comment</button>
                         </form>
                     </th>
                     <th>
                         <form method="post" action="controller">
                             <input type="hidden" name="command" value="deletecomment"/>
-                            <input type="hidden" name="comment_id" value="${commentObj.id}">
+                            <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
                             <button type="submit" class="btn btn-danger">delete comment</button>
                         </form>
                     </th>
@@ -47,20 +47,20 @@
             </table>
         </c:if>
         <c:if test="${usertype eq 'USER'}">
-            <c:if test="${user.id == commentObj.user_id}">
+            <c:if test="${user.commentaryId == commentObj.personId}">
                 <table>
                     <tr>
                         <th>
                             <form method="post" action="controller">
                                 <input type="hidden" name="command" value="editwritecomment"/>
-                                <input type="hidden" name="comment_id" value="${commentObj.id}">
+                                <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
                                 <button type="submit" class="btn btn-default">edit comment</button>
                             </form>
                         </th>
                         <th>
                             <form method="post" action="controller">
                                 <input type="hidden" name="command" value="deletecomment"/>
-                                <input type="hidden" name="comment_id" value="${commentObj.id}">
+                                <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
                                 <button type="submit" class="btn btn-danger">delete comment</button>
                             </form>
                         </th>

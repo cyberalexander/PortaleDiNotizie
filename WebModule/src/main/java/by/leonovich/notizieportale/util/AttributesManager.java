@@ -1,16 +1,10 @@
 package by.leonovich.notizieportale.util;
 
-import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.User;
-import by.leonovich.notizieportale.services.CommentaryService;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.NewsService;
-import org.apache.log4j.Logger;
 
-import java.text.DateFormat;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -86,10 +80,10 @@ public class AttributesManager {
 // Convert String date from parameter of news to Date date
         Date date = Date.valueOf(sessionRequestContent.getParameter("date"));
 // Set in news-variable parameters from request
-        news.setPage_id(sessionRequestContent.getParameter("page_id"));
+        news.setPageId(sessionRequestContent.getParameter("page_id"));
         news.setParent_id(sessionRequestContent.getParameter("parent_id"));
         news.setTitle(sessionRequestContent.getParameter("title"));
-        news.setMenu_title(sessionRequestContent.getParameter("menu_title"));
+        news.setMenuTitle(sessionRequestContent.getParameter("menu_title"));
         news.setUser_id(Integer.parseInt(sessionRequestContent.getParameter("user_id")));
         news.setDate(date);
         news.setAnnotation(sessionRequestContent.getParameter("annotation"));
@@ -100,20 +94,20 @@ public class AttributesManager {
     /**
      * Get attributes and parameters from request for adding or updating User-object
      * @param sessionRequestContent - object of class for saving request and session attributes
-     * @param user object of User persistence
+     * @param person object of User persistence
      * @return object of User with added parameters from request
      */
-    public User parseParametersOfUser(SessionRequestContent sessionRequestContent, User user) {
+    public Person parseParametersOfUser(SessionRequestContent sessionRequestContent, Person person) {
 // Convert String birthday from parameter of user to Date birthday
         Date birthday = Date.valueOf(sessionRequestContent.getParameter("birthday"));
 // Set in news-variable parameters from request
-        user.setName(sessionRequestContent.getParameter("name"));
-        user.setLastname(sessionRequestContent.getParameter("lastname"));
-        user.setEmail(sessionRequestContent.getParameter("email"));
-        user.setPassword(sessionRequestContent.getParameter("password"));
-        user.setBirthday(birthday);
-        user.setRole(sessionRequestContent.getParameter("role"));
-        return user;
+        person.setName(sessionRequestContent.getParameter("name"));
+        person.setSurname(sessionRequestContent.getParameter("lastname"));
+        person.setEmail(sessionRequestContent.getParameter("email"));
+        person.setPassword(sessionRequestContent.getParameter("password"));
+        person.setBirthday(birthday);
+        person.setRole(sessionRequestContent.getParameter("role"));
+        return person;
     }
 
 }

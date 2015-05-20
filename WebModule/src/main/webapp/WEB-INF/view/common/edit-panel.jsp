@@ -20,7 +20,7 @@
             <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE USER IS LOCATED NOW  --%>
             <form method="post" action="controller">
                 <input type="hidden" name="command" value="editnews"/>
-                <input type="hidden" name="newsIdForEdit" value="${news.id}">
+                <input type="hidden" name="newsIdForEdit" value="${news.commentaryId}">
                 <button type="submit" class="btn btn-info">edit ${news.title}</button>
             </form>
         </th>
@@ -30,7 +30,7 @@
                     <c:if test="${news.parent_id == newsList[0].parent_id}">
                         <form name="delete_news_form" method="post" action="controller">
                             <input type="hidden" name="command" value="deletenews"/>
-                            <input type="hidden" name="newsIdForDelete" value="${news.id}">
+                            <input type="hidden" name="newsIdForDelete" value="${news.commentaryId}">
                             <button type="submit" class="btn btn-danger">DELETE ${news.title} !!!</button>
                         </form>
                     </c:if>
@@ -46,16 +46,16 @@
                     <c:set var="newsList" scope="session" value="${newsList}"/>
                 </c:if>
                 <c:if test="${newsList[0] == null}">
-                    <c:set var="parent_id" scope="session" value="${news.page_id}"/>
+                    <c:set var="parent_id" scope="session" value="${news.pageId}"/>
                 </c:if>
 
-                <c:if test="${news.page_id eq 'main'}">
+                <c:if test="${news.pageId eq 'main'}">
                     <button type="submit"  class="btn btn-success">Add new category</button>
                 </c:if>
                 <c:if test="${news.parent_id eq 'main'}">
-                    <button type="submit"  class="btn btn-success">Add new ${news.page_id} news</button>
+                    <button type="submit"  class="btn btn-success">Add new ${news.pageId} news</button>
                 </c:if>
-                <c:if test="${news.parent_id != 'main' && news.page_id != 'main'}">
+                <c:if test="${news.parent_id != 'main' && news.pageId != 'main'}">
                     <button type="submit"  class="btn btn-success">Add new ${news.parent_id} news</button>
                 </c:if>
 

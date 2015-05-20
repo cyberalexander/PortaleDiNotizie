@@ -9,9 +9,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<jsp:useBean id="news" class="by.leonovich.notizieportale.domain.News" scope="session"/>
-<jsp:useBean id="user" class="by.leonovich.notizieportale.domain.User" scope="session"/>
-<jsp:useBean id="dateNow" class="java.util.Date" scope="session"/>
+<jsp:useBean commentaryId="news" class="by.leonovich.notizieportale.domain.News" scope="session"/>
+<jsp:useBean commentaryId="user" class="by.leonovich.notizieportale.domain.Person" scope="session"/>
+<jsp:useBean commentaryId="dateNow" class="java.util.Date" scope="session"/>
 <html>
 <head>
     <script type="text/javascript" src="./assests/jquery-2.1.4.js"></script>
@@ -37,7 +37,7 @@
         <%-- BODY OF NEWS-PAGE --%>
 
         <%-- BUTTTON FOR RETURN ON MAIN PAGE, OR ON HEAD PAGE OF CATEGORY --%>
-        <a href="controller?command=shownews&page_id=${news.parent_id}">
+        <a href="controller?command=shownews&pageId=${news.parent_id}">
             <c:if test="${news.parent_id != null}">
                 <c:if test="${news.parent_id eq 'main'}">
                     <p>Вернуться на main page</p>
@@ -52,11 +52,11 @@
         <ul class="nav nav-pills nav-stacked">
             <c:forEach items="${newsList}" var="newsObj">
                 <li>
-                    <c:if test="${news.page_id eq 'main'}">
-                        <a href="controller?command=shownews&page_id=${newsObj.page_id}&parent_id=${newsObj.parent_id}">${newsObj.page_id}</a>
+                    <c:if test="${news.pageId eq 'main'}">
+                        <a href="controller?command=shownews&pageId=${newsObj.pageId}&parent_id=${newsObj.parent_id}">${newsObj.pageId}</a>
                     </c:if>
-                    <c:if test="${news.page_id != 'main'}">
-                        <a href="controller?command=shownews&page_id=${newsObj.page_id}&parent_id=${newsObj.parent_id}">${newsObj.title}</a>
+                    <c:if test="${news.pageId != 'main'}">
+                        <a href="controller?command=shownews&pageId=${newsObj.pageId}&parent_id=${newsObj.parent_id}">${newsObj.title}</a>
                     </c:if>
                 </li>
             </c:forEach>
@@ -65,7 +65,7 @@
 
     <div class="col-md-8">
         <p>${news.content}</p>
-        <p align="right"><em>${news.date}</em></p>
+        <p align="right"><em>${news.commentDate}</em></p>
 
         <c:if test="${usertype eq 'ADMINISTRATOR' || usertype eq 'USER'}">
             <hr/>
@@ -96,12 +96,12 @@
                 <h3 class="headersecondlevel">Most popular</h3>
                 <c:forEach items="${listPopNews}" var="popNews">
                     <hr/>
-                        <a href="controller?command=shownews&page_id=${popNews.page_id}&parent_id=${popNews.parent_id}">
+                        <a href="controller?command=shownews&pageId=${popNews.pageId}&parent_id=${popNews.parent_id}">
                             <p class="mostpopnewsheader">${popNews.title}</p>
                         </a>
                         <em class="mostpopnews">
                             ${popNews.annotation}
-                            <a href="controller?command=shownews&page_id=${popNews.page_id}&parent_id=${popNews.parent_id}">read more...</a>
+                            <a href="controller?command=shownews&pageId=${popNews.pageId}&parent_id=${popNews.parent_id}">read more...</a>
                         </em>
                 </c:forEach>
                 <hr/>

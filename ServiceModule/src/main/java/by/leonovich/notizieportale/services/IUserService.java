@@ -1,8 +1,6 @@
 package by.leonovich.notizieportale.services;
 
-import by.leonovich.notizieportale.domain.User;
-
-import java.util.List;
+import by.leonovich.notizieportale.domain.Person;
 
 /**
  * Created by alexanderleonovich on 29.04.15.
@@ -11,11 +9,11 @@ public interface IUserService {
 
     boolean checkUser(String email, String password);
 
-    User authenticationProcess(String nameOfColum, String cretery);
+    Person authenticationProcess(String nameOfColum, String cretery);
 
-    boolean registerNewUser(User user);
+    boolean registerNewUser(Person person);
 
-    User getUserByEmail(String email);
+    Person getUserByEmail(String email);
 
-    void updateUserInformation(User user);
+    void updateUserInformation(Person person);
 }

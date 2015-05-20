@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.filter;
 
-import by.leonovich.notizieportale.domain.User;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
@@ -32,9 +32,9 @@ public class ServletSecurityFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession();
 
-        User user = (User) session.getAttribute(WebConstants.Const.USER);
+        Person person = (Person) session.getAttribute(WebConstants.Const.USER);
 
-        if (user == null) {
+        if (person == null) {
             type = ClientType.GUEST;
             if ((WebConstants.Const.EDIT_NEWS.equals(request.getParameter(WebConstants.Const.COMMAND)))
                     || (WebConstants.Const.ADD_NEWS.equals(request.getParameter(WebConstants.Const.COMMAND)))
@@ -45,9 +45,9 @@ public class ServletSecurityFilter implements Filter {
                 dispatcher.forward(request, response);
                 return;
             }
-        }else if (user.getId() != null && user.getRole().equals(WebConstants.Const.ADMIN)) {
+        }else if (person.getId() != null && person.getRole().equals(WebConstants.Const.ADMIN)) {
                 type = ClientType.ADMINISTRATOR;
-        }else if (user.getId() != null && user.getRole().equals(WebConstants.Const.USER)){
+        }else if (person.getId() != null && person.getRole().equals(WebConstants.Const.USER)){
                 type = ClientType.USER;
         }
         session.setAttribute(WebConstants.Const.USERTYPE, type);

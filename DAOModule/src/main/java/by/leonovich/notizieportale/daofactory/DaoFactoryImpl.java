@@ -3,11 +3,11 @@ package by.leonovich.notizieportale.daofactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.User;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.dao.CommentaryDao;
 import by.leonovich.notizieportale.dao.NewsDao;
-import by.leonovich.notizieportale.dao.UserDao;
+import by.leonovich.notizieportale.dao.PersonDao;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
@@ -26,10 +26,10 @@ public class DaoFactoryImpl implements IDaoFactory {
     private DaoFactoryImpl() {
         creators = new HashMap<Class, IDaoCreator>();
         //Inherited from IDaoFactory to build a factory to work with a specific domain entity
-        creators.put(User.class, new IDaoCreator() {
+        creators.put(Person.class, new IDaoCreator() {
             @Override
             public IGenericDao create() {
-                return new UserDao();
+                return new PersonDao();
             }
         });
         creators.put(News.class, new IDaoCreator() {

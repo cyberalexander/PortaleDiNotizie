@@ -38,7 +38,7 @@ public class NewsDao extends AbstractJDBCDao<News, Integer> {
     private class PersistNews extends News {
         @Override
         public void setId(int id) {
-            super.setId(id);
+            super.setNewsId(id);
         }
     }
 
@@ -76,10 +76,10 @@ public class NewsDao extends AbstractJDBCDao<News, Integer> {
             while (resultSet.next()) {
                 PersistNews news = new PersistNews(); // точка подмены реализации News
                 news.setId(resultSet.getInt("F_ID"));
-                news.setPage_id(resultSet.getString("F_PAGE_ID"));
+                news.setPageId(resultSet.getString("F_PAGE_ID"));
                 news.setParent_id(resultSet.getString("F_PARENT_ID"));
                 news.setTitle(resultSet.getString("F_TITLE"));
-                news.setMenu_title(resultSet.getString("F_MENU_TITLE"));
+                news.setMenuTitle(resultSet.getString("F_MENU_TITLE"));
                 news.setUser_id(resultSet.getInt("F_USER_ID"));
                 news.setDate(resultSet.getDate("F_DATE"));
                 news.setAnnotation(resultSet.getString("F_ANNOTATION"));
@@ -96,10 +96,10 @@ public class NewsDao extends AbstractJDBCDao<News, Integer> {
     protected void prepareStatementForInsert(PreparedStatement statement, News object) throws PersistException {
         try {
             Date sqlDate = convert(object.getDate());
-            statement.setString(1, object.getPage_id());
+            statement.setString(1, object.getPageId());
             statement.setString(2, object.getParent_id());
             statement.setString(3, object.getTitle());
-            statement.setString(4, object.getMenu_title());
+            statement.setString(4, object.getMenuTitle());
             statement.setInt(5, object.getUser_id());
             statement.setDate(6, sqlDate);
             statement.setString(7, object.getAnnotation());
@@ -113,10 +113,10 @@ public class NewsDao extends AbstractJDBCDao<News, Integer> {
     protected void prepareStatementForUpdate(PreparedStatement statement, News object) throws PersistException {
         try {
             Date sqlDate = convert(object.getDate());
-            statement.setString(1, object.getPage_id());
+            statement.setString(1, object.getPageId());
             statement.setString(2, object.getParent_id());
             statement.setString(3, object.getTitle());
-            statement.setString(4, object.getMenu_title());
+            statement.setString(4, object.getMenuTitle());
             statement.setInt(5, object.getUser_id());
             statement.setDate(6, sqlDate);
             statement.setString(7, object.getAnnotation());

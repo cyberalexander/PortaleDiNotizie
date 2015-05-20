@@ -34,25 +34,25 @@
       <p class="errormessage">${duplicateEmail} ${nullemailorpassword}</p>
 
         <label for="name" class="text">Name:</label>
-        <input size="30" id="name" name="name" placeholder="what`s your name?"/></br>
+        <input size="30" commentaryId="name" name="name" placeholder="what`s your name?"/></br>
 
-      <label for="lastname" class="text">Lastname:</label>
-      <input size="30" id="lastname" name="lastname" placeholder="what`s your lastname"/><br>
+      <label for="surname" class="text">Lastname:</label>
+      <input size="30" commentaryId="surname" name="surname" placeholder="what`s your surname"/><br>
 
       <label for="email" class="text">Email for entry to site:</label>
-      <input size="30" id="email" name="email" placeholder="your email adress"/><br>
+      <input size="30" commentaryId="email" name="email" placeholder="your email adress"/><br>
 
       <label for="sentmemail" class="text">I want to receive messages to email about new developments on the site and in the world!</label>
-      <INPUT type="checkbox" autocomplete="on" name="sentmemail" id="sentmemail"><br>
+      <INPUT type="checkbox" autocomplete="on" name="sentmemail" commentaryId="sentmemail"><br>
 
       <label for="password" class="text">Password:</label>
-      <input size="30" id="password" name="password" type="password"/><br>
+      <input size="30" commentaryId="password" name="password" type="password"/><br>
 
       <label for="confirm_password" class="text">Confirm passoword:</label>
-      <input size="30" id="confirm_password" name="confirm_password" type="password"/><br>
+      <input size="30" commentaryId="confirm_password" name="confirm_password" type="password"/><br>
 
       <label for="birthday" class="text">Date:</label>
-      <input size="30" id="birthday" name="birthday" placeholder="YYYY-MM-DD"/><br>
+      <input size="30" commentaryId="birthday" name="birthday" placeholder="YYYY-MM-DD"/><br>
 
       <input type="hidden" name="role" value="user"/>
 

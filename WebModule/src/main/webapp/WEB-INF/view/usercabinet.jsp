@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="user" class="by.leonovich.notizieportale.domain.User" scope="session"/>
+<jsp:useBean commentaryId="user" class="by.leonovich.notizieportale.domain.Person" scope="session"/>
 
 <html>
 <head>
@@ -26,7 +26,7 @@
 <div class="row" align="center">
     <h3>Welcome</h3>
     <hr/>
-    <h4>${user.name} ${user.lastname}, hello!</h4>
+    <h4>${user.name} ${user.surname}, hello!</h4>
     <hr/>
     <h5>${infoUpdated}</h5>
     <hr/>
@@ -82,7 +82,7 @@
                     LastName
                 </td>
                 <td>
-                    ${user.lastname}
+                    ${user.surname}
                 </td>
             </tr>
             <tr>

@@ -21,6 +21,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hibernate.version>4.3.9.Final</hibernate.version>
         <jdk.version>1.8</jdk.version>
         <mysql.version>5.1.35</mysql.version>
         <log4j.version>1.2.17</log4j.version>
@@ -28,10 +29,29 @@
         <junit.version>4.4</junit.version>
         <servlet-api.version>3.1.0</servlet-api.version>
         <tomcat.version>8.0.21</tomcat.version>
+        <compiler-plugin.version>3.3</compiler-plugin.version>
     </properties>
 
-    <dependencies>
+    <!-- Repositories settings (What is this?) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!-- And what is DependencyManager or PluginManager !!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <repositories>
+        <repository>
+            <commentaryId>JBoss</commentaryId>
+            <name>JBoss Repsitory</name>
+            <layout>default</layout>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+        <repository>
+            <commentaryId>codelds</commentaryId>
+            <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+        </repository>
+        <repository>
+            <commentaryId>oracleOr</commentaryId>
+            <url>http://maven-us.nuxeo.org/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
+    <dependencies>
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -71,6 +91,12 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+
         <!-- servlet.api -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -90,21 +116,55 @@
             <version>8.0.22</version>
         </dependency>
 
+        <!-- Hibernate-CORE dependency -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Hibernate-ENTITY-MANAGER dependency -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
 
     </dependencies>
 
     <build>
+        <finalName>PortaleDiNotizie</finalName>
         <plugins>
+            <!-- MAVEN COMPILER PLUGIN -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${compiler-plugin.version}</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
+
+            <!-- Maven dependency plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="by.leonovich.notizieportale.domain" auto-import="false" catalog="mysitetonight">
+    <class name="Commentary" table="T_COMMENTARY" lazy="false">
+        <id name="commentaryId" type="java.lang.Long" column="F_NEWS_ID">
+            <generator class="increment"/>
+        </id>
+        <property name="comment" column="F_COMMENT" type="string"/>
+        <property name="commentDate" column="F_COMMENT_DATE" type="string"/>
+
+        <many-to-one name="person" class="Person" fetch="select" column="F_PERSON_ID"/>
+        <many-to-one name="news" class="News" fetch="select" column="F_NEWS_ID"/>
+
+    </class>
+</hibernate-mapping>

@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="row" style="text-align: center">
-          <h1 class="headerfirstlevel">${news.menu_title}</h1>
+          <h1 class="headerfirstlevel">${news.menuTitle}</h1>
         </div>
     </body>
 </html>

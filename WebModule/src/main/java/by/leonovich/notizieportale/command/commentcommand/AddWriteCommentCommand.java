@@ -7,9 +7,6 @@ import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,16 +29,16 @@ public class AddWriteCommentCommand implements IActionCommand {
             if (sessionRequestContent.getParameter("commentcontent") != null) {
                 comment = commentaryService.getCommentById(Integer.parseInt(sessionRequestContent.getParameter("comment_id")));
                 comment.setComment(sessionRequestContent.getParameter("commentcontent"));
-                comment.setDate(dateString);
+                comment.setCommentDate(dateString);
                 commentaryService.updateCommentary(comment);
                 sessionRequestContent.removeSessionAttribute("commentForEdit");
             }
         }else {
             if (sessionRequestContent.getParameter("commentcontent") != null) {
-                comment.setUser_id(Integer.parseInt(sessionRequestContent.getParameter("user_id")));
-                comment.setNews_id(Integer.parseInt(sessionRequestContent.getParameter("news_id")));
+                comment.setUserId(Integer.parseInt(sessionRequestContent.getParameter("user_id")));
+                comment.setNewsId(Integer.parseInt(sessionRequestContent.getParameter("news_id")));
                 comment.setComment(sessionRequestContent.getParameter("commentcontent"));
-                comment.setDate(dateString);
+                comment.setCommentDate(dateString);
                 commentaryService.saveComment(comment);
             }
         }

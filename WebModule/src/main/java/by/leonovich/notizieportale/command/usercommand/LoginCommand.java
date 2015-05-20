@@ -2,11 +2,10 @@ package by.leonovich.notizieportale.command.usercommand;
 
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.User;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.IUserService;
 import by.leonovich.notizieportale.services.UserService;
 import by.leonovich.notizieportale.util.*;
-import org.apache.log4j.Logger;
 
 /**
  * Created by alexanderleonovich on 18.04.15.
@@ -29,8 +28,8 @@ public class LoginCommand implements IActionCommand {
         // checking login and password
         if (userService.checkUser(email, pass)) {
             System.out.println("bebe");
-            User user = userService.authenticationProcess(WebConstants.Const.F_EMAIL, email);
-            sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, user);
+            Person person = userService.authenticationProcess(WebConstants.Const.F_EMAIL, email);
+            sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, person);
             // determination url-path to usercabinet.jsp
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
         } else {

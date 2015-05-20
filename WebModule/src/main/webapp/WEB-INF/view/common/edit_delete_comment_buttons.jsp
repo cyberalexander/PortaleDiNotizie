@@ -17,14 +17,14 @@
       <th>
         <form method="post" action="controller">
           <input type="hidden" name="command" value="editwritecomment"/>
-          <input type="hidden" name="comment_id" value="${commentObj.id}">
+          <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
           <button type="submit" class="btn btn-default">edit comment</button>
         </form>
       </th>
       <th>
         <form method="post" action="controller">
           <input type="hidden" name="command" value="deletecomment"/>
-          <input type="hidden" name="comment_id" value="${commentObj.id}">
+          <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
           <button type="submit" class="btn btn-danger">delete comment</button>
         </form>
       </th>
