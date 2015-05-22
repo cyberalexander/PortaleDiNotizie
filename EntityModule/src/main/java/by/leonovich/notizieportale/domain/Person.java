@@ -1,8 +1,10 @@
 package by.leonovich.notizieportale.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by alexanderleonovich on 11.04.15.
@@ -10,17 +12,29 @@ import java.util.List;
  * in order to avoid duplication of code when writing delet method (entity object).
  * Bean class for working with entity-USER
  */
-public class Person implements Serializable{
+@Entity
+@Table(name = "T_PERSON")
+public class Person extends CustomEntity implements Serializable{
+    private static final long serialVersionUID = -3731830107340403943L;
 
+    @Id
+    @Column(name = "F_PERSON_ID")
     private Long personId;
+
+    @Column(name = "F_NAME")
     private String name;
+
+    @Column(name = "F_SURNAME")
     private String surname;
 
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private PersonDetail personDetail;
 
-    private List<News> newses;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private Set<News> newses;
 
-    private List<Commentary> commentaries;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private Set<Commentary> commentaries;
 
     public Person() {
 
@@ -64,19 +78,19 @@ public class Person implements Serializable{
         this.personDetail = personDetail;
     }
 
-    public List<News> getNewses() {
+    public Set<News> getNewses() {
         return newses;
     }
 
-    public void setNewses(List<News> newses) {
+    public void setNewses(Set<News> newses) {
         this.newses = newses;
     }
 
-    public List<Commentary> getCommentaries() {
+    public Set<Commentary> getCommentaries() {
         return commentaries;
     }
 
-    public void setCommentaries(List<Commentary> commentaries) {
+    public void setCommentaries(Set<Commentary> commentaries) {
         this.commentaries = commentaries;
     }
 

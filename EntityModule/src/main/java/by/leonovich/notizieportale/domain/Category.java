@@ -1,5 +1,9 @@
 package by.leonovich.notizieportale.domain;
 
+import by.leonovich.notizieportale.domain.util.StatusEnum;
+import org.hibernate.annotations.GeneratorType;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -7,22 +11,35 @@ import java.util.Set;
  * Created by alexanderleonovich on 19.05.15.
  * in 23:45:00
  */
-public class Category implements Serializable{
+@Entity
+@Table(name = "T_CATEGORY")
+public class Category extends CustomEntity implements Serializable{
+    private static final long serialVersionUID = 7238251066050359830L;
 
+    @Id
+    @Column(name = "F_CATEGORY_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
+
+    @Column(name = "F_CATEGORY_NAME")
     private String categoryName;
 
-    private Person person;
+    /*@Column(name = "F_STATUS")
+    @Enumerated(EnumType.STRING)
+    private StatusEnum status;*/
 
-    private Set<News> newses;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private Set<News> news;
 
     public Category() {
     }
 
-    public Category(Long categoryId, String categoryName) {
-        this.categoryId = categoryId;
+    public Category(String categoryName, StatusEnum status) {
+        super();
         this.categoryName = categoryName;
+        super.status = status;
     }
+
 
     public Long getCategoryId() {
         return categoryId;
@@ -40,20 +57,20 @@ public class Category implements Serializable{
         this.categoryName = categoryName;
     }
 
-    public Person getPerson() {
-        return person;
+    /*public StatusEnum getStatus() {
+        return super.status;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setStatus(StatusEnum status) {
+        super.status = status;
+    }*/
+
+    public Set<News> getNews() {
+        return news;
     }
 
-    public Set<News> getNewses() {
-        return newses;
-    }
-
-    public void setNewses(Set<News> newses) {
-        this.newses = newses;
+    public void setNews(Set<News> newses) {
+        this.news = newses;
     }
 
     @Override
@@ -62,7 +79,7 @@ public class Category implements Serializable{
         if (!(obj instanceof Category)) return false;
         Category category = (Category) obj;
         if (categoryId != null ? !categoryId.equals(category.categoryId) : category.categoryId != null) return false;
-        if (categoryId != null ? !categoryId.equals(category.categoryId) : category.categoryId != null) return false;
+        if (categoryName != null ? !categoryName.equals(category.categoryName) : category.categoryName != null) return false;
         return true;
     }
 
@@ -78,6 +95,7 @@ public class Category implements Serializable{
         return "Category{" +
                 "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
+                ", status=" + super.status +
                 '}';
     }
 }

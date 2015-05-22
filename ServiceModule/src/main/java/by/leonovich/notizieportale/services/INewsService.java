@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface INewsService {
 
-    News getNewsByPageId(String columnName_PageId, String idOfPage);
+  /*  News getNewsByPageId(String columnName_PageId, String idOfPage);
 
     List<News> getListOfNewsByStringCretery(String parent_id, String page_id);
 
@@ -21,5 +21,5 @@ public interface INewsService {
 
     void EditNewsPage(News news);
 
-    List<News> getMostPopularNewsList();
+    List<News> getMostPopularNewsList();*/
 }

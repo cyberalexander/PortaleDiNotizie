@@ -1,5 +1,6 @@
 package by.leonovich.notizieportale.services;
 
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
 
 import java.util.List;
@@ -8,7 +9,11 @@ import java.util.List;
  * Created by alexanderleonovich on 03.05.15.
  */
 public interface ICommentaryService {
-    List<Commentary> getCommentsByNewsIdorAuthorId(String nameOfColum ,Integer id);
+
+    List<Commentary> getCommentaries();
+
+
+    /*List<Commentary> getCommentsByNewsIdorAuthorId(String nameOfColum ,Integer id);
 
     void saveComment(Commentary comment);
 
@@ -16,5 +21,5 @@ public interface ICommentaryService {
 
     void updateCommentary(Commentary comment);
 
-    void deleteCommentary(Commentary commentary);
+    void deleteCommentary(Commentary commentary);*/
 }

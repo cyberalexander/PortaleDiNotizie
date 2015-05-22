@@ -25,13 +25,14 @@ public class DeleteNewsCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        News news;
+       /* News news;
         Integer id = Integer.parseInt(sessionRequestContent.getParameter("newsIdForDelete"));
         news = newsService.getNewsByPK(id);
         newsService.deleteNewsPage(news);
         attributesManager.setAtributesForResponse(sessionRequestContent, news, "delete");
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;
+        return page;*/
+        return null;
     }
 }

@@ -53,7 +53,7 @@ public class AttributesManager {
             newsList.add(news);
         }else if (command.equals("delete")) {
             newsList.remove(news);
-        }else if (command.equals("edit")) {
+        }/*else if (command.equals("edit")) {
             for (News element : newsList) {
                 if (element.getId() == news.getId()) {
                     newsList.remove(element);
@@ -61,9 +61,9 @@ public class AttributesManager {
                 }
             }
             newsList.add(news);
-        }
+        }*/
 // Object news assign a link to the main page headings, which appear to us after operations NEWS
-        news = newsService.getNewsByPageId(WebConstants.Const.F_PAGE_ID,news.getParent_id());
+        //news = newsService.getNewsByPageId(WebConstants.Const.F_PAGE_ID,news.getParent_id());
 
         sesReqContent.setSessionAttribute("news", news);
         sesReqContent.setSessionAttribute("newsList", newsList);
@@ -81,10 +81,10 @@ public class AttributesManager {
         Date date = Date.valueOf(sessionRequestContent.getParameter("date"));
 // Set in news-variable parameters from request
         news.setPageId(sessionRequestContent.getParameter("page_id"));
-        news.setParent_id(sessionRequestContent.getParameter("parent_id"));
+        //news.setParent_id(sessionRequestContent.getParameter("parent_id"));
         news.setTitle(sessionRequestContent.getParameter("title"));
         news.setMenuTitle(sessionRequestContent.getParameter("menu_title"));
-        news.setUser_id(Integer.parseInt(sessionRequestContent.getParameter("user_id")));
+        //news.setUser_id(Integer.parseInt(sessionRequestContent.getParameter("user_id")));
         news.setDate(date);
         news.setAnnotation(sessionRequestContent.getParameter("annotation"));
         news.setContent(sessionRequestContent.getParameter("content"));
@@ -103,10 +103,10 @@ public class AttributesManager {
 // Set in news-variable parameters from request
         person.setName(sessionRequestContent.getParameter("name"));
         person.setSurname(sessionRequestContent.getParameter("lastname"));
-        person.setEmail(sessionRequestContent.getParameter("email"));
+        /*person.setEmail(sessionRequestContent.getParameter("email"));
         person.setPassword(sessionRequestContent.getParameter("password"));
         person.setBirthday(birthday);
-        person.setRole(sessionRequestContent.getParameter("role"));
+        person.setRole(sessionRequestContent.getParameter("role"));*/
         return person;
     }
 

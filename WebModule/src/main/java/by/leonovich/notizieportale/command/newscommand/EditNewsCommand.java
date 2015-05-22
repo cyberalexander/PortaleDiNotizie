@@ -22,7 +22,7 @@ public class EditNewsCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page;
+        /*String page;
         Integer id = Integer.parseInt(sessionRequestContent.getParameter("newsIdForEdit"));
         News news = newsService.getNewsByPK(id);
         if (news != null) {
@@ -32,6 +32,7 @@ public class EditNewsCommand implements IActionCommand {
             sessionRequestContent.setRequestAttribute("NoPageForEdit", MessageManager.getInstance().getProperty("message.NoPageForEdit"));
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         }
-        return page;
+        return page;*/
+        return null;
     }
 }

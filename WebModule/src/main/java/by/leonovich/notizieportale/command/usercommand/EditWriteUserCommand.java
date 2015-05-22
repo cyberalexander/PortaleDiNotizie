@@ -1,27 +1,23 @@
 package by.leonovich.notizieportale.command.usercommand;
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.services.UserService;
+import by.leonovich.notizieportale.services.PersonService;
 import by.leonovich.notizieportale.util.*;
-import com.mysql.jdbc.StringUtils;
-
-import java.sql.Date;
 
 /**
  * Created by alexanderleonovich on 10.05.15.
  */
 public class EditWriteUserCommand implements IActionCommand {
 
-    private UserService userService;
+    private PersonService personService;
 
     public EditWriteUserCommand() {
-        userService = UserService.getInstance();
+        personService = PersonService.getInstance();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Person person = (Person) sessionRequestContent.getSessionAttribute(WebConstants.Const.USER);
+        /*Person person = (Person) sessionRequestContent.getSessionAttribute(WebConstants.Const.USER);
         if (!StringUtils.isNullOrEmpty(sessionRequestContent.getParameter("new_email"))){
             person.setEmail(sessionRequestContent.getParameter("new_email"));
         }else{
@@ -41,7 +37,7 @@ public class EditWriteUserCommand implements IActionCommand {
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
         sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, person);
-        sessionRequestContent.setRequestAttribute("infoUpdated", MessageManager.getInstance().getProperty("message.user.info.updated"));
-        return page;
+        sessionRequestContent.setRequestAttribute("infoUpdated", MessageManager.getInstance().getProperty("message.user.info.updated"));*/
+        return null;
     }
 }

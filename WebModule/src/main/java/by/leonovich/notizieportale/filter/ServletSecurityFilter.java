@@ -45,11 +45,11 @@ public class ServletSecurityFilter implements Filter {
                 dispatcher.forward(request, response);
                 return;
             }
-        }else if (person.getId() != null && person.getRole().equals(WebConstants.Const.ADMIN)) {
+        }/*else if (person.getId() != null && person.getRole().equals(WebConstants.Const.ADMIN)) {
                 type = ClientType.ADMINISTRATOR;
         }else if (person.getId() != null && person.getRole().equals(WebConstants.Const.USER)){
                 type = ClientType.USER;
-        }
+        }*/
         session.setAttribute(WebConstants.Const.USERTYPE, type);
         logger.info("USERTYPE - " + request.getSession().getAttribute(WebConstants.Const.USERTYPE) + "; USER - " + request.getSession().getAttribute(WebConstants.Const.USER));
 

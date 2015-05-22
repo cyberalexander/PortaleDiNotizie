@@ -21,7 +21,7 @@ public class AddWriteCommentCommand implements IActionCommand {
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Commentary comment = new Commentary();
+        /*Commentary comment = new Commentary();
         String dateString = sessionRequestContent.getParameter("dateOfComment");
         System.out.println(dateString);
 
@@ -48,6 +48,7 @@ public class AddWriteCommentCommand implements IActionCommand {
         sessionRequestContent.setSessionAttribute("commentList" , commentList);
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;
+        return page;*/
+        return null;
     }
 }

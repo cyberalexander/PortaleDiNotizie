@@ -1,16 +1,11 @@
 package by.leonovich.notizieportale.services;
 
-import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
-import by.leonovich.notizieportale.domain.Identified;
-import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
+import by.leonovich.notizieportale.daofactory.IDaoFactory;
+import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.exception.PersistException;
-import by.leonovich.notizieportale.services.util.ServiceConstants;
 import org.apache.log4j.Logger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by alexanderleonovich on 29.04.15.
@@ -28,7 +23,7 @@ public class NewsService implements INewsService {
         try {
             newsDao = factory.getDao(News.class);
         } catch (PersistException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -47,7 +42,7 @@ public class NewsService implements INewsService {
     }
 
 
-    @Override
+   /* @Override
     public News getNewsByPageId(String columnNamePageId, String idOfPage) {
         try {
             return (News) newsDao.getByStringCretery(columnNamePageId, idOfPage);
@@ -66,8 +61,8 @@ public class NewsService implements INewsService {
         }
         return null;
     }
-
-    @Override
+*/
+   /* @Override
     public boolean saveNewsInDataBase(News news) {
         if (news != null) {
             try {
@@ -78,9 +73,9 @@ public class NewsService implements INewsService {
             }
         }
         return false;
-    }
+    }*/
 
-    @Override
+   /* @Override
     public News getNewsByPK(Integer id) {
         if (id != null) {
             try {
@@ -112,9 +107,9 @@ public class NewsService implements INewsService {
         } catch (PersistException e) {
             logger.error(e);
         }
-    }
+    }*/
 
-    /** REFACTOR THIS METHOD */
+   /* *//** REFACTOR THIS METHOD *//*
     @Override
     public List<News> getMostPopularNewsList() {
         List<News> newsList = new ArrayList<>();
@@ -132,5 +127,5 @@ public class NewsService implements INewsService {
                 }
         }
         return newsList;
-    }
+    }*/
 }

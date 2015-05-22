@@ -2,27 +2,23 @@ package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
-import by.leonovich.notizieportale.domain.Identified;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.exception.PersistException;
-import by.leonovich.notizieportale.services.util.ServiceConstants;
 import org.apache.log4j.Logger;
-
-import java.util.List;
 
 /**
  * Created by alexanderleonovich on 29.04.15.
  * Service layer for domain entity User
  */
-public class UserService implements IUserService {
+public class PersonService implements IPersonService {
 
-    private static UserService userServiceInst;
+    private static PersonService personServiceInst;
     private IGenericDao userDao;
-    private static final Logger logger = Logger.getLogger(UserService.class);
+    private static final Logger logger = Logger.getLogger(PersonService.class);
 
 
-    private UserService() {
+    private PersonService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
             userDao = factory.getDao(Person.class);
@@ -31,11 +27,11 @@ public class UserService implements IUserService {
         }
     }
 
-    public static synchronized UserService getInstance(){
-        if (userServiceInst == null){
-            userServiceInst = new UserService();
+    public static synchronized PersonService getInstance(){
+        if (personServiceInst == null){
+            personServiceInst = new PersonService();
         }
-        return userServiceInst;
+        return personServiceInst;
     }
 
     /**
@@ -45,7 +41,7 @@ public class UserService implements IUserService {
      * @param password - password of user who want to autenitcate to site
      * @return true, if user in database (registered), or false, if user not registered
      */
-    @Override
+    /*@Override
     public boolean checkUser(String email, String password) {
         if (email != null && password != null) {
             try {
@@ -60,7 +56,7 @@ public class UserService implements IUserService {
             }
         }
         return false;
-    }
+    }*/
 
     /**
      * Get registered user from database
@@ -69,7 +65,7 @@ public class UserService implements IUserService {
      * @param cretery     - field in colum, identified userØ
      * @return User user
      */
-    @Override
+/*    @Override
     public Person authenticationProcess(String nameOfColum, String cretery) {
         Person person = new Person();
         try {
@@ -78,9 +74,9 @@ public class UserService implements IUserService {
             logger.error(e);
         }
         return person;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public boolean registerNewUser(Person person) {
         if (person != null) {
             List<Person> personList = null;
@@ -128,7 +124,7 @@ public class UserService implements IUserService {
                 logger.error(e);
             }
         }
-    }
+    }*/
 
 
 }

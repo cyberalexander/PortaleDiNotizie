@@ -1,19 +1,39 @@
 package by.leonovich.notizieportale.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by alexanderleonovich on 20.05.15.
  */
-public class PersonDetail implements Serializable {
+@Entity
+@Table(name = "T_PERSON_DETAIL")
+public class PersonDetail extends CustomEntity implements Serializable {
+    private static final long serialVersionUID = -5074116083595094873L;
 
+    @Id
+    @Column(name = "F_PERSON_ID")
+    @GenericGenerator(name = "gener", strategy = "foreign", parameters = @Parameter(name = "property", value = "person"))
     private Long personId;
+
+    @Column(name = "F_EMAIL")
     private String email;
+
+    @Column(name = "F_PASSWORD")
     private String password;
+
+    @Column(name = "F_BIRTHDAY")
     private Date birthday;
+
+    @Column(name = "F_ROLE")
     private String role;
 
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private Person person;
 
 

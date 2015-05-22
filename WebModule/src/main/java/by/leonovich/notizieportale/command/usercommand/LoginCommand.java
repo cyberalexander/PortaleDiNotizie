@@ -2,9 +2,8 @@ package by.leonovich.notizieportale.command.usercommand;
 
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.services.IUserService;
-import by.leonovich.notizieportale.services.UserService;
+import by.leonovich.notizieportale.services.IPersonService;
+import by.leonovich.notizieportale.services.PersonService;
 import by.leonovich.notizieportale.util.*;
 
 /**
@@ -13,16 +12,16 @@ import by.leonovich.notizieportale.util.*;
  */
 public class LoginCommand implements IActionCommand {
 
-    private IUserService userService;
+    private IPersonService userService;
 
     public LoginCommand() {
-        userService = UserService.getInstance();
+        userService = PersonService.getInstance();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page;
-        // extracting from the request login and password
+        String page = null;
+        /*// extracting from the request login and password
         String email = sessionRequestContent.getParameter(WebConstants.Const.EMAIL);
         String pass = sessionRequestContent.getParameter(WebConstants.Const.PASSWORD);
         // checking login and password
@@ -36,7 +35,7 @@ public class LoginCommand implements IActionCommand {
             sessionRequestContent.setRequestAttribute("errorLoginPassMessage",
                     MessageManager.getInstance().getProperty("message.loginerror"));
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_LOGIN.getUrlCode());
-        }
+        }*/
         return page;
     }
 

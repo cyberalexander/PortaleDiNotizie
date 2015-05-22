@@ -1,6 +1,9 @@
 package by.leonovich.notizieportale.domain;
 
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by alexanderleonovich on 26.04.15.
@@ -8,20 +11,33 @@ import java.io.Serializable;
  * in order to avoid duplication of code when writing delet method (entity object).
  * Bean class for working with entity-COMMENTARY
  */
-public class Commentary implements Serializable {
+@Entity
+@Table(name = "T_COMMENTARY")
+public class Commentary extends CustomEntity implements Serializable {
+    private static final long serialVersionUID = 4370607223713828286L;
 
+    @Id
+    @Column(name = "F_COMMENTARY_ID")
     private Long commentaryId;
-    private String comment;
-    private String commentDate;
 
+    @Column(name = "F_COMMENT", columnDefinition = "longtext")
+    private String comment;
+
+    @Column(name = "F_DATE")
+    private Date commentDate;
+
+    @ManyToOne
+    @JoinColumn(name = "F_PERSON_ID")
     private Person person;
 
+    @ManyToOne
+    @JoinColumn(name = "F_NEWS_ID")
     private News news;
 
     public Commentary() {
     }
 
-    public Commentary(Long commentaryId, String comment, String commentDate) {
+    public Commentary(Long commentaryId, String comment, Date commentDate) {
         this.commentaryId = commentaryId;
 
         this.comment = comment;
@@ -44,11 +60,11 @@ public class Commentary implements Serializable {
         this.comment = comment;
     }
 
-    public String getCommentDate() {
+    public Date getCommentDate() {
         return commentDate;
     }
 
-    public void setCommentDate(String commentDate) {
+    public void setCommentDate(Date commentDate) {
         this.commentDate = commentDate;
     }
 
@@ -117,6 +133,6 @@ public class Commentary implements Serializable {
 
     @Override
     public String toString() {
-        return "-=Commentary=- [commentaryId=" + commentaryId + ", userId=" + ", comment=" + comment + ", commentDate=" + commentDate + "]";
+        return "-=Commentary=- [commentaryId=" + commentaryId  + ", comment=" + comment + ", commentDate=" + commentDate + "]";
     }
 }

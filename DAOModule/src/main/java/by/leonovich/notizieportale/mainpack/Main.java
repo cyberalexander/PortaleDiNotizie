@@ -1,10 +1,13 @@
 package by.leonovich.notizieportale.mainpack;
 
+import by.leonovich.notizieportale.dao.AbstractDao;
 import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.util.HibernateUtil;
 
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
@@ -13,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -20,20 +24,18 @@ import java.util.Locale;
  */
 public class Main {
 
+
     public static void main(String[] args) {
-
-        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-        String dateString = simpleDateFormatter.format(new Date());
+        IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
-
-            Date date = simpleDateFormatter.parse(dateString);
-            System.out.println(date);
-            System.out.println(simpleDateFormatter.format(date));
-
-        } catch (ParseException e) {
+            IGenericDao dao = factory.getDao(Category.class);
+            List<Category> list = dao.getAll();
+            for (Category element : list) {
+                System.out.println(element.toString());
+            }
+        } catch (PersistException e) {
             e.printStackTrace();
         }
-
     }
 
 }

@@ -25,7 +25,7 @@ public class ShowNewsCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page_id;
+        /*String page_id;
         List newsList;
 
         if (sessionRequestContent.getParameter(WebConstants.Const.PARAM_PAGE_ID) != null) {
@@ -45,9 +45,9 @@ public class ShowNewsCommand implements IActionCommand {
 // иначе в список новостей попадают те новости, "parent_id" которых равен "parent_id" страницы новостей
             newsList = newsService.getListOfNewsByStringCretery(WebConstants.Const.F_PARENT_ID, news.getParent_id());
         }
-/** Comments attributes getting for response */
+*//** Comments attributes getting for response *//*
         List<Commentary> commentList = commentaryService.getCommentsByNewsIdorAuthorId(WebConstants.Const.F_NEWS_ID, news.getId());
-/** Most popular news attributes getting for response */
+*//** Most popular news attributes getting for response *//*
         List<News> listPopNews = newsService.getMostPopularNewsList();
 
         sessionRequestContent.setSessionAttribute("news", news);
@@ -55,6 +55,7 @@ public class ShowNewsCommand implements IActionCommand {
         sessionRequestContent.setSessionAttribute("commentList", commentList);
         sessionRequestContent.setSessionAttribute("listPopNews", listPopNews);
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;
+        return page;*/
+        return null;
     }
 }

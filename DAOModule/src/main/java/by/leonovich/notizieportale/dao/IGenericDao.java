@@ -1,8 +1,8 @@
 package by.leonovich.notizieportale.dao;
 
 
-import by.leonovich.notizieportale.domain.Identified;
 import by.leonovich.notizieportale.exception.PersistException;
+import org.hibernate.Session;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,19 +11,22 @@ import java.util.List;
  * Created by alexanderleonovich on 11.04.15.
  * Unified Management Interface persistent state of objects
  * @param <T> type of object persistence
- * @param <PK> type of primary key
  * Persistence object - a storage facility in a constant state persistence mechanism such as a database.
  */
-public interface IGenericDao<T extends Identified<PK>, PK extends Serializable> {
+public interface IGenericDao<T> {
 
-    /** It creates a new record and the corresponding object */
-     T create() throws PersistException;
+    Session getSession();
 
     /** It creates a new entry, the corresponding object object */
-     T persist(T object)  throws PersistException;
+     Long save(T object)  throws PersistException;
+
+    /** It creates a new entry, the corresponding object object */
+    void saveOrUpdate(T object) throws PersistException;
 
     /** Gets the appropriate record with a primary key or a null key */
-     T getByPK(PK key) throws PersistException;
+     T getByPK(Long PK) throws PersistException;
+
+    T loadByPK(Long PK) throws PersistException;
 
     /** It saves the state of the object group in the database */
      void update(T object) throws PersistException;

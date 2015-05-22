@@ -1,8 +1,7 @@
 package by.leonovich.notizieportale.command.usercommand;
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.services.UserService;
+import by.leonovich.notizieportale.services.PersonService;
 import by.leonovich.notizieportale.util.*;
 
 /**
@@ -11,15 +10,15 @@ import by.leonovich.notizieportale.util.*;
 public class AddUserCommand implements IActionCommand {
 
     private AttributesManager attributesManager;
-    private UserService userService;
+    private PersonService personService;
 
     public AddUserCommand() {
         attributesManager = AttributesManager.getInstance();
-        userService = UserService.getInstance();
+        personService = PersonService.getInstance();
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page;
+        /*String page;
 
         Person person = new Person();
         person = attributesManager.parseParametersOfUser(sessionRequestContent, person);
@@ -38,6 +37,7 @@ public class AddUserCommand implements IActionCommand {
         }
 
 
-    return page;
+    return page;*/
+        return null;
     }
 }

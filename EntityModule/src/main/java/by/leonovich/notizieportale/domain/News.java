@@ -1,5 +1,6 @@
 package by.leonovich.notizieportale.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -10,20 +11,42 @@ import java.util.Set;
  * in order to avoid duplication of code when writing delet method (entity object).
  * Bean class for working with entity-NEWS
  */
-public class News implements Serializable{
+@Entity
+@Table(name = "T_NEWS")
+public class News extends CustomEntity implements Serializable{
+    private static final long serialVersionUID = -1605136281796128403L;
 
+    @Id
+    @Column(name = "F_NEWS_ID")
     private Long newsId;
+
+    @Column(name = "F_PAGE_ID")
     private String pageId;
+
+    @Column(name = "F_TITLE")
     private String title;
+
+    @Column(name = "F_MENU_TITLE")
     private String menuTitle;
+
+    @Column(name = "F_DATE")
     private Date date;
+
+    @Column(name = "F_ANNOTATION", columnDefinition = "text")
     private String annotation;
+
+    @Column(name = "F_CONTENT", columnDefinition = "longtext")
     private String content;
 
+    @ManyToOne
+    @JoinColumn(name = "F_PERSON_ID")
     private Person person;
 
+    @ManyToOne
+    @JoinColumn(name = "F_CATEGORY_ID")
     private Category category;
 
+    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
     private Set<Commentary> commentaries;
 
     public News() {

@@ -21,14 +21,15 @@ public class EditWriteCommentCommand implements IActionCommand{
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Commentary comment;
+        /*Commentary comment;
 
         int comment_id = Integer.parseInt(sessionRequestContent.getParameter("comment_id"));
         comment = commentaryService.getCommentById(comment_id);
 
         sessionRequestContent.setSessionAttribute("commentForEdit", comment);
 
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;
+        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());*/
+        return null;
     }
+
 }

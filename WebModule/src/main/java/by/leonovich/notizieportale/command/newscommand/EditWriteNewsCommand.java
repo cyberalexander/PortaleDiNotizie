@@ -26,13 +26,14 @@ public class EditWriteNewsCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
 //Creating news object and get in variable data of news-object from session. It`s only necessary for the variable identifier News.
-        News news = (News) sessionRequestContent.getSessionAttribute("news");
+        /*News news = (News) sessionRequestContent.getSessionAttribute("news");
         attributesManager.parseParametersOfNews(sessionRequestContent, news);
         newsService.EditNewsPage(news);
         // set attributes in session to display the page you want after the operation
         attributesManager.setAtributesForResponse(sessionRequestContent, news, "edit");
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;
+        return page;*/
+        return null;
     }
 }

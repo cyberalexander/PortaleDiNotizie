@@ -20,13 +20,14 @@ public class DeleteCommentCommand implements IActionCommand {
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Commentary commentary = commentaryService.getCommentById(Integer.parseInt(sessionRequestContent.getParameter("comment_id")));
+        /*Commentary commentary = commentaryService.getCommentById(Integer.parseInt(sessionRequestContent.getParameter("comment_id")));
         if (commentary != null) {
             commentaryService.deleteCommentary(commentary);
         }
         List<Commentary> commentList = commentaryService.getCommentsByNewsIdorAuthorId("F_NEWS_ID", commentary.getNewsId());
         sessionRequestContent.setSessionAttribute("commentList", commentList);
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;
+        return page;*/
+        return null;
     }
 }

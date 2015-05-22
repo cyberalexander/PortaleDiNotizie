@@ -1,13 +1,8 @@
 package by.leonovich.notizieportale.daofactory;
 
-import by.leonovich.notizieportale.dao.IGenericDao;
-import by.leonovich.notizieportale.domain.Commentary;
-import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.Person;
+import by.leonovich.notizieportale.dao.*;
+import by.leonovich.notizieportale.domain.*;
 import by.leonovich.notizieportale.exception.PersistException;
-import by.leonovich.notizieportale.dao.CommentaryDao;
-import by.leonovich.notizieportale.dao.NewsDao;
-import by.leonovich.notizieportale.dao.PersonDao;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
@@ -42,6 +37,18 @@ public class DaoFactoryImpl implements IDaoFactory {
             @Override
             public IGenericDao create() {
                 return new CommentaryDao();
+            }
+        });
+        creators.put(Category.class, new IDaoCreator() {
+            @Override
+            public IGenericDao create() {
+                return new CategoryDao();
+            }
+        });
+        creators.put(PersonDetail.class, new IDaoCreator() {
+            @Override
+            public IGenericDao create() {
+                return new PersonDetailDao();
             }
         });
     }

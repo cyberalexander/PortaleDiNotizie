@@ -2,10 +2,15 @@ package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.util.HibernateUtil;
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -14,11 +19,13 @@ import java.util.List;
  * Service layer for domain entity Commentary
  */
 public class CommentaryService implements ICommentaryService {
-
-    private static CommentaryService commentServiceInst;
-    private IGenericDao commentaryDao;
     private static final Logger logger = Logger.getLogger(Commentary.class);
 
+    private static CommentaryService commentServiceInst;
+
+    private IGenericDao commentaryDao;
+    private Session session;
+    private Transaction transaction;
 
     /**
      * -=SINGLETON=-
@@ -40,11 +47,30 @@ public class CommentaryService implements ICommentaryService {
         try {
             commentaryDao = factory.getDao(Commentary.class);
         } catch (PersistException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
     @Override
+    public List<Commentary> getCommentaries() {
+        List<Commentary> list = null;
+        try {
+            session = commentaryDao.getSession();
+            transaction = session.beginTransaction();
+            list = commentaryDao.getAll();
+            logger.info("Category-list size: " + list.size());
+            transaction.commit();
+            logger.info("successful get list!");
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }
+        return list;
+    }
+
+    /*@Override
     public List<Commentary> getCommentsByNewsIdorAuthorId(String nameOfColumn, Integer id) {
         if ((nameOfColumn != null) && !(nameOfColumn.isEmpty() && (id != null))) {
             try {
@@ -99,5 +125,5 @@ public class CommentaryService implements ICommentaryService {
             e.printStackTrace();
         }
     }
-
+*/
 }
