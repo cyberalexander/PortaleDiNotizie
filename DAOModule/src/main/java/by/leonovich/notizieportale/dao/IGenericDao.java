@@ -17,6 +17,8 @@ public interface IGenericDao<T> {
 
     Session getSession();
 
+    void clearSession(ThreadLocal sessionStatus);
+
     /** It creates a new entry, the corresponding object object */
      Long save(T object)  throws PersistException;
 

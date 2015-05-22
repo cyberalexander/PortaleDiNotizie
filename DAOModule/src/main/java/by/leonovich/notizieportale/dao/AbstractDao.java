@@ -28,7 +28,6 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
 
     private SessionFactory sessionFactory;
     private final ThreadLocal sessions = new ThreadLocal();
-    private final ThreadLocal sessionStatus = new ThreadLocal();
     private Session session;
     private Transaction transaction;
     private HibernateUtil util;
@@ -47,7 +46,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
         return session;
     }
 
-    public void clearSession() {
+    public void clearSession(ThreadLocal sessionStatus) {
         boolean cleaner = (boolean) sessionStatus.get();
         if (true == cleaner) {
             if ((session != null) && (session.isOpen())) {
@@ -211,8 +210,6 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
         } catch (HibernateException e) {
             logger.error("Error get list of " + getPersistentClass() + " in Dao " + e);
             throw new PersistException(e);
-        } finally {
-            clearSession();
         }
         return list;
     }

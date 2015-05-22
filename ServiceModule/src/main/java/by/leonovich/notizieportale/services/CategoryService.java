@@ -21,6 +21,7 @@ public class CategoryService implements ICategoryService {
     private static final Logger logger = Logger.getLogger(CategoryService.class);
 
     private static CategoryService categoryServiceInst;
+    private final ThreadLocal sessionStatus = new ThreadLocal();
 
     private IGenericDao categoryDao;
     private Session session;
@@ -52,6 +53,8 @@ public class CategoryService implements ICategoryService {
             list = categoryDao.getAll();
             logger.info("Category-list size: " + list.size());
             transaction.commit();
+            sessionStatus.set(true);
+            categoryDao.clearSession(sessionStatus);
             logger.info("successful get list!");
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
