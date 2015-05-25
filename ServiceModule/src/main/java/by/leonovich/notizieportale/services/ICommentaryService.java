@@ -10,16 +10,20 @@ import java.util.List;
  */
 public interface ICommentaryService {
 
+    Commentary getCommentaryByPK(Long PK);
+
     List<Commentary> getCommentaries();
 
+    List<Commentary> getCommentariesByAuthorId(Long PK);
 
-    /*List<Commentary> getCommentsByNewsIdorAuthorId(String nameOfColum ,Integer id);
+    List<Commentary> getCommentariesByNewsId(Long PK);
 
-    void saveComment(Commentary comment);
+    Commentary saveCommentary(Commentary commentary);
 
-    Commentary getCommentById(int comment_id);
+    Commentary updateCommentary(Commentary commentary);
 
-    void updateCommentary(Commentary comment);
+    Commentary deleteCommentary(Commentary commentary);
 
-    void deleteCommentary(Commentary commentary);*/
+    void removeCommentary(Commentary commentary);
+
 }

@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "T_PERSON_DETAIL")
-public class PersonDetail extends CustomEntity implements Serializable {
+public class PersonDetail implements Serializable {
     private static final long serialVersionUID = -5074116083595094873L;
 
     @Id
@@ -99,7 +99,6 @@ public class PersonDetail extends CustomEntity implements Serializable {
     public int hashCode() {
         final int prime = 37;
         int result = 17;
-        result = prime * result + (personId == null ? 0 : personId.hashCode());
         result = prime * result + (email == null ? 0 : email.hashCode());
         result = prime * result + (password == null ? 0 : password.hashCode());
         result = prime * result + (birthday == null ? 0 : birthday.hashCode());
@@ -123,9 +122,6 @@ public class PersonDetail extends CustomEntity implements Serializable {
             return false;
         }
         PersonDetail other = (PersonDetail) obj;
-        if (personId != other.personId) {
-            return false;
-        }
         if (email == null) {
             if (other.email != null) {
                 return false;
@@ -160,11 +156,11 @@ public class PersonDetail extends CustomEntity implements Serializable {
     @Override
     public String toString() {
         return "PersonDetail{" +
-                "role='" + role + '\'' +
-                ", birthday=" + birthday +
-                ", password='" + password + '\'' +
+                "personId=" + personId +
                 ", email='" + email + '\'' +
-                ", personId=" + personId +
+                ", password='" + password + '\'' +
+                ", birthday=" + birthday +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

@@ -32,7 +32,7 @@ public class ServletSecurityFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession();
 
-        Person person = (Person) session.getAttribute(WebConstants.Const.USER);
+        Person person = (Person) session.getAttribute(WebConstants.Const.PERSON);
 
         if (person == null) {
             type = ClientType.GUEST;
@@ -40,18 +40,18 @@ public class ServletSecurityFilter implements Filter {
                     || (WebConstants.Const.ADD_NEWS.equals(request.getParameter(WebConstants.Const.COMMAND)))
                     || (WebConstants.Const.DELETE_NEWS.equals(request.getParameter(WebConstants.Const.COMMAND)))) {
 
-                request.setAttribute("accessDenied", MessageManager.getInstance().getProperty("message.accessDenied"));
+                request.setAttribute("accessDenied", MessageManager.getInstance().getProperty("message.access.denied"));
                 RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_LOGIN.getUrlCode()));
                 dispatcher.forward(request, response);
                 return;
             }
-        }/*else if (person.getId() != null && person.getRole().equals(WebConstants.Const.ADMIN)) {
+        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(WebConstants.Const.ADMIN)) {
                 type = ClientType.ADMINISTRATOR;
-        }else if (person.getId() != null && person.getRole().equals(WebConstants.Const.USER)){
+        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(WebConstants.Const.PERSON)){
                 type = ClientType.USER;
-        }*/
+        }
         session.setAttribute(WebConstants.Const.USERTYPE, type);
-        logger.info("USERTYPE - " + request.getSession().getAttribute(WebConstants.Const.USERTYPE) + "; USER - " + request.getSession().getAttribute(WebConstants.Const.USER));
+        logger.info("USERTYPE - " + request.getSession().getAttribute(WebConstants.Const.USERTYPE) + "; USER - " + request.getSession().getAttribute(WebConstants.Const.PERSON));
 
          //pass the request along the filter chain
         chain.doFilter(request, response);

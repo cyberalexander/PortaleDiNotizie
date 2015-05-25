@@ -1,10 +1,12 @@
 package by.leonovich.notizieportale.services;
 
+import by.leonovich.notizieportale.dao.CommentaryDao;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
+import by.leonovich.notizieportale.domain.util.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.util.HibernateUtil;
 import org.apache.log4j.Logger;
@@ -22,8 +24,8 @@ public class CommentaryService implements ICommentaryService {
     private static final Logger logger = Logger.getLogger(Commentary.class);
 
     private static CommentaryService commentServiceInst;
-
-    private IGenericDao commentaryDao;
+    private final ThreadLocal sessionStatus = new ThreadLocal();
+    private CommentaryDao commentaryDao;
     private Session session;
     private Transaction transaction;
 
@@ -45,20 +47,61 @@ public class CommentaryService implements ICommentaryService {
     private CommentaryService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
-            commentaryDao = factory.getDao(Commentary.class);
+            commentaryDao = (CommentaryDao) factory.getDao(Commentary.class);
         } catch (PersistException e) {
             logger.error(e);
         }
     }
 
     @Override
-    public List<Commentary> getCommentaries() {
-        List<Commentary> list = null;
+    public Commentary getCommentaryByPK(Long PK) {
+        Commentary commentary = null;
         try {
             session = commentaryDao.getSession();
             transaction = session.beginTransaction();
-            list = commentaryDao.getAll();
-            logger.info("Category-list size: " + list.size());
+            commentary = commentaryDao.getByPK(PK);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }finally {
+            sessionStatus.set(true);
+            commentaryDao.clearSession(sessionStatus);
+        }
+        return commentary;
+    }
+
+    @Override
+    public List<Commentary> getCommentaries() {
+        List<Commentary> commentaries = null;
+        try {
+            session = commentaryDao.getSession();
+            transaction = session.beginTransaction();
+            commentaries = commentaryDao.getAll();
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        } finally {
+            sessionStatus.set(true);
+            commentaryDao.clearSession(sessionStatus);
+        }
+        return commentaries;
+    }
+
+    @Override
+    public List<Commentary> getCommentariesByAuthorId(Long PK) {
+        List<Commentary> commentaries = null;
+
+        try {
+            session = commentaryDao.getSession();
+            transaction = session.beginTransaction();
+            commentaries = commentaryDao.getByPersonPK(PK);
+            logger.info("Category-list size: " + commentaries.size());
             transaction.commit();
             logger.info("successful get list!");
         } catch (HibernateException e) {
@@ -66,64 +109,139 @@ public class CommentaryService implements ICommentaryService {
             transaction.rollback();
         } catch (PersistException e) {
             logger.error(e);
+        }finally {
+            sessionStatus.set(true);
+            commentaryDao.clearSession(sessionStatus);
         }
-        return list;
+        return commentaries;
     }
-
-    /*@Override
-    public List<Commentary> getCommentsByNewsIdorAuthorId(String nameOfColumn, Integer id) {
-        if ((nameOfColumn != null) && !(nameOfColumn.isEmpty() && (id != null))) {
-            try {
-                return commentaryDao.getListByIntegerId(nameOfColumn, id);
-            } catch (PersistException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
+    //
 
     @Override
-    public void saveComment(Commentary comment) {
-        if (comment != null) {
-            try {
-                commentaryDao.persist(comment);
-            } catch (PersistException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    public List<Commentary> getCommentariesByNewsId(Long PK) {
+        List<Commentary> commentaries = null;
 
-    @Override
-    public Commentary getCommentById(int comment_id) {
-        if (comment_id != 0 && comment_id > 0) {
+        if (PK != null) {
             try {
-                return (Commentary) commentaryDao.getByPK(comment_id);
+                session = commentaryDao.getSession();
+                transaction = session.beginTransaction();
+                commentaries = commentaryDao.getByNewsPK(PK);
+                logger.info("Category-list size: " + commentaries.size());
+                transaction.commit();
+                logger.info("successful get list!");
+            } catch (HibernateException e) {
+                logger.error("Error get list of Categories from database" + e);
+                transaction.rollback();
             } catch (PersistException e) {
-                e.printStackTrace();
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                commentaryDao.clearSession(sessionStatus);
             }
-        }
-        return null;
-    }
-
-    @Override
-    public void updateCommentary(Commentary comment) {
-        if (comment != null) {
-            try {
-                commentaryDao.update(comment);
-            } catch (PersistException e) {
-                e.printStackTrace();
-            }
-
+            return commentaries;
+        }else {
+            return null;
         }
     }
 
     @Override
-    public void deleteCommentary(Commentary commentary) {
-        try {
-            commentaryDao.delete(commentary);
-        } catch (PersistException e) {
-            e.printStackTrace();
+    public Commentary saveCommentary(Commentary commentary) {
+        Long savedCommentaryId;
+        if (commentary != null) {
+            try {
+                session = commentaryDao.getSession();
+                transaction = session.beginTransaction();
+                commentary.setStatus(StatusEnum.SAVED);
+                savedCommentaryId = commentaryDao.save(commentary);
+                if (savedCommentaryId != null) {
+                    commentary = commentaryDao.getByPK(savedCommentaryId);
+                }
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error get list of Categories from database" + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                commentaryDao.clearSession(sessionStatus);
+            }
+            return commentary;
+        }else {
+            return null;
         }
     }
-*/
+
+
+    @Override
+    public Commentary updateCommentary(Commentary commentary) {
+        if (null != commentary.getCommentaryId()) {
+        Long updatedCommentaryId = commentary.getCommentaryId();
+            try {
+                session = commentaryDao.getSession();
+                transaction = session.beginTransaction();
+                commentaryDao.update(commentary);
+                commentary = commentaryDao.getByPK(updatedCommentaryId);
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error get list of Categories from database" + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                commentaryDao.clearSession(sessionStatus);
+            }
+            return commentary;
+        }else {
+            return null;
+        }
+    }
+
+    @Override
+    public Commentary deleteCommentary(Commentary commentary) {
+        if (null != commentary.getCommentaryId()) {
+            Long deletedCategoryId = commentary.getCommentaryId();
+            try {
+                session = commentaryDao.getSession();
+                transaction = session.beginTransaction();
+                commentary.setStatus(StatusEnum.DELETED);
+                commentaryDao.update(commentary);
+                commentary = (Commentary) session.get(Category.class, deletedCategoryId);
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error delete Commentary from database:   " + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                commentaryDao.clearSession(sessionStatus);
+            }
+        }
+        return commentary;
+    }
+
+    @Override
+    public void removeCommentary(Commentary commentary) {
+        if (null != commentary.getCommentaryId()) {
+            try {
+                session = commentaryDao.getSession();
+                transaction = session.beginTransaction();
+                commentaryDao.remove(commentary);
+                transaction.commit();
+                logger.info(commentary.getClass().getName() + " is REMOVED!");
+            } catch (HibernateException e) {
+                logger.error("Error remove " + commentary.getClass().getName()  + "from database:   " + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                commentaryDao.clearSession(sessionStatus);
+            }
+        }
+    }
+
+
 }

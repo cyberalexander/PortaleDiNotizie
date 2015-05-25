@@ -1,5 +1,7 @@
 package by.leonovich.notizieportale.domain;
 
+import by.leonovich.notizieportale.domain.util.StatusEnum;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -19,6 +21,7 @@ public class Person extends CustomEntity implements Serializable{
 
     @Id
     @Column(name = "F_PERSON_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long personId;
 
     @Column(name = "F_NAME")
@@ -30,17 +33,18 @@ public class Person extends CustomEntity implements Serializable{
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private PersonDetail personDetail;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person")
     private Set<News> newses;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person")
     private Set<Commentary> commentaries;
 
     public Person() {
-
+        super();
     }
 
-    public Person(Long personId, String name, String surname) {
+    public Person(Long personId, String name, String surname, StatusEnum status) {
+        super(status);
         this.personId = personId;
         this.name = name;
         this.surname = surname;

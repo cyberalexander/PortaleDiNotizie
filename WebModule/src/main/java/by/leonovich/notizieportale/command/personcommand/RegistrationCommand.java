@@ -1,7 +1,6 @@
-package by.leonovich.notizieportale.command.usercommand;
+package by.leonovich.notizieportale.command.personcommand;
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;

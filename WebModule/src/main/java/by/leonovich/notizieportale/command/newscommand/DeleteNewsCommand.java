@@ -1,5 +1,7 @@
 package by.leonovich.notizieportale.command.newscommand;
 
+import static by.leonovich.notizieportale.util.WebConstants.Const;
+
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.NewsService;
@@ -25,14 +27,13 @@ public class DeleteNewsCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-       /* News news;
-        Integer id = Integer.parseInt(sessionRequestContent.getParameter("newsIdForDelete"));
-        news = newsService.getNewsByPK(id);
-        newsService.deleteNewsPage(news);
-        attributesManager.setAtributesForResponse(sessionRequestContent, news, "delete");
+        News news;
+        Long newsId = Long.parseLong(sessionRequestContent.getParameter(Const.P_NEWS_ID_4_DELETE));
+        news = newsService.getNewsByPK(newsId);
+        newsService.deleteNews(news);
+        attributesManager.setAtributesForResponse(sessionRequestContent, news, Const.FROM_DELETE);
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;*/
-        return null;
+        return page;
     }
 }

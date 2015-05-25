@@ -1,7 +1,9 @@
-package by.leonovich.notizieportale.command.usercommand;
+package by.leonovich.notizieportale.command.personcommand;
 
+import static by.leonovich.notizieportale.util.WebConstants.Const;
 
 import by.leonovich.notizieportale.command.IActionCommand;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.IPersonService;
 import by.leonovich.notizieportale.services.PersonService;
 import by.leonovich.notizieportale.util.*;
@@ -12,30 +14,29 @@ import by.leonovich.notizieportale.util.*;
  */
 public class LoginCommand implements IActionCommand {
 
-    private IPersonService userService;
+    private IPersonService personService;
 
     public LoginCommand() {
-        userService = PersonService.getInstance();
+        personService = PersonService.getInstance();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page = null;
-        /*// extracting from the request login and password
-        String email = sessionRequestContent.getParameter(WebConstants.Const.EMAIL);
-        String pass = sessionRequestContent.getParameter(WebConstants.Const.PASSWORD);
+        String page;
+        // extracting from the request login and password
+        String email = sessionRequestContent.getParameter(Const.EMAIL);
+        String pass = sessionRequestContent.getParameter(Const.PASSWORD);
         // checking login and password
-        if (userService.checkUser(email, pass)) {
-            System.out.println("bebe");
-            Person person = userService.authenticationProcess(WebConstants.Const.F_EMAIL, email);
-            sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, person);
-            // determination url-path to usercabinet.jsp
+        if (personService.checkPerson(email, pass)) {
+            Person person = personService.authenticationProcess(email);
+            sessionRequestContent.setSessionAttribute(Const.PERSON, person);
+            // determination url-path to person_cabinet.jsp
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
         } else {
             sessionRequestContent.setRequestAttribute("errorLoginPassMessage",
                     MessageManager.getInstance().getProperty("message.loginerror"));
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_LOGIN.getUrlCode());
-        }*/
+        }
         return page;
     }
 

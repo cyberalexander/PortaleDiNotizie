@@ -1,5 +1,7 @@
 package by.leonovich.notizieportale.domain;
 
+import by.leonovich.notizieportale.domain.util.StatusEnum;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -18,6 +20,7 @@ public class News extends CustomEntity implements Serializable{
 
     @Id
     @Column(name = "F_NEWS_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long newsId;
 
     @Column(name = "F_PAGE_ID")
@@ -46,14 +49,15 @@ public class News extends CustomEntity implements Serializable{
     @JoinColumn(name = "F_CATEGORY_ID")
     private Category category;
 
-    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "news")
     private Set<Commentary> commentaries;
 
     public News() {
-
+        super();
     }
 
-    public News(Long newsId, String pageId, String title, String menuTitle, Date date, String annotation, String content) {
+    public News(Long newsId, String pageId, String title, String menuTitle, Date date, String annotation, String content, StatusEnum status) {
+        super(status);
         this.newsId = newsId;
         this.pageId = pageId;
         this.title = title;
@@ -175,9 +179,6 @@ public class News extends CustomEntity implements Serializable{
             return false;
         }
         News other = (News) obj;
-        if (newsId != other.newsId) {
-            return false;
-        }
         if (pageId == null) {
             if (other.pageId != null) {
                 return false;

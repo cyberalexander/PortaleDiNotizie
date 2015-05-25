@@ -9,7 +9,17 @@ import java.util.List;
  */
 public interface ICategoryService {
 
+    Category getCategoryByPK(Long PK);
+
     List<Category> getCategories();
 
-    void saveCategory(Category category);
+    Long saveCategory(Category category);
+
+    Category updateCommentary(Category category);
+
+    Category deleteCategory(Category category);
+
+    void removeCategory(Category category);
+
+    Category getCategoryByName(String category);
 }

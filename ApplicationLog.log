@@ -2999,3 +2999,1008 @@ So why do we need a new connection pool?], -=News=- [newsId=2, pageId=Sport, tit
 2015-05-22 21:24:53  INFO notizieportale.dao.AbstractDao:72 - Save (commit):Category{categoryId=17, categoryName='Test', status=SAVED}
 2015-05-22 21:24:53  INFO notizieportale.services.CategoryService:72 - Category saved: 17
 2015-05-22 21:24:53  INFO notizieportale.services.CategoryService:74 - successful get list!
+2015-05-22 22:04:52  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 22:04:52  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 22:04:52  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 22:04:52  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 22:04:52  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 22:04:52  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 22:04:52  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 22:04:53  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 22:04:53  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 22:04:53  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 22:04:53  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 22:04:53  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 22:04:53  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 22:04:53  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 22:04:53  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 22:04:53  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 22:04:53  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 22:04:53  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 22:04:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 22:04:53  INFO notizieportale.dao.AbstractDao:81 - SAVE(t):Category{categoryId=18, categoryName='Test', status=SAVED}
+2015-05-22 22:04:53  INFO notizieportale.dao.AbstractDao:82 - Save (commit):Category{categoryId=18, categoryName='Test', status=SAVED}
+2015-05-22 22:04:53  INFO notizieportale.services.CategoryService:75 - Category saved: 18
+2015-05-22 22:04:53  INFO notizieportale.services.CategoryService:77 - successful get list!
+2015-05-22 22:05:02  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 22:05:02  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 22:05:02  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 22:05:02  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 22:05:02  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 22:05:02  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 22:05:02  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 22:05:02  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 22:05:02  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 22:05:02  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 22:05:02  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 22:05:02  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 22:05:02  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 22:05:02  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 22:05:03  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 22:05:03  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 22:05:03  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 22:05:03  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 22:05:03  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 22:05:03  INFO notizieportale.dao.AbstractDao:205 - Get list of objects
+2015-05-22 22:05:03  INFO notizieportale.dao.AbstractDao:209 - Get list size: 12
+2015-05-22 22:05:03  INFO notizieportale.services.CategoryService:54 - Category-list size: 12
+2015-05-22 22:05:03  INFO notizieportale.services.CategoryService:58 - successful get list!
+2015-05-22 22:05:03  INFO notizieportale.dao.AbstractDao:81 - SAVE(t):Category{categoryId=19, categoryName='Test', status=SAVED}
+2015-05-22 22:05:03  INFO notizieportale.dao.AbstractDao:82 - Save (commit):Category{categoryId=19, categoryName='Test', status=SAVED}
+2015-05-22 22:05:03  INFO notizieportale.services.CategoryService:75 - Category saved: 19
+2015-05-22 22:05:03  INFO notizieportale.services.CategoryService:77 - successful get list!
+2015-05-22 23:13:18  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:13:18  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:13:18  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:13:18  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:13:18  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:13:18  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:13:18  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:13:18  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:13:18  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:13:18  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:13:18  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:13:18  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:13:18  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:13:18  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:13:18  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:13:18  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:13:19  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:13:19  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:13:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:13:19  INFO notizieportale.dao.AbstractDao:205 - Get list of objects
+2015-05-22 23:13:19  INFO notizieportale.dao.AbstractDao:209 - Get list size: 11
+2015-05-22 23:13:19  INFO notizieportale.services.CategoryService:54 - Category-list size: 11
+2015-05-22 23:13:19  INFO notizieportale.services.CategoryService:58 - successful get list!
+2015-05-22 23:13:44  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:13:44  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:13:44  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:13:44  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:13:44  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:13:44  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:13:44  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:13:44  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:13:44  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:13:44  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:13:44  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:13:44  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:13:44  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:13:44  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:13:44  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:13:44  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:13:44  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:13:44  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:13:44  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:13:45  INFO notizieportale.dao.AbstractDao:205 - Get list of objects
+2015-05-22 23:13:45  INFO notizieportale.dao.AbstractDao:209 - Get list size: 73
+2015-05-22 23:13:45  INFO notizieportale.domain.Commentary:63 - Category-list size: 73
+2015-05-22 23:13:45  INFO notizieportale.domain.Commentary:65 - successful get list!
+2015-05-22 23:14:52  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:14:52  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:14:52  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:14:52  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:14:52  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:14:52  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:14:52  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:14:52  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:14:52  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:14:52  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:14:52  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:14:52  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:14:52  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:14:52  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:14:52  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:14:52  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:14:52  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:14:52  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:14:52  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:14:53  INFO notizieportale.dao.AbstractDao:46 - Get Object by PK: 19
+2015-05-22 23:14:53  INFO notizieportale.dao.AbstractDao:50 - get clazz:73
+2015-05-22 23:14:53  INFO notizieportale.domain.Commentary:100 - Category-list size: 73
+2015-05-22 23:14:53  INFO notizieportale.domain.Commentary:102 - successful get list!
+2015-05-22 23:15:26  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:15:26  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:15:26  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:15:26  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:15:26  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:15:26  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:15:26  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:15:26  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:15:26  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:15:26  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:15:26  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:15:26  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:15:26  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:15:26  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:15:26  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:15:26  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:15:27  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:15:27  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:15:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:15:27  INFO notizieportale.dao.AbstractDao:46 - Get Object by PK: 19
+2015-05-22 23:15:27  INFO notizieportale.dao.AbstractDao:50 - get clazz:73
+2015-05-22 23:15:27  INFO notizieportale.domain.Commentary:100 - Category-list size: 73
+2015-05-22 23:15:27  INFO notizieportale.domain.Commentary:102 - successful get list!
+2015-05-22 23:16:18  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:16:18  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:16:18  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:16:18  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:16:18  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:16:18  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:16:18  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:16:18  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:16:18  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:16:18  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:16:18  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:16:18  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:16:18  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:16:19  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:16:19  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:16:19  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:16:19  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:16:19  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:16:19  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:16:19  INFO notizieportale.dao.AbstractDao:46 - Get Object by PK: 19
+2015-05-22 23:16:19  WARN jdbc.spi.SqlExceptionHelper:144 - SQL Error: 1054, SQLState: 42S22
+2015-05-22 23:16:19 ERROR jdbc.spi.SqlExceptionHelper:146 - Unknown column 'PK' in 'where clause'
+2015-05-22 23:17:30  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:17:30  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:17:30  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:17:30  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:17:30  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:17:30  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:17:30  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:17:30  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:17:30  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:17:30  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:17:30  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:17:30  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:17:30  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:17:31  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:17:31  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:17:31  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:17:31  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:17:31  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:17:31  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:17:31  INFO notizieportale.dao.AbstractDao:46 - Get Object by PK: 19
+2015-05-22 23:17:31  WARN jdbc.spi.SqlExceptionHelper:144 - SQL Error: 1054, SQLState: 42S22
+2015-05-22 23:17:31 ERROR jdbc.spi.SqlExceptionHelper:146 - Unknown column 'PK' in 'where clause'
+2015-05-22 23:22:52  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:22:52  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:22:52  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:22:52  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:22:52  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:22:52  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:22:52  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:22:52  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:22:52  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:22:52  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:22:52  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:22:52  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:22:52  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:22:52  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:22:52  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:22:52  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:22:53  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:22:53  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:22:53  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:22:53  INFO notizieportale.dao.AbstractDao:46 - Get Object by PK: 19
+2015-05-22 23:23:49  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-22 23:23:49  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-22 23:23:49  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-22 23:23:49  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-22 23:23:49  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-22 23:23:49  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-22 23:23:49  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-22 23:23:49  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-22 23:23:49  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-22 23:23:49  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-22 23:23:49  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-22 23:23:49  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-22 23:23:49  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-22 23:23:50  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-22 23:23:50  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-22 23:23:50  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-22 23:23:50  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-22 23:23:50  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-22 23:23:50  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-22 23:23:50  INFO notizieportale.dao.AbstractDao:46 - Get Object by PK: 19
+2015-05-22 23:23:50  INFO notizieportale.dao.AbstractDao:51 - get clazz:7
+2015-05-22 23:23:50  INFO notizieportale.domain.Commentary:100 - Category-list size: 7
+2015-05-22 23:23:50  INFO notizieportale.domain.Commentary:102 - successful get list!
+2015-05-23 00:11:31  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 00:11:31  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 00:11:31  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 00:11:31  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 00:11:31  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 00:11:31  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 00:11:31  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 00:11:31  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 00:11:31  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 00:11:31  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 00:11:31  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 00:11:31  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 00:11:31  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 00:11:31  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 00:11:32  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 00:11:32  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 00:11:32  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 00:11:32  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 00:11:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 00:11:32  INFO notizieportale.dao.AbstractDao:212 - Get list of objects
+2015-05-23 00:11:32  INFO notizieportale.dao.AbstractDao:216 - Get list size: 11
+2015-05-23 00:11:32  INFO notizieportale.services.CategoryService:76 - Category-list size: 11
+2015-05-23 00:11:32  INFO notizieportale.services.CategoryService:80 - successful get list!
+2015-05-23 00:13:28  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 00:13:28  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 00:13:28  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 00:13:28  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 00:13:28  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 00:13:28  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 00:13:28  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 00:13:28  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 00:13:28  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 00:13:28  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 00:13:28  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 00:13:28  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 00:13:28  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 00:13:28  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 00:13:28  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 00:13:28  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 00:13:29  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 00:13:29  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 00:13:29  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 00:13:29  INFO notizieportale.dao.AbstractDao:212 - Get list of objects
+2015-05-23 00:13:29  INFO notizieportale.dao.AbstractDao:216 - Get list size: 11
+2015-05-23 00:13:29  INFO notizieportale.services.CategoryService:76 - Category-list size: 11
+2015-05-23 00:13:29  INFO notizieportale.services.CategoryService:80 - successful get list!
+2015-05-23 00:14:17  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 00:14:17  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 00:14:17  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 00:14:17  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 00:14:17  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 00:14:17  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 00:14:17  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 00:14:17  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 00:14:17  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 00:14:17  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 00:14:17  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 00:14:17  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 00:14:17  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 00:14:17  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 00:14:18  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 00:14:18  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 00:14:18  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 00:14:18  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation]
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 00:14:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 00:14:18  INFO notizieportale.dao.AbstractDao:212 - Get list of objects
+2015-05-23 00:14:18  INFO notizieportale.dao.AbstractDao:216 - Get list size: 10
+2015-05-23 00:14:18  INFO notizieportale.services.CategoryService:76 - Category-list size: 10
+2015-05-23 00:14:18  INFO notizieportale.services.CategoryService:80 - successful get list!
+2015-05-23 01:38:13  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 01:38:13  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 01:38:13  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 01:38:13  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 01:38:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 01:38:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 01:38:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 01:38:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 01:38:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 01:38:13  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 01:38:13  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 01:38:13  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 01:38:13  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 01:38:14  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 01:38:14  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 01:38:14  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 01:38:14  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 01:38:14  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 01:38:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 01:38:14  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 01:38:14  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 01:38:14  INFO notizieportale.services.CategoryService:77 - Category-list size: 11
+2015-05-23 01:38:14  INFO notizieportale.services.CategoryService:81 - successful get list!
+2015-05-23 01:39:22  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 01:39:22  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 01:39:22  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 01:39:22  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 01:39:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 01:39:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 01:39:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 01:39:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 01:39:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 01:39:23  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 01:39:23  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 01:39:23  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 01:39:23  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 01:39:23  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 01:39:23  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 01:39:23  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 01:39:23  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 01:39:23  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 01:39:23  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 01:39:23  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 01:39:24  WARN jdbc.spi.SqlExceptionHelper:144 - SQL Error: 1248, SQLState: 42000
+2015-05-23 01:39:24 ERROR jdbc.spi.SqlExceptionHelper:146 - Every derived table must have its own alias
+2015-05-23 01:39:24 ERROR notizieportale.dao.AbstractDao:216 - Error get list of class by.leonovich.notizieportale.domain.Commentary in Dao org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-05-23 01:39:24 ERROR notizieportale.domain.Commentary:89 - by.leonovich.notizieportale.exception.PersistException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-05-23 11:16:40  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:16:40  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:16:40  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:16:40  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:16:40  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:16:40  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:16:40  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:16:40  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:16:40  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:16:40  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:16:40  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:16:40  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:16:40  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:16:41  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:16:41  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:16:41  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:16:41  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:16:41  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:16:41  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name]
+2015-05-23 11:16:41 ERROR notizieportale.util.HibernateUtil:28 - Initial SessionFactory creation failed.org.hibernate.HibernateException: Missing column: F_STATUS in mysitetonight.T_PERSON
+2015-05-23 11:18:05  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:18:05  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:18:05  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:18:05  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:18:05  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:18:05  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:18:05  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:18:05  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:18:05  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:18:05  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:18:05  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:18:05  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:18:05  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:18:05  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:18:06  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:18:06  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:18:06  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:18:06  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:18:06  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:18:06 ERROR notizieportale.util.HibernateUtil:28 - Initial SessionFactory creation failed.org.hibernate.HibernateException: Missing column: F_STATUS in mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:25:13  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:25:13  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:25:13  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:25:13  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:25:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:25:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:25:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:25:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:25:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:25:13  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:25:13  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:25:13  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:25:13  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:25:13  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:25:14  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:25:14  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:25:14  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:25:14  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:25:14  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:25:14  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:25:14  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 11:25:14  INFO notizieportale.services.CategoryService:77 - Category-list size: 11
+2015-05-23 11:25:14  INFO notizieportale.services.CategoryService:81 - successful get list!
+2015-05-23 11:25:14  INFO notizieportale.dao.AbstractDao:79 - SAVE(t):Category{categoryId=12, categoryName='Test', status=DELETED}
+2015-05-23 11:25:14  INFO notizieportale.dao.AbstractDao:80 - Save (commit):Category{categoryId=12, categoryName='Test', status=DELETED}
+2015-05-23 11:25:14  INFO notizieportale.services.CategoryService:98 - Category saved: 12
+2015-05-23 11:25:14  INFO notizieportale.services.CategoryService:100 - successful get list!
+2015-05-23 11:25:14  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:35:35  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:35:35  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:35:35  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:35:35  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:35:35  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:35:35  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:35:35  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:35:35  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:35:35  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:35:35  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:35:35  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:35:35  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:35:35  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:35:36  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:35:36  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:35:36  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:35:36  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:35:36  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:35:36  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:35:36  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:35:36  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 11:35:36  INFO notizieportale.services.CategoryService:75 - Category-list size: 11
+2015-05-23 11:35:36  INFO notizieportale.services.CategoryService:79 - successful get list!
+2015-05-23 11:35:36  INFO notizieportale.dao.AbstractDao:79 - SAVE(t):Category{categoryId=13, categoryName='Test', status=DELETED}
+2015-05-23 11:35:36  INFO notizieportale.dao.AbstractDao:80 - Save (commit):Category{categoryId=13, categoryName='Test', status=DELETED}
+2015-05-23 11:35:36  INFO notizieportale.services.CategoryService:96 - Category saved: 13
+2015-05-23 11:35:36  INFO notizieportale.services.CategoryService:98 - successful get list!
+2015-05-23 11:35:36  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:37:31  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:37:31  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:37:31  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:37:31  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:37:31  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:37:31  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:37:31  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:37:31  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:37:32  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:37:32  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:37:32  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:37:32  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:37:32  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:37:32  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:37:32  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:37:32  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:37:32  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:37:32  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:37:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:37:32  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:37:32  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 11:37:32  INFO notizieportale.services.CategoryService:75 - Category-list size: 11
+2015-05-23 11:37:32  INFO notizieportale.services.CategoryService:79 - successful get list!
+2015-05-23 11:37:32  INFO notizieportale.dao.AbstractDao:79 - SAVE(t):Category{categoryId=14, categoryName='Test', status=DELETED}
+2015-05-23 11:37:32  INFO notizieportale.dao.AbstractDao:80 - Save (commit):Category{categoryId=14, categoryName='Test', status=DELETED}
+2015-05-23 11:37:32  INFO notizieportale.services.CategoryService:96 - Category saved: 14
+2015-05-23 11:37:32  INFO notizieportale.services.CategoryService:98 - successful get list!
+2015-05-23 11:37:32  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:38:20  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:38:20  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:38:20  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:38:20  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:38:20  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:38:20  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:38:21  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:38:21  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:38:21  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:38:21  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:38:21  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:38:21  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:38:21  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:38:21  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:38:21  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:38:21  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:38:21  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:38:21  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:38:21  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:38:21  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:38:21  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 11:38:21  INFO notizieportale.services.CategoryService:75 - Category-list size: 11
+2015-05-23 11:38:21  INFO notizieportale.services.CategoryService:79 - successful get list!
+2015-05-23 11:38:22  INFO notizieportale.dao.AbstractDao:79 - SAVE(t):Category{categoryId=15, categoryName='Test', status=DELETED}
+2015-05-23 11:38:22  INFO notizieportale.dao.AbstractDao:80 - Save (commit):Category{categoryId=15, categoryName='Test', status=DELETED}
+2015-05-23 11:38:22  INFO notizieportale.services.CategoryService:96 - Category saved: 15
+2015-05-23 11:38:22  INFO notizieportale.services.CategoryService:98 - successful get list!
+2015-05-23 11:38:22  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:38:22 ERROR internal.ast.ErrorCounter:78 - line 1:8: unexpected token: *
+2015-05-23 11:38:22 ERROR internal.ast.ErrorCounter:73 - line 1:8: unexpected token: *
+line 1:8: unexpected token: *
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectClause(HqlBaseParser.java:1288)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1062)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:731)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:323)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:186)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:131)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:93)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:167)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1836)
+	at by.leonovich.notizieportale.dao.CommentaryDao.parseResultSet(CommentaryDao.java:47)
+	at by.leonovich.notizieportale.dao.AbstractDao.getAll(AbstractDao.java:213)
+	at by.leonovich.notizieportale.services.CommentaryService.getCommentaries(CommentaryService.java:81)
+	at by.leonovich.notizieportale.services.MainTest.main(MainTest.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+2015-05-23 11:38:22 ERROR notizieportale.dao.AbstractDao:216 - Error get list of class by.leonovich.notizieportale.domain.Commentary in Dao org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: * near line 1, column 8 [SELECT * FROM by.leonovich.notizieportale.domain.Commentary c WHERE c.person.personId=:pId and c.status like:status]
+2015-05-23 11:38:22 ERROR notizieportale.domain.Commentary:89 - by.leonovich.notizieportale.exception.PersistException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: * near line 1, column 8 [SELECT * FROM by.leonovich.notizieportale.domain.Commentary c WHERE c.person.personId=:pId and c.status like:status]
+2015-05-23 11:39:46  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:39:46  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:39:46  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:39:46  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:39:46  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:39:46  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:39:46  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:39:46  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:39:47  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:39:47  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:39:47  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:39:47  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:39:47  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:39:47  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:39:47  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:39:47  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:39:47  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:39:47  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:39:47  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:39:47  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:39:47  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 11:39:47  INFO notizieportale.services.CategoryService:75 - Category-list size: 11
+2015-05-23 11:39:47  INFO notizieportale.services.CategoryService:79 - successful get list!
+2015-05-23 11:39:47  INFO notizieportale.dao.AbstractDao:79 - SAVE(t):Category{categoryId=16, categoryName='Test', status=DELETED}
+2015-05-23 11:39:47  INFO notizieportale.dao.AbstractDao:80 - Save (commit):Category{categoryId=16, categoryName='Test', status=DELETED}
+2015-05-23 11:39:47  INFO notizieportale.services.CategoryService:96 - Category saved: 16
+2015-05-23 11:39:47  INFO notizieportale.services.CategoryService:98 - successful get list!
+2015-05-23 11:39:47  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:40:53  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:40:53  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:40:53  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:40:53  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:40:53  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:40:53  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:40:53  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:40:53  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:40:53  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:40:53  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:40:53  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:40:53  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:40:53  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:40:54  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:40:54  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:40:54  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:40:54  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:40:54  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:40:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:40:54  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:40:54  INFO notizieportale.dao.AbstractDao:214 - Get list size: 11
+2015-05-23 11:40:54  INFO notizieportale.services.CategoryService:75 - Category-list size: 11
+2015-05-23 11:40:54  INFO notizieportale.services.CategoryService:79 - successful get list!
+2015-05-23 11:40:54  INFO notizieportale.dao.AbstractDao:79 - SAVE(t):Category{categoryId=17, categoryName='Test', status=DELETED}
+2015-05-23 11:40:54  INFO notizieportale.dao.AbstractDao:80 - Save (commit):Category{categoryId=17, categoryName='Test', status=DELETED}
+2015-05-23 11:40:54  INFO notizieportale.services.CategoryService:96 - Category saved: 17
+2015-05-23 11:40:54  INFO notizieportale.services.CategoryService:98 - successful get list!
+2015-05-23 11:40:54  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:42:33  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 11:42:33  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 11:42:33  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 11:42:33  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 11:42:33  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 11:42:33  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 11:42:33  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 11:42:33  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 11:42:33  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 11:42:33  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 11:42:33  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 11:42:33  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 11:42:33  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 11:42:33  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 11:42:34  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 11:42:34  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 11:42:34  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 11:42:34  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 11:42:34  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 11:42:34  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 11:42:34  INFO notizieportale.dao.AbstractDao:214 - Get list size: 6
+2015-05-23 11:42:34  INFO notizieportale.services.CategoryService:75 - Category-list size: 6
+2015-05-23 11:42:34  INFO notizieportale.services.CategoryService:79 - successful get list!
+2015-05-23 11:42:34  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 12:06:18  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 12:06:18  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 12:06:18  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 12:06:18  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 12:06:18  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 12:06:18  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 12:06:18  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 12:06:18  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 12:06:18  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 12:06:18  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 12:06:18  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 12:06:18  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 12:06:18  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 12:06:18  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 12:06:18  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 12:06:18  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 12:06:18  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 12:06:18  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 12:06:18  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 12:06:18  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 12:10:31  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 12:10:31  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 12:10:31  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 12:10:31  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 12:10:31  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 12:10:31  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 12:10:31  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 12:10:31  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 12:10:32  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 12:10:32  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 12:10:32  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 12:10:32  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 12:10:32  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 12:10:32  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 12:10:32  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 12:10:32  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 12:10:32  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 12:10:32  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 12:10:32  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 12:10:32  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 12:14:23  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 12:14:23  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 12:14:23  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 12:14:23  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 12:14:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 12:14:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 12:14:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 12:14:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 12:14:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 12:14:23  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 12:14:23  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 12:14:23  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 12:14:23  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 12:14:23  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 12:14:23  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 12:14:23  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 12:14:24  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 12:14:24  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 12:14:24  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 12:14:24  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 12:14:24  INFO notizieportale.dao.AbstractDao:214 - Get list size: 14
+2015-05-23 12:14:24  INFO notizieportale.domain.Commentary:82 - Category-list size: 14
+2015-05-23 12:14:24  INFO notizieportale.domain.Commentary:84 - successful get list!
+2015-05-23 17:47:53  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 17:47:53  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 17:47:53  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 17:47:53  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 17:47:53  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 17:47:53  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 17:47:53  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 17:47:53  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 17:47:53  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 17:47:53  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 17:47:53  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 17:47:53  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 17:47:53  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 17:47:53  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 17:47:53  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 17:47:53  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 17:47:54  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 17:47:54  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 17:47:54  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 17:47:54  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 17:47:54  INFO notizieportale.dao.AbstractDao:214 - Get list size: 0
+2015-05-23 17:47:54  INFO notizieportale.domain.Commentary:82 - Category-list size: 0
+2015-05-23 17:47:54  INFO notizieportale.domain.Commentary:84 - successful get list!
+2015-05-23 17:49:09  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 17:49:09  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 17:49:09  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 17:49:09  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 17:49:09  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 17:49:09  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 17:49:09  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 17:49:09  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 17:49:09  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 17:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 17:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 17:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 17:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 17:49:09  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 17:49:09  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 17:49:09  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 17:49:09  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 17:49:09  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 17:49:09  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 17:49:09  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 17:49:10  INFO notizieportale.dao.AbstractDao:214 - Get list size: 2
+2015-05-23 17:49:10  INFO notizieportale.domain.Commentary:82 - Category-list size: 2
+2015-05-23 17:49:10  INFO notizieportale.domain.Commentary:84 - successful get list!
+2015-05-23 18:23:26  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-05-23 18:23:26  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-05-23 18:23:26  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-05-23 18:23:26  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-05-23 18:23:26  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-05-23 18:23:26  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-05-23 18:23:27  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-05-23 18:23:27  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-05-23 18:23:27  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-05-23 18:23:27  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetonight]
+2015-05-23 18:23:27  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-05-23 18:23:27  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-05-23 18:23:27  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-05-23 18:23:27  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-05-23 18:23:27  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-05-23 18:23:27  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-05-23 18:23:27  INFO tool.hbm2ddl.SchemaValidator:157 - HHH000229: Running schema validator
+2015-05-23 18:23:27  INFO tool.hbm2ddl.SchemaValidator:165 - HHH000102: Fetching database metadata
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_CATEGORY
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_category_name, f_category_id, f_status]
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_COMMENTARY
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_commentary_id, f_news_id, f_person_id, f_status, f_comment]
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_NEWS
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_date, f_news_id, f_title, f_person_id, f_menu_title, f_category_id, f_content, f_page_id, f_annotation, f_status]
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_surname, f_person_id, f_name, f_status]
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:66 - HHH000261: Table found: mysitetonight.T_PERSON_DETAIL
+2015-05-23 18:23:27  INFO tool.hbm2ddl.TableMetadata:67 - HHH000037: Columns: [f_role, f_birthday, f_password, f_person_id, f_email]
+2015-05-23 18:23:27  INFO notizieportale.dao.AbstractDao:210 - Get list of objects
+2015-05-23 18:23:28  INFO notizieportale.dao.AbstractDao:214 - Get list size: 73
+2015-05-23 18:23:28  INFO notizieportale.domain.Commentary:82 - Category-list size: 73
+2015-05-23 18:23:28  INFO notizieportale.domain.Commentary:84 - successful get list!

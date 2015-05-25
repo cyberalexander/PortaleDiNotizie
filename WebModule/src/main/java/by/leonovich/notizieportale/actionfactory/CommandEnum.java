@@ -6,7 +6,7 @@ import by.leonovich.notizieportale.command.commentcommand.AddWriteCommentCommand
 import by.leonovich.notizieportale.command.commentcommand.DeleteCommentCommand;
 import by.leonovich.notizieportale.command.commentcommand.EditWriteCommentCommand;
 import by.leonovich.notizieportale.command.newscommand.*;
-import by.leonovich.notizieportale.command.usercommand.*;
+import by.leonovich.notizieportale.command.personcommand.*;
 
 /**
  * Created by alexanderleonovich on 18.04.15.
@@ -58,9 +58,9 @@ public enum CommandEnum {
             this.command = new RegistrationCommand();
         }
     },
-    ADDUSER {
+    ADDPERSON {
         {
-            this.command = new AddUserCommand();
+            this.command = new AddPersonCommand();
         }
     },
     GOINCABINET {
@@ -68,29 +68,29 @@ public enum CommandEnum {
             this.command = new GoInCabinetCommand();
         }
     },
-    ADDWRITECOMMENT {
+    ADDWRITECOMMENTARY {
         {
             this.command = new AddWriteCommentCommand();
         }
     },
-    EDITWRITECOMMENT{
+    EDITWRITECOMMENTARY{
         {
             this.command = new EditWriteCommentCommand();
         }
     },
-    DELETECOMMENT{
+    DELETECOMMENTARY{
         {
             this.command = new DeleteCommentCommand();
         }
     },
-    EDITUSER{
+    EDITPERSON{
         {
-            this.command = new EditUserCommand();
+            this.command = new EditPersonCommand();
         }
     },
-    EDITWRITEUSER{
+    EDITWRITEPERSON{
         {
-            this.command = new EditWriteUserCommand();
+            this.command = new EditWritePersonCommand();
         }
     };
 

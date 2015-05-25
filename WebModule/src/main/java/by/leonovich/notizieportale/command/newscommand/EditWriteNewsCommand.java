@@ -1,5 +1,7 @@
 package by.leonovich.notizieportale.command.newscommand;
 
+import static by.leonovich.notizieportale.util.WebConstants.Const;
+
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.NewsService;
@@ -7,7 +9,6 @@ import by.leonovich.notizieportale.util.AttributesManager;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.UrlEnum;
-import org.apache.log4j.Logger;
 
 /**
  * Created by alexanderleonovich on 21.04.15.
@@ -26,14 +27,13 @@ public class EditWriteNewsCommand implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
 //Creating news object and get in variable data of news-object from session. It`s only necessary for the variable identifier News.
-        /*News news = (News) sessionRequestContent.getSessionAttribute("news");
+        News news = (News) sessionRequestContent.getSessionAttribute(Const.NEWS);
         attributesManager.parseParametersOfNews(sessionRequestContent, news);
-        newsService.EditNewsPage(news);
+        news = newsService.updateNews(news);
         // set attributes in session to display the page you want after the operation
-        attributesManager.setAtributesForResponse(sessionRequestContent, news, "edit");
+        attributesManager.setAtributesForResponse(sessionRequestContent, news, Const.FROM_EDITWRITE);
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
-        return page;*/
-        return null;
+        return page;
     }
 }

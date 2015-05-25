@@ -9,7 +9,6 @@
 
     <modules>
         <module>EntityModule</module>
-        <module>ConnectionModule</module>
         <module>DAOModule</module>
         <module>ServiceModule</module>
         <module>WebModule</module>

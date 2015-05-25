@@ -16,15 +16,15 @@
     <tr>
       <th>
         <form method="post" action="controller">
-          <input type="hidden" name="command" value="editwritecomment"/>
-          <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
+          <input type="hidden" name="command" value="editwritecommentary"/>
+          <input type="hidden" name="commentaryId" value="${commentObj.commentaryId}">
           <button type="submit" class="btn btn-default">edit comment</button>
         </form>
       </th>
       <th>
         <form method="post" action="controller">
-          <input type="hidden" name="command" value="deletecomment"/>
-          <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
+          <input type="hidden" name="command" value="deletecommentary"/>
+          <input type="hidden" name="commentaryId" value="${commentObj.commentaryId}">
           <button type="submit" class="btn btn-danger">delete comment</button>
         </form>
       </th>

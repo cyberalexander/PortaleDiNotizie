@@ -9,17 +9,23 @@ import java.util.List;
  */
 public interface INewsService {
 
-  /*  News getNewsByPageId(String columnName_PageId, String idOfPage);
+    News getNewsByPK(Long PK);
 
-    List<News> getListOfNewsByStringCretery(String parent_id, String page_id);
+    News getNewsByPageId(String pageId);
 
-    boolean saveNewsInDataBase(News news);
+    List<News> getListOfNewsByPersonId(Long personId);
 
-    News getNewsByPK(Integer id);
+    List<News> getListOfNewsByCategory(Long categoryId);
 
-    boolean deleteNewsPage(News news);
+    Long saveNews(News news);
 
-    void EditNewsPage(News news);
+    News updateNews(News news);
 
-    List<News> getMostPopularNewsList();*/
+    News deleteNews(News news);
+
+    void removeNews(News news);
+
+    List<News> getMostPopularNewsList();
+
+   // List<News> getListOfNewsByPageId(String pageId);
 }

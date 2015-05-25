@@ -1,5 +1,7 @@
 package by.leonovich.notizieportale.command.newscommand;
 
+import static by.leonovich.notizieportale.util.WebConstants.Const;
+
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.NewsService;
@@ -22,17 +24,16 @@ public class EditNewsCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        /*String page;
-        Integer id = Integer.parseInt(sessionRequestContent.getParameter("newsIdForEdit"));
-        News news = newsService.getNewsByPK(id);
+        String page;
+        Long newsId = Long.parseLong(sessionRequestContent.getParameter(Const.P_NEWS_ID_4_EDIT));
+        News news = newsService.getNewsByPK(newsId);
         if (news != null) {
-            sessionRequestContent.setSessionAttribute("news", news);
+            sessionRequestContent.setSessionAttribute(Const.NEWS, news);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_EDIT_NEWS.getUrlCode());
         } else {
             sessionRequestContent.setRequestAttribute("NoPageForEdit", MessageManager.getInstance().getProperty("message.NoPageForEdit"));
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         }
-        return page;*/
-        return null;
+        return page;
     }
 }

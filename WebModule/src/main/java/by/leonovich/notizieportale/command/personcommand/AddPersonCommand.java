@@ -1,31 +1,37 @@
-package by.leonovich.notizieportale.command.usercommand;
+package by.leonovich.notizieportale.command.personcommand;
+
+import static by.leonovich.notizieportale.util.WebConstants.Const;
 
 import by.leonovich.notizieportale.command.IActionCommand;
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.PersonService;
 import by.leonovich.notizieportale.util.*;
+import com.mysql.jdbc.StringUtils;
 
 /**
  * Created by alexanderleonovich on 02.05.15.
  */
-public class AddUserCommand implements IActionCommand {
+public class AddPersonCommand implements IActionCommand {
 
     private AttributesManager attributesManager;
     private PersonService personService;
 
-    public AddUserCommand() {
+    public AddPersonCommand() {
         attributesManager = AttributesManager.getInstance();
         personService = PersonService.getInstance();
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        /*String page;
+        String page;
 
         Person person = new Person();
-        person = attributesManager.parseParametersOfUser(sessionRequestContent, person);
-        if (person.getEmail() != null && person.getPassword() != null) {
-            boolean operationResult = userService.registerNewUser(person);
+        person = attributesManager.parseParametersOfPerson(sessionRequestContent, person);
+        if (!(StringUtils.isNullOrEmpty(person.getPersonDetail().getEmail()))
+                && !(StringUtils.isNullOrEmpty(person.getPersonDetail().getPassword()))) {
+            boolean operationResult = personService.registerNewPerson(person);
             if (operationResult == true) {
-                sessionRequestContent.setSessionAttribute(WebConstants.Const.USER, userService.getUserByEmail(person.getEmail()));
+                sessionRequestContent.setSessionAttribute(Const.PERSON,
+                        personService.getPersonByEmail(person.getPersonDetail().getEmail()));
                 page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
             } else {
                 sessionRequestContent.setRequestAttribute("duplicateEmail", MessageManager.getInstance().getProperty("message.duplicateEmail"));
@@ -37,7 +43,6 @@ public class AddUserCommand implements IActionCommand {
         }
 
 
-    return page;*/
-        return null;
+    return page;
     }
 }

@@ -9,13 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="./assests/bootstrap-3.3.4-dist/css/bootstrap.css"/>
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="./assests/bootstrap-3.3.4-dist/css/bootstrap-theme.css"/>
-  <!-- Latest compiled and minified JavaScript -->
-  <script type="text/javascript" src="./assests/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
 </head>
 <body>
 <div>

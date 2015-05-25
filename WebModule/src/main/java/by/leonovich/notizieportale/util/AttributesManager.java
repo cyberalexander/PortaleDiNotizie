@@ -1,10 +1,19 @@
 package by.leonovich.notizieportale.util;
 
+import static by.leonovich.notizieportale.util.WebConstants.Const;
+
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
+import by.leonovich.notizieportale.domain.PersonDetail;
+import by.leonovich.notizieportale.services.CategoryService;
 import by.leonovich.notizieportale.services.NewsService;
+import by.leonovich.notizieportale.services.PersonService;
+import org.apache.log4j.Logger;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,8 +21,11 @@ import java.util.List;
  * Class for operating attributes before sending them to the user and after the operation was performed with the news
  */
 public class AttributesManager {
+    private static final Logger logger = Logger.getLogger(AttributesManager.class);
 
     private NewsService newsService;
+    private CategoryService categoryService;
+    private PersonService personService;
     private static AttributesManager attributesManagerInst;
 
     /**
@@ -21,6 +33,8 @@ public class AttributesManager {
      */
     private AttributesManager() {
         newsService = NewsService.getInstance();
+        categoryService = CategoryService.getInstance();
+        personService = PersonService.getInstance();
     }
 
 
@@ -47,26 +61,26 @@ public class AttributesManager {
      * @param command - line with the team to perform a specific action on the attributes of the session
      */
     public  void setAtributesForResponse(SessionRequestContent sesReqContent, News news, String command) {
-        List<News> newsList = (List<News>) sesReqContent.getSessionAttribute("newsList");
+        List<News> newses = (List<News>) sesReqContent.getSessionAttribute(Const.NEWSES);
 // depending on the received command or delete or add any change in the list of news News.
-        if (command.equals("addwrite")){
-            newsList.add(news);
-        }else if (command.equals("delete")) {
-            newsList.remove(news);
-        }/*else if (command.equals("edit")) {
-            for (News element : newsList) {
-                if (element.getId() == news.getId()) {
-                    newsList.remove(element);
+        if (command.equals(Const.FROM_ADDWRITE)){
+            newses.add(news);
+        }else if (command.equals(Const.FROM_DELETE)) {
+            newses.remove(news);
+        }else if (command.equals(Const.FROM_EDITWRITE)) {
+            for (News element : newses) {
+                if (element.getNewsId() == news.getNewsId()) {
+                    newses.remove(element);
                     break;
                 }
             }
-            newsList.add(news);
-        }*/
+            newses.add(news);
+        }
 // Object news assign a link to the main page headings, which appear to us after operations NEWS
-        //news = newsService.getNewsByPageId(WebConstants.Const.F_PAGE_ID,news.getParent_id());
+        news = newsService.getNewsByPageId(news.getCategory().getCategoryName());
 
-        sesReqContent.setSessionAttribute("news", news);
-        sesReqContent.setSessionAttribute("newsList", newsList);
+        sesReqContent.setSessionAttribute(Const.NEWS, news);
+        sesReqContent.setSessionAttribute(Const.NEWSES, newses);
     }
 
 
@@ -77,15 +91,17 @@ public class AttributesManager {
      * @return object of News with added parameters from request
      */
     public News parseParametersOfNews(SessionRequestContent sessionRequestContent, News news) {
-// Convert String date from parameter of news to Date date
-        Date date = Date.valueOf(sessionRequestContent.getParameter("date"));
-// Set in news-variable parameters from request
-        news.setPageId(sessionRequestContent.getParameter("page_id"));
-        //news.setParent_id(sessionRequestContent.getParameter("parent_id"));
+        if (news.getNewsId() == null) {
+            Category category = categoryService.getCategoryByName(sessionRequestContent.getParameter("category"));
+            Person person = personService.getByPK(Long.parseLong(sessionRequestContent.getParameter("personId")));
+            news.setCategory(category);
+            news.setPerson(person);
+        }
+        String date = sessionRequestContent.getParameter("date");
+        news.setPageId(sessionRequestContent.getParameter("pageId"));
         news.setTitle(sessionRequestContent.getParameter("title"));
-        news.setMenuTitle(sessionRequestContent.getParameter("menu_title"));
-        //news.setUser_id(Integer.parseInt(sessionRequestContent.getParameter("user_id")));
-        news.setDate(date);
+        news.setMenuTitle(sessionRequestContent.getParameter("menuTitle"));
+        news.setDate(parseDateFromRequest(date));
         news.setAnnotation(sessionRequestContent.getParameter("annotation"));
         news.setContent(sessionRequestContent.getParameter("content"));
         return news;
@@ -97,17 +113,34 @@ public class AttributesManager {
      * @param person object of User persistence
      * @return object of User with added parameters from request
      */
-    public Person parseParametersOfUser(SessionRequestContent sessionRequestContent, Person person) {
-// Convert String birthday from parameter of user to Date birthday
-        Date birthday = Date.valueOf(sessionRequestContent.getParameter("birthday"));
-// Set in news-variable parameters from request
-        person.setName(sessionRequestContent.getParameter("name"));
-        person.setSurname(sessionRequestContent.getParameter("lastname"));
-        /*person.setEmail(sessionRequestContent.getParameter("email"));
-        person.setPassword(sessionRequestContent.getParameter("password"));
-        person.setBirthday(birthday);
-        person.setRole(sessionRequestContent.getParameter("role"));*/
+    public Person parseParametersOfPerson(SessionRequestContent sessionRequestContent, Person person) {
+        person.setName(sessionRequestContent.getParameter(Const.P_NAME));
+        person.setSurname(sessionRequestContent.getParameter(Const.P_SURNAME));
+
+        PersonDetail personDetail = new PersonDetail();
+        personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
+        personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
+        personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
+        personDetail.setRole(sessionRequestContent.getParameter(Const.ROLE));
+
+        person.setPersonDetail(personDetail);
+        personDetail.setPerson(person);
         return person;
     }
 
+    /**
+     * Method for parsing parameter date to java.sql.Date
+     * @param date parameter date from user layer
+     * @return java.sql.Date
+     */
+    public java.sql.Date parseDateFromRequest(String date) {
+        Date dateObj = null;
+        SimpleDateFormat formatter = new SimpleDateFormat(Const.DATE_PATTERN);
+        try {
+            dateObj = formatter.parse(date);
+        } catch (ParseException e) {
+            logger.error(e);
+        }
+        return new java.sql.Date(dateObj.getTime());
+    }
 }

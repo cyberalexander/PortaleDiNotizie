@@ -1,7 +1,6 @@
 package by.leonovich.notizieportale.domain;
 
 import by.leonovich.notizieportale.domain.util.StatusEnum;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,20 +23,16 @@ public class Category extends CustomEntity implements Serializable{
     @Column(name = "F_CATEGORY_NAME")
     private String categoryName;
 
-    /*@Column(name = "F_STATUS")
-    @Enumerated(EnumType.STRING)
-    private StatusEnum status;*/
-
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     private Set<News> news;
 
     public Category() {
+        super();
     }
 
     public Category(String categoryName, StatusEnum status) {
-        super();
+        super(status);
         this.categoryName = categoryName;
-        super.status = status;
     }
 
 
@@ -57,14 +52,6 @@ public class Category extends CustomEntity implements Serializable{
         this.categoryName = categoryName;
     }
 
-    /*public StatusEnum getStatus() {
-        return super.status;
-    }
-
-    public void setStatus(StatusEnum status) {
-        super.status = status;
-    }*/
-
     public Set<News> getNews() {
         return news;
     }
@@ -78,15 +65,15 @@ public class Category extends CustomEntity implements Serializable{
         if (this == obj) return true;
         if (!(obj instanceof Category)) return false;
         Category category = (Category) obj;
-        if (categoryId != null ? !categoryId.equals(category.categoryId) : category.categoryId != null) return false;
         if (categoryName != null ? !categoryName.equals(category.categoryName) : category.categoryName != null) return false;
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = categoryId != null ? categoryId.hashCode() : 0;
-        result = 31 * result + (categoryName != null ? categoryName.hashCode() : 0);
+        final int prime = 37;
+        int result = 17;
+        result = prime * result + (categoryName == null ? 0 : categoryName.hashCode());
         return result;
     }
 
@@ -95,7 +82,7 @@ public class Category extends CustomEntity implements Serializable{
         return "Category{" +
                 "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
-                ", status=" + super.status +
+                ", status=" + status +
                 '}';
     }
 }

@@ -87,7 +87,7 @@ public class SessionRequestContent {
         return sessionAttributes.get(objectKey);
     }
 
-    public void removeRequestAttribute(String attributeName) {
+    public void removeRequestParameter(String attributeName) {
         innerRequestInstance.removeAttribute(attributeName);
         requestParameters.remove(attributeName);
     }

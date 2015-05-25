@@ -23,8 +23,6 @@ import java.io.IOException;
 @WebServlet(name = "MainServlet", urlPatterns = {"/controller"})
 public class MainServlet extends HttpServlet {
 
-    private static final Logger logger = Logger.getLogger(MainServlet.class);
-
     private SessionRequestContent sessionRequestContent;
 
     private HttpSession session;
@@ -34,6 +32,7 @@ public class MainServlet extends HttpServlet {
         super.init();
         sessionRequestContent = new SessionRequestContent();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType(WebConstants.Const.CONTENT_TYPE);
         session = request.getSession();

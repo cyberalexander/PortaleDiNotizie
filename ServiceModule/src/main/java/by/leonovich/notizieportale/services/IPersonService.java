@@ -7,13 +7,16 @@ import by.leonovich.notizieportale.domain.Person;
  */
 public interface IPersonService {
 
-    /*boolean checkUser(String email, String password);
+    Person getByPK(Long pK);
 
-    Person authenticationProcess(String nameOfColum, String cretery);
+    boolean checkPerson(String email, String password);
 
-    boolean registerNewUser(Person person);
+    Person authenticationProcess(String email);
 
-    Person getUserByEmail(String email);
+    boolean registerNewPerson(Person person);
 
-    void updateUserInformation(Person person);*/
+    Person getPersonByEmail(String email);
+
+    void updateUserInformation(Person person);
+
 }

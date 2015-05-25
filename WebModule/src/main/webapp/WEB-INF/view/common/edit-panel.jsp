@@ -20,43 +20,41 @@
             <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE USER IS LOCATED NOW  --%>
             <form method="post" action="controller">
                 <input type="hidden" name="command" value="editnews"/>
-                <input type="hidden" name="newsIdForEdit" value="${news.commentaryId}">
+                <input type="hidden" name="newsIdForEdit" value="${news.newsId}">
                 <button type="submit" class="btn btn-info">edit ${news.title}</button>
             </form>
         </th>
         <th>
             <%-- BUTTON FOR DELETE NEWS-PAGE --%>
-                <c:if test="${newsList != null}">
-                    <c:if test="${news.parent_id == newsList[0].parent_id}">
+                    <c:if test="${news.category.categoryId != 1}">
                         <form name="delete_news_form" method="post" action="controller">
                             <input type="hidden" name="command" value="deletenews"/>
-                            <input type="hidden" name="newsIdForDelete" value="${news.commentaryId}">
+                            <input type="hidden" name="newsIdForDelete" value="${news.newsId}">
                             <button type="submit" class="btn btn-danger">DELETE ${news.title} !!!</button>
                         </form>
                     </c:if>
-                </c:if>
         </th>
         <th>
             <%-- BUTTON FOR ADDING NEWS IN CATEGORY OR FOR ADDING NEW CATEGORY --%>
             <form method="post" action="controller">
                 <input type="hidden" name="command" value="addnews"/>
 
-                <c:if test="${newsList[0] != null}">
-                    <c:set var="parent_id" scope="session" value="${newsList[0].parent_id}"/>
-                    <c:set var="newsList" scope="session" value="${newsList}"/>
+                <c:if test="${newses[0] != null}">
+                    <c:set var="category" scope="session" value="${newses[0].category.categoryName}"/>
+                    <c:set var="newsList" scope="session" value="${newses}"/>
                 </c:if>
-                <c:if test="${newsList[0] == null}">
-                    <c:set var="parent_id" scope="session" value="${news.pageId}"/>
+                <c:if test="${newses[0] == null}">
+                    <c:set var="category" scope="session" value="${news.pageId}"/>
                 </c:if>
 
                 <c:if test="${news.pageId eq 'main'}">
                     <button type="submit"  class="btn btn-success">Add new category</button>
                 </c:if>
-                <c:if test="${news.parent_id eq 'main'}">
+                <c:if test="${news.category.categoryName eq 'main' && news.newsId != 1}">
                     <button type="submit"  class="btn btn-success">Add new ${news.pageId} news</button>
                 </c:if>
-                <c:if test="${news.parent_id != 'main' && news.pageId != 'main'}">
-                    <button type="submit"  class="btn btn-success">Add new ${news.parent_id} news</button>
+                <c:if test="${news.category.categoryName != 'main' && news.pageId != 'main'}">
+                    <button type="submit"  class="btn btn-success">Add new ${news.category.categoryName} news</button>
                 </c:if>
 
             </form>

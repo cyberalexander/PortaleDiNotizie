@@ -7,17 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- My styles css file -->
-<link rel="stylesheet" href="./assests/style-login.css" type="text/css"/>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="./assests/bootstrap-3.3.4-dist/css/bootstrap.css"/>
-<!-- Optional theme -->
-<link rel="stylesheet" href="./assests/bootstrap-3.3.4-dist/css/bootstrap-theme.css"/>
-<!-- Latest compiled and minified JavaScript -->
-<script type="text/javascript" src="./assests/bootstrap-3.3.4-dist/js/bootstrap.js"></script>
 <html>
 <head>
   <title>registration page</title>
+  <c:import url="common/styles-common.jsp"/>
 </head>
 <body>
 
@@ -30,29 +23,30 @@
   </div>
   <div class="col-md-8" align="right">
     <form name="registration_form" method="post" action="controller">
-      <input type="hidden" name="command" value="adduser">
+      <input type="hidden" name="command" value="addperson">
       <p class="errormessage">${duplicateEmail} ${nullemailorpassword}</p>
 
         <label for="name" class="text">Name:</label>
-        <input size="30" commentaryId="name" name="name" placeholder="what`s your name?"/></br>
+        <input size="30" id="name" name="name" placeholder="what`s your name?"/></br>
 
-      <label for="surname" class="text">Lastname:</label>
-      <input size="30" commentaryId="surname" name="surname" placeholder="what`s your surname"/><br>
+      <label for="surname" class="text">Surname:</label>
+      <input size="30" id="surname" name="surname" placeholder="what`s your surname"/><br>
 
       <label for="email" class="text">Email for entry to site:</label>
-      <input size="30" commentaryId="email" name="email" placeholder="your email adress"/><br>
+      <input size="30" id="email" name="email" placeholder="your email adress" type="email"/><br>
 
       <label for="sentmemail" class="text">I want to receive messages to email about new developments on the site and in the world!</label>
-      <INPUT type="checkbox" autocomplete="on" name="sentmemail" commentaryId="sentmemail"><br>
+      <INPUT type="checkbox" autocomplete="on" name="sentmemail" id="sentmemail"><br>
 
       <label for="password" class="text">Password:</label>
-      <input size="30" commentaryId="password" name="password" type="password"/><br>
+      <input size="30" id="password" name="password" type="password"/><br>
 
       <label for="confirm_password" class="text">Confirm passoword:</label>
-      <input size="30" commentaryId="confirm_password" name="confirm_password" type="password"/><br>
+      <input size="30" id="confirm_password" name="confirm_password" type="password"/><br>
 
       <label for="birthday" class="text">Date:</label>
-      <input size="30" commentaryId="birthday" name="birthday" placeholder="YYYY-MM-DD"/><br>
+      <input size="30" id="birthday" name="birthday" placeholder="YYYY-MM-DD"
+             pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/><br>
 
       <input type="hidden" name="role" value="user"/>
 

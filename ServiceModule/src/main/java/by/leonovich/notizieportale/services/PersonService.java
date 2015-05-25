@@ -1,27 +1,37 @@
 package by.leonovich.notizieportale.services;
 
+import by.leonovich.notizieportale.dao.PersonDao;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.services.util.ServiceConstants;
+import com.mysql.jdbc.StringUtils;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import java.util.List;
 
 /**
  * Created by alexanderleonovich on 29.04.15.
  * Service layer for domain entity User
  */
 public class PersonService implements IPersonService {
-
-    private static PersonService personServiceInst;
-    private IGenericDao userDao;
     private static final Logger logger = Logger.getLogger(PersonService.class);
 
+    private static PersonService personServiceInst;
+    private final ThreadLocal sessionStatus = new ThreadLocal();
+
+    private PersonDao personDao;
+    private Session session;
+    private Transaction transaction;
 
     private PersonService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
-            userDao = factory.getDao(Person.class);
+            personDao = (PersonDao) factory.getDao(Person.class);
         } catch (PersistException e) {
             logger.error(e);
         }
@@ -34,97 +44,150 @@ public class PersonService implements IPersonService {
         return personServiceInst;
     }
 
+    @Override
+    public Person getByPK(Long pK) {
+        if (pK != null) {
+            Person person = null;
+            try {
+                session = personDao.getSession();
+                transaction = session.beginTransaction();
+                person = personDao.getByPK(pK);
+                transaction.commit();
+            } catch (PersistException e) {
+                transaction.rollback();
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
+            }
+            return person;
+        }
+        return null;
+    }
+
     /**
      * Server validation of user
-     *
      * @param email    - email-adress of user who want to autenitcate to site
      * @param password - password of user who want to autenitcate to site
      * @return true, if user in database (registered), or false, if user not registered
      */
-    /*@Override
-    public boolean checkUser(String email, String password) {
-        if (email != null && password != null) {
+    @Override
+    public boolean checkPerson(String email, String password) {
+        if (!(StringUtils.isNullOrEmpty(email)) && !(StringUtils.isNullOrEmpty(password))) {
             try {
-                List<Person> personList = userDao.getAll();
+                session = personDao.getSession();
+                transaction = session.beginTransaction();
+                List<Person> personList = personDao.getAll();
+                transaction.commit();
                 for (Person personElement : personList) {
-                    if ((personElement.getEmail().equals(email)) && (personElement.getPassword().equals(password))) {
+                    if ((personElement.getPersonDetail().getEmail().equals(email))
+                            && (personElement.getPersonDetail().getPassword().equals(password))) {
                         return true;
                     }
                 }
             } catch (PersistException e) {
+                transaction.rollback();
                 logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
             }
         }
         return false;
-    }*/
+    }
 
     /**
      * Get registered user from database
-     *
-     * @param nameOfColum - name of colum for search parameter
-     * @param cretery     - field in colum, identified userØ
+     * @param email - field in colum, identified userØ
      * @return User user
      */
-/*    @Override
-    public Person authenticationProcess(String nameOfColum, String cretery) {
-        Person person = new Person();
-        try {
-            person = (Person) userDao.getByStringCretery(nameOfColum, cretery);
-        } catch (PersistException e) {
-            logger.error(e);
-        }
-        return person;
-    }*/
-
-    /*@Override
-    public boolean registerNewUser(Person person) {
-        if (person != null) {
-            List<Person> personList = null;
+    @Override
+    public Person authenticationProcess(String email) {
+        if (!(StringUtils.isNullOrEmpty(email))) {
+            Person person = null;
             try {
-                personList = userDao.getAll();
-                for (Person element : personList) {
-                    if (element.getEmail().equals(person.getEmail())) {
+                session = personDao.getSession();
+                transaction = session.beginTransaction();
+                person = personDao.getByEmail(email);
+                transaction.commit();
+            } catch (PersistException e) {
+                transaction.rollback();
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
+            }
+            return person;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean registerNewPerson(Person person) {
+        if (person != null) {
+            try {
+                session = personDao.getSession();
+                transaction = session.beginTransaction();
+                List<Person> persons = personDao.getAll();
+                transaction.commit();
+                for (Person element : persons) {
+                    if (element.getPersonDetail().getEmail().equals(person.getPersonDetail().getEmail())) {
                         return false;
                     }
                 }
-            } catch (PersistException e) {
-                e.printStackTrace();
-            }
-            try {
-                userDao.persist(person);
+                personDao.save(person);
                 return true;
             } catch (PersistException e) {
+                transaction.rollback();
                 logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
             }
         }
         return false;
     }
 
     @Override
-    public Person getUserByEmail(String email) {
-        Identified user = null;
-        if (email != null) {
+    public Person getPersonByEmail(String email) {
+        if (!(StringUtils.isNullOrEmpty(email))) {
+            Person person = null;
             try {
-                user = userDao.getByStringCretery(ServiceConstants.Const.F_EMAIL, email);
+                session = personDao.getSession();
+                transaction = session.beginTransaction();
+                person = personDao.getByEmail(email);
+                transaction.commit();
             } catch (PersistException e) {
+                transaction.rollback();
                 logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
             }
+            return person;
         }
-        return (Person) user;
+        return null;
     }
 
     @Override
     public void updateUserInformation(Person person) {
-        if (person.getId() != null &&
-                person.getId() != ServiceConstants.Const.ZERO &&
-                person.getId() > ServiceConstants.Const.ZERO) {
+        if (person.getPersonId() != null
+                && person.getPersonId() != ServiceConstants.Const.ZERO
+                && person.getPersonId() > ServiceConstants.Const.ZERO) {
             try {
-                userDao.update(person);
+                session = personDao.getSession();
+                transaction = session.beginTransaction();
+                personDao.update(person);
+                transaction.commit();
             } catch (PersistException e) {
+                transaction.rollback();
                 logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
             }
         }
-    }*/
+    }
 
 
 }

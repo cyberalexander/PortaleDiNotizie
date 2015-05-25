@@ -8,20 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean commentaryId="comment" class="by.leonovich.notizieportale.domain.Commentary" scope="session"/>
-
+<jsp:useBean id="commentary" class="by.leonovich.notizieportale.domain.Commentary" scope="session"/>
 <html>
 <head>
     <title></title>
 </head>
 <body>
 <div>
-
     <%-- COMMENT-CONTENT FOR NEWS, WHAT USER WATCH NOW --%>
-    <c:forEach items="${commentList}" var="commentObj">
+    <c:if test="${commentaries[0] != null}">
+        <h5 style="color: white; text-align: right">Commentaries: </h5>
+    </c:if>
+    <c:forEach items="${commentaries}" var="commentObj">
         <hr/>
         <div align="right">
-            <em>|  commentDate: ${commentObj.commentDate}</em><em>   |   user: ${commentObj.personId}   |</em>
+            <em>|  date: ${commentObj.date}</em><em>   |   user: ${commentObj.person.name}   |</em>
         </div>
 
         <p>${commentObj.comment}</p>
@@ -31,15 +32,15 @@
                 <tr>
                     <th>
                         <form method="post" action="controller">
-                            <input type="hidden" name="command" value="editwritecomment"/>
-                            <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
+                            <input type="hidden" name="command" value="editwritecommentary"/>
+                            <input type="hidden" name="commentaryId" value="${commentObj.commentaryId}">
                             <button type="submit" class="btn btn-default">edit comment</button>
                         </form>
                     </th>
                     <th>
                         <form method="post" action="controller">
-                            <input type="hidden" name="command" value="deletecomment"/>
-                            <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
+                            <input type="hidden" name="command" value="deletecommentary"/>
+                            <input type="hidden" name="commentaryId" value="${commentObj.commentaryId}">
                             <button type="submit" class="btn btn-danger">delete comment</button>
                         </form>
                     </th>
@@ -47,20 +48,20 @@
             </table>
         </c:if>
         <c:if test="${usertype eq 'USER'}">
-            <c:if test="${user.commentaryId == commentObj.personId}">
+            <c:if test="${person.personId == commentObj.person.personId}">
                 <table>
                     <tr>
                         <th>
                             <form method="post" action="controller">
-                                <input type="hidden" name="command" value="editwritecomment"/>
-                                <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
+                                <input type="hidden" name="command" value="editwritecommentary"/>
+                                <input type="hidden" name="commentaryId" value="${commentObj.commentaryId}">
                                 <button type="submit" class="btn btn-default">edit comment</button>
                             </form>
                         </th>
                         <th>
                             <form method="post" action="controller">
-                                <input type="hidden" name="command" value="deletecomment"/>
-                                <input type="hidden" name="comment_id" value="${commentObj.commentaryId}">
+                                <input type="hidden" name="command" value="deletecommentary"/>
+                                <input type="hidden" name="commentaryId" value="${commentObj.commentaryId}">
                                 <button type="submit" class="btn btn-danger">delete comment</button>
                             </form>
                         </th>

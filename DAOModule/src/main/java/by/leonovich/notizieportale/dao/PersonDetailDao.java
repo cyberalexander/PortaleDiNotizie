@@ -1,15 +1,14 @@
 package by.leonovich.notizieportale.dao;
 
-import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.exception.PersistException;
 import org.hibernate.Session;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 
 /**
  * Created by alexanderleonovich on 20.05.15.
+ * In this.Class contains special methods for PersonDetail-entity
  */
 public class PersonDetailDao extends AbstractDao<PersonDetail>{
 
@@ -19,13 +18,4 @@ public class PersonDetailDao extends AbstractDao<PersonDetail>{
                 return list;
         }
 
-        @Override
-        protected void prepareStatementForInsert(PreparedStatement statement, PersonDetail object) throws PersistException {
-
-        }
-
-        @Override
-        protected void prepareStatementForUpdate(PreparedStatement statement, PersonDetail object) throws PersistException {
-
-        }
 }

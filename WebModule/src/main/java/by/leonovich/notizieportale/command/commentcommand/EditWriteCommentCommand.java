@@ -1,18 +1,19 @@
 package by.leonovich.notizieportale.command.commentcommand;
 
+import static by.leonovich.notizieportale.util.WebConstants.Const;
+
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.services.CommentaryService;
+import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
 
-import java.util.List;
-
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
-public class EditWriteCommentCommand implements IActionCommand{
+public class EditWriteCommentCommand implements IActionCommand {
     private CommentaryService commentaryService;
 
     public EditWriteCommentCommand() {
@@ -21,15 +22,18 @@ public class EditWriteCommentCommand implements IActionCommand{
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        /*Commentary comment;
+        Commentary commentary;
 
-        int comment_id = Integer.parseInt(sessionRequestContent.getParameter("comment_id"));
-        comment = commentaryService.getCommentById(comment_id);
-
-        sessionRequestContent.setSessionAttribute("commentForEdit", comment);
-
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());*/
-        return null;
+        Long commentaryId = Long.parseLong(sessionRequestContent.getParameter(Const.P_COMMENTARY_ID));
+        if (commentaryId != null) {
+            commentary = commentaryService.getCommentaryByPK(commentaryId);
+            sessionRequestContent.setSessionAttribute(Const.COMMENT_FOR_EDIT, commentary);
+        } else {
+            sessionRequestContent.setRequestAttribute("errorEditCommentary",
+                    MessageManager.getInstance().getProperty("message.edit.commentay.fail"));
+        }
+        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+        return page;
     }
 
 }

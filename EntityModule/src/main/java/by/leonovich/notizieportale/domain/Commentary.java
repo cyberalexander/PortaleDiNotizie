@@ -1,6 +1,8 @@
 package by.leonovich.notizieportale.domain;
 
 
+import by.leonovich.notizieportale.domain.util.StatusEnum;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,17 +16,18 @@ import java.util.Date;
 @Entity
 @Table(name = "T_COMMENTARY")
 public class Commentary extends CustomEntity implements Serializable {
-    private static final long serialVersionUID = 4370607223713828286L;
+   private static final long serialVersionUID = 4370607223713828286L;
 
     @Id
     @Column(name = "F_COMMENTARY_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentaryId;
 
     @Column(name = "F_COMMENT", columnDefinition = "longtext")
     private String comment;
 
     @Column(name = "F_DATE")
-    private Date commentDate;
+    private Date date;
 
     @ManyToOne
     @JoinColumn(name = "F_PERSON_ID")
@@ -35,13 +38,14 @@ public class Commentary extends CustomEntity implements Serializable {
     private News news;
 
     public Commentary() {
+        super();
     }
 
-    public Commentary(Long commentaryId, String comment, Date commentDate) {
+    public Commentary(Long commentaryId, String comment, Date date, StatusEnum status) {
+        super(status);
         this.commentaryId = commentaryId;
-
         this.comment = comment;
-        this.commentDate = commentDate;
+        this.date = date;
     }
 
     public Long getCommentaryId() {
@@ -60,12 +64,12 @@ public class Commentary extends CustomEntity implements Serializable {
         this.comment = comment;
     }
 
-    public Date getCommentDate() {
-        return commentDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setCommentDate(Date commentDate) {
-        this.commentDate = commentDate;
+    public void setDate(Date commentDate) {
+        this.date = commentDate;
     }
 
 
@@ -89,9 +93,8 @@ public class Commentary extends CustomEntity implements Serializable {
     public int hashCode() {
         final int prime = 37;
         int result = 17;
-        result = prime * result + (commentaryId == null ? 0 : commentaryId.hashCode());
         result = prime * result + (comment == null ? 0 : comment.hashCode());
-        result = prime * result + (commentDate == null ? 0 : commentDate.hashCode());
+        result = prime * result + (date == null ? 0 : date.hashCode());
         return result;
     }
 
@@ -111,9 +114,6 @@ public class Commentary extends CustomEntity implements Serializable {
             return false;
         }
         Commentary other = (Commentary) obj;
-        if (commentaryId != other.commentaryId) {
-            return false;
-        }
         if (comment == null) {
             if (other.comment != null) {
                 return false;
@@ -121,11 +121,11 @@ public class Commentary extends CustomEntity implements Serializable {
         }else if (!comment.equals(other.comment)) {
             return false;
         }
-        if (commentDate == null) {
-            if (other.commentDate != null) {
+        if (date == null) {
+            if (other.date != null) {
                 return false;
             }
-        }else if (!commentDate.equals(other.commentDate)) {
+        }else if (!date.equals(other.date)) {
             return false;
         }
         return true;
@@ -133,6 +133,6 @@ public class Commentary extends CustomEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "-=Commentary=- [commentaryId=" + commentaryId  + ", comment=" + comment + ", commentDate=" + commentDate + "]";
+        return "-=Commentary=- [commentaryId=" + commentaryId  + ", comment=" + comment + ", commentDate=" + date + ", status=" + status + "]";
     }
 }
