@@ -24,7 +24,7 @@ public class AddNewsCommand implements IActionCommand {
         // get newsList from session
         List<News> newses = (List<News>) sessionRequestContent.getSessionAttribute(Const.NEWSES);
         News news = (News) sessionRequestContent.getSessionAttribute(Const.NEWS);
-        if (newses.size() > WebConstants.Const.ZERO && !(Const.MAIN.equals(news.getPageId()))) {
+        if (newses.size() > Const.ZERO && !(Const.MAIN.equals(news.getPageId()))) {
             // get page_id from last element in newsList
             pageId = newses.get(newses.size() - 1).getPageId();
             // --- increasing number of page_id --------------------
@@ -34,7 +34,7 @@ public class AddNewsCommand implements IActionCommand {
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
             return page;
         } else if (newses.size() == WebConstants.Const.ZERO) {
-            pageId = news.getPageId() + Const.ONE_POINT;
+            pageId = news.getPageId() + Const.ONE;
             sessionRequestContent.setSessionAttribute(Const.P_PAGE_ID, pageId);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
             return page;

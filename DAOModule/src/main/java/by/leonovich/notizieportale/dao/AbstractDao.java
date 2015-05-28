@@ -26,10 +26,9 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     private SessionFactory sessionFactory;
     private final ThreadLocal sessions = new ThreadLocal();
     protected Session session;
-    private HibernateUtil util;
 
     public AbstractDao() {
-        util = HibernateUtil.getHibernateUtil();
+        HibernateUtil util = HibernateUtil.getHibernateUtil();
         sessionFactory = util.getSessionFactory();
     }
 

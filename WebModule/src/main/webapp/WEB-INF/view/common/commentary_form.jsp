@@ -14,10 +14,10 @@
     <title></title>
 </head>
 <body>
-<div>
+<div style="text-align: left">
     <form name="review" id="review" method="post" action="controller">
         <fieldset>
-            <legend><p>Оставьте Ваш комментарий</p></legend>
+            <legend><p class="mostpopnewsheader" style="text-align: right">Оставьте Ваш комментарий</p></legend>
             <input type="hidden" name="command" value="addwritecommentary"/>
             <input type="hidden" name="newsId" value="${news.newsId}"/>
             <input type="hidden" name="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateNow}"/>">

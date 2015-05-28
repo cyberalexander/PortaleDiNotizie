@@ -4,10 +4,13 @@ import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.util.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.util.DaoConstants;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -58,7 +61,7 @@ public class NewsDao extends AbstractDao<News> {
         return newses;
     }
 
-    public List<News> getByCategory(Long pK) throws PersistException{
+    public List<News> getByCategoryPK(Long pK) throws PersistException{
         List<News> newses = null;
         try {
             session = getSession();
@@ -116,4 +119,21 @@ public class NewsDao extends AbstractDao<News> {
         return news;
     }
 
+    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK) throws PersistException{
+        List<News> newses;
+        try {
+            session = getSession();
+            StatusEnum status = StatusEnum.SAVED;
+            String hql = "SELECT n FROM News n WHERE n.category.categoryId=:pK and n.status=:status";
+            Query query = session.createQuery(hql)
+                    .setParameter("pK", pK)
+                    .setParameter("status", status)
+                    .setFirstResult((pageNumber - 1) * pageSize)
+                    .setMaxResults(pageSize);
+            newses = query.list();
+        } catch (HibernateException e) {
+            throw new PersistException(e);
+        }
+        return newses;
+    }
 }

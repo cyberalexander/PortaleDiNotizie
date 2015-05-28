@@ -59,61 +59,51 @@
 
     </div>
     <div class="col-md-8">
-        <div class="text">
         <table>
             <caption>
-                <h4 style="text-align: center">User info</h4>
+                <h4 class="headersecondlevel" style="text-align: center">User info</h4>
             </caption>
             <tr>
                 <td>
-                    <p>Name: </p>
+                    <p class="text">Name: </p>
                 </td>
                 <td>
-                    <p>${person.name}</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Surname: </p>
-                </td>
-                <td>
-                    <p>${person.surname}</p>
+                    <p class="text">${person.name}</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p>Email: </p>
+                    <p class="text">Surname: </p>
                 </td>
                 <td>
-                    <p>${person.personDetail.email}</p>
-                </td>
-            </tr>
-            <%--<tr>
-                <td>
-                    Password
-                </td>
-                <td>
-                    ${person.personDetail.password}
-                </td>
-            </tr>--%>
-            <tr>
-                <td>
-                    <p>Birthday: </p>
-                </td>
-                <td>
-                    <p>${person.personDetail.birthday}</p>
+                    <p class="text">${person.surname}</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p>Your role on site: </p>
+                    <p class="text">Email: </p>
                 </td>
                 <td>
-                    <p>${person.personDetail.role}</p>
+                    <p class="text">${person.personDetail.email}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="text">Birthday: </p>
+                </td>
+                <td>
+                    <p class="text">${person.personDetail.birthday}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="text">Your role on site: </p>
+                </td>
+                <td>
+                    <p class="text">${person.personDetail.role}</p>
                 </td>
             </tr>
         </table>
-        </div>
     </div>
     <hr/>
     <hr/>

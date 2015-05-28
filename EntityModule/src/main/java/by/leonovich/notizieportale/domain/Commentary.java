@@ -15,8 +15,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "T_COMMENTARY")
-public class Commentary extends CustomEntity implements Serializable {
-   private static final long serialVersionUID = 4370607223713828286L;
+public class Commentary extends CustomEntity{
+    private static final long serialVersionUID = 5873704857401954452L;
 
     @Id
     @Column(name = "F_COMMENTARY_ID")
@@ -29,11 +29,11 @@ public class Commentary extends CustomEntity implements Serializable {
     @Column(name = "F_DATE")
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "F_PERSON_ID")
     private Person person;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "F_NEWS_ID")
     private News news;
 
@@ -41,9 +41,8 @@ public class Commentary extends CustomEntity implements Serializable {
         super();
     }
 
-    public Commentary(Long commentaryId, String comment, Date date, StatusEnum status) {
+    public Commentary(String comment, Date date, StatusEnum status) {
         super(status);
-        this.commentaryId = commentaryId;
         this.comment = comment;
         this.date = date;
     }

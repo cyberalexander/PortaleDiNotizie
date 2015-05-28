@@ -42,7 +42,7 @@
         <ul class="nav nav-pills nav-stacked">
             <c:forEach items="${categories}" var="categoryObj">
                 <li>
-                    <a href="controller?command=shownews&pageId=${categoryObj.categoryName}">${categoryObj.categoryName}</a>
+                    <a href="controller?command=shownews&pageId=${categoryObj.categoryName}&pageNumber=${0}">${categoryObj.categoryName}</a>
                 </li>
             </c:forEach>
         </ul>
@@ -51,15 +51,15 @@
     <div class="col-md-8">
         <!-- NEWS CONTENT -->
         <c:if test="${news.newsId == 1}">
-            <p>${news.content}</p>
+            <p class="text">${news.content}</p>
 
             <p align="right"><em>${news.date}</em></p>
         </c:if>
 
         <c:if test="${news.category.categoryName eq 'main' && news.newsId != 1}">
             <c:forEach items="${newses}" var="newsObj">
-                <p>${newsObj.menuTitle}</p>
-                <p>
+                <p class="mostpopnewsheader">${newsObj.menuTitle}</p>
+                <p class="text">
                   ${newsObj.annotation}
                   <a href="controller?command=shownews&pageId=${newsObj.pageId}">read more...</a>
                 </p>
@@ -69,12 +69,14 @@
                     </em>
                 </p>
             </c:forEach>
+            <a href="controller?command=shownews&pageNumber=1&pageId=${news.pageId}">1</a>
+            <a href="controller?command=shownews&pageNumber=2&pageId=${news.pageId}">2</a>
+            <a href="controller?command=shownews&pageNumber=3&pageId=${news.pageId}">3</a>
         </c:if>
 
         <c:if test="${news.category.categoryId != 1}">
-            <h3>${news.menuTitle}</h3>
 
-            <p>${news.content}</p>
+            <p class="text">${news.content}</p>
 
             <p align="left"><em>${news.person.surname}</em></p>
 

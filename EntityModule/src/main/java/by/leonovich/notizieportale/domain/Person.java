@@ -16,11 +16,11 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "T_PERSON")
-public class Person extends CustomEntity implements Serializable{
-    private static final long serialVersionUID = -3731830107340403943L;
+public class Person extends CustomEntity{
+    private static final long serialVersionUID = -117974847658471765L;
 
     @Id
-    @Column(name = "F_PERSON_ID")
+    @Column(name = "F_PERSON_ID", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long personId;
 
@@ -30,10 +30,10 @@ public class Person extends CustomEntity implements Serializable{
     @Column(name = "F_SURNAME")
     private String surname;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private PersonDetail personDetail;
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private Set<News> newses;
 
     @OneToMany(mappedBy = "person")
@@ -43,9 +43,8 @@ public class Person extends CustomEntity implements Serializable{
         super();
     }
 
-    public Person(Long personId, String name, String surname, StatusEnum status) {
+    public Person(String name, String surname, StatusEnum status) {
         super(status);
-        this.personId = personId;
         this.name = name;
         this.surname = surname;
     }

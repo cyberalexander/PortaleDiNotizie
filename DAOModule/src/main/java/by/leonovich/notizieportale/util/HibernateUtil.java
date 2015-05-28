@@ -1,8 +1,8 @@
 package by.leonovich.notizieportale.util;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
@@ -18,12 +18,9 @@ public class HibernateUtil {
 
     private HibernateUtil() {
         try {
-//            // Create the sessionFactory from hibernate.cfg.xml
-//            Configuration configuration = new AnnotationConfiguration();
-//            configuration.setNamingStrategy(new CustomNamingStrategy());
-
-            // нужен ли метод .buildSessionFactory(), если он зачеркнут. И почему методы зачеркнуты?
-            sessionFactory = new AnnotationConfiguration().configure().setNamingStrategy(new CustomNamingStrategy()).buildSessionFactory();
+            Configuration configuration = new Configuration().configure();
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+            sessionFactory = configuration.buildSessionFactory(builder.build());
         } catch (Throwable ex) {
             logger.error("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);

@@ -52,6 +52,7 @@ public class SessionRequestContent {
 
 
     }
+
     // метод добавления в запрос данных для передачи в jsp
     public void insertAttributes(HttpServletRequest request) { // реализация
         Set<String> keysReqAtrib = requestAttributes.keySet();
@@ -88,8 +89,10 @@ public class SessionRequestContent {
     }
 
     public void removeRequestParameter(String attributeName) {
-        innerRequestInstance.removeAttribute(attributeName);
-        requestParameters.remove(attributeName);
+        if (null != innerRequestInstance.getParameter(attributeName)) {
+            innerRequestInstance.removeAttribute(attributeName);
+            requestParameters.remove(attributeName);
+        }
     }
 
     public void invalidateSession() {
@@ -97,8 +100,11 @@ public class SessionRequestContent {
         requestParameters.clear();
         sessionAttributes.clear();
     }
-    /** Правильно ли я использую данный метод !?!?!?!?!?!?!!?!?!?!?!!?
-     * без использования request объект из сессии не удаляется, касательно commentary */
+
+    /**
+     * Правильно ли я использую данный метод !?!?!?!?!?!?!!?!?!?!?!!?
+     * без использования request объект из сессии не удаляется, касательно commentary
+     */
     public void removeSessionAttribute(String attributeName) {
         //innerRequestInstance.getSession().removeAttribute(attributeName);
         session.removeAttribute(attributeName);

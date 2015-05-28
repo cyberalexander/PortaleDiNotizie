@@ -4,13 +4,7 @@ body {
 .text {
 	color: white;
 	font-family: Consolas;
-	text-align: center}
-
-p{
-	color: white;
-	font-family: "Courier New";
-	font-size: 13pt;
-}
+	text-align: justify}
 
 em {
 	color: #b9def0;

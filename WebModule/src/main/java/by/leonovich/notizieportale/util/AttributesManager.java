@@ -2,11 +2,10 @@ package by.leonovich.notizieportale.util;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 
-import by.leonovich.notizieportale.domain.Category;
-import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.PersonDetail;
+import by.leonovich.notizieportale.domain.*;
+import by.leonovich.notizieportale.domain.util.StatusEnum;
 import by.leonovich.notizieportale.services.CategoryService;
+import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.NewsService;
 import by.leonovich.notizieportale.services.PersonService;
 import org.apache.log4j.Logger;
@@ -22,11 +21,12 @@ import java.util.List;
  */
 public class AttributesManager {
     private static final Logger logger = Logger.getLogger(AttributesManager.class);
+    private static AttributesManager attributesManagerInst;
 
     private NewsService newsService;
     private CategoryService categoryService;
     private PersonService personService;
-    private static AttributesManager attributesManagerInst;
+    private CommentaryService commentaryService;
 
     /**
      * private constructor
@@ -35,6 +35,7 @@ public class AttributesManager {
         newsService = NewsService.getInstance();
         categoryService = CategoryService.getInstance();
         personService = PersonService.getInstance();
+        commentaryService = CommentaryService.getInstance();
     }
 
 
@@ -122,7 +123,7 @@ public class AttributesManager {
         personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
         personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
         personDetail.setRole(sessionRequestContent.getParameter(Const.ROLE));
-
+        person.setStatus(StatusEnum.SAVED);
         person.setPersonDetail(personDetail);
         personDetail.setPerson(person);
         return person;
@@ -142,5 +143,21 @@ public class AttributesManager {
             logger.error(e);
         }
         return new java.sql.Date(dateObj.getTime());
+    }
+
+    /** Comments attributes getting for response */
+    public List<Commentary> getCommentariesByNewsId(Long newsId) {
+        List<Commentary> commentaries = null;
+        if (newsId > Const.ZERO) {
+            commentaries = commentaryService.getCommentariesByNewsId(newsId);
+        }
+        return commentaries;
+    }
+
+    public List<Category> getCategories() {
+        List<Category> categories = null;
+        categories = categoryService.getCategories();
+        categories.remove(Const.ZERO);
+        return categories;
     }
 }

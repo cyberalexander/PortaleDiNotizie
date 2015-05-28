@@ -129,13 +129,14 @@ public class PersonService implements IPersonService {
                 session = personDao.getSession();
                 transaction = session.beginTransaction();
                 List<Person> persons = personDao.getAll();
-                transaction.commit();
                 for (Person element : persons) {
                     if (element.getPersonDetail().getEmail().equals(person.getPersonDetail().getEmail())) {
+                        System.out.println('\n' + '\n' + element.getPersonDetail().getEmail() + "-" + person.getPersonDetail().getEmail() + '\n' + '\n');
                         return false;
                     }
                 }
                 personDao.save(person);
+                transaction.commit();
                 return true;
             } catch (PersistException e) {
                 transaction.rollback();

@@ -12,12 +12,14 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "T_PERSON_DETAIL")
-public class PersonDetail implements Serializable {
-    private static final long serialVersionUID = -5074116083595094873L;
+public class PersonDetail implements Serializable{
+    private static final long serialVersionUID = -3983636454021133509L;
 
+    @GenericGenerator(name = "generator", strategy = "foreign",
+            parameters = @Parameter(name = "property", value = "person"))
     @Id
-    @Column(name = "F_PERSON_ID")
-    @GenericGenerator(name = "gener", strategy = "foreign", parameters = @Parameter(name = "property", value = "person"))
+    @GeneratedValue(generator = "generator")
+    @Column(name = "F_PERSON_ID", unique = true, nullable = false)
     private Long personId;
 
     @Column(name = "F_EMAIL")
@@ -32,7 +34,7 @@ public class PersonDetail implements Serializable {
     @Column(name = "F_ROLE")
     private String role;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     private Person person;
 
@@ -40,8 +42,7 @@ public class PersonDetail implements Serializable {
     public PersonDetail() {
     }
 
-    public PersonDetail(Long personDetailId, String email, String password, Date birthday) {
-        this.personId = personDetailId;
+    public PersonDetail(String email, String password, Date birthday) {
         this.email = email;
         this.password = password;
         this.birthday = birthday;

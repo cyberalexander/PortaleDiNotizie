@@ -27,5 +27,7 @@ public interface INewsService {
 
     List<News> getMostPopularNewsList();
 
-   // List<News> getListOfNewsByPageId(String pageId);
+    List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId);
+
+    // List<News> getListOfNewsByPageId(String pageId);
 }

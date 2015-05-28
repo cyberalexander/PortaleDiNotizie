@@ -15,8 +15,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "T_NEWS")
-public class News extends CustomEntity implements Serializable{
-    private static final long serialVersionUID = -1605136281796128403L;
+public class News extends CustomEntity{
+    private static final long serialVersionUID = 592367795323659186L;
 
     @Id
     @Column(name = "F_NEWS_ID")
@@ -41,24 +41,23 @@ public class News extends CustomEntity implements Serializable{
     @Column(name = "F_CONTENT", columnDefinition = "longtext")
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "F_PERSON_ID")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "F_PERSON_ID", nullable = false)
     private Person person;
 
-    @ManyToOne
-    @JoinColumn(name = "F_CATEGORY_ID")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "F_CATEGORY_ID", nullable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "news")
+    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
     private Set<Commentary> commentaries;
 
     public News() {
         super();
     }
 
-    public News(Long newsId, String pageId, String title, String menuTitle, Date date, String annotation, String content, StatusEnum status) {
+    public News(String pageId, String title, String menuTitle, Date date, String annotation, String content, StatusEnum status) {
         super(status);
-        this.newsId = newsId;
         this.pageId = pageId;
         this.title = title;
         this.menuTitle = menuTitle;

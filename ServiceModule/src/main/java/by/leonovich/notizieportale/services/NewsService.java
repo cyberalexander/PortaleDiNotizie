@@ -123,7 +123,7 @@ public class NewsService implements INewsService {
         try {
             session = newsDao.getSession();
             transaction = session.beginTransaction();
-            newses = newsDao.getByCategory(categoryId);
+            newses = newsDao.getByCategoryPK(categoryId);
             transaction.commit();
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
@@ -234,5 +234,25 @@ public class NewsService implements INewsService {
             }
         }
         return newsList;
+    }
+
+    @Override
+    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId) {
+        List<News> newses = new ArrayList<>();
+        try {
+            session = newsDao.getSession();
+            transaction = session.beginTransaction();
+            newses = newsDao.getNewsByCriteria(pageNumber, pageSize, categoryId);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        } finally {
+            sessionStatus.set(true);
+            newsDao.clearSession(sessionStatus);
+        }
+        return newses;
     }
 }

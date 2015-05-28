@@ -33,7 +33,7 @@ public class ShowNewsCommand implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         String pageId;
         Category category;
-        List<News> newses;
+        List<News> newses = null;
         List<Category> categories;
 
         if (sessionRequestContent.getParameter(Const.P_PAGE_ID) != null) {
@@ -47,22 +47,42 @@ public class ShowNewsCommand implements IActionCommand {
                 && news.getPageId().equals(categoryService.getCategoryByName(news.getPageId()).getCategoryName())) {
             category = categoryService.getCategoryByName(news.getPageId());
             newses = newsService.getListOfNewsByCategory(category.getCategoryId());
-        }else{
-            newses = newsService.getListOfNewsByCategory(news.getCategory().getCategoryId());
-        }
-/** Comments attributes getting for response */
-        List<Commentary> commentaries = commentaryService.getCommentariesByNewsId(news.getNewsId());
+            if (null != sessionRequestContent.getParameter(Const.P_PAGE_NUMBER)
+                    && 0 != Integer.parseInt(sessionRequestContent.getParameter(Const.P_PAGE_NUMBER))) {
+                int pageNumber = Integer.parseInt(sessionRequestContent.getParameter(Const.P_PAGE_NUMBER));
+                int pageSize = 4;
+                newses = newsService.getNewsByCriteria(pageNumber, pageSize, category.getCategoryId());
+            }
+/*            System.out.println('\n' + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + '\n');
+            if (true){
+            String pageNumber = sessionRequestContent.getParameter("pageNumber");
+            System.out.println('\n' + pageNumber + '\n');
+
+            Integer pageNumberInt = Integer.parseInt(pageNumber);
+
+            }else{
+                newses = newsService.getListOfNewsByCategory(category.getCategoryId());
+            }*/
+        }/*else{
+            //newses = newsService.getListOfNewsByCategory(news.getCategory().getCategoryId());
+            String pageNumber = sessionRequestContent.getParameter("pageNumber");
+            System.out.println('\n' + pageNumber + '\n');
+            int pageSize = 4;
+            int pageNumberInt = Integer.parseInt(pageNumber);
+            //newses = newsService.getNewsByCriteria(pageNumberInt, pageSize, news.getCategory().getCategoryId());
+            newses = null;
+        }*/
+
 /** Most popular news attributes getting for response */
         List<News> listPopNews = newsService.getMostPopularNewsList();
 
-        categories = categoryService.getCategories();
-        categories.remove(Const.ZERO);
-
-        sessionRequestContent.setSessionAttribute("news", news);
-        sessionRequestContent.setSessionAttribute("newses", newses);
-        sessionRequestContent.setSessionAttribute("commentaries", commentaries);
+        sessionRequestContent.setSessionAttribute(Const.NEWS, news);
+        sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
+        sessionRequestContent.setSessionAttribute(Const.COMMENTARIES,
+                AttributesManager.getInstance().getCommentariesByNewsId(news.getNewsId()));
         sessionRequestContent.setSessionAttribute("listPopNews", listPopNews);
-        sessionRequestContent.setSessionAttribute("categories", categories);
+        sessionRequestContent.setSessionAttribute(Const.CATEGORIES,
+                AttributesManager.getInstance().getCategories());
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         return page;
     }

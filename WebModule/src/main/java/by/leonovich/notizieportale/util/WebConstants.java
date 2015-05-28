@@ -23,6 +23,7 @@ public class WebConstants {
         public static final String NEWS = "news";
         public static final String NEWSES = "newses";
         public static final String COMMENTARIES = "commentaries";
+        public static final String CATEGORIES = "categories";
         public static final String FROM_ADDWRITE = "addwrite";
         public static final String FROM_DELETE = "delete";
         public static final String FROM_EDITWRITE = "edit";
@@ -34,7 +35,8 @@ public class WebConstants {
         public static final String PASSWORD = "password";
 
         public static final int ZERO = 0;
-        public static final int ONE_POINT = 1;
+        public static final int ONE = 1;
+        public static final int FIVE = 5;
 
         /* ! NAME OF PARAMETERS FROM CLIENT LAYER */
         public static final String P_PAGE_ID = "pageId";
@@ -54,6 +56,7 @@ public class WebConstants {
         public static final String P_NEW_EMAIL = "new_email";
         public static final String P_EMAIL = "email";
         public static final String P_PASSWORD = "password";
+        public static final String P_PAGE_NUMBER = "pageNumber";
         public static final String ROLE = "role";
         public static final String DATE_PATTERN = "yyyy-MM-dd";
     }

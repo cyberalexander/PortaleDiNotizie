@@ -16,6 +16,11 @@ import java.util.List;
  * In this.Class contains special methods for Category-entity
  */
 public class CategoryDao extends AbstractDao<Category> {
+
+    public CategoryDao() {
+        super();
+    }
+
     private static final Logger logger = Logger.getLogger(CategoryDao.class);
 
 
@@ -30,7 +35,7 @@ public class CategoryDao extends AbstractDao<Category> {
     }
 
     public Category getByName(String category) throws PersistException {
-        Category categoryObj = null;
+        Category categoryObj = new Category();
         try {
             Session session = getSession();
             StatusEnum status = StatusEnum.SAVED;

@@ -12,8 +12,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "T_CATEGORY")
-public class Category extends CustomEntity implements Serializable{
-    private static final long serialVersionUID = 7238251066050359830L;
+public class Category extends CustomEntity{
+    private static final long serialVersionUID = -9165585069001592520L;
 
     @Id
     @Column(name = "F_CATEGORY_ID")
@@ -23,7 +23,7 @@ public class Category extends CustomEntity implements Serializable{
     @Column(name = "F_CATEGORY_NAME")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<News> news;
 
     public Category() {

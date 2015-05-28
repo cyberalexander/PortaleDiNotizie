@@ -61,12 +61,10 @@ public class AddWriteCommentCommand implements IActionCommand {
             }
         }else {
             if (sessionRequestContent.getParameter(Const.P_CONTENT) != null) {
-                Person person = personService.getByPK(Long.parseLong(
-                        (sessionRequestContent.getParameter(Const.P_PERSON_ID))));
                 News news = newsService.getNewsByPK(Long.parseLong(
                         sessionRequestContent.getParameter(Const.P_NEWS_ID)));
 
-                comment.setPerson(person);
+                comment.setPerson((Person) sessionRequestContent.getSessionAttribute(Const.PERSON));
                 comment.setNews(news);
 
                 comment.setComment(sessionRequestContent.getParameter(Const.P_CONTENT));

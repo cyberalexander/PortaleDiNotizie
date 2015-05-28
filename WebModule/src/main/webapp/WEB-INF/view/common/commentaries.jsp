@@ -17,7 +17,7 @@
 <div>
     <%-- COMMENT-CONTENT FOR NEWS, WHAT USER WATCH NOW --%>
     <c:if test="${commentaries[0] != null}">
-        <h5 style="color: white; text-align: right">Commentaries: </h5>
+        <h5 class="mostpopnewsheader" style="text-align: right">Commentaries: </h5>
     </c:if>
     <c:forEach items="${commentaries}" var="commentObj">
         <hr/>
@@ -25,7 +25,7 @@
             <em>|  date: ${commentObj.date}</em><em>   |   user: ${commentObj.person.name}   |</em>
         </div>
 
-        <p>${commentObj.comment}</p>
+        <p class="text">${commentObj.comment}</p>
 
         <c:if test="${usertype eq 'ADMINISTRATOR'}">
             <table>
