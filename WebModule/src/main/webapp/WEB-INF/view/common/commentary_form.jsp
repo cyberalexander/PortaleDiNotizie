@@ -20,6 +20,7 @@
             <legend><p class="mostpopnewsheader" style="text-align: right">Оставьте Ваш комментарий</p></legend>
             <input type="hidden" name="command" value="addwritecommentary"/>
             <input type="hidden" name="newsId" value="${news.newsId}"/>
+            <input type="hidden" name="personId" value="${news.person.personId}"/><br>
             <input type="hidden" name="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateNow}"/>">
 
             <c:if test="${commentForEdit eq null}">

@@ -22,12 +22,12 @@
     <c:forEach items="${commentaries}" var="commentObj">
         <hr/>
         <div align="right">
-            <em>|  date: ${commentObj.date}</em><em>   |   user: ${commentObj.person.name}   |</em>
+            <em>|  date: <fmt:formatDate pattern="dd-MMM-yyyy" value="${commentObj.date}"/></em><em>   |   user: ${commentObj.person.name}   |</em>
         </div>
 
         <p class="text">${commentObj.comment}</p>
 
-        <c:if test="${usertype eq 'ADMINISTRATOR'}">
+        <c:if test="${persontype eq 'ADMIN'}">
             <table>
                 <tr>
                     <th>
@@ -47,7 +47,7 @@
                 </tr>
             </table>
         </c:if>
-        <c:if test="${usertype eq 'USER'}">
+        <c:if test="${persontype eq 'USER'}">
             <c:if test="${person.personId == commentObj.person.personId}">
                 <table>
                     <tr>

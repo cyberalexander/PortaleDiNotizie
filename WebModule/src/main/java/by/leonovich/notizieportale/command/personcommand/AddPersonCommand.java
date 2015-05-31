@@ -1,6 +1,7 @@
 package by.leonovich.notizieportale.command.personcommand;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
@@ -30,19 +31,17 @@ public class AddPersonCommand implements IActionCommand {
                 && !(StringUtils.isNullOrEmpty(person.getPersonDetail().getPassword()))) {
             boolean operationResult = personService.registerNewPerson(person);
             if (operationResult == true) {
-                sessionRequestContent.setSessionAttribute(Const.PERSON,
-                        personService.getPersonByEmail(person.getPersonDetail().getEmail()));
-                page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
+                sessionRequestContent.setSessionAttribute(P_PERSON,
+                        person = personService.getPersonByEmail(person.getPersonDetail().getEmail()));
+                sessionRequestContent.setSessionAttribute(Const.PERSONTYPE, person.getPersonDetail().getRole());
+                return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
             } else {
                 sessionRequestContent.setRequestAttribute("duplicateEmail", MessageManager.getInstance().getProperty("message.duplicateEmail"));
-                page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION.getUrlCode());
+                return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION.getUrlCode());
             }
         }else{
             sessionRequestContent.setRequestAttribute("nullemailorpassword", MessageManager.getInstance().getProperty("message.nullemailorpassword"));
-            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION.getUrlCode());
+            return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION.getUrlCode());
         }
-
-
-    return page;
     }
 }

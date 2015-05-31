@@ -1,8 +1,10 @@
 package by.leonovich.notizieportale.util;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 
 import by.leonovich.notizieportale.domain.*;
+import by.leonovich.notizieportale.domain.util.RoleEnum;
 import by.leonovich.notizieportale.domain.util.StatusEnum;
 import by.leonovich.notizieportale.services.CategoryService;
 import by.leonovich.notizieportale.services.CommentaryService;
@@ -57,31 +59,18 @@ public class AttributesManager {
      *  The method in which the attributes of the session to fill the filling page after running the removal of the news.
      * Get a list of news from the last page before deleting news and delete or add to the list of the news
      * We have added or removed in the method execute (), one of the class command
-     * @param sesReqContent - HttpServletRequest object interface for operating the session attributes
+     * @param sessionRequestContent - HttpServletRequest object interface for operating the session attributes
      * @param news - Adding / removing / edited news
      * @param command - line with the team to perform a specific action on the attributes of the session
      */
-    public  void setAtributesForResponse(SessionRequestContent sesReqContent, News news, String command) {
-        List<News> newses = (List<News>) sesReqContent.getSessionAttribute(Const.NEWSES);
+    public  void setAtributesForResponse(SessionRequestContent sessionRequestContent, News news, String command) {
 // depending on the received command or delete or add any change in the list of news News.
-        if (command.equals(Const.FROM_ADDWRITE)){
-            newses.add(news);
-        }else if (command.equals(Const.FROM_DELETE)) {
-            newses.remove(news);
-        }else if (command.equals(Const.FROM_EDITWRITE)) {
-            for (News element : newses) {
-                if (element.getNewsId() == news.getNewsId()) {
-                    newses.remove(element);
-                    break;
-                }
-            }
-            newses.add(news);
-        }
+        List<News> newses = newsService.getNewsByCriteria(getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, news.getCategory().getCategoryId());
+
 // Object news assign a link to the main page headings, which appear to us after operations NEWS
         news = newsService.getNewsByPageId(news.getCategory().getCategoryName());
-
-        sesReqContent.setSessionAttribute(Const.NEWS, news);
-        sesReqContent.setSessionAttribute(Const.NEWSES, newses);
+        sessionRequestContent.setSessionAttribute(Const.NEWS, news);
+        sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
     }
 
 
@@ -122,7 +111,7 @@ public class AttributesManager {
         personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
         personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
         personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
-        personDetail.setRole(sessionRequestContent.getParameter(Const.ROLE));
+        personDetail.setRole(RoleEnum.USER);
         person.setStatus(StatusEnum.SAVED);
         person.setPersonDetail(personDetail);
         personDetail.setPerson(person);
@@ -148,16 +137,21 @@ public class AttributesManager {
     /** Comments attributes getting for response */
     public List<Commentary> getCommentariesByNewsId(Long newsId) {
         List<Commentary> commentaries = null;
-        if (newsId > Const.ZERO) {
+        if (newsId > ZERO) {
             commentaries = commentaryService.getCommentariesByNewsId(newsId);
         }
         return commentaries;
     }
 
-    public List<Category> getCategories() {
-        List<Category> categories = null;
-        categories = categoryService.getCategories();
-        categories.remove(Const.ZERO);
-        return categories;
+    public int getPageNumber(SessionRequestContent sessionRequestContent) {
+        int pageNumber;
+        if (sessionRequestContent.getParameter(P_PAGE_NUMBER) != null
+                && Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER)) != ZERO) {
+            return pageNumber = Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER));
+        } else {
+            return pageNumber = ONE;
+        }
     }
+
+
 }

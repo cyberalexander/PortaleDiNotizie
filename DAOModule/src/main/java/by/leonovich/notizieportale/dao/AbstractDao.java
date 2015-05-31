@@ -43,6 +43,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     }
 
     public void clearSession(ThreadLocal sessionStatus) {
+        Session session = getSession();
         boolean cleaner = (boolean) sessionStatus.get();
         if (true == cleaner) {
             if ((session != null) && (session.isOpen())) {
@@ -52,17 +53,12 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
         }
     }
 
-    /**
-     * Parses ResultSet and returns a list of relevant content ResultSet.
-     */
-    protected abstract List<T> parseResultSet(Session session) throws PersistException;
-
     /** It creates a new entry, the corresponding object object */
     @Override
     public Long save(T object)  throws PersistException {
         Long generatedId;
         try {
-            session = getSession();
+            Session session = getSession();
             generatedId = (Long) session.save(object);
         } catch (HibernateException e) {
             logger.error("Error save ENTITY in Database" + e);
@@ -75,7 +71,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     @Override
     public void saveOrUpdate(T object) throws PersistException {
         try {
-            session = getSession();
+            Session session = getSession();
             session.saveOrUpdate(object);
         } catch (HibernateException e) {
             logger.error("Error save or update ENTITY in Dao" + e);
@@ -93,7 +89,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     public T getByPK(Long pK) throws PersistException {
         T object;
         try {
-            session = getSession();
+            Session session = getSession();
             object = (T) session.get(getPersistentClass(), pK);
         } catch (HibernateException e) {
             logger.error("Error get " + getPersistentClass() + " in Dao " + e);
@@ -112,9 +108,9 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     public T loadByPK(Long pK) throws PersistException {
         T object;
         try {
-            session = getSession();
+            Session session = getSession();
             object = (T) session.load(getPersistentClass(), pK);
-            session.evict(object);
+            //session.evict(object);
         } catch (HibernateException e) {
             logger.error("Error load() " + getPersistentClass() + " in Dao " + e);
             throw new PersistException(e);
@@ -130,7 +126,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     @Override
     public void update(T object) throws PersistException {
         try {
-            session = getSession();
+            Session session = getSession();
             session.update(object);
         } catch (HibernateException e) {
             logger.error(DaoConstants.Const.ERROR_UPDATE_ENTITY, e);
@@ -146,7 +142,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     @Override
     public void delete(T object) throws PersistException {
         try {
-            session = getSession();
+            Session session = getSession();
             session.update(object);
         } catch (HibernateException e) {
             logger.error("Error delete object from Database: " + e);
@@ -162,7 +158,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     @Override
     public void remove(T object) throws PersistException{
         try {
-            session = getSession();
+            Session session = getSession();
             session.delete(object);
         } catch (HibernateException e) {
             logger.error("Error REMOVE object from Database: " + e);
@@ -179,7 +175,7 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     public List<T> getAll() throws PersistException {
         List<T> list;
         try {
-            session = getSession();
+            Session session = getSession();
             list = parseResultSet(session);
         } catch (HibernateException e) {
             logger.error("Error get list of " + getPersistentClass() + " in Dao " + e);
@@ -187,6 +183,11 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
         }
         return list;
     }
+
+    /**
+     * Parses ResultSet and returns a list of relevant content ResultSet.
+     */
+    protected abstract List<T> parseResultSet(Session session) throws PersistException;
 
     private Class getPersistentClass() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];

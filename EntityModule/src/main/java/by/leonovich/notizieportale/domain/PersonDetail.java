@@ -1,5 +1,6 @@
 package by.leonovich.notizieportale.domain;
 
+import by.leonovich.notizieportale.domain.util.RoleEnum;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -32,7 +33,8 @@ public class PersonDetail implements Serializable{
     private Date birthday;
 
     @Column(name = "F_ROLE")
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private RoleEnum role;
 
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
@@ -80,11 +82,11 @@ public class PersonDetail implements Serializable{
         this.birthday = birthday;
     }
 
-    public String getRole() {
+    public RoleEnum getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(RoleEnum role) {
         this.role = role;
     }
 

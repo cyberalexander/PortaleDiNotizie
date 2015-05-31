@@ -9,6 +9,8 @@ public interface IPersonService {
 
     Person getByPK(Long pK);
 
+    Person loadByPK(Long pK);
+
     boolean checkPerson(String email, String password);
 
     Person authenticationProcess(String email);

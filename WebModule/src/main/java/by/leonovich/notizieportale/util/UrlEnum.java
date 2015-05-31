@@ -8,7 +8,7 @@ public enum UrlEnum {
     PATH_PAGE_INDEX("path.page.index"),
     PATH_PAGE_LOGIN("path.page.login"),
     PATH_PAGE_MAIN("path.page.main"),
-    PATH_PAGE_USERCABINET("path.page.person.cabinet"),
+    PATH_PAGE_PERSONCABINET("path.page.person.cabinet"),
     PATH_PAGE_ADD_NEWS("path.page.addnews"),
     PATH_PAGE_EDIT_NEWS("path.page.editnews"),
     PATH_PAGE_REGISTRATION("path.page.registration"),

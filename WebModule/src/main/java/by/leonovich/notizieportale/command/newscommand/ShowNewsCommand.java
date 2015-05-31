@@ -1,89 +1,85 @@
 package by.leonovich.notizieportale.command.newscommand;
 
-import static by.leonovich.notizieportale.util.WebConstants.Const;
-
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
-import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
 import by.leonovich.notizieportale.util.*;
-import com.sun.javafx.geom.AreaOp;
-import com.sun.org.apache.bcel.internal.generic.NEW;
+import by.leonovich.notizieportale.util.pajinationlogic.Paginator;
+import org.apache.log4j.Logger;
 
 import java.util.List;
+
+import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 
 /**
  * Created by alexanderleonovich on 19.04.15.
  * Show news command
  */
 public class ShowNewsCommand implements IActionCommand {
-
+    private static final Logger logger = Logger.getLogger(ShowNewsCommand.class);
     private INewsService newsService;
     private CategoryService categoryService;
-    private ICommentaryService commentaryService;
+    private Paginator paginator;
 
     public ShowNewsCommand() {
         newsService = NewsService.getInstance();
-        commentaryService = CommentaryService.getInstance();
         categoryService = CategoryService.getInstance();
+        paginator = Paginator.getInstance();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String pageId;
-        Category category;
+        Category category = null;
         List<News> newses = null;
-        List<Category> categories;
-
-        if (sessionRequestContent.getParameter(Const.P_PAGE_ID) != null) {
-            pageId = sessionRequestContent.getParameter(Const.P_PAGE_ID);
-        } else {
-            pageId = Const.MAIN;
-        }
-        News news = newsService.getNewsByPageId(pageId);
+        News news = newsService.getNewsByPageId(getPageId(sessionRequestContent));
 
         if (categoryService.getCategoryByName(news.getPageId()) != null
                 && news.getPageId().equals(categoryService.getCategoryByName(news.getPageId()).getCategoryName())) {
             category = categoryService.getCategoryByName(news.getPageId());
-            newses = newsService.getListOfNewsByCategory(category.getCategoryId());
-            if (null != sessionRequestContent.getParameter(Const.P_PAGE_NUMBER)
-                    && 0 != Integer.parseInt(sessionRequestContent.getParameter(Const.P_PAGE_NUMBER))) {
-                int pageNumber = Integer.parseInt(sessionRequestContent.getParameter(Const.P_PAGE_NUMBER));
-                int pageSize = 4;
-                newses = newsService.getNewsByCriteria(pageNumber, pageSize, category.getCategoryId());
-            }
-/*            System.out.println('\n' + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + '\n');
-            if (true){
-            String pageNumber = sessionRequestContent.getParameter("pageNumber");
-            System.out.println('\n' + pageNumber + '\n');
+            newses = newsService.getNewsByCriteria(AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, category.getCategoryId());
+            logger.info("\n pageNumber=" + AttributesManager.getInstance().getPageNumber(sessionRequestContent) + ", newses.size()=" + newses.size() + "\n");
+        }
 
-            Integer pageNumberInt = Integer.parseInt(pageNumber);
+        /** --- Attributes for response on main page --- */
+        sessionRequestContent.setSessionAttribute(NEWS, news);
 
-            }else{
-                newses = newsService.getListOfNewsByCategory(category.getCategoryId());
-            }*/
-        }/*else{
-            //newses = newsService.getListOfNewsByCategory(news.getCategory().getCategoryId());
-            String pageNumber = sessionRequestContent.getParameter("pageNumber");
-            System.out.println('\n' + pageNumber + '\n');
-            int pageSize = 4;
-            int pageNumberInt = Integer.parseInt(pageNumber);
-            //newses = newsService.getNewsByCriteria(pageNumberInt, pageSize, news.getCategory().getCategoryId());
-            newses = null;
-        }*/
+        sessionRequestContent.setSessionAttribute(NEWSES, newses);
 
-/** Most popular news attributes getting for response */
-        List<News> listPopNews = newsService.getMostPopularNewsList();
-
-        sessionRequestContent.setSessionAttribute(Const.NEWS, news);
-        sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
-        sessionRequestContent.setSessionAttribute(Const.COMMENTARIES,
+        sessionRequestContent.setSessionAttribute(COMMENTARIES,
                 AttributesManager.getInstance().getCommentariesByNewsId(news.getNewsId()));
-        sessionRequestContent.setSessionAttribute("listPopNews", listPopNews);
-        sessionRequestContent.setSessionAttribute(Const.CATEGORIES,
-                AttributesManager.getInstance().getCategories());
+
+        sessionRequestContent.setSessionAttribute(POPULAR_NEWSES, newsService.getMostPopularNewsList());
+
+        sessionRequestContent.setSessionAttribute(CATEGORIES, getCategories());
+
+        sessionRequestContent.setSessionAttribute(PAGINATOR_LIST,
+                paginator.getList((Long) newsService.getCountNews(category).get(ZERO),
+                        AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE));
+        /** ---------------------------------------------- */
+
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         return page;
     }
+
+    /**
+     * Method for getting list with categories
+     * @return List<Category>
+     */
+    private List<Category> getCategories() {
+        List<Category> categories;
+        categories = categoryService.getCategories();
+        categories.remove(WebConstants.Const.ZERO);
+        return categories;
+    }
+
+    private String getPageId(SessionRequestContent sessionRequestContent) {
+        String pageId;
+        if (sessionRequestContent.getParameter(P_PAGE_ID) != null) {
+            return pageId = sessionRequestContent.getParameter(P_PAGE_ID);
+        } else {
+            return pageId = MAIN;
+        }
+    }
+
 }

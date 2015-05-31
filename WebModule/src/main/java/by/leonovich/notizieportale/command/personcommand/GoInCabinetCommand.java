@@ -13,7 +13,7 @@ public class GoInCabinetCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
+        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
         return page;
     }
 }

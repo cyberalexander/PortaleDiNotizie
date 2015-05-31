@@ -1,5 +1,6 @@
 body {
-	background-image: url(img/bgb.jpg)}
+	background: url(img/body.jpg)
+}
 
 .text {
 	color: white;
@@ -33,13 +34,13 @@ em {
 	color: white;
 	font-family: cursive;
 	font-size: 10pt;
-	align-content: inherit
+	text-align: inherit
 }
 .mostpopnewsheader{
 	color: #5bc0de;
 	font-family: cursive;
 	font-size: 13pt;
-	align-content: center;
+	text-align: center;
 }
 
 .watchnewsbutton{
@@ -50,7 +51,8 @@ em {
 	margin-bottom: 50px}
 
 .col-md-7{
-	text-align: center}
+	text-align: center;
+	align-content: inherit}
 
 img {
 	width:50%;

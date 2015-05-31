@@ -20,7 +20,7 @@ public class Commentary extends CustomEntity{
 
     @Id
     @Column(name = "F_COMMENTARY_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long commentaryId;
 
     @Column(name = "F_COMMENT", columnDefinition = "longtext")
@@ -30,11 +30,11 @@ public class Commentary extends CustomEntity{
     private Date date;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "F_PERSON_ID")
+    @JoinColumn(name = "F_PERSON_ID", nullable = false)
     private Person person;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "F_NEWS_ID")
+    @JoinColumn(name = "F_NEWS_ID", nullable = false)
     private News news;
 
     public Commentary() {

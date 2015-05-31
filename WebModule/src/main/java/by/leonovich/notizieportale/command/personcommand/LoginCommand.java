@@ -1,6 +1,7 @@
 package by.leonovich.notizieportale.command.personcommand;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
@@ -24,14 +25,14 @@ public class LoginCommand implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
         // extracting from the request login and password
-        String email = sessionRequestContent.getParameter(Const.EMAIL);
-        String pass = sessionRequestContent.getParameter(Const.PASSWORD);
+        String email = sessionRequestContent.getParameter(EMAIL);
+        String pass = sessionRequestContent.getParameter(PASSWORD);
         // checking login and password
         if (personService.checkPerson(email, pass)) {
             Person person = personService.authenticationProcess(email);
-            sessionRequestContent.setSessionAttribute(Const.PERSON, person);
+            sessionRequestContent.setSessionAttribute(P_PERSON, person);
             // determination url-path to person_cabinet.jsp
-            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
+            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
         } else {
             sessionRequestContent.setRequestAttribute("errorLoginPassMessage",
                     MessageManager.getInstance().getProperty("message.loginerror"));

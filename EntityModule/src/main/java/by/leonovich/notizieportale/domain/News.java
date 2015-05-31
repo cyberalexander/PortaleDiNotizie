@@ -20,7 +20,7 @@ public class News extends CustomEntity{
 
     @Id
     @Column(name = "F_NEWS_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long newsId;
 
     @Column(name = "F_PAGE_ID")

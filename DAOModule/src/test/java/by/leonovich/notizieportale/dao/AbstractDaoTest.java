@@ -18,6 +18,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static by.leonovich.notizieportale.dao.util.TestConstants.TestConst;
+import static by.leonovich.notizieportale.dao.util.TestConstants.TestConst.DELETED;
+import static by.leonovich.notizieportale.dao.util.TestConstants.TestConst.UNIQUE_PAGE_ID_FOR_UPDATE;
+import static by.leonovich.notizieportale.dao.util.TestConstants.TestConst.ZERO;
 import static org.junit.Assert.*;
 
 /**
@@ -121,9 +124,9 @@ public class AbstractDaoTest {
     @Test
     public void testUpdate() throws Exception {
         dao.save(news);
-        news.setPageId(TestConst.UNIQUE_PAGE_ID_FOR_UPDATE);
+        news.setPageId(UNIQUE_PAGE_ID_FOR_UPDATE);
         dao.update(news);
-        News expected = dao.getByPageId(TestConst.UNIQUE_PAGE_ID_FOR_UPDATE);
+        News expected = dao.getByPageId(UNIQUE_PAGE_ID_FOR_UPDATE);
         assertSame(expected, news);
         logger.info("Saved object " + news.getNewsId() + " - " + news.getPageId() + " - " + news.getTitle());
         logger.info("Updated object " + expected.getNewsId() + " - "  + expected.getPageId() + " - " + expected.getTitle());
@@ -133,10 +136,10 @@ public class AbstractDaoTest {
     public void testDelete() throws Exception {
         dao.save(news);
         assertNotNull(dao.getByPK(news.getNewsId()).getNewsId());
-        news.setStatus(TestConst.DELETED);
+        news.setStatus(DELETED);
         dao.delete(news);
         news = dao.getByPK(news.getNewsId());
-        assertEquals("Can`t change status of object in database ", TestConst.DELETED, news.getStatus());
+        assertEquals("Can`t change status of object in database ", DELETED, news.getStatus());
     }
 
     @Test
@@ -152,6 +155,6 @@ public class AbstractDaoTest {
     public void testGetAll() throws Exception {
         List list = dao.getAll();
         Assert.assertNotNull(list);
-        Assert.assertTrue(list.size() > 0);
+        Assert.assertTrue(list.size() > ZERO);
     }
 }

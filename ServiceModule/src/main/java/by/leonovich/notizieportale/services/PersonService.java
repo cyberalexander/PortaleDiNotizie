@@ -23,10 +23,7 @@ public class PersonService implements IPersonService {
 
     private static PersonService personServiceInst;
     private final ThreadLocal sessionStatus = new ThreadLocal();
-
     private PersonDao personDao;
-    private Session session;
-    private Transaction transaction;
 
     private PersonService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
@@ -48,10 +45,34 @@ public class PersonService implements IPersonService {
     public Person getByPK(Long pK) {
         if (pK != null) {
             Person person = null;
+            Transaction transaction = null;
             try {
-                session = personDao.getSession();
+                Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 person = personDao.getByPK(pK);
+                session.evict(person);
+                transaction.commit();
+            } catch (PersistException e) {
+                transaction.rollback();
+                logger.error(e);
+            }finally {
+                sessionStatus.set(true);
+                personDao.clearSession(sessionStatus);
+            }
+            return person;
+        }
+        return null;
+    }
+
+    @Override
+    public Person loadByPK(Long pK) {
+        if (pK != null) {
+            Person person = null;
+            Transaction transaction = null;
+            try {
+                Session session = personDao.getSession();
+                transaction = session.beginTransaction();
+                person = personDao.loadByPK(pK);
                 transaction.commit();
             } catch (PersistException e) {
                 transaction.rollback();
@@ -74,8 +95,9 @@ public class PersonService implements IPersonService {
     @Override
     public boolean checkPerson(String email, String password) {
         if (!(StringUtils.isNullOrEmpty(email)) && !(StringUtils.isNullOrEmpty(password))) {
+            Transaction transaction = null;
             try {
-                session = personDao.getSession();
+                Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 List<Person> personList = personDao.getAll();
                 transaction.commit();
@@ -105,8 +127,9 @@ public class PersonService implements IPersonService {
     public Person authenticationProcess(String email) {
         if (!(StringUtils.isNullOrEmpty(email))) {
             Person person = null;
+            Transaction transaction = null;
             try {
-                session = personDao.getSession();
+                Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 person = personDao.getByEmail(email);
                 transaction.commit();
@@ -125,8 +148,9 @@ public class PersonService implements IPersonService {
     @Override
     public boolean registerNewPerson(Person person) {
         if (person != null) {
+            Transaction transaction = null;
             try {
-                session = personDao.getSession();
+                Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 List<Person> persons = personDao.getAll();
                 for (Person element : persons) {
@@ -153,8 +177,9 @@ public class PersonService implements IPersonService {
     public Person getPersonByEmail(String email) {
         if (!(StringUtils.isNullOrEmpty(email))) {
             Person person = null;
+            Transaction transaction = null;
             try {
-                session = personDao.getSession();
+                Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 person = personDao.getByEmail(email);
                 transaction.commit();
@@ -175,8 +200,9 @@ public class PersonService implements IPersonService {
         if (person.getPersonId() != null
                 && person.getPersonId() != ServiceConstants.Const.ZERO
                 && person.getPersonId() > ServiceConstants.Const.ZERO) {
+            Transaction transaction = null;
             try {
-                session = personDao.getSession();
+                Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 personDao.update(person);
                 transaction.commit();

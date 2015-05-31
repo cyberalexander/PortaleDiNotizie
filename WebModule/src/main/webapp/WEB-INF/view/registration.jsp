@@ -48,8 +48,6 @@
       <input size="30" id="birthday" name="birthday" placeholder="YYYY-MM-DD"
              pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/><br>
 
-      <input type="hidden" name="role" value="user"/>
-
       <button type="submit" class="btn btn-primary">SAVE</button>
     </form>
   </div>

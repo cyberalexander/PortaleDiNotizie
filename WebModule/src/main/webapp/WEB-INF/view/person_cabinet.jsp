@@ -92,7 +92,9 @@
                     <p class="text">Birthday: </p>
                 </td>
                 <td>
-                    <p class="text">${person.personDetail.birthday}</p>
+                    <p class="text">
+                        ${person.personDetail.birthday}
+                    </p>
                 </td>
             </tr>
             <tr>

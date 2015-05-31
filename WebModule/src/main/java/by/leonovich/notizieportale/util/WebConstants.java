@@ -1,5 +1,7 @@
 package by.leonovich.notizieportale.util;
 
+import by.leonovich.notizieportale.domain.util.RoleEnum;
+
 /**
  * Created by alexanderleonovich on 15.05.15.
  */
@@ -19,7 +21,6 @@ public class WebConstants {
         public static final String COMMENT_FOR_EDIT = "commentForEdit";
 
         public static final String MAIN = "main";
-        public static final String PERSON = "person";
         public static final String NEWS = "news";
         public static final String NEWSES = "newses";
         public static final String COMMENTARIES = "commentaries";
@@ -29,14 +30,18 @@ public class WebConstants {
         public static final String FROM_EDITWRITE = "edit";
 
 
-        public static final String USERTYPE = "usertype";
-        public static final String ADMIN = "admin";
+        public static final String PERSONTYPE = "persontype";
+        public static final RoleEnum ADMIN = RoleEnum.ADMIN;
+        public static final RoleEnum PERSON = RoleEnum.USER;
+        public static final String P_PERSON = "person";
         public static final String EMAIL = "email";
         public static final String PASSWORD = "password";
 
         public static final int ZERO = 0;
         public static final int ONE = 1;
         public static final int FIVE = 5;
+        public static final int THREE = 3;
+        public static final int PAGES_PACK_SIZE = 5;
 
         /* ! NAME OF PARAMETERS FROM CLIENT LAYER */
         public static final String P_PAGE_ID = "pageId";
@@ -59,5 +64,7 @@ public class WebConstants {
         public static final String P_PAGE_NUMBER = "pageNumber";
         public static final String ROLE = "role";
         public static final String DATE_PATTERN = "yyyy-MM-dd";
+        public static final String POPULAR_NEWSES = "popularNewses";
+        public static final String PAGINATOR_LIST = "paginatorList";
     }
 }

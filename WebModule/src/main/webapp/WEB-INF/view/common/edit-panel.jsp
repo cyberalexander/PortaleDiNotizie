@@ -12,7 +12,6 @@
     <title></title>
 </head>
 <body>
-
 <table>
     <caption>EDIT PANEL</caption>
     <tr>
@@ -21,7 +20,8 @@
             <form method="post" action="controller">
                 <input type="hidden" name="command" value="editnews"/>
                 <input type="hidden" name="newsIdForEdit" value="${news.newsId}">
-                <button type="submit" class="btn btn-info">edit ${news.title}</button>
+                <input type="hidden" name="newses" value="${newses}"/>
+                <button type="submit" class="btn btn-info">edit this news page</button>
             </form>
         </th>
         <th>
@@ -30,18 +30,21 @@
                         <form name="delete_news_form" method="post" action="controller">
                             <input type="hidden" name="command" value="deletenews"/>
                             <input type="hidden" name="newsIdForDelete" value="${news.newsId}">
-                            <button type="submit" class="btn btn-danger">DELETE ${news.title} !!!</button>
+                            <input type="hidden" name="newses" value="${newses}"/>
+                            <button type="submit" class="btn btn-danger">DELETE this news page !!!</button>
                         </form>
                     </c:if>
         </th>
         <th>
             <%-- BUTTON FOR ADDING NEWS IN CATEGORY OR FOR ADDING NEW CATEGORY --%>
-            <form method="post" action="controller">
+                <c:if test="${news.category.categoryId == 1}">
+                <form method="post" action="controller">
                 <input type="hidden" name="command" value="addnews"/>
+                <input type="hidden" name="newses" value="${newses}"/>
 
                 <c:if test="${newses[0] != null}">
                     <c:set var="category" scope="session" value="${newses[0].category.categoryName}"/>
-                    <c:set var="newsList" scope="session" value="${newses}"/>
+                    <c:set var="newses" scope="session" value="${newses}"/>
                 </c:if>
                 <c:if test="${newses[0] == null}">
                     <c:set var="category" scope="session" value="${news.pageId}"/>
@@ -56,8 +59,8 @@
                 <c:if test="${news.category.categoryName != 'main' && news.pageId != 'main'}">
                     <button type="submit"  class="btn btn-success">Add new ${news.category.categoryName} news</button>
                 </c:if>
-
             </form>
+                </c:if>
         </th>
     </tr>
 </table>

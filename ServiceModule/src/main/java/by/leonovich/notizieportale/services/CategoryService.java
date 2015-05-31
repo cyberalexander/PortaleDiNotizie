@@ -26,8 +26,6 @@ public class CategoryService implements ICategoryService {
     private final ThreadLocal sessionStatus = new ThreadLocal();
 
     private CategoryDao categoryDao;
-    private Session session;
-    private Transaction transaction;
 
     private CategoryService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
@@ -49,13 +47,12 @@ public class CategoryService implements ICategoryService {
     @Override
     public Category getCategoryByPK(Long PK) {
         Category category = new Category();
+        Transaction transaction = null;
         try {
-            session = categoryDao.getSession();
+            Session session = categoryDao.getSession();
             transaction = session.beginTransaction();
-            category = (Category) categoryDao.getByPK(PK);
-            logger.info("Category-list size: " + category.getCategoryId());
+            category = categoryDao.getByPK(PK);
             transaction.commit();
-            logger.info("successful get list!");
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
             transaction.rollback();
@@ -71,8 +68,9 @@ public class CategoryService implements ICategoryService {
     @Override
     public List<Category> getCategories() {
         List<Category> list = null;
+        Transaction transaction = null;
         try {
-            session = categoryDao.getSession();
+            Session session = categoryDao.getSession();
             transaction = session.beginTransaction();
             list = categoryDao.getAll();
             logger.info("Category-list size: " + list.size());
@@ -95,8 +93,9 @@ public class CategoryService implements ICategoryService {
     @Override
     public Long saveCategory(Category category) {
         Long savedCategoryId = null;
+        Transaction transaction = null;
         try {
-            session = categoryDao.getSession();
+            Session session = categoryDao.getSession();
             transaction = session.beginTransaction();
             category.setStatus(StatusEnum.SAVED);
             savedCategoryId = categoryDao.save(category);
@@ -113,7 +112,7 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public Category updateCommentary(Category category) {
+    public Category updateCategory(Category category) {
         return null;
     }
 
@@ -121,8 +120,9 @@ public class CategoryService implements ICategoryService {
     public Category deleteCategory(Category category) {
         if (null != category.getCategoryId()) {
         Long deletedCategoryId = category.getCategoryId();
+            Transaction transaction = null;
             try {
-                session = categoryDao.getSession();
+                Session session = categoryDao.getSession();
                 transaction = session.beginTransaction();
                 category.setStatus(StatusEnum.DELETED);
                 categoryDao.update(category);
@@ -144,8 +144,9 @@ public class CategoryService implements ICategoryService {
     @Override
     public void removeCategory(Category category) {
         if (null != category.getCategoryId()) {
+            Transaction transaction = null;
             try {
-                session = categoryDao.getSession();
+                Session session = categoryDao.getSession();
                 transaction = session.beginTransaction();
                 categoryDao.remove(category);
                 transaction.commit();
@@ -163,10 +164,11 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public Category getCategoryByName(String category) {
-        Category categoryObj = null;
+        Category categoryObj;
         if (!(StringUtils.isNullOrEmpty(category))) {
+            Transaction transaction = null;
             try {
-                session = categoryDao.getSession();
+                Session session = categoryDao.getSession();
                 transaction = session.beginTransaction();
                 categoryObj = categoryDao.getByName(category);
                 transaction.commit();

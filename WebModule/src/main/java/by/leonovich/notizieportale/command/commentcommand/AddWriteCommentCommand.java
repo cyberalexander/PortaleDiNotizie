@@ -1,6 +1,8 @@
 package by.leonovich.notizieportale.command.commentcommand;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.*;
+import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
@@ -37,7 +39,7 @@ public class AddWriteCommentCommand implements IActionCommand {
         Commentary comment = new Commentary();
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String dateInString = sessionRequestContent.getParameter(Const.P_DATE);
+        String dateInString = sessionRequestContent.getParameter(P_DATE);
 
         try {
 
@@ -48,34 +50,31 @@ public class AddWriteCommentCommand implements IActionCommand {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Date date = Date.valueOf(sessionRequestContent.getParameter(Const.P_DATE));
+        Date date = Date.valueOf(sessionRequestContent.getParameter(P_DATE));
 
-        if (sessionRequestContent.getSessionAttribute(Const.COMMENT_FOR_EDIT) != null) {
-            if (sessionRequestContent.getParameter(Const.P_CONTENT) != null) {
+        if (sessionRequestContent.getSessionAttribute(COMMENT_FOR_EDIT) != null) {
+            if (sessionRequestContent.getParameter(P_CONTENT) != null) {
                 comment = commentaryService.getCommentaryByPK(
-                        Long.parseLong(sessionRequestContent.getParameter(Const.P_COMMENTARY_ID)));
-                comment.setComment(sessionRequestContent.getParameter(Const.P_CONTENT));
+                        Long.parseLong(sessionRequestContent.getParameter(P_COMMENTARY_ID)));
+                comment.setComment(sessionRequestContent.getParameter(P_CONTENT));
                 comment.setDate(date);
                 commentaryService.updateCommentary(comment);
-                sessionRequestContent.removeSessionAttribute(Const.COMMENT_FOR_EDIT);
+                sessionRequestContent.removeSessionAttribute(COMMENT_FOR_EDIT);
             }
         }else {
-            if (sessionRequestContent.getParameter(Const.P_CONTENT) != null) {
-                News news = newsService.getNewsByPK(Long.parseLong(
-                        sessionRequestContent.getParameter(Const.P_NEWS_ID)));
+            if (sessionRequestContent.getParameter(P_CONTENT) != null) {
+                comment.setPerson(personService.getByPK(Long.parseLong(sessionRequestContent.getParameter(P_PERSON_ID))));
+                comment.setNews(newsService.getNewsByPK(Long.parseLong(sessionRequestContent.getParameter(P_NEWS_ID))));
 
-                comment.setPerson((Person) sessionRequestContent.getSessionAttribute(Const.PERSON));
-                comment.setNews(news);
-
-                comment.setComment(sessionRequestContent.getParameter(Const.P_CONTENT));
+                comment.setComment(sessionRequestContent.getParameter(P_CONTENT));
                 comment.setDate(date);
                 commentaryService.saveCommentary(comment);
             }
         }
         //adding commentary in session for adding on news page after writing and save comment
-        Long newsId = Long.parseLong(sessionRequestContent.getParameter(Const.P_NEWS_ID));
+        Long newsId = Long.parseLong(sessionRequestContent.getParameter(P_NEWS_ID));
         List<Commentary> commentaries = commentaryService.getCommentariesByNewsId(newsId);
-        sessionRequestContent.setSessionAttribute(Const.COMMENTARIES , commentaries);
+        sessionRequestContent.setSessionAttribute(COMMENTARIES , commentaries);
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         return page;

@@ -13,6 +13,8 @@ import by.leonovich.notizieportale.command.personcommand.*;
  * COMMAND ENUMERATION
  */
 public enum CommandEnum {
+
+
     LOGIN {
         {
             this.command = new LoginCommand();

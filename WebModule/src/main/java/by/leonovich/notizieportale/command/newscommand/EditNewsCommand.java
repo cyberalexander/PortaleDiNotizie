@@ -11,6 +11,8 @@ import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
 import org.apache.log4j.Logger;
 
+import java.util.List;
+
 /**
  * Created by alexanderleonovich on 21.04.15.
  */
@@ -27,6 +29,8 @@ public class EditNewsCommand implements IActionCommand {
         String page;
         Long newsId = Long.parseLong(sessionRequestContent.getParameter(Const.P_NEWS_ID_4_EDIT));
         News news = newsService.getNewsByPK(newsId);
+        List<News> newses = (List<News>) sessionRequestContent.getSessionAttribute(Const.NEWSES);
+        sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
         if (news != null) {
             sessionRequestContent.setSessionAttribute(Const.NEWS, news);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_EDIT_NEWS.getUrlCode());

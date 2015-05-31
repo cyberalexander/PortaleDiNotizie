@@ -3,6 +3,7 @@ package by.leonovich.notizieportale.services;
 import by.leonovich.notizieportale.dao.NewsDao;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.util.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
@@ -27,8 +28,6 @@ public class NewsService implements INewsService {
     private NewsDao newsDao;
 
     private final ThreadLocal sessionStatus = new ThreadLocal();
-    private Session session;
-    private Transaction transaction;
 
     private NewsService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
@@ -44,7 +43,6 @@ public class NewsService implements INewsService {
      * Method for creating fabric
      * 1. First, you must create an instance factory or get it, and then through it to create Dao objects to the entity
      * over which you plan to perform CRUD operations.
-     *
      * @return instance of CommentaryService
      */
     public static synchronized NewsService getInstance() {
@@ -58,8 +56,9 @@ public class NewsService implements INewsService {
     @Override
     public News getNewsByPK(Long PK) {
         News news = null;
+        Transaction transaction = null;
         try {
-            session = newsDao.getSession();
+            Session session = newsDao.getSession();
             transaction = session.beginTransaction();
             news = newsDao.getByPK(PK);
             transaction.commit();
@@ -79,8 +78,9 @@ public class NewsService implements INewsService {
     public News getNewsByPageId(String pageId) {
         News news = null;
         if (!(StringUtils.isNullOrEmpty(pageId))) {
+            Transaction transaction = null;
             try {
-                session = newsDao.getSession();
+                Session session = newsDao.getSession();
                 transaction = session.beginTransaction();
                 news = newsDao.getByPageId(pageId);
                 transaction.commit();
@@ -100,8 +100,9 @@ public class NewsService implements INewsService {
     @Override
     public List<News> getListOfNewsByPersonId(Long personId) {
         List<News> newses = null;
+        Transaction transaction = null;
         try {
-            session = newsDao.getSession();
+            Session session = newsDao.getSession();
             transaction = session.beginTransaction();
             newses = newsDao.getByPersonPK(personId);
             transaction.commit();
@@ -120,8 +121,9 @@ public class NewsService implements INewsService {
     @Override
     public List<News> getListOfNewsByCategory(Long categoryId) {
         List<News> newses = null;
+        Transaction transaction = null;
         try {
-            session = newsDao.getSession();
+            Session session = newsDao.getSession();
             transaction = session.beginTransaction();
             newses = newsDao.getByCategoryPK(categoryId);
             transaction.commit();
@@ -140,8 +142,9 @@ public class NewsService implements INewsService {
     @Override
     public Long saveNews(News news) {
         Long savedNewsId = null;
+        Transaction transaction = null;
         try {
-            session = newsDao.getSession();
+            Session session = newsDao.getSession();
             transaction = session.beginTransaction();
             news.setStatus(StatusEnum.SAVED);
             savedNewsId = newsDao.save(news);
@@ -162,8 +165,9 @@ public class NewsService implements INewsService {
     public News updateNews(News news) {
         if (null != news.getNewsId()) {
             Long deletedNewsId = news.getNewsId();
+            Transaction transaction = null;
             try {
-                session = newsDao.getSession();
+                Session session = newsDao.getSession();
                 transaction = session.beginTransaction();
                 news.setStatus(StatusEnum.SAVED);
                 newsDao.update(news);
@@ -186,8 +190,9 @@ public class NewsService implements INewsService {
     public News deleteNews(News news) {
         if (null != news.getNewsId()) {
             Long deletedNewsId = news.getNewsId();
+            Transaction transaction = null;
             try {
-                session = newsDao.getSession();
+                Session session = newsDao.getSession();
                 transaction = session.beginTransaction();
                 news.setStatus(StatusEnum.DELETED);
                 newsDao.update(news);
@@ -239,8 +244,9 @@ public class NewsService implements INewsService {
     @Override
     public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId) {
         List<News> newses = new ArrayList<>();
+        Transaction transaction = null;
         try {
-            session = newsDao.getSession();
+            Session session = newsDao.getSession();
             transaction = session.beginTransaction();
             newses = newsDao.getNewsByCriteria(pageNumber, pageSize, categoryId);
             transaction.commit();
@@ -254,5 +260,26 @@ public class NewsService implements INewsService {
             newsDao.clearSession(sessionStatus);
         }
         return newses;
+    }
+
+    @Override
+    public List getCountNews(Category category) {
+        List result = null;
+        Transaction transaction = null;
+        try {
+            Session session = newsDao.getSession();
+            transaction = session.beginTransaction();
+            result = newsDao.countNews(category);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        } finally {
+            sessionStatus.set(true);
+            newsDao.clearSession(sessionStatus);
+        }
+        return result;
     }
 }

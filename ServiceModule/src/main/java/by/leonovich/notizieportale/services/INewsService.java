@@ -1,5 +1,6 @@
 package by.leonovich.notizieportale.services;
 
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 
 import java.util.List;
@@ -29,5 +30,5 @@ public interface INewsService {
 
     List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId);
 
-    // List<News> getListOfNewsByPageId(String pageId);
+    List getCountNews(Category category);
 }

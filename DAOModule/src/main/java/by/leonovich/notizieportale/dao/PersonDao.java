@@ -3,14 +3,17 @@ package by.leonovich.notizieportale.dao;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.util.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.util.DaoConstants;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.LinkedList;
 import java.util.List;
+
+import static by.leonovich.notizieportale.domain.util.StatusEnum.*;
+import static by.leonovich.notizieportale.util.DaoConstants.Const.EMAIL;
+import static by.leonovich.notizieportale.util.DaoConstants.Const.STATUS;
 
 /**
  * Created by alexanderleonovich on 11.04.15.
@@ -24,22 +27,20 @@ public class PersonDao extends AbstractDao<Person> {
 
     @Override
     protected List<Person> parseResultSet(Session session) throws PersistException {
-        StatusEnum status = StatusEnum.SAVED;
-        List<Person> list;
-        String hql = "SELECT p FROM Person p WHERE p.status=:status";
-        Query query = session.createQuery(hql).setParameter("status", status);
-        list = query.list();
-        return list;
+        Criteria criteria = session.createCriteria(Person.class);
+        criteria.add(Restrictions.eq(STATUS, SAVED));
+        List<Person> result = criteria.list();
+        return result;
     }
 
     public Person getByEmail(String email) throws PersistException {
-        session = getSession();
-        StatusEnum status = StatusEnum.SAVED;
+        Session session = getSession();
+        StatusEnum status = SAVED;
         Person person;
         String hql = "SELECT p FROM Person p WHERE p.status=:status and p.personDetail.email=:email";
         Query query = session.createQuery(hql)
-                .setParameter("status", status)
-                .setParameter("email", email);
+                .setParameter(STATUS, status)
+                .setParameter(EMAIL, email);
         person = (Person) query.uniqueResult();
         return person;
     }

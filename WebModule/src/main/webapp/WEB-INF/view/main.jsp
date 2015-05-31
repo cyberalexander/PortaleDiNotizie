@@ -21,11 +21,7 @@
 <div class="container">
     <%-- HEADER FOR NEWS OR FOR PAGE, WHAT USER WATCH NOW --%>
     <c:import url="common/header.jsp"/>
-    <p class="errormessage">${addNewsComErr} ${addingNewsError}${NoPageForEdit}</p>
-
     <div class="col-md-2" style="text-align: left">
-        <%-- BODY OF NEWS-PAGE --%>
-
         <%-- BUTTTON FOR RETURN ON MAIN PAGE, OR ON HEAD PAGE OF CATEGORY --%>
         <a href="controller?command=shownews&pageId=${news.category.categoryName}">
             <c:if test="${news.category.categoryName != null}">
@@ -53,25 +49,30 @@
         <c:if test="${news.newsId == 1}">
             <p class="text">${news.content}</p>
 
-            <p align="right"><em>${news.date}</em></p>
+            <p align="right">
+                <em>
+                    <fmt:formatDate pattern="dd-MMM-yyyy" value="${news.date}"/>
+                </em>
+            </p>
         </c:if>
 
         <c:if test="${news.category.categoryName eq 'main' && news.newsId != 1}">
             <c:forEach items="${newses}" var="newsObj">
-                <p class="mostpopnewsheader">${newsObj.menuTitle}</p>
+                <p class="mostpopnewsheader"><a
+                        href="controller?command=shownews&pageId=${newsObj.pageId}">${newsObj.menuTitle}</a></p>
+
                 <p class="text">
-                  ${newsObj.annotation}
-                  <a href="controller?command=shownews&pageId=${newsObj.pageId}">read more...</a>
+                        ${newsObj.annotation}
+                    <a href="controller?command=shownews&pageId=${newsObj.pageId}">read more...</a>
                 </p>
+
                 <p align="right">
                     <em>
                         <fmt:formatDate pattern="dd-MMM-yyyy" value="${newsObj.date}"/>
                     </em>
                 </p>
             </c:forEach>
-            <a href="controller?command=shownews&pageNumber=1&pageId=${news.pageId}">1</a>
-            <a href="controller?command=shownews&pageNumber=2&pageId=${news.pageId}">2</a>
-            <a href="controller?command=shownews&pageNumber=3&pageId=${news.pageId}">3</a>
+            <c:import url="common/pagination.jsp"/>
         </c:if>
 
         <c:if test="${news.category.categoryId != 1}">
@@ -80,17 +81,15 @@
 
             <p align="left"><em>${news.person.surname}</em></p>
 
-            <p align="right"><em>${news.date}</em></p>
-            <c:if test="${usertype eq 'ADMINISTRATOR' || usertype eq 'USER'}">
+            <p align="right"><em><fmt:formatDate pattern="dd-MMM-yyyy" value="${news.date}"/></em></p>
+            <c:if test="${persontype eq 'ADMIN' || persontype eq 'USER'}">
                 <%-- IMPORT FORM FOR ADDING COMMENT FOR NEWS --%>
                 <c:import url="common/commentary_form.jsp"/>
-                <hr/>
             </c:if>
         </c:if>
-        <c:if test="${usertype eq 'ADMINISTRATOR' || usertype eq 'USER'}">
+        <c:if test="${persontype eq 'ADMIN' || persontype eq 'USER'}">
             <%-- EDIT-PANEL FOR NEWS OR FOR PAGE, WHAT AUTORIZED USER WATCH NOW --%>
             <c:import url="common/edit-panel.jsp"/>
-            <hr/>
         </c:if>
 
         <%--COMMENT-CONTENT FOR NEWS, WHAT USER WATCH NOW --%>
@@ -102,7 +101,7 @@
             <br/>
 
             <h3 class="headersecondlevel">Most popular</h3>
-            <c:forEach items="${listPopNews}" var="popNews">
+            <c:forEach items="${popularNewses}" var="popNews">
                 <hr/>
                 <a href="controller?command=shownews&pageId=${popNews.pageId}&category=${popNews.category.categoryName}">
                     <p class="mostpopnewsheader">${popNews.title}</p>
@@ -116,7 +115,6 @@
         </div>
 
     </div>
-</div>
 </div>
 </body>
 </html>

@@ -13,6 +13,19 @@ import java.util.List;
  */
 public class Paginator implements IPaginator {
 
+    private static Paginator paginatorInstance;
+
+    private Paginator(){
+
+    }
+
+    public static synchronized Paginator getInstance(){
+        if (paginatorInstance == null){
+            paginatorInstance = new Paginator();
+        }
+        return paginatorInstance;
+    }
+
     private int size(long numberOfPages, int pageSize) {
         return (int)Math.ceil((numberOfPages-1)/pageSize)+1;
     }

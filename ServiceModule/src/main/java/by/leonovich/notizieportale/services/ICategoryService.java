@@ -15,7 +15,7 @@ public interface ICategoryService {
 
     Long saveCategory(Category category);
 
-    Category updateCommentary(Category category);
+    Category updateCategory(Category category);
 
     Category deleteCategory(Category category);
 

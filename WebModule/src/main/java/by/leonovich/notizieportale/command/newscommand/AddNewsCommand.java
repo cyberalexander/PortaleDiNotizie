@@ -1,9 +1,15 @@
 package by.leonovich.notizieportale.command.newscommand;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 
 import by.leonovich.notizieportale.command.IActionCommand;
+import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
+import by.leonovich.notizieportale.services.CategoryService;
+import by.leonovich.notizieportale.services.ICategoryService;
+import by.leonovich.notizieportale.services.INewsService;
+import by.leonovich.notizieportale.services.NewsService;
 import by.leonovich.notizieportale.util.*;
 
 import java.util.List;
@@ -16,38 +22,87 @@ import java.util.regex.Pattern;
  */
 public class AddNewsCommand implements IActionCommand {
 
+    private INewsService newsService;
+    private ICategoryService categoryService;
+
+    public AddNewsCommand() {
+        newsService = NewsService.getInstance();
+        categoryService = CategoryService.getInstance();
+    }
+
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page;
-        String pageId;
+        String page = null;
+        String pageId = null;
 
         // get newsList from session
-        List<News> newses = (List<News>) sessionRequestContent.getSessionAttribute(Const.NEWSES);
         News news = (News) sessionRequestContent.getSessionAttribute(Const.NEWS);
-        if (newses.size() > Const.ZERO && !(Const.MAIN.equals(news.getPageId()))) {
+        if (news.getCategory().getCategoryName().equals(MAIN)) {
+            if (news.getPageId().equals(MAIN)) {
+                sessionRequestContent.removeSessionAttribute(P_PAGE_ID);
+                sessionRequestContent.setRequestAttribute(P_CATEGORY, news.getPageId());
+                page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
+                return page;
+            }else{
+                Category category = categoryService.getCategoryByName(news.getPageId());
+                List<News> list = newsService.getListOfNewsByCategory(category.getCategoryId());
+                if (list != null && list.size() > Const.ZERO) {
+                    pageId = newsService.getNewsByPK(list.get(list.size() - ONE).getNewsId()).getPageId();
+                } else {
+                    pageId = news.getPageId() + Const.ONE;
+                    sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
+                    page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
+                    return page;
+                }
+                System.out.println("\n" + news.getCategory() + "\n");
+                // --- increasing number of page_id --------------------
+                pageId = pageIdIncreasing(pageId);
+                //-----------------------------------------------------
+                sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
+                page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
+            }
+        } else if (!(news.getCategory().getCategoryName().equals(MAIN))) {
+            List<News> list = newsService.getListOfNewsByCategory(news.getCategory().getCategoryId());
+            if (list != null  && list.size() > Const.ZERO) {
+                pageId = newsService.getNewsByPK(list.get(list.size() - ONE).getNewsId()).getPageId();
+            }else {
+                pageId = news.getPageId();
+            }
+            sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
+            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
+        }else{
+            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+            sessionRequestContent.setRequestAttribute("addNewsComErr", MessageManager.getInstance().getProperty("message.addNewsComErr"));
+            return page;
+        }
+        /*List<News> newses = (List<News>) sessionRequestContent.getSessionAttribute(Const.NEWSES);
+        if (newses.size() > Const.ZERO && !(MAIN.equals(news.getPageId()))) {
             // get page_id from last element in newsList
-            pageId = newses.get(newses.size() - 1).getPageId();
+            List<News> list = newsService.getListOfNewsByCategory(newses.get(ZERO).getCategory().getCategoryId());
+            pageId = newsService.getNewsByPK(list.get(list.size() - ONE).getNewsId()).getPageId();
+            System.out.println("\n" + news.getCategory() + "\n");
             // --- increasing number of page_id --------------------
             pageId = pageIdIncreasing(pageId);
             //-----------------------------------------------------
-            sessionRequestContent.setSessionAttribute(Const.P_PAGE_ID, pageId);
+            sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
             return page;
         } else if (newses.size() == WebConstants.Const.ZERO) {
             pageId = news.getPageId() + Const.ONE;
-            sessionRequestContent.setSessionAttribute(Const.P_PAGE_ID, pageId);
+            sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
             return page;
-        } else if(Const.MAIN.equals(news.getPageId())){
-            sessionRequestContent.removeSessionAttribute(Const.P_PAGE_ID);
-            sessionRequestContent.setRequestAttribute(Const.P_CATEGORY, news.getPageId());
+        } else if(MAIN.equals(news.getPageId())){
+            sessionRequestContent.removeSessionAttribute(P_PAGE_ID);
+            sessionRequestContent.setRequestAttribute(P_CATEGORY, news.getPageId());
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
             return page;
         }else{
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
             sessionRequestContent.setRequestAttribute("addNewsComErr", MessageManager.getInstance().getProperty("message.addNewsComErr"));
             return page;
-        }
+        }*/
+        return page;
     }
 
     /**
@@ -65,7 +120,7 @@ public class AddNewsCommand implements IActionCommand {
             idOfPage = m.group();
             startIndex = m.start();
         }
-        int number = Integer.parseInt(idOfPage);
+        long number = Long.parseLong(idOfPage);
         number++;
         pageId = pageId.substring(WebConstants.Const.ZERO, startIndex);
         pageId = pageId + String.valueOf(number);

@@ -16,10 +16,12 @@ public class AddWriteNewsCommand implements IActionCommand {
 
     private AttributesManager attributesManager;
     private INewsService newsService;
+    private ShowNewsCommand showNewsCommand;
 
     public AddWriteNewsCommand() {
         attributesManager = AttributesManager.getInstance();
         newsService = NewsService.getInstance();
+        showNewsCommand = new ShowNewsCommand();
     }
 
     @Override
@@ -28,12 +30,8 @@ public class AddWriteNewsCommand implements IActionCommand {
         News news = new News();
         news = attributesManager.parseParametersOfNews(sessionRequestContent, news);
         Long operationResult = newsService.saveNews(news);
-        if (operationResult != null && operationResult > 0) {
-// Calling setterOfAtributes (request, news) to fill in the attributes of the session (the news that the user will see;
-// A list of news or categories that will lead to a page with news
-            news = newsService.getNewsByPK(operationResult);
-            System.out.println('\n' + news.toString() + '\n');
-            attributesManager.setAtributesForResponse(sessionRequestContent, news, Const.FROM_ADDWRITE);
+        if (operationResult != null && operationResult > Const.ZERO) {
+            showNewsCommand.execute(sessionRequestContent);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         }else{
             sessionRequestContent.setRequestAttribute("addingNewsError",

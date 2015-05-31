@@ -1,6 +1,7 @@
 package by.leonovich.notizieportale.command.personcommand;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
@@ -23,7 +24,7 @@ public class EditWritePersonCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Person person = (Person) sessionRequestContent.getSessionAttribute(Const.PERSON);
+        Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
         PersonDetail personDetail = person.getPersonDetail();
         if (!StringUtils.isNullOrEmpty(sessionRequestContent.getParameter(Const.P_NEW_EMAIL))) {
             personDetail.setEmail(sessionRequestContent.getParameter(Const.P_NEW_EMAIL));
@@ -42,8 +43,8 @@ public class EditWritePersonCommand implements IActionCommand {
         person.setPersonDetail(personDetail);
         personService.updateUserInformation(person);
 
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_USERCABINET.getUrlCode());
-        sessionRequestContent.setSessionAttribute(Const.PERSON, person);
+        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
+        sessionRequestContent.setSessionAttribute(P_PERSON, person);
         sessionRequestContent.setRequestAttribute("infoUpdated", MessageManager.getInstance().getProperty("message.user.info.updated"));
         return page;
     }

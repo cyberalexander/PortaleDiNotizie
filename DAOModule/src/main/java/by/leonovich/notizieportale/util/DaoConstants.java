@@ -16,6 +16,12 @@ public class DaoConstants {
 
 
         public static final Object ERROR_UPDATE_ENTITY = "Error update ENTITY in Dao. ";
+        public static final String STATUS = "status";
+        public static final String EMAIL = "email";
+        public static final String PRIMARY_KEY = "pK";
+        public static final String DATE = "date";
+        public static final String PAGE_ID = "pageId";
+        public static final int ONE = 1;
 //        public static final String CANT_FIND_BY_PK = "Exception on findByPK new persist data.";
     }
 }
