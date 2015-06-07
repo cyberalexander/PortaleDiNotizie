@@ -5,7 +5,7 @@ import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.services.util.ServiceConstants;
 import com.mysql.jdbc.StringUtils;
@@ -15,6 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class NewsService implements INewsService {
 
     private static NewsService newsServiceInst;
     private NewsDao newsDao;
+    private Transaction transaction;
 
     private final ThreadLocal sessionStatus = new ThreadLocal();
 
@@ -52,15 +54,18 @@ public class NewsService implements INewsService {
         return newsServiceInst;
     }
 
-
+    /**
+     *
+     * @param personId
+     * @return
+     */
     @Override
-    public News getNewsByPK(Long PK) {
-        News news = null;
-        Transaction transaction = null;
+    public List<News> getNewsesByPersonId(Long personId) {
+        List<News> newses = null;
         try {
             Session session = newsDao.getSession();
             transaction = session.beginTransaction();
-            news = newsDao.getByPK(PK);
+            newses = newsDao.getByPersonId(personId, session);
             transaction.commit();
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
@@ -68,21 +73,91 @@ public class NewsService implements INewsService {
         } catch (PersistException e) {
             logger.error(e);
         }finally {
-            sessionStatus.set(true);
-            newsDao.clearSession(sessionStatus);
+            newsDao.clearSession();
         }
-        return news;
+        return newses;
     }
 
+    /**
+     *
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<News> getNewsesByCategoryId(Long categoryId) {
+        List<News> newses = null;
+        try {
+            Session session = newsDao.getSession();
+            transaction = session.beginTransaction();
+            newses = newsDao.getByCategoryId(categoryId, session);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }finally {
+            newsDao.clearSession();
+        }
+        return newses;
+    }
+
+    @Override
+    public List<News> getListOfNewsByCategoryIdNoOrder(Long categoryId) {
+        List<News> newses = null;
+        try {
+            Session session = newsDao.getSession();
+            transaction = session.beginTransaction();
+            newses = newsDao.getByCategoryIdNoOrder(categoryId, session);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }finally {
+            newsDao.clearSession();
+        }
+        return newses;
+    }
+
+    /**
+     *
+     * @param date
+     * @return
+     */
+    @Override
+    public List<News> getNewsesByDate(Date date) {
+        List<News> newses = null;
+        try {
+            Session session = newsDao.getSession();
+            transaction = session.beginTransaction();
+            newses = newsDao.getByDate(date, session);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }finally {
+            newsDao.clearSession();
+        }
+        return newses;
+    }
+
+    /**
+     *
+     * @param pageId
+     * @return
+     */
     @Override
     public News getNewsByPageId(String pageId) {
         News news = null;
         if (!(StringUtils.isNullOrEmpty(pageId))) {
-            Transaction transaction = null;
             try {
                 Session session = newsDao.getSession();
                 transaction = session.beginTransaction();
-                news = newsDao.getByPageId(pageId);
+                news = newsDao.getByPageId(pageId, session);
                 transaction.commit();
             } catch (HibernateException e) {
                 logger.error("Error get list of Categories from database" + e);
@@ -90,130 +165,60 @@ public class NewsService implements INewsService {
             } catch (PersistException e) {
                 logger.error(e);
             }finally {
-                sessionStatus.set(true);
-                newsDao.clearSession(sessionStatus);
+                newsDao.clearSession();
             }
         }
         return news;
     }
 
+    /**
+     *
+     * @param pageNumber
+     * @param pageSize
+     * @param categoryId
+     * @return
+     */
     @Override
-    public List<News> getListOfNewsByPersonId(Long personId) {
-        List<News> newses = null;
-        Transaction transaction = null;
+    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId) {
+        List<News> newses = new ArrayList<>();
         try {
             Session session = newsDao.getSession();
             transaction = session.beginTransaction();
-            newses = newsDao.getByPersonPK(personId);
+            newses = newsDao.getNewsByCriteria(pageNumber, pageSize, categoryId, session);
             transaction.commit();
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
             transaction.rollback();
         } catch (PersistException e) {
             logger.error(e);
-        }finally {
-            sessionStatus.set(true);
-            newsDao.clearSession(sessionStatus);
+        } finally {
+            newsDao.clearSession();
         }
         return newses;
     }
 
+    /**
+     *
+     * @param category
+     * @return
+     */
     @Override
-    public List<News> getListOfNewsByCategory(Long categoryId) {
-        List<News> newses = null;
-        Transaction transaction = null;
+    public List getCountNews(Category category) {
+        List result = null;
         try {
             Session session = newsDao.getSession();
             transaction = session.beginTransaction();
-            newses = newsDao.getByCategoryPK(categoryId);
+            result = newsDao.countNews(category, session);
             transaction.commit();
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
             transaction.rollback();
         } catch (PersistException e) {
             logger.error(e);
-        }finally {
-            sessionStatus.set(true);
-            newsDao.clearSession(sessionStatus);
+        } finally {
+            newsDao.clearSession();
         }
-        return newses;
-    }
-
-    @Override
-    public Long saveNews(News news) {
-        Long savedNewsId = null;
-        Transaction transaction = null;
-        try {
-            Session session = newsDao.getSession();
-            transaction = session.beginTransaction();
-            news.setStatus(StatusEnum.SAVED);
-            savedNewsId = newsDao.save(news);
-            transaction.commit();
-        } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
-            transaction.rollback();
-        } catch (PersistException e) {
-            logger.error(e);
-        }finally {
-            sessionStatus.set(true);
-            newsDao.clearSession(sessionStatus);
-        }
-        return savedNewsId;
-    }
-
-    @Override
-    public News updateNews(News news) {
-        if (null != news.getNewsId()) {
-            Long deletedNewsId = news.getNewsId();
-            Transaction transaction = null;
-            try {
-                Session session = newsDao.getSession();
-                transaction = session.beginTransaction();
-                news.setStatus(StatusEnum.SAVED);
-                newsDao.update(news);
-                news = (News) session.get(News.class, deletedNewsId);
-                transaction.commit();
-            } catch (HibernateException e) {
-                logger.error("Error delete category from database:   " + e);
-                transaction.rollback();
-            } catch (PersistException e) {
-                logger.error(e);
-            }finally {
-                sessionStatus.set(true);
-                newsDao.clearSession(sessionStatus);
-            }
-        }
-        return news;
-    }
-
-    @Override
-    public News deleteNews(News news) {
-        if (null != news.getNewsId()) {
-            Long deletedNewsId = news.getNewsId();
-            Transaction transaction = null;
-            try {
-                Session session = newsDao.getSession();
-                transaction = session.beginTransaction();
-                news.setStatus(StatusEnum.DELETED);
-                newsDao.update(news);
-                news = (News) session.get(News.class, deletedNewsId);
-                transaction.commit();
-            } catch (HibernateException e) {
-                logger.error("Error delete category from database:   " + e);
-                transaction.rollback();
-            } catch (PersistException e) {
-                logger.error(e);
-            }finally {
-                sessionStatus.set(true);
-                newsDao.clearSession(sessionStatus);
-            }
-        }
-        return news;
-    }
-
-    @Override
-    public void removeNews(News news) {
-
+        return result;
     }
 
     /**
@@ -226,60 +231,120 @@ public class NewsService implements INewsService {
             News news;
             Long randomId = (long) (Math.random() * 60 + 11); // вещественное число из [3;8)
             try {
-                news = newsDao.getByPK(randomId);
+                Session session = newsDao.getSession();
+                transaction = session.beginTransaction();
+                news = newsDao.get(randomId, session);
                 if (news != null && news.getNewsId() != null) {
                     newsList.add(news);
                     i++;
                 }
+                    transaction.commit();
             } catch (PersistException e) {
                 logger.error(e);
+                transaction.rollback();
             }finally {
-                sessionStatus.set(true);
-                newsDao.clearSession(sessionStatus);
+                newsDao.clearSession();
             }
         }
         return newsList;
     }
 
+
+
+
     @Override
-    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId) {
-        List<News> newses = new ArrayList<>();
-        Transaction transaction = null;
+    public Long save(News news) {
+        Long savedNewsId = null;
         try {
             Session session = newsDao.getSession();
             transaction = session.beginTransaction();
-            newses = newsDao.getNewsByCriteria(pageNumber, pageSize, categoryId);
+            news.setStatus(StatusEnum.PERSISTED);
+            savedNewsId = newsDao.save(news, session);
             transaction.commit();
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
             transaction.rollback();
         } catch (PersistException e) {
             logger.error(e);
-        } finally {
-            sessionStatus.set(true);
-            newsDao.clearSession(sessionStatus);
+        }finally {
+            newsDao.clearSession();
         }
-        return newses;
+        return savedNewsId;
     }
 
     @Override
-    public List getCountNews(Category category) {
-        List result = null;
-        Transaction transaction = null;
+    public News update(News news) {
+        if (null != news.getNewsId()) {
+            Long deletedNewsId = news.getNewsId();
+            try {
+                Session session = newsDao.getSession();
+                transaction = session.beginTransaction();
+                news.setStatus(StatusEnum.PERSISTED);
+                newsDao.update(news, session);
+                news = (News) session.get(News.class, deletedNewsId);
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error delete category from database:   " + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                newsDao.clearSession();
+            }
+        }
+        return news;
+    }
+
+    @Override
+    public News delete(News news) {
+        if (null != news.getNewsId()) {
+            Long deletedNewsId = news.getNewsId();
+            try {
+                Session session = newsDao.getSession();
+                transaction = session.beginTransaction();
+                news.setStatus(StatusEnum.DELETED);
+                newsDao.update(news, session);
+                news = (News) session.get(News.class, deletedNewsId);
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error delete category from database:   " + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                newsDao.clearSession();
+            }
+        }
+        return news;
+    }
+
+    @Override
+    public void remove(News news) {
+
+    }
+
+
+    @Override
+    public News get(Long pK) {
+        News news = null;
         try {
             Session session = newsDao.getSession();
             transaction = session.beginTransaction();
-            result = newsDao.countNews(category);
+            news = newsDao.get(pK, session);
             transaction.commit();
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
             transaction.rollback();
         } catch (PersistException e) {
             logger.error(e);
-        } finally {
-            sessionStatus.set(true);
-            newsDao.clearSession(sessionStatus);
+        }finally {
+            newsDao.clearSession();
         }
-        return result;
+        return news;
+    }
+
+    @Override
+    public News load(Long pK) {
+        return null;
     }
 }

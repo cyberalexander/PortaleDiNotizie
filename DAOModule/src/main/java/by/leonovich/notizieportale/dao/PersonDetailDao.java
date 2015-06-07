@@ -1,6 +1,5 @@
 package by.leonovich.notizieportale.dao;
 
-import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.exception.PersistException;
 import org.hibernate.Criteria;
@@ -9,7 +8,7 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-import static by.leonovich.notizieportale.domain.util.StatusEnum.SAVED;
+import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
 import static by.leonovich.notizieportale.util.DaoConstants.Const.STATUS;
 
 /**
@@ -21,7 +20,7 @@ public class PersonDetailDao extends AbstractDao<PersonDetail>{
         @Override
         protected List<PersonDetail> parseResultSet(Session session) throws PersistException {
                 Criteria criteria = session.createCriteria(PersonDetail.class);
-                criteria.add(Restrictions.eq(STATUS, SAVED));
+                /*criteria.add(Restrictions.eq(STATUS, PERSISTED));*/
                 List<PersonDetail> result = criteria.list();
                 return result;
         }

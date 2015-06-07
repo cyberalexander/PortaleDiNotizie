@@ -19,17 +19,15 @@ public class SessionRequestContent {
     // конструкторы
 
 
-    public SessionRequestContent() {
+    public SessionRequestContent(HttpServletRequest request) {
         requestAttributes = new HashMap<>();
         requestParameters = new HashMap<>();
         sessionAttributes = new HashMap<>();
+        session = request.getSession();
     }
 
     // метод извлечения информации из запроса
     public void extractValues(HttpServletRequest request) {
-        /** Правильно ли я использую данную инициализацию !?!?!?!?!?!?!!?!?!?!?!!? */
-        //innerRequestInstance = request;
-        session = request.getSession();
 
         Enumeration<String> requestAtributesNames = request.getAttributeNames();
         while (requestAtributesNames.hasMoreElements()) {
@@ -90,7 +88,7 @@ public class SessionRequestContent {
 
     public void removeRequestParameter(String attributeName) {
         if (null != innerRequestInstance.getParameter(attributeName)) {
-            innerRequestInstance.removeAttribute(attributeName);
+            session.removeAttribute(attributeName);
             requestParameters.remove(attributeName);
         }
     }
@@ -106,8 +104,12 @@ public class SessionRequestContent {
      * без использования request объект из сессии не удаляется, касательно commentary
      */
     public void removeSessionAttribute(String attributeName) {
-        //innerRequestInstance.getSession().removeAttribute(attributeName);
+        //innerRequestInstance.getHttpSession().removeAttribute(attributeName);
         session.removeAttribute(attributeName);
         sessionAttributes.remove(attributeName);
+    }
+
+    public HttpSession getHttpSession() {
+        return session;
     }
 }

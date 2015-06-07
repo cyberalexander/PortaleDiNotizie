@@ -1,11 +1,10 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.dao.CategoryDao;
-import by.leonovich.notizieportale.dao.IGenericDao;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.domain.Category;
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
 import com.mysql.jdbc.StringUtils;
 import org.apache.log4j.Logger;
@@ -43,28 +42,6 @@ public class CategoryService implements ICategoryService {
         return categoryServiceInst;
     }
 
-
-    @Override
-    public Category getCategoryByPK(Long PK) {
-        Category category = new Category();
-        Transaction transaction = null;
-        try {
-            Session session = categoryDao.getSession();
-            transaction = session.beginTransaction();
-            category = categoryDao.getByPK(PK);
-            transaction.commit();
-        } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
-            transaction.rollback();
-        } catch (PersistException e) {
-            logger.error(e);
-        }finally {
-            sessionStatus.set(true);
-            categoryDao.clearSession(sessionStatus);
-        }
-        return category;
-    }
-
     @Override
     public List<Category> getCategories() {
         List<Category> list = null;
@@ -72,11 +49,9 @@ public class CategoryService implements ICategoryService {
         try {
             Session session = categoryDao.getSession();
             transaction = session.beginTransaction();
-            list = categoryDao.getAll();
+            list = categoryDao.getAll(session);
             logger.info("Category-list size: " + list.size());
             transaction.commit();
-            sessionStatus.set(true);
-            categoryDao.clearSession(sessionStatus);
             logger.info("successful get list!");
         } catch (HibernateException e) {
             logger.error("Error get list of Categories from database" + e);
@@ -84,82 +59,9 @@ public class CategoryService implements ICategoryService {
         } catch (PersistException e) {
             logger.error(e);
         }finally {
-            sessionStatus.set(true);
-            categoryDao.clearSession(sessionStatus);
+            categoryDao.clearSession();
         }
         return list;
-    }
-
-    @Override
-    public Long saveCategory(Category category) {
-        Long savedCategoryId = null;
-        Transaction transaction = null;
-        try {
-            Session session = categoryDao.getSession();
-            transaction = session.beginTransaction();
-            category.setStatus(StatusEnum.SAVED);
-            savedCategoryId = categoryDao.save(category);
-            logger.info("Category saved: " + savedCategoryId);
-            transaction.commit();
-            logger.info("successful get list!");
-        } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
-            transaction.rollback();
-        } catch (PersistException e) {
-            logger.error(e);
-        }
-        return savedCategoryId;
-    }
-
-    @Override
-    public Category updateCategory(Category category) {
-        return null;
-    }
-
-    @Override
-    public Category deleteCategory(Category category) {
-        if (null != category.getCategoryId()) {
-        Long deletedCategoryId = category.getCategoryId();
-            Transaction transaction = null;
-            try {
-                Session session = categoryDao.getSession();
-                transaction = session.beginTransaction();
-                category.setStatus(StatusEnum.DELETED);
-                categoryDao.update(category);
-                category = categoryDao.getByPK(deletedCategoryId);
-                transaction.commit();
-            } catch (HibernateException e) {
-                logger.error("Error delete category from database:   " + e);
-                transaction.rollback();
-            } catch (PersistException e) {
-                logger.error(e);
-            }finally {
-                sessionStatus.set(true);
-                categoryDao.clearSession(sessionStatus);
-            }
-        }
-        return category;
-    }
-
-    @Override
-    public void removeCategory(Category category) {
-        if (null != category.getCategoryId()) {
-            Transaction transaction = null;
-            try {
-                Session session = categoryDao.getSession();
-                transaction = session.beginTransaction();
-                categoryDao.remove(category);
-                transaction.commit();
-            } catch (HibernateException e) {
-                logger.error("Error remove category from database:   " + e);
-                transaction.rollback();
-            } catch (PersistException e) {
-                logger.error(e);
-            }finally {
-                sessionStatus.set(true);
-                categoryDao.clearSession(sessionStatus);
-            }
-        }
     }
 
     @Override
@@ -170,7 +72,7 @@ public class CategoryService implements ICategoryService {
             try {
                 Session session = categoryDao.getSession();
                 transaction = session.beginTransaction();
-                categoryObj = categoryDao.getByName(category);
+                categoryObj = categoryDao.getByName(category, session);
                 transaction.commit();
                 if (categoryObj != null) {
                     return categoryObj;
@@ -181,10 +83,106 @@ public class CategoryService implements ICategoryService {
             } catch (PersistException e) {
                 logger.error(e);
             }finally {
-                sessionStatus.set(true);
-                categoryDao.clearSession(sessionStatus);
+                categoryDao.clearSession();
             }
         }
+        return null;
+    }
+
+    @Override
+    public Long save(Category category) {
+        Long savedCategoryId = null;
+        Transaction transaction = null;
+        try {
+            Session session = categoryDao.getSession();
+            transaction = session.beginTransaction();
+            category.setStatus(StatusEnum.PERSISTED);
+            savedCategoryId = categoryDao.save(category, session);
+            logger.info("Category saved: " + savedCategoryId);
+            transaction.commit();
+            logger.info("successful get list!");
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }finally {
+            categoryDao.clearSession();
+        }
+        return savedCategoryId;
+    }
+
+    @Override
+    public Category update(Category category) {
+        return null;
+    }
+
+    @Override
+    public Category delete(Category category) {
+        if (null != category.getCategoryId()) {
+            Long deletedCategoryId = category.getCategoryId();
+            Transaction transaction = null;
+            try {
+                Session session = categoryDao.getSession();
+                transaction = session.beginTransaction();
+                category.setStatus(StatusEnum.DELETED);
+                categoryDao.update(category, session);
+                category = categoryDao.get(deletedCategoryId, session);
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error delete category from database:   " + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                categoryDao.clearSession();
+            }
+        }
+        return category;
+    }
+
+    @Override
+    public void remove(Category category) {
+        if (null != category.getCategoryId()) {
+            Transaction transaction = null;
+            try {
+                Session session = categoryDao.getSession();
+                transaction = session.beginTransaction();
+                categoryDao.remove(category, session);
+                transaction.commit();
+            } catch (HibernateException e) {
+                logger.error("Error remove category from database:   " + e);
+                transaction.rollback();
+            } catch (PersistException e) {
+                logger.error(e);
+            }finally {
+                categoryDao.clearSession();
+            }
+        }
+    }
+
+    @Override
+    public Category get(Long pK) {
+        Category category = new Category();
+        Transaction transaction = null;
+        try {
+            Session session = categoryDao.getSession();
+            transaction = session.beginTransaction();
+            category = categoryDao.get(pK, session);
+            transaction.commit();
+        } catch (HibernateException e) {
+            logger.error("Error get list of Categories from database" + e);
+            transaction.rollback();
+        } catch (PersistException e) {
+            logger.error(e);
+        }finally {
+            categoryDao.clearSession();
+        }
+        return category;
+    }
+
+    @Override
+    public Category load(Long pK) {
         return null;
     }
 }

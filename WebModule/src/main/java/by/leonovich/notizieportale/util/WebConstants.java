@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.util;
 
-import by.leonovich.notizieportale.domain.util.RoleEnum;
+import by.leonovich.notizieportale.domain.enums.RoleEnum;
 
 /**
  * Created by alexanderleonovich on 15.05.15.
@@ -63,8 +63,12 @@ public class WebConstants {
         public static final String P_PASSWORD = "password";
         public static final String P_PAGE_NUMBER = "pageNumber";
         public static final String ROLE = "role";
-        public static final String DATE_PATTERN = "yyyy-MM-dd";
+        public static final String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
+        public static final String BIRTH_DAY_PATTERN = "yyyy-MM-dd";
         public static final String POPULAR_NEWSES = "popularNewses";
         public static final String PAGINATOR_LIST = "paginatorList";
+        public static final String P_ID = "id";
+        public static final String P_ANNOTATION = "annotation";
+        public static final String P_DATE_NOW = "dateNow";
     }
 }

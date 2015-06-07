@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.command.newscommand;
+package by.leonovich.notizieportale.command.news;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
@@ -16,13 +16,13 @@ import static by.leonovich.notizieportale.util.WebConstants.Const.*;
  * Created by alexanderleonovich on 19.04.15.
  * Show news command
  */
-public class ShowNewsCommand implements IActionCommand {
-    private static final Logger logger = Logger.getLogger(ShowNewsCommand.class);
+public class ShowNews implements IActionCommand {
+    private static final Logger logger = Logger.getLogger(ShowNews.class);
     private INewsService newsService;
     private CategoryService categoryService;
     private Paginator paginator;
 
-    public ShowNewsCommand() {
+    public ShowNews() {
         newsService = NewsService.getInstance();
         categoryService = CategoryService.getInstance();
         paginator = Paginator.getInstance();
@@ -47,7 +47,7 @@ public class ShowNewsCommand implements IActionCommand {
         sessionRequestContent.setSessionAttribute(NEWSES, newses);
 
         sessionRequestContent.setSessionAttribute(COMMENTARIES,
-                AttributesManager.getInstance().getCommentariesByNewsId(news.getNewsId()));
+                AttributesManager.getInstance().getCommentariesByNewsId(news));
 
         sessionRequestContent.setSessionAttribute(POPULAR_NEWSES, newsService.getMostPopularNewsList());
 
@@ -69,13 +69,13 @@ public class ShowNewsCommand implements IActionCommand {
     private List<Category> getCategories() {
         List<Category> categories;
         categories = categoryService.getCategories();
-        categories.remove(WebConstants.Const.ZERO);
+        //categories.remove(WebConstants.Const.ZERO);
         return categories;
     }
 
     private String getPageId(SessionRequestContent sessionRequestContent) {
         String pageId;
-        if (sessionRequestContent.getParameter(P_PAGE_ID) != null) {
+        if (null != sessionRequestContent.getParameter(P_PAGE_ID)) {
             return pageId = sessionRequestContent.getParameter(P_PAGE_ID);
         } else {
             return pageId = MAIN;

@@ -21,7 +21,8 @@
             <input type="hidden" name="command" value="addwritecommentary"/>
             <input type="hidden" name="newsId" value="${news.newsId}"/>
             <input type="hidden" name="personId" value="${news.person.personId}"/><br>
-            <input type="hidden" name="date" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateNow}"/>">
+            <input type="hidden" id="date" name="date" value="${dateNow}" readonly
+                   pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/><br>
 
             <c:if test="${commentForEdit eq null}">
                 <input type="hidden" name="personId" value="${person.personId}"/>

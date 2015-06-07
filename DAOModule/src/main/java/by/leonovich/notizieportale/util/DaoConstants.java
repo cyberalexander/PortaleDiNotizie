@@ -7,21 +7,27 @@ package by.leonovich.notizieportale.util;
 public class DaoConstants {
 
     public static class Const {
+        public static final String ERROR_UPDATE_ENTITY = "Error update ENTITY in database:  => ";
+        public static final String ERROR_SAVE_ENTITY = "Error save ENTITY in database  => ";
+        public static final String ERROR_SAVE_OR_UPDATE = "Error save or update ENTITY in database  => ";
+        public static final String ERROR_DELETE = "Error delete ENTITY from Database:  => ";
+        public static final String ERROR_REMOVE = "Error REMOVE ENTITY from Database:  => ";
+        public static final String ERROR_GET_LIST = "Error get list of ENTITIES in database:  => ";
+        public static final String ERROR_GET_OBJECT = "Error get ENTITY from Database:  => ";
+        public static final String ERROR_LOAD_OBJECT = "Error load ENTITY from Database:  => ";
+        public static final String ERROR_GET_LIST_BY_NEWS_ID = "Error get list by news id  => ";
+        public static final String ERROR_GET_LIST_BY_PERSON_ID = "Error get list by person id  => ";
+        public static final String ERROR_GET_CATEGORY_BY_NAME = "Error get category-object by categoryName => ";
+        public static final String ERROR_GET_LIST_BY_CATEGORY_ID = "Error get list by category id => ";
+        public static final String ERROR_GET_NEWSES_BY_DATE = "Error list of newses by date  => ";
 
-        public static final String DELETE_MESSAGE = "On delete modify more then 1 record: ";
-        public static final String UPDATE_MESSAGE = "On update modify more then 1 record: ";
-        public static final String OBJECT_IS_ALREADY_PERSIST = "Object is already persist.";
-        public static final String PERSIST_EXCEPTION = "On persist modify more then 1 record: ";
-        public static final String CANT_FIND_BY_PK = "Exception on findByPK new persist data.";
-
-
-        public static final Object ERROR_UPDATE_ENTITY = "Error update ENTITY in Dao. ";
         public static final String STATUS = "status";
         public static final String EMAIL = "email";
+        public static final String CATEGORY_NAME = "categoryName";
         public static final String PRIMARY_KEY = "pK";
         public static final String DATE = "date";
         public static final String PAGE_ID = "pageId";
         public static final int ONE = 1;
-//        public static final String CANT_FIND_BY_PK = "Exception on findByPK new persist data.";
+        public static final String CATEGORY = "category";
     }
 }

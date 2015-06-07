@@ -24,9 +24,7 @@
         <div align="right">
             <em>|  date: <fmt:formatDate pattern="dd-MMM-yyyy" value="${commentObj.date}"/></em><em>   |   user: ${commentObj.person.name}   |</em>
         </div>
-
         <p class="text">${commentObj.comment}</p>
-
         <c:if test="${persontype eq 'ADMIN'}">
             <table>
                 <tr>

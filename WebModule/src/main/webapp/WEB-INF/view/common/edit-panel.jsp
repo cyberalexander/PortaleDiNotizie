@@ -39,24 +39,25 @@
             <%-- BUTTON FOR ADDING NEWS IN CATEGORY OR FOR ADDING NEW CATEGORY --%>
                 <c:if test="${news.category.categoryId == 1}">
                 <form method="post" action="controller">
-                <input type="hidden" name="command" value="addnews"/>
                 <input type="hidden" name="newses" value="${newses}"/>
-
                 <c:if test="${newses[0] != null}">
                     <c:set var="category" scope="session" value="${newses[0].category.categoryName}"/>
-                    <c:set var="newses" scope="session" value="${newses}"/>
+                    <%--<c:set var="newses" scope="session" value="${newses}"/>--%>
                 </c:if>
                 <c:if test="${newses[0] == null}">
                     <c:set var="category" scope="session" value="${news.pageId}"/>
                 </c:if>
 
                 <c:if test="${news.pageId eq 'main'}">
+                    <input type="hidden" name="command" value="addcategory"/>
                     <button type="submit"  class="btn btn-success">Add new category</button>
                 </c:if>
                 <c:if test="${news.category.categoryName eq 'main' && news.newsId != 1}">
+                    <input type="hidden" name="command" value="addnews"/>
                     <button type="submit"  class="btn btn-success">Add new ${news.pageId} news</button>
                 </c:if>
                 <c:if test="${news.category.categoryName != 'main' && news.pageId != 'main'}">
+                    <input type="hidden" name="command" value="addnews"/>
                     <button type="submit"  class="btn btn-success">Add new ${news.category.categoryName} news</button>
                 </c:if>
             </form>

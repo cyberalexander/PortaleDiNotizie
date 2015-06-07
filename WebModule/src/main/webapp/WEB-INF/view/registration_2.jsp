@@ -18,19 +18,13 @@
   <h1 class="headerfirstlevel">Registration form</h1>
 </div>
 <div class="container">
-  <div class="col-md-2">
+  <div class="col-md-3">
 
   </div>
-  <div class="col-md-8" align="right">
+  <div class="col-md-6" align="right">
     <form name="registration_form" method="post" action="controller">
       <input type="hidden" name="command" value="addperson">
       <p class="errormessage">${duplicateEmail} ${nullemailorpassword}</p>
-
-        <label for="name" class="text">Name:</label>
-        <input size="30" id="name" name="name" placeholder="what`s your name?"/></br>
-
-      <label for="surname" class="text">Surname:</label>
-      <input size="30" id="surname" name="surname" placeholder="what`s your surname"/><br>
 
       <label for="email" class="text">Email for entry to site:</label>
       <input size="30" id="email" name="email" placeholder="your email adress" type="email"/><br>
@@ -50,8 +44,12 @@
 
       <button type="submit" class="btn btn-primary">SAVE</button>
     </form>
+    <form name="button_back_registration" method="post" action="controller">
+      <input type="hidden" name="command" value="registerback">
+      <button type="submit" class="btn btn-primary">BACK</button>
+    </form>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
 
   </div>
 </div>

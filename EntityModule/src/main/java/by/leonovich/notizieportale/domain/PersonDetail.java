@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.domain;
 
-import by.leonovich.notizieportale.domain.util.RoleEnum;
+import by.leonovich.notizieportale.domain.enums.RoleEnum;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 

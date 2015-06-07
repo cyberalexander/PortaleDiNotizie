@@ -8,22 +8,12 @@ import java.util.List;
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
-public interface ICommentaryService {
-
-    Commentary getCommentaryByPK(Long PK);
+public interface ICommentaryService extends IService<Commentary> {
 
     List<Commentary> getCommentaries();
 
     List<Commentary> getCommentariesByAuthorId(Long PK);
 
     List<Commentary> getCommentariesByNewsId(Long PK);
-
-    Commentary saveCommentary(Commentary commentary);
-
-    Commentary updateCommentary(Commentary commentary);
-
-    Commentary deleteCommentary(Commentary commentary);
-
-    void removeCommentary(Commentary commentary);
 
 }

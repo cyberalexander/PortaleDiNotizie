@@ -2,11 +2,13 @@ package by.leonovich.notizieportale.actionfactory;
 
 
 import by.leonovich.notizieportale.command.*;
-import by.leonovich.notizieportale.command.commentcommand.AddWriteCommentCommand;
-import by.leonovich.notizieportale.command.commentcommand.DeleteCommentCommand;
-import by.leonovich.notizieportale.command.commentcommand.EditWriteCommentCommand;
-import by.leonovich.notizieportale.command.newscommand.*;
-import by.leonovich.notizieportale.command.personcommand.*;
+import by.leonovich.notizieportale.command.category.AddCategory;
+import by.leonovich.notizieportale.command.category.AddWriteCategory;
+import by.leonovich.notizieportale.command.commentary.AddWriteCommentary;
+import by.leonovich.notizieportale.command.commentary.DeleteCommentary;
+import by.leonovich.notizieportale.command.commentary.EditWriteCommentary;
+import by.leonovich.notizieportale.command.news.*;
+import by.leonovich.notizieportale.command.person.*;
 
 /**
  * Created by alexanderleonovich on 18.04.15.
@@ -17,82 +19,97 @@ public enum CommandEnum {
 
     LOGIN {
         {
-            this.command = new LoginCommand();
+            this.command = new LoginPerson();
         }
     },
     LOGOUT {
         {
-            this.command = new LogOutCommand();
+            this.command = new LogOutPerson();
         }
     },
     SHOWNEWS {
         {
-            this.command = new ShowNewsCommand();
+            this.command = new ShowNews();
         }
     },
     ADDNEWS {
         {
-            this.command = new AddNewsCommand();
+            this.command = new AddNews();
         }
     },
     ADDWRITENEWS {
         {
-            this.command = new AddWriteNewsCommand();
+            this.command = new AddWriteNews();
+        }
+    },
+    ADDCATEGORY {
+        {
+            this.command = new AddCategory();
+        }
+    },
+    ADDWRITECATEGORY {
+        {
+            this.command = new AddWriteCategory();
         }
     },
     DELETENEWS {
         {
-            this.command = new DeleteNewsCommand();
+            this.command = new DeleteNews();
         }
     },
     EDITNEWS {
         {
-            this.command = new EditNewsCommand();
+            this.command = new EditNews();
         }
     },
     EDITWRITENEWS {
         {
-            this.command = new EditWriteNewsCommand();
+            this.command = new EditWriteNews();
         }
     },
     REGISTRATION {
         {
-            this.command = new RegistrationCommand();
+            this.command = new Registration();
+        }
+    },
+    ADDPERSONFIRSTSTEP {
+        {
+            this.command = new RegisterFirstStep();
         }
     },
     ADDPERSON {
         {
-            this.command = new AddPersonCommand();
+            this.command = new RegisterSecondStep();
         }
     },
     GOINCABINET {
         {
-            this.command = new GoInCabinetCommand();
+            this.command = new GoInCabinet();
         }
     },
     ADDWRITECOMMENTARY {
         {
-            this.command = new AddWriteCommentCommand();
+            this.command = new AddWriteCommentary();
         }
     },
     EDITWRITECOMMENTARY{
         {
-            this.command = new EditWriteCommentCommand();
+            this.command = new EditWriteCommentary();
         }
     },
     DELETECOMMENTARY{
         {
-            this.command = new DeleteCommentCommand();
+            this.command = new DeleteCommentary();
         }
     },
     EDITPERSON{
         {
-            this.command = new EditPersonCommand();
+            this.command = new EditPerson();
         }
     },
     EDITWRITEPERSON{
         {
-            this.command = new EditWritePersonCommand();
+            this.command = new EditWritePerson();
         }
     };
 

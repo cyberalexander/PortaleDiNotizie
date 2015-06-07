@@ -1,10 +1,9 @@
 package by.leonovich.notizieportale.domain;
 
 
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -20,7 +19,7 @@ public class Commentary extends CustomEntity{
 
     @Id
     @Column(name = "F_COMMENTARY_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentaryId;
 
     @Column(name = "F_COMMENT", columnDefinition = "longtext")

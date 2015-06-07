@@ -1,10 +1,10 @@
 package by.leonovich.notizieportale.domain;
 
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -49,8 +49,8 @@ public class News extends CustomEntity{
     @JoinColumn(name = "F_CATEGORY_ID", nullable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
-    private Set<Commentary> commentaries;
+    @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
+    private List<Commentary> commentaries;
 
     public News() {
         super();
@@ -138,11 +138,11 @@ public class News extends CustomEntity{
         this.person = person;
     }
 
-    public Set<Commentary> getCommentaries() {
+    public List<Commentary> getCommentaries() {
         return commentaries;
     }
 
-    public void setCommentaries(Set<Commentary> commentaries) {
+    public void setCommentaries(List<Commentary> commentaries) {
         this.commentaries = commentaries;
     }
 

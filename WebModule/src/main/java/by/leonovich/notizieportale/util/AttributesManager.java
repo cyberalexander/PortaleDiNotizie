@@ -2,10 +2,11 @@ package by.leonovich.notizieportale.util;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
+import static java.util.Objects.nonNull;
 
 import by.leonovich.notizieportale.domain.*;
-import by.leonovich.notizieportale.domain.util.RoleEnum;
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.RoleEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.services.CategoryService;
 import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.NewsService;
@@ -14,8 +15,7 @@ import org.apache.log4j.Logger;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by alexanderleonovich on 22.04.15.
@@ -61,9 +61,8 @@ public class AttributesManager {
      * We have added or removed in the method execute (), one of the class command
      * @param sessionRequestContent - HttpServletRequest object interface for operating the session attributes
      * @param news - Adding / removing / edited news
-     * @param command - line with the team to perform a specific action on the attributes of the session
      */
-    public  void setAtributesForResponse(SessionRequestContent sessionRequestContent, News news, String command) {
+    public  void setAtributesForResponse(SessionRequestContent sessionRequestContent, News news) {
 // depending on the received command or delete or add any change in the list of news News.
         List<News> newses = newsService.getNewsByCriteria(getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, news.getCategory().getCategoryId());
 
@@ -82,18 +81,17 @@ public class AttributesManager {
      */
     public News parseParametersOfNews(SessionRequestContent sessionRequestContent, News news) {
         if (news.getNewsId() == null) {
-            Category category = categoryService.getCategoryByName(sessionRequestContent.getParameter("category"));
-            Person person = personService.getByPK(Long.parseLong(sessionRequestContent.getParameter("personId")));
+            Category category = categoryService.getCategoryByName(sessionRequestContent.getParameter(P_CATEGORY));
             news.setCategory(category);
-            news.setPerson(person);
+            news.setPerson((Person) sessionRequestContent.getSessionAttribute(P_PERSON));
         }
-        String date = sessionRequestContent.getParameter("date");
-        news.setPageId(sessionRequestContent.getParameter("pageId"));
+        Date date = (Date) sessionRequestContent.getSessionAttribute(P_DATE_NOW);
+        news.setPageId(sessionRequestContent.getParameter(P_PAGE_ID));
         news.setTitle(sessionRequestContent.getParameter("title"));
         news.setMenuTitle(sessionRequestContent.getParameter("menuTitle"));
-        news.setDate(parseDateFromRequest(date));
-        news.setAnnotation(sessionRequestContent.getParameter("annotation"));
-        news.setContent(sessionRequestContent.getParameter("content"));
+        news.setDate(parseDateTimeFromRequest(date));
+        news.setAnnotation(sessionRequestContent.getParameter(P_ANNOTATION));
+        news.setContent(sessionRequestContent.getParameter(P_CONTENT));
         return news;
     }
 
@@ -112,10 +110,27 @@ public class AttributesManager {
         personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
         personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
         personDetail.setRole(RoleEnum.USER);
-        person.setStatus(StatusEnum.SAVED);
+        person.setStatus(StatusEnum.PERSISTED);
         person.setPersonDetail(personDetail);
         personDetail.setPerson(person);
         return person;
+    }
+
+    public PersonDetail parseParametersOfPersonDetail(SessionRequestContent sessionRequestContent, PersonDetail personDetail) {
+        personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
+        personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
+        personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
+        personDetail.setRole(RoleEnum.USER);
+        return personDetail;
+    }
+
+    /**
+     * Method for parsing parameter date to java.sql.Date
+     * @param date parameter date from user layer
+     * @return java.sql.Date
+     */
+    public java.sql.Date parseDateTimeFromRequest(Date date) {
+        return new java.sql.Date(date.getTime());
     }
 
     /**
@@ -125,7 +140,7 @@ public class AttributesManager {
      */
     public java.sql.Date parseDateFromRequest(String date) {
         Date dateObj = null;
-        SimpleDateFormat formatter = new SimpleDateFormat(Const.DATE_PATTERN);
+        SimpleDateFormat formatter = new SimpleDateFormat(Const.BIRTH_DAY_PATTERN);
         try {
             dateObj = formatter.parse(date);
         } catch (ParseException e) {
@@ -135,17 +150,15 @@ public class AttributesManager {
     }
 
     /** Comments attributes getting for response */
-    public List<Commentary> getCommentariesByNewsId(Long newsId) {
-        List<Commentary> commentaries = null;
-        if (newsId > ZERO) {
-            commentaries = commentaryService.getCommentariesByNewsId(newsId);
-        }
-        return commentaries;
+    public List<Commentary> getCommentariesByNewsId(News news) {
+        List<Commentary> commentaries = Collections.emptyList();
+        commentaries = news.getCommentaries();
+            return commentaries;
     }
 
     public int getPageNumber(SessionRequestContent sessionRequestContent) {
         int pageNumber;
-        if (sessionRequestContent.getParameter(P_PAGE_NUMBER) != null
+        if (nonNull(sessionRequestContent.getParameter(P_PAGE_NUMBER))
                 && Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER)) != ZERO) {
             return pageNumber = Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER));
         } else {

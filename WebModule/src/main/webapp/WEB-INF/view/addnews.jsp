@@ -19,12 +19,7 @@ w<%--
         <c:import url="common/styles-common.jsp"/>
     </head>
     <body>
-        <c:if test="${pageId != null}">
             <h1 class="headerfirstlevel">Create new news page, please, and put "save" button.</h1>
-        </c:if>
-        <c:if test="${pageId eq null}">
-            <h1 class="headerfirstlevel">Create new category, please, and put "save" button.</h1>
-        </c:if>
         <div class="container">
             <div class="col-md-2">
 
@@ -56,13 +51,12 @@ w<%--
                     <input type="hidden" name="personId" value="${person.personId}"/>
 
                     <label for="date" class="text">Date:</label>
-                    <input size="30" id="date" name="date"
-                           value="<fmt:formatDate pattern="yyyy-MM-dd" value="${dateNow}"/>" readonly
+                    <input size="30" id="date" name="date" value="${dateNow}" readonly
                            pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/><br>
 
-                    <p>Annotation:</p><br>
+                    <p class="text">Annotation:</p><br>
                     <textarea rows="6" cols="100"  name="annotation"></textarea><br>
-                    <p>Content:</p><br>
+                    <p class="text">Content:</p><br>
                     <textarea rows="13" cols="100" name="content"></textarea><br>
 
                     <button type="submit" class="btn btn-primary">SAVE</button>

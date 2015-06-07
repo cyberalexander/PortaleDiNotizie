@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.command.utilcommand;
+package by.leonovich.notizieportale.command;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.util.URLManager;

@@ -1,6 +1,7 @@
-package by.leonovich.notizieportale.command.newscommand;
+package by.leonovich.notizieportale.command.news;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.P_NEWS_ID_4_DELETE;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.News;
@@ -13,12 +14,12 @@ import by.leonovich.notizieportale.util.UrlEnum;
 /**
  * Created by alexanderleonovich on 21.04.15.
  */
-public class EditWriteNewsCommand implements IActionCommand {
+public class DeleteNews implements IActionCommand {
 
     private AttributesManager attributesManager;
     private NewsService newsService;
 
-    public EditWriteNewsCommand() {
+    public DeleteNews() {
         attributesManager = AttributesManager.getInstance();
         newsService = NewsService.getInstance();
     }
@@ -26,12 +27,11 @@ public class EditWriteNewsCommand implements IActionCommand {
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-//Creating news object and get in variable data of news-object from session. It`s only necessary for the variable identifier News.
-        News news = (News) sessionRequestContent.getSessionAttribute(Const.NEWS);
-        attributesManager.parseParametersOfNews(sessionRequestContent, news);
-        news = newsService.updateNews(news);
-        // set attributes in session to display the page you want after the operation
-        attributesManager.setAtributesForResponse(sessionRequestContent, news, Const.FROM_EDITWRITE);
+        News news;
+        Long newsId = Long.parseLong(sessionRequestContent.getParameter(P_NEWS_ID_4_DELETE));
+        news = newsService.get(newsId);
+        newsService.delete(news);
+        attributesManager.setAtributesForResponse(sessionRequestContent, news);
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
         return page;

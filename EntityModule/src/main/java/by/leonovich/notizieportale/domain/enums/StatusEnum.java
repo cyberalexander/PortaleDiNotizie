@@ -1,11 +1,11 @@
-package by.leonovich.notizieportale.domain.util;
+package by.leonovich.notizieportale.domain.enums;
 
 /**
  * Created by alexanderleonovich on 22.05.15.
  */
 public enum StatusEnum {
 
-    SAVED, DELETED;
+    UNCONFIRMED, PERSISTED, DELETED;
 
     StatusEnum() {
     }

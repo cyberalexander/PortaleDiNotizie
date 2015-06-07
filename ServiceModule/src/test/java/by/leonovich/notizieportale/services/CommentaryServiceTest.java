@@ -4,8 +4,7 @@ import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.util.StatusEnum;
-import by.leonovich.notizieportale.services.util.TestConstants;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -14,7 +13,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static by.leonovich.notizieportale.domain.util.StatusEnum.SAVED;
 import static by.leonovich.notizieportale.services.util.TestConstants.*;
 import static by.leonovich.notizieportale.services.util.TestConstants.TestConst.*;
 import static org.junit.Assert.*;
@@ -37,11 +35,11 @@ public class CommentaryServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        commentary = new Commentary(COMMENTARY_CONTENT, DATE, StatusEnum.SAVED);
-        category = new Category(TestConst.CATEGORY_NAME, StatusEnum.SAVED);
+        commentary = new Commentary(COMMENTARY_CONTENT, DATE, StatusEnum.PERSISTED);
+        category = new Category(TestConst.CATEGORY_NAME, StatusEnum.PERSISTED);
         news = new News(TestConst.PAGE_ID, TestConst.TITLE, TestConst.MENU_TITLE,
-                TestConst.DATE, TestConst.ANNOTATION, TestConst.CONTENT, StatusEnum.SAVED);
-        person = new Person(TestConst.PERSON_NAME, TestConst.PERSON_SURNAME, StatusEnum.SAVED);
+                TestConst.DATE, TestConst.ANNOTATION, TestConst.CONTENT, StatusEnum.PERSISTED);
+        person = new Person(TestConst.PERSON_NAME, TestConst.PERSON_SURNAME, StatusEnum.PERSISTED);
         commentary.setPerson(person);
         news.setCategory(category);
         news.setPerson(person);
@@ -55,8 +53,8 @@ public class CommentaryServiceTest {
 
     @Test
     public void testGetCommentaryByPK() throws Exception {
-        Commentary actual = commentaryService.saveCommentary(commentary);
-        Commentary expected = commentaryService.getCommentaryByPK(actual.getCommentaryId());
+        Long actual = commentaryService.save(commentary);
+        Commentary expected = commentaryService.get(actual);
         logger.info("News object, what we get from database " + expected.getCommentaryId() + " - " + expected.getComment());
         Assert.assertNotNull("After persist id is null.", expected);
     }
@@ -70,8 +68,8 @@ public class CommentaryServiceTest {
 
     @Test
     public void testGetCommentariesByAuthorId() throws Exception {
-        Commentary actual = commentaryService.saveCommentary(commentary);
-        List<Commentary> expected = commentaryService.getCommentariesByAuthorId(actual.getPerson().getPersonId());
+        Long actual = commentaryService.save(commentary);
+        List<Commentary> expected = commentaryService.getCommentariesByAuthorId(commentaryService.get(actual).getPerson().getPersonId());
         logger.info("News object, what we get from database " + expected.size() + " - " + expected.get(ZERO).getPerson().getName());
         Assert.assertNotNull("After persist id is null.", expected);
         Assert.assertTrue(expected.size() > ZERO);
@@ -79,8 +77,8 @@ public class CommentaryServiceTest {
 
     @Test
     public void testGetCommentariesByNewsId() throws Exception {
-        Commentary actual = commentaryService.saveCommentary(commentary);
-        List<Commentary> expected = commentaryService.getCommentariesByAuthorId(actual.getNews().getNewsId());
+        Long actual = commentaryService.save(commentary);
+        List<Commentary> expected = commentaryService.getCommentariesByNewsId(commentaryService.get(actual).getNews().getNewsId());
         logger.info("News object, what we get from database " + expected.size() + " - " + expected.get(ZERO).getNews().getCategory().getCategoryName());
         Assert.assertNotNull("After persist id is null.", expected);
         Assert.assertTrue(expected.size() > ZERO);
@@ -88,37 +86,37 @@ public class CommentaryServiceTest {
 
     @Test
     public void testSaveCommentary() throws Exception {
-        Commentary actual = commentaryService.saveCommentary(commentary);
-        logger.info('\n' + "ID AFTER SAVE " + actual.getClass() + " IS " + actual.getCommentaryId() + '\n');
-        Assert.assertNotNull("After persist id is null.", actual.getCommentaryId());
+        Long actual = commentaryService.save(commentary);
+        logger.info('\n' + "ID AFTER SAVE " + commentary.getClass() + " IS " + actual + '\n');
+        Assert.assertNotNull("After persist id is null.", actual);
     }
 
     @Test
     public void testUpdateCommentary() throws Exception {
-        Commentary actual = commentaryService.saveCommentary(commentary);
+        Long actual = commentaryService.save(commentary);
         commentary.setComment(TestConst.UNIQUE_COMMENT);
-        commentaryService.updateCommentary(commentary);
-        Commentary expected = commentaryService.getCommentaryByPK(actual.getCommentaryId());
+        commentaryService.update(commentary);
+        Commentary expected = commentaryService.get(actual);
         assertEquals(expected.getComment(), commentary.getComment());
-        logger.info("Saved object " + actual.getCommentaryId() + " - " + actual.getDate() + " - " + actual.getPerson().getName());
+        logger.info("Saved object " + commentary.getClass() + " - " + commentary.getDate() + " - " + commentary.getPerson().getName());
         logger.info("Updated object " + expected.getCommentaryId() + " - " + expected.getDate() + " - " + expected.getPerson().getName());
     }
 
     @Test
     public void testDeleteCommentary() throws Exception {
-        commentaryService.saveCommentary(commentary);
-        assertNotNull(commentaryService.getCommentaryByPK(commentary.getCommentaryId()).getCommentaryId());
-        commentaryService.deleteCommentary(commentary);
-        commentary = commentaryService.getCommentaryByPK(commentary.getCommentaryId());
+        commentaryService.save(commentary);
+        assertNotNull(commentaryService.get(commentary.getCommentaryId()).getCommentaryId());
+        commentaryService.delete(commentary);
+        commentary = commentaryService.get(commentary.getCommentaryId());
         assertEquals("Can`t change status of object in database ", DELETED, commentary.getStatus());
     }
 
     @Test
     public void testRemoveCommentary() throws Exception {
-        commentaryService.saveCommentary(commentary);
-        assertNotNull(commentaryService.getCommentaryByPK(commentary.getCommentaryId()).getCommentaryId());
-        commentaryService.removeCommentary(commentary);
-        commentary = commentaryService.getCommentaryByPK(commentary.getCommentaryId());
+        commentaryService.save(commentary);
+        assertNotNull(commentaryService.get(commentary.getCommentaryId()).getCommentaryId());
+        commentaryService.remove(commentary);
+        commentary = commentaryService.get(commentary.getCommentaryId());
         assertNull("Object is not deleted from database ", commentary);
     }
 }

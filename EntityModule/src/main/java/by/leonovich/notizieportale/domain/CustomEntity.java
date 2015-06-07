@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.domain;
 
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,7 +10,9 @@ import java.io.Serializable;
  */
 @MappedSuperclass
 public class CustomEntity implements Serializable {
+/*
     private static final long serialVersionUID = 4519960040846861L;
+*/
 
     @Column(name = "F_STATUS")
     @Enumerated(EnumType.STRING)

@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.command.newscommand;
+package by.leonovich.notizieportale.command.news;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 
@@ -9,18 +9,17 @@ import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
-import org.apache.log4j.Logger;
 
 import java.util.List;
 
 /**
  * Created by alexanderleonovich on 21.04.15.
  */
-public class EditNewsCommand implements IActionCommand {
+public class EditNews implements IActionCommand {
 
     private NewsService newsService;
 
-    public EditNewsCommand() {
+    public EditNews() {
         newsService = NewsService.getInstance();
     }
 
@@ -28,7 +27,7 @@ public class EditNewsCommand implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
         Long newsId = Long.parseLong(sessionRequestContent.getParameter(Const.P_NEWS_ID_4_EDIT));
-        News news = newsService.getNewsByPK(newsId);
+        News news = newsService.get(newsId);
         List<News> newses = (List<News>) sessionRequestContent.getSessionAttribute(Const.NEWSES);
         sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
         if (news != null) {

@@ -7,8 +7,10 @@ public class ServiceConstants {
 
     public static class Const {
 
-        public static final String F_EMAIL = "F_EMAIL";
         public static final int ZERO = 0;
 
+        public static final String HIBER_SESSION = "hiberSession";
+        public static final String CONNECTION = "connection";
+        public static final String P_ID = "id";
     }
 }

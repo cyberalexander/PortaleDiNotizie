@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static by.leonovich.notizieportale.util.DaoConstants.Const.*;
+
 
 /**
  * Created by alexanderleonovich on 11.04.15.
@@ -25,7 +27,6 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
 
     private SessionFactory sessionFactory;
     private final ThreadLocal sessions = new ThreadLocal();
-    protected Session session;
 
     public AbstractDao() {
         HibernateUtil util = HibernateUtil.getHibernateUtil();
@@ -42,26 +43,25 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
         return session;
     }
 
-    public void clearSession(ThreadLocal sessionStatus) {
+    public void clearSession() {
         Session session = getSession();
-        boolean cleaner = (boolean) sessionStatus.get();
-        if (true == cleaner) {
             if ((session != null) && (session.isOpen())) {
                 session.clear();
             }
-            sessionStatus.set(false);
-        }
+    }
+
+    public void detachSession() {
+        sessions.set(null);
     }
 
     /** It creates a new entry, the corresponding object object */
     @Override
-    public Long save(T object)  throws PersistException {
+    public Long save(T object, Session session)  throws PersistException {
         Long generatedId;
         try {
-            Session session = getSession();
             generatedId = (Long) session.save(object);
         } catch (HibernateException e) {
-            logger.error("Error save ENTITY in Database" + e);
+            logger.error(ERROR_SAVE_ENTITY + e);
             throw new PersistException(e);
         }
         return generatedId;
@@ -69,12 +69,11 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
 
     /** It creates a new entry, the corresponding object object */
     @Override
-    public void saveOrUpdate(T object) throws PersistException {
+    public void saveOrUpdate(T object, Session session) throws PersistException {
         try {
-            Session session = getSession();
             session.saveOrUpdate(object);
         } catch (HibernateException e) {
-            logger.error("Error save or update ENTITY in Dao" + e);
+            logger.error(DaoConstants.Const.ERROR_SAVE_OR_UPDATE + e);
             throw new PersistException(e);
         }
     }
@@ -86,13 +85,12 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public T getByPK(Long pK) throws PersistException {
+    public T get(Long pK, Session session) throws PersistException {
         T object;
         try {
-            Session session = getSession();
             object = (T) session.get(getPersistentClass(), pK);
         } catch (HibernateException e) {
-            logger.error("Error get " + getPersistentClass() + " in Dao " + e);
+            logger.error(ERROR_GET_OBJECT + e);
             throw new PersistException(e);
         }
         return object;
@@ -105,14 +103,12 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public T loadByPK(Long pK) throws PersistException {
+    public T load(Long pK, Session session) throws PersistException {
         T object;
         try {
-            Session session = getSession();
             object = (T) session.load(getPersistentClass(), pK);
-            //session.evict(object);
         } catch (HibernateException e) {
-            logger.error("Error load() " + getPersistentClass() + " in Dao " + e);
+            logger.error(ERROR_LOAD_OBJECT + e);
             throw new PersistException(e);
         }
         return object;
@@ -124,12 +120,11 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public void update(T object) throws PersistException {
+    public void update(T object, Session session) throws PersistException {
         try {
-            Session session = getSession();
             session.update(object);
         } catch (HibernateException e) {
-            logger.error(DaoConstants.Const.ERROR_UPDATE_ENTITY, e);
+            logger.error(DaoConstants.Const.ERROR_UPDATE_ENTITY + e);
             throw new PersistException(e);
         }
     }
@@ -140,12 +135,11 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public void delete(T object) throws PersistException {
+    public void delete(T object, Session session) throws PersistException {
         try {
-            Session session = getSession();
             session.update(object);
         } catch (HibernateException e) {
-            logger.error("Error delete object from Database: " + e);
+            logger.error(ERROR_DELETE + e);
             throw new PersistException(e);
         }
     }
@@ -156,12 +150,11 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public void remove(T object) throws PersistException{
+    public void remove(T object, Session session) throws PersistException{
         try {
-            Session session = getSession();
             session.delete(object);
         } catch (HibernateException e) {
-            logger.error("Error REMOVE object from Database: " + e);
+            logger.error(ERROR_REMOVE + e);
             throw new PersistException(e);
         }
     }
@@ -172,13 +165,12 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public List<T> getAll() throws PersistException {
+    public List<T> getAll(Session session) throws PersistException {
         List<T> list;
         try {
-            Session session = getSession();
             list = parseResultSet(session);
         } catch (HibernateException e) {
-            logger.error("Error get list of " + getPersistentClass() + " in Dao " + e);
+            logger.error(ERROR_GET_LIST + e);
             throw new PersistException(e);
         }
         return list;
@@ -192,4 +184,9 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     private Class getPersistentClass() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
 }

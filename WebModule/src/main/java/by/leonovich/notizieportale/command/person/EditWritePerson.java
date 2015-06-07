@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.command.personcommand;
+package by.leonovich.notizieportale.command.person;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
@@ -14,11 +14,11 @@ import com.mysql.jdbc.StringUtils;
 /**
  * Created by alexanderleonovich on 10.05.15.
  */
-public class EditWritePersonCommand implements IActionCommand {
+public class EditWritePerson implements IActionCommand {
 
     private PersonService personService;
 
-    public EditWritePersonCommand() {
+    public EditWritePerson() {
         personService = PersonService.getInstance();
     }
 

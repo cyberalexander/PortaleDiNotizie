@@ -30,10 +30,10 @@ public class MainServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        sessionRequestContent = new SessionRequestContent();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        sessionRequestContent = new SessionRequestContent(request);
         response.setContentType(WebConstants.Const.CONTENT_TYPE);
         session = request.getSession();
         sessionRequestContent.extractValues(request);

@@ -1,9 +1,13 @@
 package by.leonovich.notizieportale.domain;
 
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Set;
 
 /**
@@ -12,6 +16,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "T_CATEGORY")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "category")
 public class Category extends CustomEntity{
     private static final long serialVersionUID = -9165585069001592520L;
 
@@ -23,7 +28,7 @@ public class Category extends CustomEntity{
     @Column(name = "F_CATEGORY_NAME")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<News> news;
 
     public Category() {

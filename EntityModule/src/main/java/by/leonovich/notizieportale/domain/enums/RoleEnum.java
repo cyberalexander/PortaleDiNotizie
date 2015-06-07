@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.domain.util;
+package by.leonovich.notizieportale.domain.enums;
 
 /**
  * Created by alexanderleonovich on 26.04.15.

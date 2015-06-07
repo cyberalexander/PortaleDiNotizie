@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.command.commentcommand;
+package by.leonovich.notizieportale.command.commentary;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 
@@ -13,10 +13,10 @@ import by.leonovich.notizieportale.util.UrlEnum;
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
-public class EditWriteCommentCommand implements IActionCommand {
+public class EditWriteCommentary implements IActionCommand {
     private CommentaryService commentaryService;
 
-    public EditWriteCommentCommand() {
+    public EditWriteCommentary() {
         commentaryService = CommentaryService.getInstance();
     }
 
@@ -26,7 +26,7 @@ public class EditWriteCommentCommand implements IActionCommand {
 
         Long commentaryId = Long.parseLong(sessionRequestContent.getParameter(Const.P_COMMENTARY_ID));
         if (commentaryId != null) {
-            commentary = commentaryService.getCommentaryByPK(commentaryId);
+            commentary = commentaryService.get(commentaryId);
             sessionRequestContent.setSessionAttribute(Const.COMMENT_FOR_EDIT, commentary);
         } else {
             sessionRequestContent.setRequestAttribute("errorEditCommentary",

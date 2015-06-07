@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static by.leonovich.notizieportale.domain.util.StatusEnum.SAVED;
+import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
 import static by.leonovich.notizieportale.services.util.TestConstants.TestConst.*;
 import static org.junit.Assert.*;
 
@@ -28,7 +28,7 @@ public class CategoryServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        category = new Category(CATEGORY_NAME, SAVED);
+        category = new Category(CATEGORY_NAME, PERSISTED);
     }
 
     @After
@@ -38,8 +38,8 @@ public class CategoryServiceTest {
 
     @Test
     public void testGetCategoryByPK() throws Exception {
-        Long id = categoryService.saveCategory(category);
-        Category expected = categoryService.getCategoryByPK(id);
+        Long id = categoryService.save(category);
+        Category expected = categoryService.get(id);
         logger.info("Object, what we get from database " + expected.getCategoryId() + " - " + expected.getCategoryName());
         assertNotNull("After persist id is null.", expected);
     }
@@ -47,7 +47,7 @@ public class CategoryServiceTest {
     @Test
     public void testGetCategories() throws Exception {
         for (int i = ZERO; i < THREE; i++) {
-            categoryService.saveCategory(category);
+            categoryService.save(category);
         }
         List list = categoryService.getCategories();
         Assert.assertNotNull(list);
@@ -56,7 +56,7 @@ public class CategoryServiceTest {
 
     @Test
     public void testSaveCategory() throws Exception {
-        Long id = categoryService.saveCategory(category);
+        Long id = categoryService.save(category);
         logger.info('\n' + "ID AFTER SAVE " + category.getClass() + " IS " + id + '\n');
         Assert.assertNotNull("After persist id is null.", id);
     }
@@ -68,19 +68,19 @@ public class CategoryServiceTest {
 
     @Test
     public void testDeleteCategory() throws Exception {
-        categoryService.saveCategory(category);
-        assertNotNull(categoryService.getCategoryByPK(category.getCategoryId()).getCategoryId());
-        categoryService.deleteCategory(category);
-        category = categoryService.getCategoryByPK(category.getCategoryId());
+        categoryService.save(category);
+        assertNotNull(categoryService.get(category.getCategoryId()).getCategoryId());
+        categoryService.delete(category);
+        category = categoryService.get(category.getCategoryId());
         assertEquals("Can`t change status of object in database ", DELETED, category.getStatus());
     }
 
     @Test
     public void testRemoveCategory() throws Exception {
-        categoryService.saveCategory(category);
-        assertNotNull(categoryService.getCategoryByPK(category.getCategoryId()).getCategoryId());
-        categoryService.removeCategory(category);
-        category = categoryService.getCategoryByPK(category.getCategoryId());
+        categoryService.save(category);
+        assertNotNull(categoryService.get(category.getCategoryId()).getCategoryId());
+        categoryService.remove(category);
+        category = categoryService.get(category.getCategoryId());
         assertNull("Object is not deleted from database ", category);
     }
 
@@ -88,7 +88,7 @@ public class CategoryServiceTest {
     public void testGetCategoryByName() throws Exception {
         assertNull("Id before save() is not null.", category.getCategoryId());
         category.setCategoryName("VasiaLOh");
-        categoryService.saveCategory(category);
+        categoryService.save(category);
         logger.info("Saved category " + category.getCategoryName());
         Category expected = categoryService.getCategoryByName(category.getCategoryName());
         logger.info("Names of categories: category-actual-" + category.getCategoryName() + ", category-expected-" + expected.getCategoryName());

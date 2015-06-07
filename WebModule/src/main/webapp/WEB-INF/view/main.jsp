@@ -57,6 +57,7 @@
         </c:if>
 
         <c:if test="${news.category.categoryName eq 'main' && news.newsId != 1}">
+            <c:import url="common/pagination.jsp"/>
             <c:forEach items="${newses}" var="newsObj">
                 <p class="mostpopnewsheader"><a
                         href="controller?command=shownews&pageId=${newsObj.pageId}">${newsObj.menuTitle}</a></p>
@@ -87,7 +88,7 @@
                 <c:import url="common/commentary_form.jsp"/>
             </c:if>
         </c:if>
-        <c:if test="${persontype eq 'ADMIN' || persontype eq 'USER'}">
+        <c:if test="${(persontype eq 'ADMIN')  || (persontype eq 'USER' && person.personId == news.person.personId)}">
             <%-- EDIT-PANEL FOR NEWS OR FOR PAGE, WHAT AUTORIZED USER WATCH NOW --%>
             <c:import url="common/edit-panel.jsp"/>
         </c:if>

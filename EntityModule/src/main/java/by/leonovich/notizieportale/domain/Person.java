@@ -1,10 +1,8 @@
 package by.leonovich.notizieportale.domain;
 
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -33,11 +31,11 @@ public class Person extends CustomEntity{
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
     private PersonDetail personDetail;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<News> newses;
 
-    @OneToMany(mappedBy = "person")
-    private Set<Commentary> commentaries;
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+    private List<Commentary> commentaries;
 
     public Person() {
         super();
@@ -89,11 +87,11 @@ public class Person extends CustomEntity{
         this.newses = newses;
     }
 
-    public Set<Commentary> getCommentaries() {
+    public List<Commentary> getCommentaries() {
         return commentaries;
     }
 
-    public void setCommentaries(Set<Commentary> commentaries) {
+    public void setCommentaries(List<Commentary> commentaries) {
         this.commentaries = commentaries;
     }
 
@@ -101,7 +99,6 @@ public class Person extends CustomEntity{
     public int hashCode() {
         final int prime = 37;
         int result = 17;
-        result = prime * result + (personId == null ? 0 : personId.hashCode());
         result = prime * result + (name == null ? 0 : name.hashCode());
         result = prime * result + (surname == null ? 0 : surname.hashCode());
         return result;
@@ -123,9 +120,6 @@ public class Person extends CustomEntity{
             return false;
         }
         Person other = (Person) obj;
-        if (personId != other.personId) {
-            return false;
-        }
         if (name == null) {
             if (other.name != null) {
                 return false;

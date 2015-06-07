@@ -1,7 +1,7 @@
 package by.leonovich.notizieportale.filter;
 
 import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.util.RoleEnum;
+import by.leonovich.notizieportale.domain.enums.RoleEnum;
 import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
@@ -48,9 +48,9 @@ public class ServletSecurityFilter implements Filter {
                 dispatcher.forward(request, response);
                 return;
             }
-        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(ADMIN)) {
+        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(RoleEnum.ADMIN)) {
                 type = RoleEnum.ADMIN;
-        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(PERSON)){
+        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(RoleEnum.USER)){
                 type = RoleEnum.USER;
         }
         session.setAttribute(PERSONTYPE, type);

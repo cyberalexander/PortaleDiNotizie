@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.services.util;
 
-import by.leonovich.notizieportale.domain.util.StatusEnum;
+import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
 import java.util.Date;
 

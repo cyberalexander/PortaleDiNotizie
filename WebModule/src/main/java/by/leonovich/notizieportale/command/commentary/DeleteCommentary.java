@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.command.commentcommand;
+package by.leonovich.notizieportale.command.commentary;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 
@@ -15,18 +15,18 @@ import java.util.List;
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
-public class DeleteCommentCommand implements IActionCommand {
+public class DeleteCommentary implements IActionCommand {
     private CommentaryService commentaryService;
 
-    public DeleteCommentCommand() {
+    public DeleteCommentary() {
         commentaryService = CommentaryService.getInstance();
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Commentary commentary = commentaryService.getCommentaryByPK(
+        Commentary commentary = commentaryService.get(
                 Long.parseLong(sessionRequestContent.getParameter(Const.P_COMMENTARY_ID)));
         if (commentary != null) {
-            commentaryService.deleteCommentary(commentary);
+            commentaryService.delete(commentary);
             List<Commentary> commentaries = commentaryService.getCommentariesByNewsId(commentary.getNews().getNewsId());
             sessionRequestContent.setSessionAttribute(Const.COMMENTARIES, commentaries);
         }else{
