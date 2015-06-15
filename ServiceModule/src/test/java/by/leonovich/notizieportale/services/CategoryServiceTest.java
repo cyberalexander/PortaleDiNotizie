@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -20,10 +21,11 @@ public class CategoryServiceTest {
     private static final Logger logger = Logger.getLogger(CategoryServiceTest.class);
 
     private Category category;
+    @Autowired
     private CategoryService categoryService;
 
     public CategoryServiceTest() {
-        categoryService = CategoryService.getInstance();
+        /*categoryService = CategoryService.getInstance();*/
     }
 
     @Before

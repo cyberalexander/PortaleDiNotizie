@@ -77,9 +77,14 @@ public enum CommandEnum {
             this.command = new RegisterFirstStep();
         }
     },
-    ADDPERSON {
+    ADDPERSONSECONDSTEP {
         {
             this.command = new RegisterSecondStep();
+        }
+    },
+    REGISTERBACK {
+        {
+            this.command = new RegisterBack();
         }
     },
     GOINCABINET {

@@ -15,7 +15,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 
@@ -24,11 +28,13 @@ import static org.junit.Assert.*;
 /**
  * Created by alexanderleonovich on 26.05.15.
  */
-
+@Ignore
 public class CommentaryDaoTest {
     private static final Logger logger = Logger.getLogger(CommentaryDaoTest.class);
     protected Session session;
     private Transaction transaction;
+    @Autowired
+    @Qualifier("commentaryDao")
     private CommentaryDao commentaryDao;
     private Commentary commentary;
     private Category category;
@@ -36,12 +42,13 @@ public class CommentaryDaoTest {
     private Person person;
 
     public CommentaryDaoTest() {
-        IDaoFactory factory = DaoFactoryImpl.getInstance();
+        //commentaryDao = CommentaryDao.getInstance();
+        /*IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
             commentaryDao = (CommentaryDao) factory.getDao(Commentary.class);
         } catch (PersistException e) {
             logger.error(e);
-        }
+        }*/
     }
 
     @Before

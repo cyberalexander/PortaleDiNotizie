@@ -27,7 +27,7 @@ public class AddWriteNews implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
-        News news = new News();
+        News news = null;
         news = attributesManager.parseParametersOfNews(sessionRequestContent, news);
         Long operationResult = newsService.save(news);
         if (operationResult != null && operationResult > Const.ZERO) {

@@ -20,6 +20,10 @@ public interface IGenericDao<T> {
 
     Session getSession();
 
+    void clearSession();
+
+    void detachSession();
+
     /** It creates a new entry, the corresponding object object */
      Long save(T object, Session session)  throws PersistException;
 
@@ -27,7 +31,7 @@ public interface IGenericDao<T> {
     void saveOrUpdate(T object, Session session) throws PersistException;
 
     /** Gets the appropriate record with a primary key or a null key */
-    T get(Long pK, Session session) throws PersistException;
+    T get(Long pK) throws PersistException;
 
     T load(Long pK, Session session) throws PersistException;
 

@@ -12,9 +12,11 @@
     <title></title>
 </head>
 <body>
+<c:if test="${(persontype eq 'ADMIN')  || (persontype eq 'USER')}">
 <table>
-    <caption>EDIT PANEL</caption>
+    <caption><p class="mostpopnews">EDIT PANEL</p></caption>
     <tr>
+    <c:if test="${(persontype eq 'ADMIN')  || persontype eq 'USER' && person.personId == news.person.personId}">
         <th>
             <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE USER IS LOCATED NOW  --%>
             <form method="post" action="controller">
@@ -35,6 +37,7 @@
                         </form>
                     </c:if>
         </th>
+    </c:if>
         <th>
             <%-- BUTTON FOR ADDING NEWS IN CATEGORY OR FOR ADDING NEW CATEGORY --%>
                 <c:if test="${news.category.categoryId == 1}">
@@ -65,5 +68,6 @@
         </th>
     </tr>
 </table>
+</c:if>
 </body>
 </html>

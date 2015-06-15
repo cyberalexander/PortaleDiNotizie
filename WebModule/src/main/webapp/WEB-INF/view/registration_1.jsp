@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="person" class="by.leonovich.notizieportale.domain.Person" scope="session"/>
 <html>
 <head>
   <title>registration page</title>
@@ -27,14 +28,13 @@
       <p class="errormessage">${duplicateEmail} ${nullemailorpassword}</p>
 
         <label for="name" class="text">Name:</label>
-        <input size="30" id="name" name="name" placeholder="what`s your name?"/></br>
+        <input size="30" id="name" name="name" placeholder="what`s your name?" value="${person.name}"/></br>
 
       <label for="surname" class="text">Surname:</label>
-      <input size="30" id="surname" name="surname" placeholder="what`s your surname"/><br>
+      <input size="30" id="surname" name="surname" placeholder="what`s your surname" value="${person.surname}"/><br>
 
       <button type="submit" class="btn btn-primary">CONTINUE</button>
     </form>
-
   </div>
   <div class="col-md-3">
 

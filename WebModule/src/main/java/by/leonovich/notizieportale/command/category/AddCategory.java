@@ -7,6 +7,7 @@ import by.leonovich.notizieportale.services.ICategoryService;
 import by.leonovich.notizieportale.services.INewsService;
 import by.leonovich.notizieportale.services.NewsService;
 import by.leonovich.notizieportale.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 import static by.leonovich.notizieportale.util.WebConstants.Const.P_PAGE_ID;
@@ -15,12 +16,8 @@ import static by.leonovich.notizieportale.util.WebConstants.Const.P_PAGE_ID;
  * Created by alexanderleonovich on 02.06.15.
  */
 public class AddCategory implements IActionCommand {
-    private INewsService newsService;
-    private ICategoryService categoryService;
 
     public AddCategory() {
-        newsService = NewsService.getInstance();
-        categoryService = CategoryService.getInstance();
     }
 
     @Override

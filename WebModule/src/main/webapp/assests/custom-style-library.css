@@ -50,9 +50,9 @@ em {
 	text-align: center;
 	margin-bottom: 50px}
 
-.col-md-7{
+.img-div{
 	text-align: center;
-	align-content: inherit}
+	display: inline-block}
 
 img {
 	width:50%;

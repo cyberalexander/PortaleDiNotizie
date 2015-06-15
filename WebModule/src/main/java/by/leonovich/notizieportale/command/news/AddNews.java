@@ -2,14 +2,17 @@ package by.leonovich.notizieportale.command.news;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
+import static java.util.Objects.nonNull;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
 import by.leonovich.notizieportale.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,11 +23,11 @@ import java.util.regex.Pattern;
 public class AddNews implements IActionCommand {
 
     private INewsService newsService;
+    @Autowired
     private ICategoryService categoryService;
 
     public AddNews() {
         newsService = NewsService.getInstance();
-        categoryService = CategoryService.getInstance();
     }
 
     @Override
@@ -38,10 +41,10 @@ public class AddNews implements IActionCommand {
         if (!(news.getPageId().equals(MAIN)) && (news.getCategory().getCategoryId() == ONE)) {
             category = categoryService.getCategoryByName(news.getPageId());
             List<News> list = newsService.getListOfNewsByCategoryIdNoOrder(category.getCategoryId());
-            if (list != null && list.size() > Const.ZERO) {
+            if (nonNull(list) && list.size() > ZERO) {
                 pageId = newsService.get(list.get(list.size() - ONE).getNewsId()).getPageId();
             } else {
-                pageId = news.getPageId() + "_" + Const.ONE;
+                pageId = news.getPageId() + "_" + ONE;
                 sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
                 sessionRequestContent.setRequestAttribute(P_CATEGORY, news.getPageId());
                 page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
@@ -71,14 +74,14 @@ public class AddNews implements IActionCommand {
         Pattern p = Pattern.compile("[0-9]+");
         Matcher m = p.matcher(pageId);
         String idOfPage = null;
-        int startIndex = WebConstants.Const.ZERO;
+        int startIndex = ZERO;
         while (m.find()) {
             idOfPage = m.group();
             startIndex = m.start();
         }
         long number = Long.parseLong(idOfPage);
         number++;
-        pageId = pageId.substring(WebConstants.Const.ZERO, startIndex);
+        pageId = pageId.substring(ZERO, startIndex);
         pageId = pageId + String.valueOf(number);
         return pageId;
     }

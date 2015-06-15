@@ -19,10 +19,6 @@ public interface IPersonService extends IService<Person> {
 
     boolean registerPersonSecondStep(HttpSession httpSession, PersonDetail personDetail);
 
-    Person getPersonByEmail(String email);
-
-    void updateUserInformation(Person person);
-
     void logOutPerson();
 
 }

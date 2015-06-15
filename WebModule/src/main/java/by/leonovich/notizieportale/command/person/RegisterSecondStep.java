@@ -36,7 +36,7 @@ public class RegisterSecondStep implements IActionCommand {
                     registerPersonSecondStep(sessionRequestContent.getHttpSession(), personDetail);
             if (operationResult) {
                 sessionRequestContent.setSessionAttribute(P_PERSON,
-                       person = personService.getPersonByEmail(personDetail.getEmail()));
+                       person = personService.getByEmail(personDetail.getEmail()));
                 sessionRequestContent.setSessionAttribute(PERSONTYPE, person.getPersonDetail().getRole());
                 return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
             } else {

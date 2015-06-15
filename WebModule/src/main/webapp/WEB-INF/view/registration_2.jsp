@@ -23,7 +23,7 @@
   </div>
   <div class="col-md-6" align="right">
     <form name="registration_form" method="post" action="controller">
-      <input type="hidden" name="command" value="addperson">
+      <input type="hidden" name="command" value="addpersonsecondstep">
       <p class="errormessage">${duplicateEmail} ${nullemailorpassword}</p>
 
       <label for="email" class="text">Email for entry to site:</label>

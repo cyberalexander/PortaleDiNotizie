@@ -12,6 +12,7 @@ import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.NewsService;
 import by.leonovich.notizieportale.services.PersonService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,6 +27,7 @@ public class AttributesManager {
     private static AttributesManager attributesManagerInst;
 
     private NewsService newsService;
+    @Autowired
     private CategoryService categoryService;
     private PersonService personService;
     private CommentaryService commentaryService;
@@ -35,7 +37,6 @@ public class AttributesManager {
      */
     private AttributesManager() {
         newsService = NewsService.getInstance();
-        categoryService = CategoryService.getInstance();
         personService = PersonService.getInstance();
         commentaryService = CommentaryService.getInstance();
     }
@@ -63,10 +64,8 @@ public class AttributesManager {
      * @param news - Adding / removing / edited news
      */
     public  void setAtributesForResponse(SessionRequestContent sessionRequestContent, News news) {
-// depending on the received command or delete or add any change in the list of news News.
         List<News> newses = newsService.getNewsByCriteria(getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, news.getCategory().getCategoryId());
 
-// Object news assign a link to the main page headings, which appear to us after operations NEWS
         news = newsService.getNewsByPageId(news.getCategory().getCategoryName());
         sessionRequestContent.setSessionAttribute(Const.NEWS, news);
         sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
@@ -157,12 +156,11 @@ public class AttributesManager {
     }
 
     public int getPageNumber(SessionRequestContent sessionRequestContent) {
-        int pageNumber;
         if (nonNull(sessionRequestContent.getParameter(P_PAGE_NUMBER))
                 && Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER)) != ZERO) {
-            return pageNumber = Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER));
+            return Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER));
         } else {
-            return pageNumber = ONE;
+            return ONE;
         }
     }
 

@@ -12,7 +12,7 @@ import java.io.IOException;
  * filter that redirects all direct hits to the start page.
  */
 @WebFilter(filterName = "PageRedirectSecurityFilter", urlPatterns = {"/WEB-INF/view/*"},
-        initParams = {@WebInitParam(name = "INDEX_PATH", value = "/index.jsp")})
+        initParams = {@WebInitParam(name = "INDEX_PATH", value = "/index.jspx")})
 public class PageRedirectSecurityFilter implements Filter {
 
     private String indexPath;

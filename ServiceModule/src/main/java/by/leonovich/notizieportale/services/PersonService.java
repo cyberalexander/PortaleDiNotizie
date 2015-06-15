@@ -1,8 +1,10 @@
 package by.leonovich.notizieportale.services;
 
+import by.leonovich.notizieportale.dao.IPersonDao;
 import by.leonovich.notizieportale.dao.PersonDao;
 import by.leonovich.notizieportale.dao.PersonDetailDao;
 import by.leonovich.notizieportale.daofactory.IDaoFactory;
+import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.domain.PersonDetail;
@@ -16,6 +18,12 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.io.Serializable;
@@ -35,15 +43,21 @@ import static java.util.Objects.nonNull;
  * Created by alexanderleonovich on 29.04.15.
  * Service layer for domain entity User
  */
+@Service
+@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 public class PersonService implements IPersonService {
     private static final Logger logger = Logger.getLogger(PersonService.class);
 
     private static PersonService personServiceInst;
-    private PersonDao personDao;
+    @Autowired
+    @Qualifier("personDao")
+    private IPersonDao personDao;
+    @Autowired
+    @Qualifier("personDetailDao")
     private PersonDetailDao personDetailDao;
     private Transaction transaction;
 
-    private PersonService() {
+    public PersonService() {
         IDaoFactory factory = DaoFactoryImpl.getInstance();
         try {
             personDao = (PersonDao) factory.getDao(Person.class);
@@ -70,12 +84,6 @@ public class PersonService implements IPersonService {
 
     public Session getSessionFromHttp(HttpSession httpSession) {
         Session hiberSession = (Session) httpSession.getAttribute(HIBER_SESSION);
-        Connection connection = (Connection) httpSession.getAttribute(CONNECTION);
-        try {
-            logger.info("\n wefef23f3f23f23f23f23f23f" + connection.isClosed() + "\n 1f2m3f 23f 3fj23f 2j3f23jf23fj23f23f23f");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         hiberSession.getSessionFactory().openSession();
         return hiberSession;
     }
@@ -92,47 +100,6 @@ public class PersonService implements IPersonService {
         }
     }
 
-    @Override
-    public Person get(Long pK) {
-        if (nonNull(pK)) {
-            Person person = null;
-            try {
-                Session session = personDao.getSession();
-                session.clear();
-                transaction = session.beginTransaction();
-                person = personDao.get(pK, session);
-                transaction.commit();
-            } catch (PersistException e) {
-                transaction.rollback();
-                logger.error(e);
-            }finally {
-                personDao.clearSession();
-            }
-            return person;
-        }
-        return null;
-    }
-
-    @Override
-    public Person load(Long pK) {
-        if (nonNull(pK)) {
-            Person person = null;
-            try {
-                Session session = personDao.getSession();
-                transaction = session.beginTransaction();
-                person = personDao.load(pK, session);
-                transaction.commit();
-            } catch (PersistException e) {
-                transaction.rollback();
-                logger.error(e);
-            }finally {
-                personDao.clearSession();
-            }
-            return person;
-        }
-        return null;
-    }
-
     /**
      * Server validation of user
      * @param email    - email-adress of user who want to autenitcate to site
@@ -140,6 +107,7 @@ public class PersonService implements IPersonService {
      * @return true, if user in database (registered), or false, if user not registered
      */
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public boolean checkPerson(String email, String password) {
         if (!(isNullOrEmpty(email)) && !(isNullOrEmpty(password))) {
             try {
@@ -169,6 +137,7 @@ public class PersonService implements IPersonService {
      * @return User user
      */
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Person getByEmail(String email) {
         if (!(isNullOrEmpty(email))) {
             Person person = null;
@@ -240,7 +209,8 @@ public class PersonService implements IPersonService {
         return true;
     }
 
-    @Override
+/*    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Person getPersonByEmail(String email) {
         if (!(isNullOrEmpty(email))) {
             Person person = null;
@@ -258,15 +228,17 @@ public class PersonService implements IPersonService {
             return person;
         }
         return null;
-    }
+    }*/
 
     @Override
-    public void updateUserInformation(Person person) {
+    public Person update(Person person) {
         if (nonNull(person.getPersonId())) {
+            Long updatedPersonId = person.getPersonId();
             try {
                 Session session = personDao.getSession();
                 transaction = session.beginTransaction();
                 personDao.update(person, session);
+                person = (Person) session.get(Person.class, updatedPersonId);
                 transaction.commit();
             } catch (PersistException e) {
                 transaction.rollback();
@@ -275,6 +247,7 @@ public class PersonService implements IPersonService {
                 personDao.clearSession();
             }
         }
+        return person;
     }
 
     @Override
@@ -288,11 +261,6 @@ public class PersonService implements IPersonService {
     }
 
     @Override
-    public Person update(Person person) {
-        return null;
-    }
-
-    @Override
     public Person delete(Person person) {
         return null;
     }
@@ -300,6 +268,39 @@ public class PersonService implements IPersonService {
     @Override
     public void remove(Person person) {
 
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public Person get(Long pK) {
+        if (nonNull(pK)) {
+            try {
+                return personDao.get(pK);
+            } catch (PersistException e) {
+                logger.error(e);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Person load(Long pK) {
+        if (nonNull(pK)) {
+            Person person = null;
+            try {
+                Session session = personDao.getSession();
+                transaction = session.beginTransaction();
+                person = personDao.load(pK, session);
+                transaction.commit();
+            } catch (PersistException e) {
+                transaction.rollback();
+                logger.error(e);
+            }finally {
+                personDao.clearSession();
+            }
+            return person;
+        }
+        return null;
     }
 
 }

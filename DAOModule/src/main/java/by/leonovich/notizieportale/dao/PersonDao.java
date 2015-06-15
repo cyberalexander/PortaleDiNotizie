@@ -3,10 +3,13 @@ package by.leonovich.notizieportale.dao;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -18,7 +21,10 @@ import static by.leonovich.notizieportale.util.DaoConstants.Const.STATUS;
  * Created by alexanderleonovich on 11.04.15.
  * Class for working with persistence entity of PERSON
  */
-public class PersonDao extends AbstractDao<Person> {
+@Repository
+public class PersonDao extends AbstractDao<Person> implements IPersonDao {
+    private static final Logger logger = Logger.getLogger(PersonDao.class);
+
 
     public PersonDao() {
         super();
@@ -45,6 +51,7 @@ public class PersonDao extends AbstractDao<Person> {
      * @return
      * @throws PersistException
      */
+    @Override
     public Person getByEmail(String email, Session session) throws PersistException {
         StatusEnum status = PERSISTED;
         Person person;

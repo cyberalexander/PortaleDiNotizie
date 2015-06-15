@@ -5,12 +5,16 @@ import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
 import by.leonovich.notizieportale.util.*;
-import by.leonovich.notizieportale.util.pajinationlogic.Paginator;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.Objects;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
+import static java.util.Objects.nonNull;
 
 /**
  * Created by alexanderleonovich on 19.04.15.
@@ -19,13 +23,18 @@ import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 public class ShowNews implements IActionCommand {
     private static final Logger logger = Logger.getLogger(ShowNews.class);
     private INewsService newsService;
+    @Autowired
     private CategoryService categoryService;
-    private Paginator paginator;
+
+    public void setCategoryService(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     public ShowNews() {
         newsService = NewsService.getInstance();
         categoryService = CategoryService.getInstance();
-        paginator = Paginator.getInstance();
+        /*ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(new String[]{this.getClass().getClassLoader().getResource("beans-services.xml").getPath()});
+        categoryService = (CategoryService) ac.getBean("categoryService");*/
     }
 
     @Override
@@ -34,7 +43,7 @@ public class ShowNews implements IActionCommand {
         List<News> newses = null;
         News news = newsService.getNewsByPageId(getPageId(sessionRequestContent));
 
-        if (categoryService.getCategoryByName(news.getPageId()) != null
+        if (nonNull(categoryService.getCategoryByName(news.getPageId()))
                 && news.getPageId().equals(categoryService.getCategoryByName(news.getPageId()).getCategoryName())) {
             category = categoryService.getCategoryByName(news.getPageId());
             newses = newsService.getNewsByCriteria(AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, category.getCategoryId());
@@ -54,7 +63,7 @@ public class ShowNews implements IActionCommand {
         sessionRequestContent.setSessionAttribute(CATEGORIES, getCategories());
 
         sessionRequestContent.setSessionAttribute(PAGINATOR_LIST,
-                paginator.getList((Long) newsService.getCountNews(category).get(ZERO),
+                newsService.getList((Long) newsService.getCountNews(category).get(ZERO),
                         AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE));
         /** ---------------------------------------------- */
 

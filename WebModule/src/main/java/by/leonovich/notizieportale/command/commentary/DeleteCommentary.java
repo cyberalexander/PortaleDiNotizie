@@ -5,10 +5,12 @@ import static by.leonovich.notizieportale.util.WebConstants.Const;
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.services.CommentaryService;
+import by.leonovich.notizieportale.services.ICommentaryService;
 import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -16,10 +18,12 @@ import java.util.List;
  * Created by alexanderleonovich on 03.05.15.
  */
 public class DeleteCommentary implements IActionCommand {
-    private CommentaryService commentaryService;
+
+    @Autowired
+    private ICommentaryService commentaryService;
 
     public DeleteCommentary() {
-        commentaryService = CommentaryService.getInstance();
+        /*commentaryService = CommentaryService.getInstance();*/
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {

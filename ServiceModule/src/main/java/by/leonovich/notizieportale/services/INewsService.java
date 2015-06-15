@@ -27,7 +27,7 @@ public interface INewsService extends IService<News> {
 
     List<News> getMostPopularNewsList();
 
-
-
+    /** use this method for receiving list of pagination numbers. This numbers is used in view */
+    List<Integer> getList(long numberOfPages, int pageNumber, int newsesPackageSize);
 
 }

@@ -5,12 +5,10 @@ import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
+import org.hibernate.*;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +20,8 @@ import static by.leonovich.notizieportale.util.DaoConstants.Const.*;
  * Created by alexanderleonovich on 11.04.15.
  * Class for working with persistence entity of NEWS
  */
-public class NewsDao extends AbstractDao<News> {
+@Repository
+public class NewsDao extends AbstractDao<News> implements INewsDao {
     private static final Logger logger = Logger.getLogger(NewsDao.class);
 
     /**

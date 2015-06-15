@@ -5,6 +5,8 @@ import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.PersonService;
 import by.leonovich.notizieportale.util.*;
 
+import java.util.Objects;
+
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.UNCONFIRMED;
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
@@ -22,16 +24,26 @@ public class RegisterFirstStep implements IActionCommand {
         attributesManager = AttributesManager.getInstance();
         personService = PersonService.getInstance();
     }
+
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
+        Long id;
 
-        Person person = new Person();
-        person.setName(sessionRequestContent.getParameter(P_NAME));
-        person.setSurname(sessionRequestContent.getParameter(P_SURNAME));
-        person.setStatus(UNCONFIRMED);
-        Long id = personService.registerPersonFirstStep(person);
+        Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
+        if (Objects.nonNull(person.getPersonId())) {
+            person.setName(sessionRequestContent.getParameter(P_NAME));
+            person.setSurname(sessionRequestContent.getParameter(P_SURNAME));
+            person.setStatus(UNCONFIRMED);
+            id = personService.update(person).getPersonId();
+        } else {
+            person.setName(sessionRequestContent.getParameter(P_NAME));
+            person.setSurname(sessionRequestContent.getParameter(P_SURNAME));
+            person.setStatus(UNCONFIRMED);
+            id = personService.registerPersonFirstStep(person);
+        }
         sessionRequestContent.setSessionAttribute(P_ID, id);
+        sessionRequestContent.setSessionAttribute(P_PERSON, person);
         personService.putSessionInHttp(sessionRequestContent.getHttpSession());
         return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION_2.getUrlCode());
     }

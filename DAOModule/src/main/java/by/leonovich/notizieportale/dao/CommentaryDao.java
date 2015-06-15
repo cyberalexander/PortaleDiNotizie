@@ -5,11 +5,9 @@ import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.util.DaoConstants.Const;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -19,14 +17,25 @@ import static by.leonovich.notizieportale.util.DaoConstants.Const.*;
  * Created by alexanderleonovich on 27.04.15.
  * Class for working with persistence entity of COMMENTARY
  */
-public class CommentaryDao extends AbstractDao<Commentary> {
+@Repository
+public class CommentaryDao extends AbstractDao<Commentary> implements ICommentaryDao {
     private static final Logger logger = Logger.getLogger(AbstractDao.class);
+    private static CommentaryDao commentaryDaoInst;
 
     /**
      * Constructor of CommentaryDao.class
      */
     public CommentaryDao() {
         super();
+    }
+
+
+
+    public static synchronized CommentaryDao getInstance() {
+        if (commentaryDaoInst == null) {
+            commentaryDaoInst = new CommentaryDao();
+        }
+        return commentaryDaoInst;
     }
 
 
@@ -51,6 +60,7 @@ public class CommentaryDao extends AbstractDao<Commentary> {
      * @return
      * @throws PersistException
      */
+    @Override
     public List<Commentary> getByNewsPK(Long pK, Session session) throws PersistException {
         List<Commentary> commentaries;
         try {
@@ -67,6 +77,7 @@ public class CommentaryDao extends AbstractDao<Commentary> {
         return commentaries;
     }
 
+    @Override
     public List<Commentary> getByPersonPK(Long pK, Session session) throws PersistException {
         List<Commentary> commentaries;
         try {

@@ -108,7 +108,7 @@ public class AbstractDaoTest {
     @Test
     public void testGetByPK() throws Exception {
         Long id = dao.save(news, session);
-        News expected = dao.get(id, session);
+        News expected = dao.get(id);
         logger.info("News object, what we get from database " + expected.getPageId() + " - " + expected.getTitle());
         Assert.assertNotNull("After persist id is null.", expected);
     }
@@ -136,19 +136,19 @@ public class AbstractDaoTest {
     @Test
     public void testDelete() throws Exception {
         dao.save(news, session);
-        assertNotNull(dao.get(news.getNewsId(), session).getNewsId());
+        assertNotNull(dao.get(news.getNewsId()).getNewsId());
         news.setStatus(DELETED);
         dao.delete(news, session);
-        news = dao.get(news.getNewsId(), session);
+        news = dao.get(news.getNewsId());
         assertEquals("Can`t change status of object in database ", DELETED, news.getStatus());
     }
 
     @Test
     public void testRemove() throws Exception {
         dao.save(news, session);
-        assertNotNull(dao.get(news.getNewsId(), session).getNewsId());
+        assertNotNull(dao.get(news.getNewsId()).getNewsId());
         dao.remove(news, session);
-        news = dao.get(news.getNewsId(), session);
+        news = dao.get(news.getNewsId());
         assertNull("Object is not deleted from database ", news);
     }
 

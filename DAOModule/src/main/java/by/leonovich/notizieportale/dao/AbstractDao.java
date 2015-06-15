@@ -8,6 +8,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.ParameterizedType;
 import java.sql.PreparedStatement;
@@ -22,15 +24,22 @@ import static by.leonovich.notizieportale.util.DaoConstants.Const.*;
  * An abstract class provides a base implementation CRUD operations using JDBC.
  * @param <T>  type of object persistence
  */
+@Repository
 public abstract class AbstractDao<T> implements IGenericDao<T> {
     private static final Logger logger = Logger.getLogger(AbstractDao.class);
 
-    private SessionFactory sessionFactory;
+    @Autowired
+    protected static SessionFactory sessionFactory;
+
     private final ThreadLocal sessions = new ThreadLocal();
 
     public AbstractDao() {
         HibernateUtil util = HibernateUtil.getHibernateUtil();
         sessionFactory = util.getSessionFactory();
+    }
+
+    public Session currentSession() {
+        return sessionFactory.getCurrentSession();
     }
 
 
@@ -85,15 +94,8 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
-    public T get(Long pK, Session session) throws PersistException {
-        T object;
-        try {
-            object = (T) session.get(getPersistentClass(), pK);
-        } catch (HibernateException e) {
-            logger.error(ERROR_GET_OBJECT + e);
-            throw new PersistException(e);
-        }
-        return object;
+    public T get(Long pK) throws PersistException {
+        return (T) getSession().get(getPersistentClass(), pK);
     }
 
     /**

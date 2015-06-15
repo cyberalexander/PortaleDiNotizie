@@ -7,6 +7,7 @@ import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.services.*;
 import by.leonovich.notizieportale.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by alexanderleonovich on 02.06.15.
@@ -14,14 +15,15 @@ import by.leonovich.notizieportale.util.*;
 public class AddWriteCategory implements IActionCommand{
 
     private AttributesManager attributesManager;
-    private INewsService newsService;
-    private ICategoryService categoryService;
+    private NewsService newsService;
+
+    @Autowired
+    private CategoryService categoryService;
     private ShowNews showNews;
 
     public AddWriteCategory() {
         attributesManager = AttributesManager.getInstance();
         newsService = NewsService.getInstance();
-        categoryService = CategoryService.getInstance();
         showNews = new ShowNews();
     }
 

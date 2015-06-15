@@ -5,11 +5,9 @@ import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.util.DaoConstants.Const;
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -19,13 +17,13 @@ import static by.leonovich.notizieportale.util.DaoConstants.Const.*;
  * Created by alexanderleonovich on 20.05.15.
  * In this.Class contains special methods for Category-entity
  */
-public class CategoryDao extends AbstractDao<Category> {
+@Repository
+public class CategoryDao extends AbstractDao<Category> implements ICategoryDao {
+    private static final Logger logger = Logger.getLogger(CategoryDao.class);
 
     public CategoryDao() {
         super();
     }
-
-    private static final Logger logger = Logger.getLogger(CategoryDao.class);
 
     /**
      *
@@ -48,6 +46,7 @@ public class CategoryDao extends AbstractDao<Category> {
      * @return
      * @throws PersistException
      */
+    @Override
     public Category getByName(String categoryName, Session session) throws PersistException {
         Category categoryObj;
         try {

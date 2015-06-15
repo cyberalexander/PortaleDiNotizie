@@ -16,4 +16,6 @@ public interface ICommentaryService extends IService<Commentary> {
 
     List<Commentary> getCommentariesByNewsId(Long PK);
 
+    Long save(Commentary commentary, Long newsId, Long personId);
+
 }

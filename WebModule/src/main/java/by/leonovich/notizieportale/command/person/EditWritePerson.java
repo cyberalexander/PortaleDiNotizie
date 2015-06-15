@@ -1,7 +1,9 @@
 package by.leonovich.notizieportale.command.person;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
+import static by.leonovich.notizieportale.util.WebConstants.Const.EMAIL;
 import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
+import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
 
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
@@ -26,22 +28,22 @@ public class EditWritePerson implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
         PersonDetail personDetail = person.getPersonDetail();
-        if (!StringUtils.isNullOrEmpty(sessionRequestContent.getParameter(Const.P_NEW_EMAIL))) {
+        if (!isNullOrEmpty(sessionRequestContent.getParameter(Const.P_NEW_EMAIL))) {
             personDetail.setEmail(sessionRequestContent.getParameter(Const.P_NEW_EMAIL));
-        } else {
-            personDetail.setEmail(sessionRequestContent.getParameter(Const.EMAIL));
-        }
-        if (!StringUtils.isNullOrEmpty(sessionRequestContent.getParameter(Const.P_NEW_PASSWORD))) {
+        }/* else {
+            personDetail.setEmail(sessionRequestContent.getParameter(EMAIL));
+        }*/
+        if (!isNullOrEmpty(sessionRequestContent.getParameter(Const.P_NEW_PASSWORD))) {
             personDetail.setPassword(sessionRequestContent.getParameter(Const.P_NEW_PASSWORD));
-        } else {
+        }/* else {
             personDetail.setPassword(sessionRequestContent.getParameter(Const.PASSWORD));
-        }
+        }*/
         person.setName(sessionRequestContent.getParameter(Const.P_NAME));
         person.setSurname(sessionRequestContent.getParameter(Const.P_SURNAME));
         personDetail.setBirthday(AttributesManager.getInstance()
                 .parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
         person.setPersonDetail(personDetail);
-        personService.updateUserInformation(person);
+        personService.update(person);
 
         String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
         sessionRequestContent.setSessionAttribute(P_PERSON, person);

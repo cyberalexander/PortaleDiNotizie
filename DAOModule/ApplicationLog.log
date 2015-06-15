@@ -4483,3 +4483,1521 @@ ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 1
 2015-06-06 09:22:21  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 12
 2015-06-06 09:22:21  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
 2015-06-06 09:22:21  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-07 20:07:13  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-07 20:07:13  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-07 20:07:13  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-07 20:07:13  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:13  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:13 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:13  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:13  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:07:14  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:07:14  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:07:14  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:07:14 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-07 20:08:04  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-07 20:08:04  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-07 20:08:04  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:08:04  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:08:04  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:08:04  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:08:04 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-07 20:09:23  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-07 20:09:23  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-07 20:09:23  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:23 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:24 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:24 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:24 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:24 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:24 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:09:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:09:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:09:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:09:24 ERROR notizieportale.util.HibernateUtil:26 - Initial SessionFactory creation failed.org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.mysql.jdbc.Driver]
+2015-06-07 20:13:12  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-07 20:13:12  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-07 20:13:12  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-07 20:13:12  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-07 20:13:12  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:13:12  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:13:12  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:13:12  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:13:12  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:13:12  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-07 20:13:12  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-07 20:13:12  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-07 20:13:12  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-07 20:13:12  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-07 20:13:13  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-07 20:13:13  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-07 20:13:13  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-07 20:13:13  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-07 20:13:13  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-07 20:13:13  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-07 20:13:13  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-07 20:13:13  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-07 20:13:13  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-07 20:13:13  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-07 20:13:13  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-07 20:13:13  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-07 20:13:13  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-07 20:13:13  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-07 20:13:14  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-07 20:13:14  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Sun Jun 07 20:13:13 MSK 2015, DATE? what we get from database 2015-06-07
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-07 20:13:14  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-07 20:17:19  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-07 20:17:19  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-07 20:17:19  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-07 20:17:19  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-07 20:17:19  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-07 20:17:19  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-07 20:17:19  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-07 20:17:19  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-07 20:17:19  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-07 20:17:19  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-07 20:17:19  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-07 20:17:19  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-07 20:17:19  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-07 20:17:19  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-07 20:17:20  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-07 20:17:20  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-07 20:17:20  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-07 20:17:20  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-07 20:17:20  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-07 20:17:20  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-07 20:17:20  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-07 20:17:20  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-07 20:17:20  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-07 20:17:20  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-07 20:17:20  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-07 20:17:20  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-07 20:17:21  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-07 20:17:21  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-07 20:17:21  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-07 20:17:21  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Sun Jun 07 20:17:20 MSK 2015, DATE? what we get from database 2015-06-07
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-07 20:17:21  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-08 21:44:30  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-08 21:44:30  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-08 21:44:30  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-08 21:44:30  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-08 21:44:30  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-08 21:44:30  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-08 21:44:30  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-08 21:44:30  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-08 21:44:30  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-08 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-08 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-08 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-08 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-08 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-08 21:44:31  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-08 21:44:31  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-08 21:44:31  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-08 21:44:31  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-08 21:44:31  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-08 21:44:31  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-08 21:44:31  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-08 21:44:31  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-08 21:44:31  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-08 21:44:31  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-08 21:44:32  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-08 21:44:32  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-08 21:44:32  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-08 21:44:32  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-08 21:44:32  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-08 21:44:32  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Mon Jun 08 21:44:31 MSK 2015, DATE? what we get from database 2015-06-08
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-08 21:44:32  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-09 23:50:05  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-09 23:50:05  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-09 23:50:05  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-09 23:50:05  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-09 23:50:05  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-09 23:50:05  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-09 23:50:05  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-09 23:50:05  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-09 23:50:05  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-09 23:50:05  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-09 23:50:05  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-09 23:50:05  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-09 23:50:05  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-09 23:50:05  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-09 23:50:05  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-09 23:50:05  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-09 23:50:05  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-09 23:50:05  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-09 23:50:05  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-09 23:50:05  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-09 23:50:05  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-09 23:50:06  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-09 23:50:06  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-09 23:50:06  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-09 23:50:06  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-09 23:50:06  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-09 23:50:06  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-09 23:50:06  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-09 23:50:06  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-09 23:50:06  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Tue Jun 09 23:50:06 MSK 2015, DATE? what we get from database 2015-06-09
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-09 23:50:06  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 00:09:23  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 00:09:23  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 00:09:23  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 00:09:23  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 00:09:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 00:09:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 00:09:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 00:09:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 00:09:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 00:09:23  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 00:09:23  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 00:09:23  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 00:09:23  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 00:09:23  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 00:09:23  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 00:09:23  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 00:09:23  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 00:09:23  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 00:09:23  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 00:09:23  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 00:09:23  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 00:09:24  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 00:09:24  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 00:09:24  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 00:09:24  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 00:09:24  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 00:09:24  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 00:09:24  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 00:09:24  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 00:09:24  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 00:09:24 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 00:09:24  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 00:10:58  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 00:10:58  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 00:10:58  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 00:10:58  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 00:10:58  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 00:10:58  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 00:10:58  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 00:10:58  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 00:10:58  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 00:10:58  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 00:10:58  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 00:10:58  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 00:10:58  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 00:10:58  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 00:10:58  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 00:10:58  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 00:10:58  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 00:10:58  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 00:10:58  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 00:10:58  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 00:10:58  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 00:10:58  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 00:10:59  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 00:10:59  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 00:10:59  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 00:10:59  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 00:10:59  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 00:10:59  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 00:10:59  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 00:10:59  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 00:10:59 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 00:10:59  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 19:40:21  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 19:40:21  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 19:40:21  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 19:40:21  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 19:40:21  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 19:40:21  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 19:40:21  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 19:40:21  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 19:40:21  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 19:40:21  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 19:40:21  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 19:40:21  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 19:40:21  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 19:40:21  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 19:40:21  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 19:40:21  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 19:40:21  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 19:40:21  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 19:40:21  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 19:40:21  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 19:40:21  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 19:40:22  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 19:40:22  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 19:40:22  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 19:40:22  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 19:40:22  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 19:40:22  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 19:40:22  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 19:40:22  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 19:40:22  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 19:40:22 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 19:40:22  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:33:17  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:33:17  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:33:17  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:33:17  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:33:17  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:33:17  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:33:17  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:33:17  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:33:17  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:33:17  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:33:17  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:33:17  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:33:17  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:33:17  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:33:17  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:33:17  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:33:17  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:33:17  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:33:17  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:33:17  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:33:17  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:33:17  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:33:17  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:33:18  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:33:18  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:33:18  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:33:18  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:33:18  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:33:18  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:33:18  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:33:17 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 21:33:18  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:38:51  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:38:51  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:38:51  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:38:51  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:38:51  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:38:51  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:38:51  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:38:51  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:38:51  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:38:51  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:38:51  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:38:51  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:38:51  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:38:51  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:38:52  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:38:52  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:38:52  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:38:52  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:38:52  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:38:52  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:38:52  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:38:52  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:38:52  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:38:52  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:38:52  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:38:52  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:38:53  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:38:53  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:38:53  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:38:53  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:38:53 ERROR notizieportale.dao.CommentaryDaoTest:43 - by.leonovich.notizieportale.exception.PersistException: Dao object for class by.leonovich.notizieportale.domain.Commentary not found.
+2015-06-10 21:38:53 ERROR notizieportale.dao.CommentaryDaoTest:43 - by.leonovich.notizieportale.exception.PersistException: Dao object for class by.leonovich.notizieportale.domain.Commentary not found.
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:38:52 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-10 21:38:53  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:43:11  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:43:11  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:43:11  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:43:11  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:43:11  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:43:11  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:43:11  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:43:11  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:43:11  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:43:11  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:43:11  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:43:11  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:43:11  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:43:11  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:43:12  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:43:12  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:43:12  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:43:12  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:43:12  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:43:12  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:43:12  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:43:12  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:43:12  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:43:12  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:43:12  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:43:12  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:43:12  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:43:12  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:43:13  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:43:13  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:43:13 ERROR notizieportale.dao.CommentaryDaoTest:43 - by.leonovich.notizieportale.exception.PersistException: Dao object for class by.leonovich.notizieportale.domain.Commentary not found.
+2015-06-10 21:43:13 ERROR notizieportale.dao.CommentaryDaoTest:43 - by.leonovich.notizieportale.exception.PersistException: Dao object for class by.leonovich.notizieportale.domain.Commentary not found.
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:43:12 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-10 21:43:13  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:43:24  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:43:24  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:43:24  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:43:24  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:43:24  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:43:24  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:43:24  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:43:24  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:43:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:43:24  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:43:24  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:43:24  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:43:24  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:43:24  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:43:24  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:43:24  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:43:24  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:43:24  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:43:24  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:43:24  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:43:24  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:43:25  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:43:25  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:43:25  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:43:25  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:43:25  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:43:25  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:43:25  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:43:25  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:43:25  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:43:25 ERROR notizieportale.dao.CommentaryDaoTest:43 - by.leonovich.notizieportale.exception.PersistException: Dao object for class by.leonovich.notizieportale.domain.Commentary not found.
+2015-06-10 21:43:25 ERROR notizieportale.dao.CommentaryDaoTest:43 - by.leonovich.notizieportale.exception.PersistException: Dao object for class by.leonovich.notizieportale.domain.Commentary not found.
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:43:25 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-10 21:43:25  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:44:03  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:44:03  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:44:03  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:44:03  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:44:03  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:44:03  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:44:03  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:44:03  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:44:03  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:44:03  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:44:03  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:44:03  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:44:03  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:44:03  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:44:03  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:44:03  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:44:03  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:44:03  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:44:03  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:44:03  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:44:03  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:44:04  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:44:04  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:44:04  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:44:04  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:44:04  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:44:04  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:44:04  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:44:04  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:44:04  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:44:04 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 21:44:04  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:44:30  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:44:30  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:44:30  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:44:30  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:44:30  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:44:30  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:44:30  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:44:30  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:44:30  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:44:30  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:44:30  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:44:30  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:44:30  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:44:30  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:44:30  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:44:30  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:44:30  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:44:31  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:44:31  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:44:31  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:44:31  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:44:31  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:44:31  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:44:31  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:44:31  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:44:31  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:44:31 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-10 21:44:31  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:46:09  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:46:09  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:46:09  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:46:09  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:46:09  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:46:09  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:46:09  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:46:09  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:46:09  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:46:09  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:46:09  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:46:09  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:46:09  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:46:09  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:46:10  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:46:10  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:46:10  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:46:10  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:46:10  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:46:10  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:46:10  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:46:10  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:46:10  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:46:10  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:46:10  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:46:10  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:46:11  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:46:11  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:46:11  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:46:11  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:46:10 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-10 21:46:11  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 21:49:09  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 21:49:09  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 21:49:09  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 21:49:09  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 21:49:09  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 21:49:09  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 21:49:09  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 21:49:09  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 21:49:09  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 21:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 21:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 21:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 21:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 21:49:09  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 21:49:10  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 21:49:10  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 21:49:10  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 21:49:10  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 21:49:10  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 21:49:10  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 21:49:10  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 21:49:10  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 21:49:10  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 21:49:10  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:49:10  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 21:49:10  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 21:49:11  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:49:11  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 21:49:11  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 21:49:11  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 21:49:10 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-10 21:49:11  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 22:40:37  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 22:40:37  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 22:40:37  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 22:40:37  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 22:40:37  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 22:40:37  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 22:40:37  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 22:40:37  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 22:40:38  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 22:40:38  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 22:40:38  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 22:40:38  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 22:40:38  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 22:40:38  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 22:40:38  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 22:40:38  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 22:40:38  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 22:40:38  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 22:40:38  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 22:40:38  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 22:40:38  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 22:40:38  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 22:40:38  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 22:40:38  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:40:39  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 22:40:39  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:40:39  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:40:39  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:40:39  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 22:40:39  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 22:40:38 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 22:40:39  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 22:41:26  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 22:41:26  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 22:41:26  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 22:41:26  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 22:41:26  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 22:41:26  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 22:41:26  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 22:41:26  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 22:41:26  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 22:41:26  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 22:41:26  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 22:41:26  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 22:41:26  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 22:41:26  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 22:41:26  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 22:41:26  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 22:41:26  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 22:41:27  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 22:41:27  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 22:41:27  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 22:41:27  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 22:41:27  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 22:41:27  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 22:41:27  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:41:27  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 22:41:27  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:41:27  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:41:27  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:41:27  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 22:41:27  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 22:41:27 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 22:41:27  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 22:44:37  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 22:44:37  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 22:44:37  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 22:44:37  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 22:44:37  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 22:44:37  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 22:44:37  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 22:44:37  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 22:44:37  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 22:44:37  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 22:44:37  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 22:44:37  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 22:44:37  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 22:44:37  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 22:44:37  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 22:44:37  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 22:44:37  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 22:44:37  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 22:44:37  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 22:44:37  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 22:44:37  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 22:44:38  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 22:44:38  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 22:44:38  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:44:38  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 22:44:38  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:44:38  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:44:38  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:44:38  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 22:44:38  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 22:44:38 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 22:44:38  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 22:46:47  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 22:46:47  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 22:46:47  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 22:46:47  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 22:46:47  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 22:46:47  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 22:46:47  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 22:46:47  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 22:46:47  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 22:46:47  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 22:46:47  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 22:46:47  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 22:46:47  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 22:46:47  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 22:46:47  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 22:46:47  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 22:46:47  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 22:46:47  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 22:46:47  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 22:46:47  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 22:46:47  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 22:46:47  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 22:46:48  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 22:46:48  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:46:48  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 22:46:48  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:46:48  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:46:48  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:46:48  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 22:46:48  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 22:46:48 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 22:46:48  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 22:48:05  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 22:48:05  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 22:48:05  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 22:48:05  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 22:48:05  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 22:48:05  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 22:48:05  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 22:48:05  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 22:48:05  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 22:48:05  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 22:48:05  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 22:48:05  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 22:48:05  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 22:48:05  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 22:48:05  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 22:48:05  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 22:48:05  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 22:48:05  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 22:48:05  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 22:48:05  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 22:48:05  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 22:48:06  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 22:48:06  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 22:48:06  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:48:06  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 22:48:06  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 22:48:06  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:48:06  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 22:48:06  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 22:48:06  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 22:48:06 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 22:48:06  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 23:02:08  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 23:02:08  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 23:02:08  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 23:02:08  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 23:02:08  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 23:02:08  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 23:02:08  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 23:02:08  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 23:02:08  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 23:02:08  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 23:02:08  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 23:02:08  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 23:02:08  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 23:02:08  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 23:02:08  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 23:02:08  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 23:02:08  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 23:02:08  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 23:02:08  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 23:02:09  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 23:02:09  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 23:02:09  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 23:02:09  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 23:02:09  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 23:02:09  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 23:02:09  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 23:02:09  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 23:02:09  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 23:02:09  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 23:02:09  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 23:02:09 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 23:02:09  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 23:05:40  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 23:05:40  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 23:05:40  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 23:05:40  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 23:05:40  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 23:05:40  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 23:05:40  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 23:05:40  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 23:05:40  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 23:05:40  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 23:05:40  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 23:05:40  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 23:05:40  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 23:05:40  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 23:05:40  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 23:05:40  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 23:05:40  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 23:05:41  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 23:05:41  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 23:05:41  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 23:05:41  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 23:05:41  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 23:05:41  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 23:05:41  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 23:05:41  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 23:05:41  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 23:05:41  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 23:05:41  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 23:05:41  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 23:05:41  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 23:05:41 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 23:05:41  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-10 23:07:06  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-10 23:07:06  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-10 23:07:06  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-10 23:07:06  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-10 23:07:06  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-10 23:07:06  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-10 23:07:06  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-10 23:07:06  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-10 23:07:06  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-10 23:07:06  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-10 23:07:06  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-10 23:07:06  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-10 23:07:06  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-10 23:07:06  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-10 23:07:07  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-10 23:07:07  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-10 23:07:07  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-10 23:07:07  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-10 23:07:07  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-10 23:07:07  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-10 23:07:07  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-10 23:07:07  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-10 23:07:07  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-10 23:07:07  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 23:07:07  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-10 23:07:07  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-10 23:07:07  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 23:07:07  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-10 23:07:07  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-10 23:07:07  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-10 23:07:07  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 9
+2015-06-10 23:07:07  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 9
+2015-06-10 23:07:07  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 10
+2015-06-10 23:07:07  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-10 23:07:07  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 11
+2015-06-10 23:07:07  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Wed Jun 10 23:07:07 MSK 2015, DATE? what we get from database 2015-06-10
+2015-06-10 23:07:08  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 12
+2015-06-10 23:07:08  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-10 23:07:08  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  13
+2015-06-10 23:07:08  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-11 18:03:46  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-11 18:03:46  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-11 18:03:46  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-11 18:03:46  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-11 18:03:46  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-11 18:03:46  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-11 18:03:46  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-11 18:03:46  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-11 18:03:46  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-11 18:03:46  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-11 18:03:46  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-11 18:03:46  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-11 18:03:46  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-11 18:03:46  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-11 18:03:47  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-11 18:03:47  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-11 18:03:47  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-11 18:03:47  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-11 18:03:47  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-11 18:03:47  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-11 18:03:47  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-11 18:03:47  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-11 18:03:48  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-11 18:03:48  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:03:48  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-11 18:03:48  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:03:48  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:03:48  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:03:48  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-11 18:03:48  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Thu Jun 11 18:03:48 MSK 2015, DATE? what we get from database 2015-06-11
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-11 18:03:48  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-11 18:04:49  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-11 18:04:49  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-11 18:04:49  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-11 18:04:49  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-11 18:04:49  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-11 18:04:49  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-11 18:04:49  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-11 18:04:49  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-11 18:04:49  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-11 18:04:49  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-11 18:04:49  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-11 18:04:49  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-11 18:04:49  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-11 18:04:49  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-11 18:04:49  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-11 18:04:49  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-11 18:04:49  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-11 18:04:49  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-11 18:04:49  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-11 18:04:49  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-11 18:04:49  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-11 18:04:50  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-11 18:04:50  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-11 18:04:50  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:04:50  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-11 18:04:50  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:04:50  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:04:50  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:04:50  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-11 18:04:50  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 8
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 8
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 9
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 10
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Thu Jun 11 18:04:50 MSK 2015, DATE? what we get from database 2015-06-11
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 11
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  12
+2015-06-11 18:04:50  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-11 18:07:23  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-11 18:07:23  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-11 18:07:23  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-11 18:07:23  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-11 18:07:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-11 18:07:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-11 18:07:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-11 18:07:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-11 18:07:24  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-11 18:07:24  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-11 18:07:24  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-11 18:07:24  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-11 18:07:24  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-11 18:07:24  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-11 18:07:24  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-11 18:07:24  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-11 18:07:24  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-11 18:07:24  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-11 18:07:24  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-11 18:07:24  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-11 18:07:24  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-11 18:07:24  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-11 18:07:24  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-11 18:07:24  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:07:24  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-11 18:07:24  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:07:25  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:07:25  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:07:25  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-11 18:07:25  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Thu Jun 11 18:07:24 MSK 2015, DATE? what we get from database 2015-06-11
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-11 18:07:25  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-11 18:08:01  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-11 18:08:01  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-11 18:08:01  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-11 18:08:01  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-11 18:08:01  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-11 18:08:01  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-11 18:08:01  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-11 18:08:01  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-11 18:08:01  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-11 18:08:01  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-11 18:08:01  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-11 18:08:01  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-11 18:08:01  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-11 18:08:01  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-11 18:08:01  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-11 18:08:01  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-11 18:08:01  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-11 18:08:01  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-11 18:08:01  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-11 18:08:02  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-11 18:08:02  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-11 18:08:02  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-11 18:08:02  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-11 18:08:02  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:08:02  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-11 18:08:02  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:08:02  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:08:02  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:08:02  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-11 18:08:02  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Thu Jun 11 18:08:02 MSK 2015, DATE? what we get from database 2015-06-11
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-11 18:08:02  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test
+2015-06-11 18:08:23  INFO annotations.common.Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2015-06-11 18:08:23  INFO org.hibernate.Version:54 - HHH000412: Hibernate Core {4.3.9.Final}
+2015-06-11 18:08:23  INFO hibernate.cfg.Environment:239 - HHH000206: hibernate.properties not found
+2015-06-11 18:08:23  INFO hibernate.cfg.Environment:346 - HHH000021: Bytecode provider name : javassist
+2015-06-11 18:08:23  INFO hibernate.cfg.Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2015-06-11 18:08:23  INFO hibernate.cfg.Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2015-06-11 18:08:23  WARN util.xml.DTDEntityResolver:75 - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2015-06-11 18:08:23  INFO hibernate.cfg.Configuration:2216 - HHH000041: Configured SessionFactory: null
+2015-06-11 18:08:23  WARN connections.internal.DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-06-11 18:08:23  INFO connections.internal.DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/mysitetest]
+2015-06-11 18:08:23  INFO connections.internal.DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=root, password=****}
+2015-06-11 18:08:23  INFO connections.internal.DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2015-06-11 18:08:23  INFO connections.internal.DriverManagerConnectionProviderImpl:185 - HHH000149: JDBC isolation level: READ_COMMITTED
+2015-06-11 18:08:23  INFO connections.internal.DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-06-11 18:08:24  INFO hibernate.dialect.Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2015-06-11 18:08:24  INFO transaction.internal.TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2015-06-11 18:08:24  INFO internal.ast.ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-06-11 18:08:24  INFO cache.spi.UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2015-06-11 18:08:24  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2015-06-11 18:08:24  INFO cache.internal.StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2015-06-11 18:08:24  WARN cache.ehcache.AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2015-06-11 18:08:24  INFO tool.hbm2ddl.SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2015-06-11 18:08:24  INFO tool.hbm2ddl.SchemaExport:406 - HHH000230: Schema export complete
+2015-06-11 18:08:24  INFO notizieportale.dao.AbstractDaoTest:120 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:08:24  INFO notizieportale.dao.AbstractDaoTest:96 - 
+ID AFTER SAVE class by.leonovich.notizieportale.domain.News IS 2
+
+2015-06-11 18:08:24  INFO notizieportale.dao.AbstractDaoTest:112 - News object, what we get from database Test_Page_ID - test_title
+2015-06-11 18:08:24  INFO notizieportale.dao.AbstractDaoTest:131 - Saved object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:08:24  INFO notizieportale.dao.AbstractDaoTest:132 - Updated object 5 - unique_page_id_for_update_method - test_title
+2015-06-11 18:08:25  INFO notizieportale.dao.CategoryDaoTest:57 - Saved category VasiaLOh
+2015-06-11 18:08:25  INFO notizieportale.dao.CategoryDaoTest:60 - Names of categories: category-actual-VasiaLOh, category-expected-VasiaLOh
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:114 - Saved news 7
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:116 - News serched by pageId 7
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:79 - Saved news 8
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:82 - List of news by personId 1
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:101 - Saved news 9
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:104 - List of news by DATE 0, DATE in database Thu Jun 11 18:08:24 MSK 2015, DATE? what we get from database 2015-06-11
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:90 - Saved news 10
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:93 - List of news by categoryId 1
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:62 - Saved Person  11
+2015-06-11 18:08:25  INFO notizieportale.dao.NewsDaoTest:64 - Person email unique_email_test

@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Objects;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
+import static java.util.Objects.nonNull;
 
 /**
  * Created by alexanderleonovich on 26.04.15.
@@ -48,10 +50,14 @@ public class ServletSecurityFilter implements Filter {
                 dispatcher.forward(request, response);
                 return;
             }
-        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(RoleEnum.ADMIN)) {
-                type = RoleEnum.ADMIN;
-        }else if (person.getPersonId() != null && person.getPersonDetail().getRole().equals(RoleEnum.USER)){
-                type = RoleEnum.USER;
+        }else if (nonNull(person.getPersonId())) {
+            if (nonNull(person.getPersonDetail())) {
+                if (person.getPersonDetail().getRole().equals(RoleEnum.ADMIN)) {
+                    type = RoleEnum.ADMIN;
+                } else if (person.getPersonDetail().getRole().equals(RoleEnum.USER)) {
+                    type = RoleEnum.USER;
+                }
+            }
         }
         session.setAttribute(PERSONTYPE, type);
         logger.info("PERSONTYPE - " + request.getSession().getAttribute(PERSONTYPE) + "; PERSON - " + request.getSession().getAttribute(P_PERSON));
