@@ -3,7 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
@@ -11,27 +10,12 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:annotation-config/>
     <context:component-scan base-package="by.leonovich.notizieportale.dao"/>
     <aop:aspectj-autoproxy/>
-
-    <bean id="abstractDao" class="by.leonovich.notizieportale.dao.AbstractDao" abstract="true"/>
-
-    <bean id="categoryDao" class="by.leonovich.notizieportale.dao.CategoryDao"/>
-
-    <bean id="commentaryDao" class="by.leonovich.notizieportale.dao.CommentaryDao"/>
-
-    <bean id="newsDao" class="by.leonovich.notizieportale.dao.NewsDao"/>
-
-    <bean id="personDao" class="by.leonovich.notizieportale.dao.PersonDao"/>
-
-    <bean id="personDetailDao" class="by.leonovich.notizieportale.dao.PersonDetailDao"/>
-
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/mysitetonight"/>
@@ -52,11 +36,11 @@
             <props>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="debug">true</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="connection.isolation">2</prop>
+                <prop key="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
                 <prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">validate</prop>
             </props>
         </property>
     </bean>
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 </beans>

@@ -8,6 +8,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.ICommentaryService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
@@ -23,22 +24,26 @@ public class EditWriteCommentary implements IActionCommand {
     private ICommentaryService commentaryService;
 
     public EditWriteCommentary() {
-        commentaryService = CommentaryService.getInstance();
+        commentaryService = new CommentaryService();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        Commentary commentary;
+        Commentary commentary = null;
 
         Long commentaryId = Long.parseLong(sessionRequestContent.getParameter(Const.P_COMMENTARY_ID));
         if (nonNull(commentaryId)) {
-            commentary = commentaryService.get(commentaryId);
+            try {
+                commentary = commentaryService.get(commentaryId);
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
             sessionRequestContent.setSessionAttribute(COMMENT_FOR_EDIT, commentary);
         } else {
             sessionRequestContent.setRequestAttribute("errorEditCommentary",
                     MessageManager.getInstance().getProperty("message.edit.commentay.fail"));
         }
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+        String page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
         return page;
     }
 

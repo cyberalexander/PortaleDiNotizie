@@ -4,14 +4,12 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Controller;
 
 import java.util.List;
-import java.util.Objects;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 import static java.util.Objects.nonNull;
@@ -31,8 +29,8 @@ public class ShowNews implements IActionCommand {
     }
 
     public ShowNews() {
-        newsService = NewsService.getInstance();
-        categoryService = CategoryService.getInstance();
+        newsService = new NewsService();
+        categoryService = new CategoryService();
         /*ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(new String[]{this.getClass().getClassLoader().getResource("beans-services.xml").getPath()});
         categoryService = (CategoryService) ac.getBean("categoryService");*/
     }
@@ -41,14 +39,21 @@ public class ShowNews implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         Category category = null;
         List<News> newses = null;
-        News news = newsService.getNewsByPageId(getPageId(sessionRequestContent));
-
-        if (nonNull(categoryService.getCategoryByName(news.getPageId()))
-                && news.getPageId().equals(categoryService.getCategoryByName(news.getPageId()).getCategoryName())) {
-            category = categoryService.getCategoryByName(news.getPageId());
-            newses = newsService.getNewsByCriteria(AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, category.getCategoryId());
-            logger.info("\n pageNumber=" + AttributesManager.getInstance().getPageNumber(sessionRequestContent) + ", newses.size()=" + newses.size() + "\n");
+        News news = null;
+        String page = null;
+        try {
+        try {
+            news = newsService.getNewsByPageId(getPageId(sessionRequestContent));
+        } catch (ServiceExcpetion serviceExcpetion) {
+            serviceExcpetion.printStackTrace();
         }
+
+            if (nonNull(categoryService.getCategoryByName(news.getPageId()))
+                    && news.getPageId().equals(categoryService.getCategoryByName(news.getPageId()).getCategoryName())) {
+                category = categoryService.getCategoryByName(news.getPageId());
+                newses = newsService.getNewsByCriteria(AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, category.getCategoryId());
+                logger.info("\n pageNumber=" + AttributesManager.getInstance().getPageNumber(sessionRequestContent) + ", newses.size()=" + newses.size() + "\n");
+            }
 
         /** --- Attributes for response on main page --- */
         sessionRequestContent.setSessionAttribute(NEWS, news);
@@ -67,7 +72,10 @@ public class ShowNews implements IActionCommand {
                         AttributesManager.getInstance().getPageNumber(sessionRequestContent), PAGES_PACK_SIZE));
         /** ---------------------------------------------- */
 
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+        page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
+        } catch (ServiceExcpetion serviceExcpetion) {
+            serviceExcpetion.printStackTrace();
+        }
         return page;
     }
 
@@ -76,8 +84,12 @@ public class ShowNews implements IActionCommand {
      * @return List<Category>
      */
     private List<Category> getCategories() {
-        List<Category> categories;
-        categories = categoryService.getCategories();
+        List<Category> categories = null;
+        try {
+            categories = categoryService.getCategories();
+        } catch (ServiceExcpetion serviceExcpetion) {
+            serviceExcpetion.printStackTrace();
+        }
         //categories.remove(WebConstants.Const.ZERO);
         return categories;
     }

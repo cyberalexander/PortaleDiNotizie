@@ -11,6 +11,7 @@ import by.leonovich.notizieportale.services.CategoryService;
 import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.NewsService;
 import by.leonovich.notizieportale.services.PersonService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -36,9 +37,9 @@ public class AttributesManager {
      * private constructor
      */
     private AttributesManager() {
-        newsService = NewsService.getInstance();
-        personService = PersonService.getInstance();
-        commentaryService = CommentaryService.getInstance();
+        newsService = new NewsService();
+        personService = new PersonService();
+        commentaryService = new CommentaryService();
     }
 
 
@@ -80,7 +81,12 @@ public class AttributesManager {
      */
     public News parseParametersOfNews(SessionRequestContent sessionRequestContent, News news) {
         if (news.getNewsId() == null) {
-            Category category = categoryService.getCategoryByName(sessionRequestContent.getParameter(P_CATEGORY));
+            Category category = null;
+            try {
+                category = categoryService.getCategoryByName(sessionRequestContent.getParameter(P_CATEGORY));
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
             news.setCategory(category);
             news.setPerson((Person) sessionRequestContent.getSessionAttribute(P_PERSON));
         }

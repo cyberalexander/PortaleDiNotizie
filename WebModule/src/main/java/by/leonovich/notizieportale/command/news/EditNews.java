@@ -20,7 +20,7 @@ public class EditNews implements IActionCommand {
     private NewsService newsService;
 
     public EditNews() {
-        newsService = NewsService.getInstance();
+        newsService = new NewsService();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class EditNews implements IActionCommand {
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_EDIT_NEWS.getUrlCode());
         } else {
             sessionRequestContent.setRequestAttribute("NoPageForEdit", MessageManager.getInstance().getProperty("message.NoPageForEdit"));
-            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+            page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
         }
         return page;
     }

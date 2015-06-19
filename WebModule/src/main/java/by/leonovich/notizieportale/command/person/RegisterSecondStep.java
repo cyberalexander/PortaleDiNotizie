@@ -1,6 +1,5 @@
 package by.leonovich.notizieportale.command.person;
 
-import static by.leonovich.notizieportale.util.WebConstants.Const;
 import static by.leonovich.notizieportale.util.WebConstants.Const.PERSONTYPE;
 import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
 import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
@@ -9,8 +8,8 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.services.PersonService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
-import com.mysql.jdbc.StringUtils;
 
 /**
  * Created by alexanderleonovich on 02.05.15.
@@ -22,23 +21,32 @@ public class RegisterSecondStep implements IActionCommand {
 
     public RegisterSecondStep() {
         attributesManager = AttributesManager.getInstance();
-        personService = PersonService.getInstance();
+        personService = new PersonService();
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
-        Person person;
+        Person person = null;
         PersonDetail personDetail = new PersonDetail();
         personDetail = attributesManager.parseParametersOfPersonDetail(sessionRequestContent, personDetail);
         if (!(isNullOrEmpty(personDetail.getEmail()))
                 && !(isNullOrEmpty(personDetail.getPassword()))) {
-            boolean operationResult = personService.
-                    registerPersonSecondStep(sessionRequestContent.getHttpSession(), personDetail);
+            boolean operationResult = false;
+            try {
+                operationResult = personService.
+                        registerPersonSecondStep(sessionRequestContent.getHttpSession(), personDetail);
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
             if (operationResult) {
-                sessionRequestContent.setSessionAttribute(P_PERSON,
-                       person = personService.getByEmail(personDetail.getEmail()));
+                try {
+                    sessionRequestContent.setSessionAttribute(P_PERSON,
+                           person = personService.getByEmail(personDetail.getEmail()));
+                } catch (ServiceExcpetion serviceExcpetion) {
+                    serviceExcpetion.printStackTrace();
+                }
                 sessionRequestContent.setSessionAttribute(PERSONTYPE, person.getPersonDetail().getRole());
-                return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
+                return page = URLManager.getInstance().getProperty(UrlEnum.URL_PERSONCABINET.getUrlCode());
             } else {
                 sessionRequestContent.setRequestAttribute("duplicateEmail",
                         MessageManager.getInstance().getProperty("message.duplicateEmail"));

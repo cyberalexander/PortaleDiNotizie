@@ -16,25 +16,17 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <aop:aspectj-autoproxy/>
     <context:annotation-config/>
     <import resource="classpath*:beans-dao.xml"/>
     <context:component-scan base-package="by.leonovich.notizieportale.services"/>
-
-    <bean id="categoryService" class="by.leonovich.notizieportale.services.CategoryService"/>
-
-    <bean id="newsService" class="by.leonovich.notizieportale.services.NewsService"/>
-
-    <bean id="commentaryService" class="by.leonovich.notizieportale.services.CommentaryService"/>
-
-    <bean id="personService" class="by.leonovich.notizieportale.services.PersonService"/>
+    <aop:aspectj-autoproxy/>
 
     <!-- TRANSACTION SETTINGS -->
     <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="txManager"/>
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
     <!--<tx:advice id="txAdice" transaction-manager="txManager">
         <tx:attributes>

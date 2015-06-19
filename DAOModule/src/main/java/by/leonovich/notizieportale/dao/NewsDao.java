@@ -3,12 +3,15 @@ package by.leonovich.notizieportale.dao;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.util.exception.PersistException;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -27,8 +30,9 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     /**
      * Constructor of NewsDao.class
      */
-    public NewsDao() {
-        super();
+    @Autowired
+    public NewsDao(SessionFactory sessionFactory) {
+        super(sessionFactory);
     }
 
     /**
@@ -48,16 +52,16 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     /**
      *
      * @param pK
-     * @param session
      * @return
      * @throws PersistException
      */
-    public List<News> getByPersonId(Long pK, Session session) throws PersistException{
+    @Override
+    public List<News> getByPersonId(Long pK) throws PersistException{
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
             String hql = "SELECT n FROM News n WHERE n.person.personId=:pK and n.status=:status";
-            Query query = session.createQuery(hql)
+            Query query = getCurrentSession().createQuery(hql)
                     .setParameter(PRIMARY_KEY, pK)
                     .setParameter(STATUS, status);
             newses = query.list();
@@ -71,16 +75,16 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     /**
      *
      * @param pK
-     * @param session
      * @return
      * @throws PersistException
      */
-    public List<News> getByCategoryId(Long pK, Session session) throws PersistException{
+    @Override
+    public List<News> getByCategoryId(Long pK) throws PersistException{
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
             String hql = "SELECT n FROM News n WHERE n.category.categoryId=:pK and n.status=:status ORDER BY n.date DESC";
-            Query query = session.createQuery(hql)
+            Query query = getCurrentSession().createQuery(hql)
                     .setParameter(PRIMARY_KEY, pK)
                     .setParameter(STATUS, status);
             newses = query.list();
@@ -94,15 +98,15 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     /**
      *
      * @param pK
-     * @param session
      * @return
      * @throws PersistException
      */
-    public List<News> getByCategoryIdNoOrder(Long pK, Session session) throws PersistException  {
+    @Override
+    public List<News> getByCategoryIdNoOrder(Long pK) throws PersistException  {
         List<News> newses = null;
         try {
             String hql = "SELECT n FROM News n WHERE n.category.categoryId=:pK";
-            Query query = session.createQuery(hql)
+            Query query = getCurrentSession().createQuery(hql)
                     .setParameter(PRIMARY_KEY, pK);
             newses = query.list();
         } catch (HibernateException e) {
@@ -115,16 +119,16 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     /**
      *
      * @param date
-     * @param session
      * @return
      * @throws PersistException
      */
-    public List<News> getByDate(Date date, Session session) throws PersistException{
+    @Override
+    public List<News> getByDate(Date date) throws PersistException{
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
             String hql = "SELECT n FROM News n WHERE n.date=:date and n.status=:status ORDER BY n.date DESC";
-            Query query = session.createQuery(hql)
+            Query query = getCurrentSession().createQuery(hql)
                     .setParameter(DATE, date)
                     .setParameter(STATUS, status);
             newses = query.list();
@@ -141,12 +145,13 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
      * @return object
      * @throws PersistException my class of exception, abstracted from relational databases
      */
-    public News getByPageId(String pageId, Session session) throws PersistException {
+    @Override
+    public News getByPageId(String pageId) throws PersistException {
         News news = null;
         try {
             StatusEnum status = PERSISTED;
             String hql = "SELECT n FROM News n WHERE n.pageId=:pageId and n.status=:status";
-            Query query = session.createQuery(hql)
+            Query query = getCurrentSession().createQuery(hql)
                     .setParameter(PAGE_ID, pageId)
                     .setParameter(STATUS, status);
             news = (News) query.uniqueResult();
@@ -157,12 +162,13 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
         return news;
     }
 
-    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK, Session session) throws PersistException{
+    @Override
+    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK) throws PersistException{
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
             String hql = "SELECT n FROM News n WHERE n.category.categoryId=:pK and n.status=:status  ORDER BY n.date DESC";
-            Query query = session.createQuery(hql)
+            Query query = getCurrentSession().createQuery(hql)
                     .setParameter(PRIMARY_KEY, pK)
                     .setParameter(STATUS, status)
                     .setFirstResult((pageNumber - ONE) * pageSize)
@@ -177,13 +183,12 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     /**
      *
      * @param category
-     * @param session
      * @return
      * @throws PersistException
      */
-    public List countNews(Category category, Session session) throws PersistException {
+    public List countNews(Category category) throws PersistException {
         List result;
-        Criteria criteria = session.createCriteria(News.class);
+        Criteria criteria = getCurrentSession().createCriteria(News.class);
         criteria.add(Restrictions.eq(STATUS, PERSISTED));
         criteria.add(Restrictions.eq(CATEGORY, category));
         criteria.setProjection(Projections.rowCount());

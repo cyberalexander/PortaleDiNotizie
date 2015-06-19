@@ -1,0 +1,68 @@
+body {
+	background: url(../img/body.jpg)
+}
+
+.text {
+	color: white;
+	font-family: Consolas;
+	text-align: justify}
+
+em {
+	color: #b9def0;
+	font-family: "DejaVu Sans";
+	font-size: 11pt}
+
+.errormessage{
+	color: red;
+	font-family: "Helvetica Neue";
+	text-align: center;
+	font-size: 16px}
+
+.headerfirstlevel {
+	color: navajowhite;
+	font-size: 25pt;
+	font-family: Georgia;
+	text-align: center}
+
+.headersecondlevel{
+	color: powderblue;
+	font-size: 25pt;
+	font-family: Georgia;
+	text-align: center}
+
+.mostpopnews {
+	color: white;
+	font-family: cursive;
+	font-size: 10pt;
+	text-align: inherit
+}
+.mostpopnewsheader{
+	color: #5bc0de;
+	font-family: cursive;
+	font-size: 13pt;
+	text-align: center;
+}
+
+.watchnewsbutton{
+	color: white;
+	font-size: 20pt;
+	font-family: Georgia;
+	text-align: center;
+	margin-bottom: 50px}
+
+.img-div{
+	text-align: center;
+	display: inline-block}
+
+img {
+	width:50%;
+	overflow: hidden;
+	margin-top:10px}
+.image img {
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out}
+.image img:hover{
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5)}

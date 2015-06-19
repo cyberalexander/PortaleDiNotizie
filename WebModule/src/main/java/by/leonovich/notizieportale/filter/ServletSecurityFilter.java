@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Objects;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 import static java.util.Objects.nonNull;
@@ -46,7 +45,7 @@ public class ServletSecurityFilter implements Filter {
                     || (Const.DELETE_NEWS.equals(request.getParameter(COMMAND)))) {
 
                 request.setAttribute("accessDenied", MessageManager.getInstance().getProperty("message.access.denied"));
-                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_LOGIN.getUrlCode()));
+                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(URLManager.getInstance().getProperty(UrlEnum.URL_LOGIN.getUrlCode()));
                 dispatcher.forward(request, response);
                 return;
             }

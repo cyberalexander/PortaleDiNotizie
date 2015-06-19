@@ -1,192 +1,127 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.dao.CategoryDao;
-import by.leonovich.notizieportale.dao.ICategoryDao;
-import by.leonovich.notizieportale.dao.IGenericDao;
-import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
-import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.exception.PersistException;
-import com.mysql.jdbc.StringUtils;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.util.exception.PersistException;
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static java.util.Objects.nonNull;
+
 /**
  * Created by alexanderleonovich on 20.05.15.
  * Buisnes layer for Category-entity
  */
-@Service("categoryService")
+@Service
 @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 public class CategoryService implements ICategoryService {
     private static final Logger logger = Logger.getLogger(CategoryService.class);
-    private static CategoryService categoryService;
-
-
     @Autowired
-    @Qualifier("categoryDao")
-    private ICategoryDao categoryDao;
+    private CategoryDao categoryDao;
 
     public CategoryService() {
-        IDaoFactory factory = DaoFactoryImpl.getInstance();
-        try {
-            categoryDao = (CategoryDao) factory.getDao(Category.class);
-        } catch (PersistException e) {
-            logger.error(e);
-        }
     }
 
-    public static synchronized CategoryService getInstance() {
-        if (categoryService == null) {
-            categoryService = new CategoryService();
-        }
-        return categoryService;
-    }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Category> getCategories() {
-        List<Category> list = null;
-        Transaction transaction = null;
+    public List<Category> getCategories() throws ServiceExcpetion{
+        List<Category> list;
         try {
-            Session session = categoryDao.getSession();
-            transaction = session.beginTransaction();
-            list = categoryDao.getAll(session);
-            logger.info("Category-list size: " + list.size());
-            transaction.commit();
-            logger.info("successful get list!");
-        } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
-            transaction.rollback();
+            list = categoryDao.getAll();
         } catch (PersistException e) {
             logger.error(e);
-        }finally {
-            categoryDao.clearSession();
+            throw new ServiceExcpetion(e);
         }
         return list;
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Category getCategoryByName(String category) {
+    public Category getCategoryByName(String category) throws ServiceExcpetion {
         Category categoryObj;
-        if (!(StringUtils.isNullOrEmpty(category))) {
-            Transaction transaction = null;
+        if (!(isNullOrEmpty(category))) {
             try {
-                Session session = categoryDao.getSession();
-                transaction = session.beginTransaction();
-                categoryObj = categoryDao.getByName(category, session);
-                transaction.commit();
-                if (categoryObj != null) {
+                categoryObj = categoryDao.getByName(category);
+                if (nonNull(categoryObj)) {
                     return categoryObj;
                 }
-            } catch (HibernateException e) {
-                logger.error("Error get list of Categories from database" + e);
-                transaction.rollback();
             } catch (PersistException e) {
                 logger.error(e);
-            }finally {
-                categoryDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
         }
         return null;
     }
 
     @Override
-    public Long save(Category category) {
-        Long savedCategoryId = null;
-        Transaction transaction = null;
+    public Long save(Category category) throws ServiceExcpetion{
+        Long savedCategoryId;
         try {
-            Session session = categoryDao.getSession();
-            transaction = session.beginTransaction();
             category.setStatus(StatusEnum.PERSISTED);
-            savedCategoryId = categoryDao.save(category, session);
+            savedCategoryId = categoryDao.save(category);
             logger.info("Category saved: " + savedCategoryId);
-            transaction.commit();
-            logger.info("successful get list!");
-        } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
-            transaction.rollback();
-        } catch (PersistException e) {
+        }catch (PersistException e) {
             logger.error(e);
-        }finally {
-            categoryDao.clearSession();
+            throw new ServiceExcpetion(e);
         }
         return savedCategoryId;
     }
 
     @Override
-    public Category update(Category category) {
+    public Category update(Category category) throws ServiceExcpetion {
         return null;
     }
 
     @Override
-    public Category delete(Category category) {
-        if (null != category.getCategoryId()) {
+    public Category delete(Category category)  throws ServiceExcpetion{
+        if (nonNull(category.getCategoryId())) {
             Long deletedCategoryId = category.getCategoryId();
-            Transaction transaction = null;
             try {
-                Session session = categoryDao.getSession();
-                transaction = session.beginTransaction();
                 category.setStatus(StatusEnum.DELETED);
-                categoryDao.update(category, session);
+                categoryDao.update(category);
                 category = categoryDao.get(deletedCategoryId);
-                transaction.commit();
-            } catch (HibernateException e) {
-                logger.error("Error delete category from database:   " + e);
-                transaction.rollback();
             } catch (PersistException e) {
                 logger.error(e);
-            }finally {
-                categoryDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
         }
         return category;
     }
 
     @Override
-    public void remove(Category category) {
-        if (null != category.getCategoryId()) {
-            Transaction transaction = null;
+    public void remove(Category category) throws ServiceExcpetion {
+        if (nonNull(category.getCategoryId())) {
             try {
-                Session session = categoryDao.getSession();
-                transaction = session.beginTransaction();
-                categoryDao.remove(category, session);
-                transaction.commit();
-            } catch (HibernateException e) {
-                logger.error("Error remove category from database:   " + e);
-                transaction.rollback();
+                categoryDao.remove(category);
             } catch (PersistException e) {
                 logger.error(e);
-            }finally {
-                categoryDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
         }
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Category get(Long pK) {
+    public Category get(Long pK) throws ServiceExcpetion {
         try {
             return categoryDao.get(pK);
         } catch (PersistException e) {
             logger.error(e);
+            throw new ServiceExcpetion(e);
         }
-        return null;
     }
 
     @Override
-    public Category load(Long pK) {
+    public Category load(Long pK) throws ServiceExcpetion {
         return null;
     }
 }

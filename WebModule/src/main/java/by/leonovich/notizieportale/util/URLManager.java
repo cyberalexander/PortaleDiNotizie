@@ -18,7 +18,7 @@ public class URLManager {
 
 
     /**
-     * конструктор извлекает информацию о местонахождении config.properties. В config.properties хранятся URL
+     * конструктор извлекает информацию о местонахождении url.properties. В url.properties хранятся URL
      * для навигации по сайту
      */
     private URLManager() {
@@ -42,7 +42,7 @@ public class URLManager {
     }
 
     /**
-     * Method for get url from properties file config.properties
+     * Method for get url from properties file url.properties
      * @param key key of url-string
      * @return String - url of page for navigate to site
      */

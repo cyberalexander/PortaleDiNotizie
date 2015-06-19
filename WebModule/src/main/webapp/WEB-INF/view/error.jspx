@@ -31,7 +31,7 @@
                           ${pageContext.exception}<br/>
                       </p>
                       <div>
-                          <img src="./assests/img/scusi.jpg"/>
+                          <img src="./view/assests/img/scusi.jpg"/>
                       </div>
                       <!--<c:forEach var="trace" items="${pageContext.exception.stackTrace}">
                           <p>${trace}</p>

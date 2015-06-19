@@ -2,6 +2,7 @@ package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.PersonDetail;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,14 +12,14 @@ import javax.servlet.http.HttpSession;
 public interface IPersonService extends IService<Person> {
 
 
-    boolean checkPerson(String email, String password);
+    boolean checkPerson(String email, String password) throws ServiceExcpetion;
 
-    Person getByEmail(String email);
+    Person getByEmail(String email) throws ServiceExcpetion;
 
-    Long registerPersonFirstStep(Person person);
+    Long registerPersonFirstStep(Person person) throws ServiceExcpetion;
 
-    boolean registerPersonSecondStep(HttpSession httpSession, PersonDetail personDetail);
+    boolean registerPersonSecondStep(HttpSession httpSession, PersonDetail personDetail) throws ServiceExcpetion;
 
-    void logOutPerson();
+    void logOutPerson() throws ServiceExcpetion;
 
 }

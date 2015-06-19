@@ -11,7 +11,7 @@ public class WebConstants {
 
         public static final String CONTENT_TYPE = "text/html; charset=UTF-8";
         public static final String MESSAGE_PROPERTIES = "messages.properties";
-        public static final String URL_PROPERTIES = "config.properties";
+        public static final String URL_PROPERTIES = "url.properties";
 
         public static final String COMMAND = "command";
         public static final String EDIT_NEWS = "editnews";

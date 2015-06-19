@@ -3,6 +3,7 @@ package by.leonovich.notizieportale.command.person;
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.PersonService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.UrlEnum;
@@ -19,12 +20,17 @@ public class RegisterBack implements IActionCommand {
     private PersonService personService;
 
     public RegisterBack() {
-        personService = PersonService.getInstance();
+        personService = new PersonService();
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
-        Person person = personService.get((Long) sessionRequestContent.getSessionAttribute(P_ID));
+        Person person = null;
+        try {
+            person = personService.get((Long) sessionRequestContent.getSessionAttribute(P_ID));
+        } catch (ServiceExcpetion serviceExcpetion) {
+            serviceExcpetion.printStackTrace();
+        }
         sessionRequestContent.setSessionAttribute(P_PERSON, person);
         return page = URLManager.getInstance().getProperty(PATH_PAGE_REGISTRATION_1.getUrlCode());
     }

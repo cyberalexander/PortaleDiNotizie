@@ -29,7 +29,7 @@ public class PersonDetail implements Serializable{
     @Column(name = "F_PASSWORD")
     private String password;
 
-    @Column(name = "F_BIRTHDAY")
+    @Column(name = "F_BIRTHDAY", columnDefinition = "date")
     private Date birthday;
 
     @Column(name = "F_ROLE")

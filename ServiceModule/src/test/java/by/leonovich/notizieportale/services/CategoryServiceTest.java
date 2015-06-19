@@ -7,7 +7,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.util.List;
 
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
@@ -21,10 +25,13 @@ public class CategoryServiceTest {
     private static final Logger logger = Logger.getLogger(CategoryServiceTest.class);
 
     private Category category;
-    @Autowired
     private CategoryService categoryService;
+    private ClassPathXmlApplicationContext ac;
+
 
     public CategoryServiceTest() {
+        ac = new ClassPathXmlApplicationContext(new String[]{"test-beans-services.xml"});
+        categoryService = (CategoryService) ac.getBean("categoryService");
         /*categoryService = CategoryService.getInstance();*/
     }
 

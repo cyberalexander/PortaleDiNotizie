@@ -6,6 +6,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.INewsService;
 import by.leonovich.notizieportale.services.NewsService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
 
 /**
@@ -20,7 +21,7 @@ public class AddWriteNews implements IActionCommand {
 
     public AddWriteNews() {
         attributesManager = AttributesManager.getInstance();
-        newsService = NewsService.getInstance();
+        newsService = new NewsService();
         showNews = new ShowNews();
     }
 
@@ -29,10 +30,15 @@ public class AddWriteNews implements IActionCommand {
         String page;
         News news = null;
         news = attributesManager.parseParametersOfNews(sessionRequestContent, news);
-        Long operationResult = newsService.save(news);
+        Long operationResult = null;
+        try {
+            operationResult = newsService.save(news);
+        } catch (ServiceExcpetion serviceExcpetion) {
+            serviceExcpetion.printStackTrace();
+        }
         if (operationResult != null && operationResult > Const.ZERO) {
             showNews.execute(sessionRequestContent);
-            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+            page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
         }else{
             sessionRequestContent.setRequestAttribute("addingNewsError",
                     MessageManager.getInstance().getProperty("message.addingNewsError"));

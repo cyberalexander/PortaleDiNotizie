@@ -1,40 +1,34 @@
 package by.leonovich.notizieportale.dao;
 
-import static by.leonovich.notizieportale.dao.util.TestConstants.TestConst;
-
-import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
-import by.leonovich.notizieportale.daofactory.IDaoFactory;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.exception.PersistException;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+import static by.leonovich.notizieportale.dao.util.TestConstants.TestConst;
 import static org.junit.Assert.*;
 
 /**
  * Created by alexanderleonovich on 26.05.15.
  */
 @Ignore
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class CommentaryDaoTest {
     private static final Logger logger = Logger.getLogger(CommentaryDaoTest.class);
-    protected Session session;
-    private Transaction transaction;
+    private ClassPathXmlApplicationContext ac;
     @Autowired
-    @Qualifier("commentaryDao")
     private CommentaryDao commentaryDao;
     private Commentary commentary;
     private Category category;
@@ -42,13 +36,8 @@ public class CommentaryDaoTest {
     private Person person;
 
     public CommentaryDaoTest() {
-        //commentaryDao = CommentaryDao.getInstance();
-        /*IDaoFactory factory = DaoFactoryImpl.getInstance();
-        try {
-            commentaryDao = (CommentaryDao) factory.getDao(Commentary.class);
-        } catch (PersistException e) {
-            logger.error(e);
-        }*/
+        ac = new ClassPathXmlApplicationContext(new String[]{"test-beans-dao.xml"});
+        commentaryDao = (CommentaryDao) ac.getBean("commentaryDao");
     }
 
     @Before
@@ -70,32 +59,25 @@ public class CommentaryDaoTest {
         category = null;
         news = null;
         person = null;
-        commentaryDao.clearSession();
     }
 
     @Test
     public void testGetByNewsPK() throws Exception {
         assertNull("Id before save() is not null.", commentary.getCommentaryId());
-        session = commentaryDao.getSession();
-        transaction = session.beginTransaction();
-        Long identifier = commentaryDao.save(commentary, session);
+        Long identifier = commentaryDao.save(commentary);
         assertNotNull("After save() categoryId is null. ", identifier);
-        List<Commentary> list = commentaryDao.getByNewsPK(commentary.getNews().getNewsId(), session);
+        List<Commentary> list = commentaryDao.getByNewsPK(commentary.getNews().getNewsId());
         assertNotNull(list);
         assertTrue(list.size() > TestConst.ZERO);
-        transaction.commit();
     }
 
     @Test
     public void testGetByPersonPK() throws Exception {
         assertNull("Id before save() is not null.", commentary.getCommentaryId());
-        session = commentaryDao.getSession();
-        transaction = session.beginTransaction();
-        Long identifier = commentaryDao.save(commentary, session);
+        Long identifier = commentaryDao.save(commentary);
         assertNotNull("After save() categoryId is null. ", identifier);
-        List<Commentary> list = commentaryDao.getByPersonPK(commentary.getPerson().getPersonId(), session);
+        List<Commentary> list = commentaryDao.getByPersonPK(commentary.getPerson().getPersonId());
         assertNotNull(list);
         assertTrue(list.size() > TestConst.ZERO);
-        transaction.commit();
     }
 }

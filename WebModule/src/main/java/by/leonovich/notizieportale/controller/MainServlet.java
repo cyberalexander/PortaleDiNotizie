@@ -5,7 +5,6 @@ import by.leonovich.notizieportale.actionfactory.ActionFactory;
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.util.*;
 import com.mysql.jdbc.StringUtils;
-import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,7 +53,7 @@ public class MainServlet extends HttpServlet {
         page = IActionCommand.execute(sessionRequestContent);
         sessionRequestContent.insertAttributes(request);
 // 3.0 - method returns the response page // page = null; // поэксперементировать!
-        if (page.equals(URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_INDEX.getUrlCode()))) {
+        if (page.equals(URLManager.getInstance().getProperty(UrlEnum.URL_INDEX.getUrlCode()))) {
             session.invalidate();
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
             dispatcher.forward(request, response);

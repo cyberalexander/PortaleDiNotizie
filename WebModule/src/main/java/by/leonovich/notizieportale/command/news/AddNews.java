@@ -8,11 +8,11 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,22 +27,35 @@ public class AddNews implements IActionCommand {
     private ICategoryService categoryService;
 
     public AddNews() {
-        newsService = NewsService.getInstance();
+        newsService = new NewsService();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
-        String pageId;
-        Category category;
+        String pageId = null;
+        Category category = null;
 
         // get newsList from session
         News news = (News) sessionRequestContent.getSessionAttribute(Const.NEWS);
         if (!(news.getPageId().equals(MAIN)) && (news.getCategory().getCategoryId() == ONE)) {
-            category = categoryService.getCategoryByName(news.getPageId());
-            List<News> list = newsService.getListOfNewsByCategoryIdNoOrder(category.getCategoryId());
+            try {
+                category = categoryService.getCategoryByName(news.getPageId());
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
+            List<News> list = null;
+            try {
+                list = newsService.getListOfNewsByCategoryIdNoOrder(category.getCategoryId());
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
             if (nonNull(list) && list.size() > ZERO) {
-                pageId = newsService.get(list.get(list.size() - ONE).getNewsId()).getPageId();
+                try {
+                    pageId = newsService.get(list.get(list.size() - ONE).getNewsId()).getPageId();
+                } catch (ServiceExcpetion serviceExcpetion) {
+                    serviceExcpetion.printStackTrace();
+                }
             } else {
                 pageId = news.getPageId() + "_" + ONE;
                 sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
@@ -57,7 +70,7 @@ public class AddNews implements IActionCommand {
             sessionRequestContent.setSessionAttribute(P_PAGE_ID, pageId);
             page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_ADD_NEWS.getUrlCode());
         } else {
-            page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+            page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
             sessionRequestContent.setRequestAttribute("addNewsComErr", MessageManager.getInstance().getProperty("message.addNewsComErr"));
             return page;
         }

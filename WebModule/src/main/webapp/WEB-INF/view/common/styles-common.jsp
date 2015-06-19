@@ -11,16 +11,16 @@
 <head>
     <title></title>
   <!-- JQuery scripts -->
-  <script type="text/javascript" src="./assests/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="./view/assests/jquery/jquery-2.1.4.js"></script>
   <!-- My styles css file -->
-  <link rel="stylesheet" href="./assests/custom-style-library.css" type="text/css"/>
+  <link rel="stylesheet" href="./view/assests/css/custom-style-library.css" type="text/css"/>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="./assests/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./view/assests/bootstrap-3.3.4-dist/css/bootstrap.min.css">
   <!-- Optional theme -->
-  <link rel="stylesheet" href="./assests/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./view/assests/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
   <!-- Latest compiled and minified JavaScript -->
-  <script type="text/javascript" src="./assests/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./assests/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="./view/assests/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./view/assests/jquery/jquery-migrate-1.2.1.min.js"></script>
 </head>
 <body>
 </body>

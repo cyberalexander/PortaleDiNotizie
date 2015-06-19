@@ -1,0 +1,51 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: alexanderleonovich
+  Date: 17.06.15
+  Time: 20:54
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root
+        xmlns:jsp="http://java.sun.com/JSP/Page"
+        xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+        xmlns:c="http://java.sun.com/jstl/core"
+        xmlns:sec="http://www.springframework.org/security/tags">
+    <jsp:output omit-xml-declaration="true"/>
+    <jsp:directive.page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java"/>
+    <html>
+    <head>
+        <title>Spring Security</title>
+        <!-- Bootstrap core CSS -->
+        <link href="./view/assests/css/bootstrap.css" rel="stylesheet"/>
+        <!-- Custom styles for this template -->
+        <link href="./view/assests/css/jumbotron-narrow.css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div class="container">
+        <div class="jumbotron" style="margin-top: 20px;">
+            <h1>PortaleDiNotizie.com</h1>
+            <a href="/cabinet.do">go</a>
+            <p class="lead">
+                PortaleDiNotizie.com - это сервис предоставляющий всем желающим возможность обучаться программированию.
+            </p>
+            <sec:authorize access="!isAuthenticated()">
+                <p>
+                    <a class="btn btn-lg btn-success" href="/login.do" role="button">Войти</a>
+                </p>
+            </sec:authorize>
+            <sec:authorize access="isAuthenticated()">
+                <p>Ваш логин: <sec:authentication property="principal.username"/></p>
+
+                <p>
+                    <a class="btn btn-lg btn-danger" href="/logout" role="button">Выйти</a>
+                </p>
+            </sec:authorize>
+        </div>
+        <div class="footer">
+            <p>© Alexander Leonovich 2015</p>
+        </div>
+
+    </div>
+    </body>
+    </html>
+</jsp:root>

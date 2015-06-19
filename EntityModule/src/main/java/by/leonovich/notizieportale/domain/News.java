@@ -32,7 +32,7 @@ public class News extends CustomEntity{
     @Column(name = "F_MENU_TITLE")
     private String menuTitle;
 
-    @Column(name = "F_DATE")
+    @Column(name = "F_DATE", columnDefinition = "datetime")
     private Date date;
 
     @Column(name = "F_ANNOTATION", columnDefinition = "text")

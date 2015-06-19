@@ -20,7 +20,7 @@ public class EditWriteNews implements IActionCommand {
 
     public EditWriteNews() {
         attributesManager = AttributesManager.getInstance();
-        newsService = NewsService.getInstance();
+        newsService = new NewsService();
     }
 
 
@@ -34,7 +34,7 @@ public class EditWriteNews implements IActionCommand {
         attributesManager.setAtributesForResponse(sessionRequestContent, news);
         sessionRequestContent.setRequestAttribute(P_PAGE_NUMBER, String.valueOf(ZERO));
 
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_MAIN.getUrlCode());
+        String page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
         return page;
     }
 }

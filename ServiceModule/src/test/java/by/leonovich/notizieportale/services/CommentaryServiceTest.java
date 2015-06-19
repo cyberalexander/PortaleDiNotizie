@@ -10,6 +10,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -28,9 +32,12 @@ public class CommentaryServiceTest {
     private News news;
     private Person person;
     private CommentaryService commentaryService;
+    private ClassPathXmlApplicationContext ac;
 
     public CommentaryServiceTest() {
-        commentaryService = CommentaryService.getInstance();
+        ac = new ClassPathXmlApplicationContext(new String[]{"test-beans-services.xml"});
+        commentaryService = (CommentaryService) ac.getBean("commentaryService");
+        //commentaryService = CommentaryService.getInstance();
     }
 
     @Before
@@ -61,9 +68,13 @@ public class CommentaryServiceTest {
 
     @Test
     public void testGetCommentaries() throws Exception {
+        for (int i = 0; i < THREE; i++) {
+            commentaryService.save(commentary);
+        }
         List list = commentaryService.getCommentaries();
         Assert.assertNotNull(list);
         Assert.assertTrue(list.size() > ZERO);
+        Assert.assertTrue(list.size() == THREE);
     }
 
     @Test

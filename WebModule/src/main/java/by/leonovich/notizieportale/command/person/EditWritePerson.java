@@ -1,7 +1,6 @@
 package by.leonovich.notizieportale.command.person;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const;
-import static by.leonovich.notizieportale.util.WebConstants.Const.EMAIL;
 import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
 import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
 
@@ -9,8 +8,8 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.services.PersonService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
-import com.mysql.jdbc.StringUtils;
 
 
 /**
@@ -21,7 +20,7 @@ public class EditWritePerson implements IActionCommand {
     private PersonService personService;
 
     public EditWritePerson() {
-        personService = PersonService.getInstance();
+        personService = new PersonService();
     }
 
     @Override
@@ -43,9 +42,13 @@ public class EditWritePerson implements IActionCommand {
         personDetail.setBirthday(AttributesManager.getInstance()
                 .parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
         person.setPersonDetail(personDetail);
-        personService.update(person);
+        try {
+            personService.update(person);
+        } catch (ServiceExcpetion serviceExcpetion) {
+            serviceExcpetion.printStackTrace();
+        }
 
-        String page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
+        String page = URLManager.getInstance().getProperty(UrlEnum.URL_PERSONCABINET.getUrlCode());
         sessionRequestContent.setSessionAttribute(P_PERSON, person);
         sessionRequestContent.setRequestAttribute("infoUpdated", MessageManager.getInstance().getProperty("message.user.info.updated"));
         return page;

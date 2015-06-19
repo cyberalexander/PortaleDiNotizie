@@ -1,14 +1,16 @@
 package by.leonovich.notizieportale.util;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by alexanderleonovich on 06.05.15.
  */
 public enum UrlEnum {
 
-    PATH_PAGE_INDEX("path.page.index"),
-    PATH_PAGE_LOGIN("path.page.login"),
-    PATH_PAGE_MAIN("path.page.main"),
-    PATH_PAGE_PERSONCABINET("path.page.person.cabinet"),
+    URL_INDEX("url.index"),
+    URL_LOGIN("url.login"),
+    URL_MAIN("url.main"),
+    URL_PERSONCABINET("url.person.cabinet"),
     PATH_PAGE_ADD_NEWS("path.page.addnews"),
     PATH_PAGE_ADD_CATEGORY("path.page.addcategory"),
     PATH_PAGE_EDIT_NEWS("path.page.editnews"),

@@ -1,42 +1,32 @@
 package by.leonovich.notizieportale.services;
 
-import by.leonovich.notizieportale.dao.IPersonDao;
 import by.leonovich.notizieportale.dao.PersonDao;
 import by.leonovich.notizieportale.dao.PersonDetailDao;
-import by.leonovich.notizieportale.daofactory.IDaoFactory;
-import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.daofactory.DaoFactoryImpl;
 import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.domain.enums.RoleEnum;
-import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.exception.PersistException;
-import by.leonovich.notizieportale.services.util.ServiceConstants;
-import by.leonovich.notizieportale.util.HibernateUtil;
-import com.mysql.jdbc.StringUtils;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.util.exception.PersistException;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
-import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
+import java.util.Set;
 
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
-import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.CONNECTION;
-import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.HIBER_SESSION;
 import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.P_ID;
 import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 /**
@@ -48,73 +38,28 @@ import static java.util.Objects.nonNull;
 public class PersonService implements IPersonService {
     private static final Logger logger = Logger.getLogger(PersonService.class);
 
-    private static PersonService personServiceInst;
     @Autowired
-    @Qualifier("personDao")
-    private IPersonDao personDao;
+    private PersonDao personDao;
     @Autowired
-    @Qualifier("personDetailDao")
     private PersonDetailDao personDetailDao;
-    private Transaction transaction;
-
     public PersonService() {
-        IDaoFactory factory = DaoFactoryImpl.getInstance();
-        try {
-            personDao = (PersonDao) factory.getDao(Person.class);
-            personDetailDao = (PersonDetailDao) factory.getDao(PersonDetail.class);
-        } catch (PersistException e) {
-            logger.error(e);
-        }
+
     }
 
-    public static synchronized PersonService getInstance(){
-        if (personServiceInst == null){
-            personServiceInst = new PersonService();
-        }
-        return personServiceInst;
-    }
-
-    public void putSessionInHttp(HttpSession httpSession) {
-        Session hiberSession = personDao.getSession();
-        Connection connecion = hiberSession.disconnect();
-        httpSession.setAttribute(HIBER_SESSION, hiberSession);
-        httpSession.setAttribute(CONNECTION, connecion);
-        personDao.detachSession();
-    }
-
-    public Session getSessionFromHttp(HttpSession httpSession) {
-        Session hiberSession = (Session) httpSession.getAttribute(HIBER_SESSION);
-        hiberSession.getSessionFactory().openSession();
-        return hiberSession;
-    }
-
-    public void clearHttpAttributes(HttpSession httpSession) {
-        if (nonNull(httpSession.getAttribute(HIBER_SESSION))) {
-            httpSession.removeAttribute(HIBER_SESSION);
-        }
-        if (nonNull(httpSession.getAttribute(CONNECTION))) {
-            httpSession.removeAttribute(CONNECTION);
-        }
-        if (nonNull(httpSession.getAttribute(P_ID))) {
-            httpSession.removeAttribute(P_ID);
-        }
-    }
 
     /**
      * Server validation of user
+     *
      * @param email    - email-adress of user who want to autenitcate to site
      * @param password - password of user who want to autenitcate to site
      * @return true, if user in database (registered), or false, if user not registered
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public boolean checkPerson(String email, String password) {
+    public boolean checkPerson(String email, String password) throws ServiceExcpetion {
         if (!(isNullOrEmpty(email)) && !(isNullOrEmpty(password))) {
             try {
-                Session session = personDao.getSession();
-                transaction = session.beginTransaction();
-                List<PersonDetail> personDetails = personDetailDao.getAll(session);
-                transaction.commit();
+                List<PersonDetail> personDetails = personDetailDao.getAll();
                 for (PersonDetail element : personDetails) {
                     if ((element.getEmail().equals(email))
                             && (element.getPassword().equals(password))) {
@@ -122,10 +67,8 @@ public class PersonService implements IPersonService {
                     }
                 }
             } catch (PersistException e) {
-                transaction.rollback();
                 logger.error(e);
-            }finally {
-                personDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
         }
         return false;
@@ -133,79 +76,89 @@ public class PersonService implements IPersonService {
 
     /**
      * Get registered user from database
+     *
      * @param email - field in colum, identified userØ
      * @return User user
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Person getByEmail(String email) {
+    public Person getByEmail(String email) throws ServiceExcpetion {
         if (!(isNullOrEmpty(email))) {
             Person person = null;
             try {
-                Session session = personDao.getSession();
-                transaction = session.beginTransaction();
-                person = personDao.getByEmail(email, session);
-                transaction.commit();
+                person = personDao.getByEmail(email);
             } catch (PersistException e) {
-                transaction.rollback();
                 logger.error(e);
-            }finally {
-                personDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
             return person;
         }
         return null;
     }
 
+    /*@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public UserDetails loadPersonByEmail(String email) throws ServiceExcpetion {
+        if (!(isNullOrEmpty(email))) {
+            // с помощью нашего сервиса UserService получаем User
+            Person person = null;
+            try {
+                person = personDao.getByEmail(email);
+            } catch (PersistException e) {
+                logger.error(e);
+                throw new ServiceExcpetion(e);
+            }
+            // указываем роли для этого пользователя
+            Set<GrantedAuthority> roles = new HashSet();
+            roles.add(new SimpleGrantedAuthority(RoleEnum.USER.name()));
+
+            // на основании полученныйх даных формируем объект UserDetails
+            // который позволит проверить введеный пользователем логин и пароль
+            // и уже потом аутентифицировать пользователя
+            UserDetails userDetails =
+                    new org.springframework.security.core.userdetails.User(person.getPersonDetail().getEmail(),
+                            person.getPersonDetail().getPassword(),
+                            roles);
+            return userDetails;
+        }
+        return null;
+    }*/
+
     @Override
-    public Long registerPersonFirstStep(Person person) {
-            Long id = null;
+    public Long registerPersonFirstStep(Person person) throws ServiceExcpetion {
+        Long id = null;
         if (nonNull(person)) {
             try {
-                Session session = personDao.getSession();
-                transaction = session.beginTransaction();
-                if (person.getPersonId() == null){
-                    id = personDao.save(person, session);
-                }else{
-                    personDao.update(person, session);
+                if (isNull(person.getPersonId())) {
+                    id = personDao.save(person);
+                } else {
+                    personDao.update(person);
                 }
-                transaction.commit();
             } catch (PersistException e) {
-                transaction.rollback();
                 logger.error(e);
-            }finally {
-                personDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
         }
         return id;
     }
 
     @Override
-    public boolean registerPersonSecondStep(HttpSession httpSession, PersonDetail personDetail) {
-            try {
-                Session session = getSessionFromHttp(httpSession);
-                transaction = session.beginTransaction();
-                Person person = (Person) session.get(Person.class,
-                        (Serializable) httpSession.getAttribute(P_ID));
-                person.setStatus(PERSISTED);
-                personDetail.setPerson(person);
-                //person.setPersonDetail(personDetail);
-                List<PersonDetail> personDetails = personDetailDao.getAll(session);
-                for (PersonDetail element : personDetails) {
-                    if (element.getEmail().equals(personDetail.getEmail())) {
-                        System.out.println('\n' + '\n' + element.getEmail() + "-" + personDetail.getEmail() + '\n' + '\n');
-                        return false;
-                    }
+    public boolean registerPersonSecondStep(HttpSession httpSession, PersonDetail personDetail) throws ServiceExcpetion {
+        try {
+            Person person = personDao.get((Long) httpSession.getAttribute(P_ID));
+            person.setStatus(PERSISTED);
+            personDetail.setPerson(person);
+            List<PersonDetail> personDetails = personDetailDao.getAll();
+            for (PersonDetail element : personDetails) {
+                if (element.getEmail().equals(personDetail.getEmail())) {
+                    System.out.println('\n' + '\n' + element.getEmail() + "-" + personDetail.getEmail() + '\n' + '\n');
+                    return false;
                 }
-                personDetailDao.save(personDetail, session);
-                transaction.commit();
-            } catch (PersistException e) {
-                transaction.rollback();
-                logger.error(e);
-            }finally {
-                personDao.clearSession();
-                clearHttpAttributes(httpSession);
             }
+            personDetailDao.save(personDetail);
+        } catch (PersistException e) {
+            logger.error(e);
+            throw new ServiceExcpetion(e);
+        }
         return true;
     }
 
@@ -231,48 +184,42 @@ public class PersonService implements IPersonService {
     }*/
 
     @Override
-    public Person update(Person person) {
+    public Person update(Person person) throws ServiceExcpetion {
         if (nonNull(person.getPersonId())) {
             Long updatedPersonId = person.getPersonId();
             try {
-                Session session = personDao.getSession();
-                transaction = session.beginTransaction();
-                personDao.update(person, session);
-                person = (Person) session.get(Person.class, updatedPersonId);
-                transaction.commit();
+                personDao.update(person);
+                person = (Person) personDao.get(updatedPersonId);
             } catch (PersistException e) {
-                transaction.rollback();
                 logger.error(e);
-            }finally {
-                personDao.clearSession();
+                throw new ServiceExcpetion(e);
             }
         }
         return person;
     }
 
     @Override
-    public void logOutPerson() {
-         personDao.getSession().close();
+    public void logOutPerson() throws ServiceExcpetion {
     }
 
     @Override
-    public Long save(Person person) {
+    public Long save(Person person) throws ServiceExcpetion {
         return null;
     }
 
     @Override
-    public Person delete(Person person) {
+    public Person delete(Person person) throws ServiceExcpetion {
         return null;
     }
 
     @Override
-    public void remove(Person person) {
+    public void remove(Person person) throws ServiceExcpetion {
 
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Person get(Long pK) {
+    public Person get(Long pK) throws ServiceExcpetion {
         if (nonNull(pK)) {
             try {
                 return personDao.get(pK);
@@ -284,21 +231,13 @@ public class PersonService implements IPersonService {
     }
 
     @Override
-    public Person load(Long pK) {
+    public Person load(Long pK) throws ServiceExcpetion {
         if (nonNull(pK)) {
-            Person person = null;
             try {
-                Session session = personDao.getSession();
-                transaction = session.beginTransaction();
-                person = personDao.load(pK, session);
-                transaction.commit();
+                return personDao.load(pK);
             } catch (PersistException e) {
-                transaction.rollback();
                 logger.error(e);
-            }finally {
-                personDao.clearSession();
             }
-            return person;
         }
         return null;
     }

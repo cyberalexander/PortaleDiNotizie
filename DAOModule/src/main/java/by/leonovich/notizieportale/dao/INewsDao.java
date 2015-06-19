@@ -2,8 +2,7 @@ package by.leonovich.notizieportale.dao;
 
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.exception.PersistException;
-import org.hibernate.Session;
+import by.leonovich.notizieportale.util.exception.PersistException;
 
 import java.util.Date;
 import java.util.List;
@@ -13,17 +12,17 @@ import java.util.List;
  */
 public interface INewsDao extends IGenericDao<News> {
 
-    List<News> getByPersonId(Long pK, Session session) throws PersistException;
+    List<News> getByPersonId(Long pK) throws PersistException;
 
-    List<News> getByCategoryId(Long pK, Session session) throws PersistException;
+    List<News> getByCategoryId(Long pK) throws PersistException;
 
-    List<News> getByCategoryIdNoOrder(Long pK, Session session) throws PersistException;
+    List<News> getByCategoryIdNoOrder(Long pK) throws PersistException;
 
-    List<News> getByDate(Date date, Session session) throws PersistException;
+    List<News> getByDate(Date date) throws PersistException;
 
-    News getByPageId(String pageId, Session session) throws PersistException;
+    News getByPageId(String pageId) throws PersistException;
 
-    List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK, Session session) throws PersistException;
+    List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK) throws PersistException;
 
-    List countNews(Category category, Session session) throws PersistException;
+    List countNews(Category category) throws PersistException;
 }

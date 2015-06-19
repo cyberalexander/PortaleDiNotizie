@@ -25,7 +25,7 @@ public class Commentary extends CustomEntity{
     @Column(name = "F_COMMENT", columnDefinition = "longtext")
     private String comment;
 
-    @Column(name = "F_DATE")
+    @Column(name = "F_DATE", columnDefinition = "datetime")
     private Date date;
 
     @ManyToOne(cascade = CascadeType.ALL)

@@ -1,13 +1,8 @@
 package by.leonovich.notizieportale.dao;
 
 
-import by.leonovich.notizieportale.domain.Category;
-import by.leonovich.notizieportale.domain.Commentary;
-import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.exception.PersistException;
-import org.hibernate.Session;
+import by.leonovich.notizieportale.util.exception.PersistException;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,32 +13,27 @@ import java.util.List;
  */
 public interface IGenericDao<T> {
 
-    Session getSession();
-
-    void clearSession();
-
-    void detachSession();
 
     /** It creates a new entry, the corresponding object object */
-     Long save(T object, Session session)  throws PersistException;
+     Long save(T object)  throws PersistException;
 
     /** It creates a new entry, the corresponding object object */
-    void saveOrUpdate(T object, Session session) throws PersistException;
+    void saveOrUpdate(T object) throws PersistException;
 
     /** Gets the appropriate record with a primary key or a null key */
     T get(Long pK) throws PersistException;
 
-    T load(Long pK, Session session) throws PersistException;
+    T load(Long pK) throws PersistException;
 
     /** It saves the state of the object group in the database */
-    void update(T object, Session session) throws PersistException;
+    void update(T object) throws PersistException;
 
     /** Removes the entry of the object from the database */
-    void delete(T object, Session session) throws PersistException;
+    void delete(T object) throws PersistException;
 
     /** Removes the entry of the object from the database */
-    void remove(T object, Session session) throws PersistException;
+    void remove(T object) throws PersistException;
 
     /** Returns a list of all the relevant records in the database */
-    List<T> getAll(Session session) throws PersistException;
+    List<T> getAll() throws PersistException;
 }

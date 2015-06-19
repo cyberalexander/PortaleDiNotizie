@@ -3,6 +3,7 @@ package by.leonovich.notizieportale.command.person;
 import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.PersonService;
+import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
 
 import java.util.Objects;
@@ -22,29 +23,37 @@ public class RegisterFirstStep implements IActionCommand {
 
     public RegisterFirstStep() {
         attributesManager = AttributesManager.getInstance();
-        personService = PersonService.getInstance();
+        personService = new PersonService();
     }
 
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page;
-        Long id;
+        Long id = null;
 
         Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
         if (Objects.nonNull(person.getPersonId())) {
             person.setName(sessionRequestContent.getParameter(P_NAME));
             person.setSurname(sessionRequestContent.getParameter(P_SURNAME));
             person.setStatus(UNCONFIRMED);
-            id = personService.update(person).getPersonId();
+            try {
+                id = personService.update(person).getPersonId();
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
         } else {
             person.setName(sessionRequestContent.getParameter(P_NAME));
             person.setSurname(sessionRequestContent.getParameter(P_SURNAME));
             person.setStatus(UNCONFIRMED);
-            id = personService.registerPersonFirstStep(person);
+            try {
+                id = personService.registerPersonFirstStep(person);
+            } catch (ServiceExcpetion serviceExcpetion) {
+                serviceExcpetion.printStackTrace();
+            }
         }
         sessionRequestContent.setSessionAttribute(P_ID, id);
         sessionRequestContent.setSessionAttribute(P_PERSON, person);
-        personService.putSessionInHttp(sessionRequestContent.getHttpSession());
+        //personService.putSessionInHttp(sessionRequestContent.getHttpSession());
         return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION_2.getUrlCode());
     }
 }
@@ -57,7 +66,7 @@ public class RegisterFirstStep implements IActionCommand {
                 sessionRequestContent.setSessionAttribute(P_PERSON,
                         person = personService.getPersonByEmail(person.getPersonDetail().getEmail()));
                 sessionRequestContent.setSessionAttribute(Const.PERSONTYPE, person.getPersonDetail().getRole());
-                return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_PERSONCABINET.getUrlCode());
+                return page = URLManager.getInstance().getProperty(UrlEnum.URL_PERSONCABINET.getUrlCode());
             } else {
                 sessionRequestContent.setRequestAttribute("duplicateEmail", MessageManager.getInstance().getProperty("message.duplicateEmail"));
                 return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION_1.getUrlCode());

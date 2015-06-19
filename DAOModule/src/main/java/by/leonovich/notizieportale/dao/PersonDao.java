@@ -2,14 +2,17 @@ package by.leonovich.notizieportale.dao;
 
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.util.exception.PersistException;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,8 +29,9 @@ public class PersonDao extends AbstractDao<Person> implements IPersonDao {
     private static final Logger logger = Logger.getLogger(PersonDao.class);
 
 
-    public PersonDao() {
-        super();
+    @Autowired
+    public PersonDao(SessionFactory sessionFactory) {
+        super(sessionFactory);
     }
 
     /**
@@ -47,16 +51,15 @@ public class PersonDao extends AbstractDao<Person> implements IPersonDao {
     /**
      *
      * @param email
-     * @param session
      * @return
      * @throws PersistException
      */
     @Override
-    public Person getByEmail(String email, Session session) throws PersistException {
+    public Person getByEmail(String email) throws PersistException {
         StatusEnum status = PERSISTED;
         Person person;
         String hql = "SELECT p FROM Person p WHERE p.status=:status and p.personDetail.email=:email";
-        Query query = session.createQuery(hql)
+        Query query = getCurrentSession().createQuery(hql)
                 .setParameter(STATUS, status)
                 .setParameter(EMAIL, email);
         person = (Person) query.uniqueResult();

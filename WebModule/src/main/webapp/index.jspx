@@ -13,7 +13,7 @@
                 <title>auto transition on autorization page</title>
             </head>
             <body>
-                <jsp:forward page="WEB-INF/view/login.jspx"/>
+                <jsp:forward page="/index.do"/>
             </body>
       </html>
 </jsp:root>

@@ -2,7 +2,7 @@ package by.leonovich.notizieportale.dao.util;
 
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by alexanderleonovich on 25.05.15.
@@ -14,7 +14,9 @@ public class TestConstants {
         public static final String CATEGORY_NAME = "testCategoryName";
         public static final String CATEGORY_NEW_NAME = "testSaveOrUpdateNameOfCategory";
         public static final int ZERO = 0;
-        public static final Date DATE = new Date();
+        public static final int THREE = 3;
+        public static final Date DATE = new Date(new java.util.Date().getTime());
+        public static final Date BITHDAY = Date.valueOf("1991-02-21");
         public static final String COMMENTARY_CONTENT = "Test content of commentary";
         public static final String PAGE_ID = "Test_Page_ID";
         public static final String TITLE = "test_title";
