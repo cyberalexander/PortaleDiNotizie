@@ -39,7 +39,7 @@ public class ServletSecurityFilter implements Filter {
         Person person = (Person) session.getAttribute(P_PERSON);
 
         if (person == null) {
-            type = RoleEnum.GUEST;
+            type = RoleEnum.ROLE_GUEST;
             if ((Const.EDIT_NEWS.equals(request.getParameter(COMMAND)))
                     || (Const.ADD_NEWS.equals(request.getParameter(COMMAND)))
                     || (Const.DELETE_NEWS.equals(request.getParameter(COMMAND)))) {
@@ -51,10 +51,10 @@ public class ServletSecurityFilter implements Filter {
             }
         }else if (nonNull(person.getPersonId())) {
             if (nonNull(person.getPersonDetail())) {
-                if (person.getPersonDetail().getRole().equals(RoleEnum.ADMIN)) {
-                    type = RoleEnum.ADMIN;
-                } else if (person.getPersonDetail().getRole().equals(RoleEnum.USER)) {
-                    type = RoleEnum.USER;
+                if (person.getPersonDetail().getRole().equals(RoleEnum.ROLE_ADMIN)) {
+                    type = RoleEnum.ROLE_ADMIN;
+                } else if (person.getPersonDetail().getRole().equals(RoleEnum.ROLE_USER)) {
+                    type = RoleEnum.ROLE_USER;
                 }
             }
         }

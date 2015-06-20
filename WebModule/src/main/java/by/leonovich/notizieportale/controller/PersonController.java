@@ -1,12 +1,15 @@
 package by.leonovich.notizieportale.controller;
 
+import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by alexanderleonovich on 17.06.15.
@@ -18,30 +21,31 @@ public class PersonController {
     private IPersonService personService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Model model){
+    public String goToLoginPage(Model model){
         return "login";
     }
-
-    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String goOnWelcome(Model model){
-        return "hello";
-    }
-
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String goHello(Model model){
         return "hello";
     }
 
-    @Secured(value = "ADMIN")
-    @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
-    public String goCabinet(Model model){
-        return "/protected/person_cabinet";
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
+    @RequestMapping(value = "/protected/person_cabinet", method = RequestMethod.GET)
+    public ModelAndView goCabinet() {
+        ModelAndView modelAndView = new ModelAndView();
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/login?error", method = RequestMethod.GET)
-    public String goError(Model model){
+    @RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
+    public String goLoginFailed(Model model){
         return "/welcome";
+    }
+
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String goLogoutFormSite(Model model){
+        return "welcome";
     }
 
 

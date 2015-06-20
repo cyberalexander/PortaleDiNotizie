@@ -18,7 +18,7 @@
     <tr>
     <c:if test="${(persontype eq 'ADMIN')  || persontype eq 'USER' && person.personId == news.person.personId}">
         <th>
-            <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE USER IS LOCATED NOW  --%>
+            <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE ROLE_USER IS LOCATED NOW  --%>
             <form method="post" action="controller">
                 <input type="hidden" name="command" value="editnews"/>
                 <input type="hidden" name="newsIdForEdit" value="${news.newsId}">

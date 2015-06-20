@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-    <!-- HEADER FOR NEWS OR FOR PAGE, WHAT USER WATCH NOW -->
+    <!-- HEADER FOR NEWS OR FOR PAGE, WHAT ROLE_USER WATCH NOW -->
     <c:import url="common/header.jsp"/>
     <div class="col-md-2" style="text-align: left">
         <!-- BUTTTON FOR RETURN ON MAIN PAGE, OR ON HEAD PAGE OF CATEGORY -->
@@ -90,10 +90,10 @@
             </c:if>
         </c:if>
 
-            <!-- EDIT-PANEL FOR NEWS OR FOR PAGE, WHAT AUTORIZED USER WATCH NOW -->
+            <!-- EDIT-PANEL FOR NEWS OR FOR PAGE, WHAT AUTORIZED ROLE_USER WATCH NOW -->
             <c:import url="common/edit-panel.jsp"/>
 
-        <!--COMMENT-CONTENT FOR NEWS, WHAT USER WATCH NOW -->
+        <!--COMMENT-CONTENT FOR NEWS, WHAT ROLE_USER WATCH NOW -->
         <c:import url="common/commentaries.jsp"/>
     </div>
 

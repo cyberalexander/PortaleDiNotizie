@@ -1,10 +1,8 @@
 package by.leonovich.notizieportale.config;
 
-import by.leonovich.notizieportale.services.PersonDetailServiceImpl;
+import by.leonovich.notizieportale.services.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,11 +15,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private PersonDetailServiceImpl personDetailServiceImpl;
+    private UserDetailService userDetailService;
 
     // регистрируем нашу реализацию UserDetailsService
     // а также PasswordEncoder для приведения пароля в формат SHA1
@@ -29,14 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 
         auth
-                .userDetailsService(personDetailServiceImpl)
+                .userDetailsService(userDetailService)
                 /*.passwordEncoder(getShaPasswordEncoder())*/;
     }
 
     /*@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("ROLE_USER");
+        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ROLE_ADMIN");
         auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
     }*/
 
@@ -54,7 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/protected/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/dba/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_DBA')")
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 .and();
@@ -65,11 +62,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         // указываем action с формы логина
                 .loginProcessingUrl("/j_spring_security_check")
                         // указываем URL при неудачном логине
-                .failureUrl("/login?error.do")
+                .failureUrl("/loginfailed.do")
                         // Указываем параметры логина и пароля с формы логина
                 .usernameParameter("j_username")
                 .passwordParameter("j_password")
-                        .defaultSuccessUrl("/welcome.do", true)
+                        /*.defaultSuccessUrl("/welcome.do", true)*/
                         // даем доступ к форме логина всем
                 .permitAll();
 
@@ -77,9 +74,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // разрешаем делать логаут всем
                 .permitAll()
                         // указываем URL логаута
-                .logoutUrl("/logout")
+                .logoutUrl("/logout.do")
                         // указываем URL при удачном логауте
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/hello.do")
                         // делаем не валидной текущую сессию
                 .invalidateHttpSession(true);
 

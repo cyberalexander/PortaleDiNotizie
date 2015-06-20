@@ -8,5 +8,5 @@ import by.leonovich.notizieportale.util.exception.PersistException;
  */
 public interface IPersonDao extends IGenericDao<Person> {
 
-    Person getByEmail(String email) throws PersistException;
+    Person getByEmail(String email);
 }

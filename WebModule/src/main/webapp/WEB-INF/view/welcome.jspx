@@ -24,20 +24,24 @@
     <div class="container">
         <div class="jumbotron" style="margin-top: 20px;">
             <h1>PortaleDiNotizie.com</h1>
-            <a href="/cabinet.do">go</a>
+            <a href="/protected/person_cabinet.do">test link for security check</a>
             <p class="lead">
                 PortaleDiNotizie.com - это сервис предоставляющий всем желающим возможность обучаться программированию.
             </p>
             <sec:authorize access="!isAuthenticated()">
                 <p>
-                    <a class="btn btn-lg btn-success" href="/login.do" role="button">Войти</a>
+                    <a class="btn btn-lg btn-info" href="shownews.do" role="button">Войти как обычный пользователь</a>
+                    <a class="btn btn-lg btn-success" href="/login.do" role="button">Авторизоваться</a>
+                    <a class="btn btn-lg btn-default" href="/registration.do" role="button">Зарегистрироваться</a>
+
                 </p>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">
-                <p>Ваш логин: <sec:authentication property="principal.username"/></p>
-
+                <h5>Поздравляю! Вы вошли! Ваш логин: <sec:authentication property="principal.username"/></h5>
                 <p>
-                    <a class="btn btn-lg btn-danger" href="/logout" role="button">Выйти</a>
+                    <a class="btn btn-lg btn-danger" href="/logout.do" role="button">Выйти</a>
+                    <a class="btn btn-lg btn-info" href="/protected/person_cabinet.do" role="button">Войти в личный кабинет</a>
+                    <a class="btn btn-lg btn-success" href="shownews.do" role="button">Вперед</a>
                 </p>
             </sec:authorize>
         </div>

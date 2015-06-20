@@ -114,7 +114,7 @@ public class AttributesManager {
         personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
         personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
         personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
-        personDetail.setRole(RoleEnum.USER);
+        personDetail.setRole(RoleEnum.ROLE_USER);
         person.setStatus(StatusEnum.PERSISTED);
         person.setPersonDetail(personDetail);
         personDetail.setPerson(person);
@@ -125,7 +125,7 @@ public class AttributesManager {
         personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
         personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
         personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
-        personDetail.setRole(RoleEnum.USER);
+        personDetail.setRole(RoleEnum.ROLE_USER);
         return personDetail;
     }
 

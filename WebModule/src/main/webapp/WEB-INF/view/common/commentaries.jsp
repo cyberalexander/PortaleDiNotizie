@@ -15,7 +15,7 @@
 </head>
 <body>
 <div>
-    <%-- COMMENT-CONTENT FOR NEWS, WHAT USER WATCH NOW --%>
+    <%-- COMMENT-CONTENT FOR NEWS, WHAT ROLE_USER WATCH NOW --%>
     <c:if test="${commentaries[0] != null}">
         <h5 class="mostpopnewsheader" style="text-align: right">Commentaries: </h5>
     </c:if>

@@ -59,14 +59,6 @@
 
     </div>
     <div class="col-md-8">
-        <sec:authorize ifAnyGranted="USER, ADMIN">
-            <p>Ваш логин: <sec:authentication property="principal.username"/></p>
-                    <c:url var="logout" value="j_spring_security_logout"/>
-                    <a class="logout" href="${logout}" id="logoutButton">logout</a>
-            <p>
-                <a class="btn btn-lg btn-danger" href="/logout" role="button">Выйти</a>
-            </p>
-        </sec:authorize>
         <table>
             <caption>
                 <h4 class="headersecondlevel" style="text-align: center">User info</h4>

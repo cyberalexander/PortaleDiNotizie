@@ -29,5 +29,6 @@ public class DaoConstants {
         public static final String PAGE_ID = "pageId";
         public static final int ONE = 1;
         public static final String CATEGORY = "category";
+        public static final int ZERO = 0;
     }
 }

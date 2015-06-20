@@ -8,9 +8,9 @@ import java.util.Set;
 
 /**
  * Created by alexanderleonovich on 11.04.15.
- * Entity - USER. Inmplements two intarfaces: 1. Serializable; 2. Identified<Integer> (generic intarface) - interface with
+ * Entity - ROLE_USER. Inmplements two intarfaces: 1. Serializable; 2. Identified<Integer> (generic intarface) - interface with
  * in order to avoid duplication of code when writing delet method (entity object).
- * Bean class for working with entity-USER
+ * Bean class for working with entity-ROLE_USER
  */
 @Entity
 @Table(name = "T_PERSON")

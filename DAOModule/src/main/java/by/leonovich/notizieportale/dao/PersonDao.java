@@ -2,6 +2,7 @@ package by.leonovich.notizieportale.dao;
 
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
+import by.leonovich.notizieportale.util.DaoConstants;
 import by.leonovich.notizieportale.util.exception.PersistException;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -14,11 +15,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.*;
 import static by.leonovich.notizieportale.util.DaoConstants.Const.EMAIL;
 import static by.leonovich.notizieportale.util.DaoConstants.Const.STATUS;
+import static by.leonovich.notizieportale.util.DaoConstants.Const.ZERO;
 
 /**
  * Created by alexanderleonovich on 11.04.15.
@@ -55,14 +58,19 @@ public class PersonDao extends AbstractDao<Person> implements IPersonDao {
      * @throws PersistException
      */
     @Override
-    public Person getByEmail(String email) throws PersistException {
+    @SuppressWarnings("unchecked")
+    public Person getByEmail(String email){
         StatusEnum status = PERSISTED;
-        Person person;
+        List<Person> persons = new ArrayList<>();
         String hql = "SELECT p FROM Person p WHERE p.status=:status and p.personDetail.email=:email";
         Query query = getCurrentSession().createQuery(hql)
                 .setParameter(STATUS, status)
                 .setParameter(EMAIL, email);
-        person = (Person) query.uniqueResult();
-        return person;
+        persons = (List<Person>) query.list();
+        if (persons.size() > ZERO) {
+            return persons.get(ZERO);
+        } else {
+            return null;
+        }
     }
 }

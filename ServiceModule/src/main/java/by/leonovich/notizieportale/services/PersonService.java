@@ -85,12 +85,7 @@ public class PersonService implements IPersonService {
     public Person getByEmail(String email) throws ServiceExcpetion {
         if (!(isNullOrEmpty(email))) {
             Person person = null;
-            try {
                 person = personDao.getByEmail(email);
-            } catch (PersistException e) {
-                logger.error(e);
-                throw new ServiceExcpetion(e);
-            }
             return person;
         }
         return null;
@@ -109,7 +104,7 @@ public class PersonService implements IPersonService {
             }
             // указываем роли для этого пользователя
             Set<GrantedAuthority> roles = new HashSet();
-            roles.add(new SimpleGrantedAuthority(RoleEnum.USER.name()));
+            roles.add(new SimpleGrantedAuthority(RoleEnum.ROLE_USER.name()));
 
             // на основании полученныйх даных формируем объект UserDetails
             // который позволит проверить введеный пользователем логин и пароль

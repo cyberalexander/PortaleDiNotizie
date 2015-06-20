@@ -31,8 +31,8 @@ public class WebConstants {
 
 
         public static final String PERSONTYPE = "persontype";
-        public static final RoleEnum ADMIN = RoleEnum.ADMIN;
-        public static final RoleEnum PERSON = RoleEnum.USER;
+        public static final RoleEnum ADMIN = RoleEnum.ROLE_ADMIN;
+        public static final RoleEnum PERSON = RoleEnum.ROLE_USER;
         public static final String P_PERSON = "person";
         public static final String EMAIL = "email";
         public static final String PASSWORD = "password";
