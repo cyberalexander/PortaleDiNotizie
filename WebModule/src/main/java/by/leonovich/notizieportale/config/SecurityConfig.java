@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.config;
 
-import by.leonovich.notizieportale.services.UserDetailService;
+import by.leonovich.notizieportale.services.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,7 +19,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailService userDetailService;
+    private UserDetailServiceImpl userDetailServiceImpl;
 
     // регистрируем нашу реализацию UserDetailsService
     // а также PasswordEncoder для приведения пароля в формат SHA1
@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 
         auth
-                .userDetailsService(userDetailService)
+                .userDetailsService(userDetailServiceImpl)
                 /*.passwordEncoder(getShaPasswordEncoder())*/;
     }
 
@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         // указываем URL логаута
                 .logoutUrl("/logout.do")
                         // указываем URL при удачном логауте
-                .logoutSuccessUrl("/hello.do")
+                .logoutSuccessUrl("/index.jspx")
                         // делаем не валидной текущую сессию
                 .invalidateHttpSession(true);
 

@@ -3,13 +3,9 @@ package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.dao.PersonDao;
 import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.enums.RoleEnum;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
-import by.leonovich.notizieportale.util.exception.PersistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,19 +13,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by alexanderleonovich on 19.06.15.
- */
-
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
 
+/**
+ * Created by alexanderleonovich on 19.06.15.
+ */
+
 @Service("userDetailsService")
-public class UserDetailService implements UserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
     private PersonDao personDao;

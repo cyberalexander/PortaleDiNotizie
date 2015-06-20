@@ -1,9 +1,7 @@
 package by.leonovich.notizieportale.controller;
 
-import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,7 @@ public class PersonController {
     private IPersonService personService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String goToLoginPage(Model model){
+    public String goLoginPage(Model model){
         return "login";
     }
 
