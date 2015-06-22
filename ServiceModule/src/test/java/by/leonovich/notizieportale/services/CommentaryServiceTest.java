@@ -5,19 +5,18 @@ import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
+import by.leonovich.notizieportale.services.util.ServiceTestConfig;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
-import static by.leonovich.notizieportale.services.util.TestConstants.*;
+import static by.leonovich.notizieportale.services.util.TestConstants.TestConst;
 import static by.leonovich.notizieportale.services.util.TestConstants.TestConst.*;
 import static org.junit.Assert.*;
 
@@ -32,12 +31,11 @@ public class CommentaryServiceTest {
     private News news;
     private Person person;
     private CommentaryService commentaryService;
-    private ClassPathXmlApplicationContext ac;
+    private ApplicationContext ac;
 
     public CommentaryServiceTest() {
-        ac = new ClassPathXmlApplicationContext(new String[]{"test-beans-services.xml"});
-        commentaryService = (CommentaryService) ac.getBean("commentaryService");
-        //commentaryService = CommentaryService.getInstance();
+        ac = new AnnotationConfigApplicationContext(ServiceTestConfig.class);
+        commentaryService = (CommentaryService) ac.getBean(COMMENTARY_SERVICE);
     }
 
     @Before
@@ -72,6 +70,7 @@ public class CommentaryServiceTest {
             commentaryService.save(commentary);
         }
         List list = commentaryService.getCommentaries();
+        System.out.println(list.size());
         Assert.assertNotNull(list);
         Assert.assertTrue(list.size() > ZERO);
         Assert.assertTrue(list.size() == THREE);

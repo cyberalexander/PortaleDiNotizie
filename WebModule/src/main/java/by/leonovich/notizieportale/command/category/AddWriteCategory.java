@@ -6,7 +6,7 @@ import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.services.*;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,8 +41,8 @@ public class AddWriteCategory implements IActionCommand{
         Long saveCategoryResult = null;
         try {
             saveCategoryResult = categoryService.save(category);
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
         if (saveNewsResult != null && saveNewsResult > WebConstants.Const.ZERO
                 && saveCategoryResult != null && saveCategoryResult > WebConstants.Const.ZERO ) {

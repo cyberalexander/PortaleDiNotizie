@@ -8,6 +8,7 @@ import by.leonovich.notizieportale.util.UrlEnum;
 /**
  * Created by alexanderleonovich on 02.05.15.
  */
+@Deprecated
 public class Registration implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {

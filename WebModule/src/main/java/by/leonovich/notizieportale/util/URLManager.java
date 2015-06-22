@@ -10,6 +10,7 @@ import java.util.Properties;
  * Created by alexanderleonovich on 18.04.15.
  * URL-handler for web-application
  */
+@Deprecated
 public class URLManager {
 
     private static URLManager urlManagerSingle;

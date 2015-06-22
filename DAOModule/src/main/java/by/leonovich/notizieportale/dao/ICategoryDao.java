@@ -1,7 +1,7 @@
 package by.leonovich.notizieportale.dao;
 
 import by.leonovich.notizieportale.domain.Category;
-import by.leonovich.notizieportale.util.exception.PersistException;
+import by.leonovich.notizieportale.exception.PersistException;
 
 /**
  * Created by alexanderleonovich on 09.06.15.

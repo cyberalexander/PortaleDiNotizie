@@ -28,7 +28,7 @@ public class Person extends CustomEntity{
     @Column(name = "F_SURNAME")
     private String surname;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL, targetEntity = PersonDetail.class)
     private PersonDetail personDetail;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -51,7 +51,7 @@ public class Person extends CustomEntity{
         return personId;
     }
 
-    protected void setPersonId(Long personId) {
+    public void setPersonId(Long personId) {
         this.personId = personId;
     }
 

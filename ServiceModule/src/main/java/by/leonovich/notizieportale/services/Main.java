@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.services;
 
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,8 +18,8 @@ public class Main {
 
         try {
             System.out.println(personService.get((long) 1));
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
     }
 }

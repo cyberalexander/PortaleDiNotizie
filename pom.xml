@@ -41,6 +41,7 @@
         <aspectj.version>1.5.3</aspectj.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <cglib.version>3.1</cglib.version>
+        <pass.encoder.version>1.9</pass.encoder.version>
         <compiler-plugin.version>3.3</compiler-plugin.version>
     </properties>
 
@@ -262,6 +263,13 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-ehcache</artifactId>
                 <version>${hibernate.version}</version>
+            </dependency>
+
+            <!-- PASSWORD ENCODING -->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${pass.encoder.version}</version>
             </dependency>
 
         </dependencies>

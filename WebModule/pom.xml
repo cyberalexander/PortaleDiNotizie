@@ -17,6 +17,12 @@
         <!-- Dependecy with entity module -->
         <dependency>
             <groupId>by.leonovich.notizieportale</groupId>
+            <artifactId>EntityTOMod</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- Dependecy with entity module -->
+        <dependency>
+            <groupId>by.leonovich.notizieportale</groupId>
             <artifactId>EntityMod</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -124,6 +130,30 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
+        </dependency>
+
+        <!--tiles-->
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-template</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-el</artifactId>
+        </dependency>
+
+        <!-- PASSWORD ENCODING -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
         </dependency>
 
     </dependencies>

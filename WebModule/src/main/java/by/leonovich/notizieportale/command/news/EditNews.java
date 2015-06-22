@@ -15,7 +15,9 @@ import java.util.List;
 /**
  * Created by alexanderleonovich on 21.04.15.
  */
+@Deprecated
 public class EditNews implements IActionCommand {
+
 
     private NewsService newsService;
 

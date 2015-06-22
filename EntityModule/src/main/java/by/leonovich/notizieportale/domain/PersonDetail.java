@@ -16,17 +16,17 @@ import java.util.Date;
 public class PersonDetail implements Serializable{
     private static final long serialVersionUID = -3983636454021133509L;
 
+    @Id
     @GenericGenerator(name = "generator", strategy = "foreign",
             parameters = @Parameter(name = "property", value = "person"))
-    @Id
     @GeneratedValue(generator = "generator")
     @Column(name = "F_PERSON_ID", unique = true, nullable = false)
     private Long personId;
 
-    @Column(name = "F_EMAIL")
+    @Column(name = "F_EMAIL", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "F_PASSWORD")
+    @Column(name = "F_PASSWORD", nullable = false)
     private String password;
 
     @Column(name = "F_BIRTHDAY", columnDefinition = "date")
@@ -36,7 +36,7 @@ public class PersonDetail implements Serializable{
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @PrimaryKeyJoinColumn
     private Person person;
 

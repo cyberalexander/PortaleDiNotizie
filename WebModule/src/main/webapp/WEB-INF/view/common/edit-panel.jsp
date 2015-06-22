@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: alexanderleonovich
@@ -12,22 +13,21 @@
     <title></title>
 </head>
 <body>
-<c:if test="${(persontype eq 'ADMIN')  || (persontype eq 'USER')}">
-<table>
-    <caption><p class="mostpopnews">EDIT PANEL</p></caption>
-    <tr>
-    <c:if test="${(persontype eq 'ADMIN')  || persontype eq 'USER' && person.personId == news.person.personId}">
-        <th>
-            <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE ROLE_USER IS LOCATED NOW  --%>
-            <form method="post" action="controller">
-                <input type="hidden" name="command" value="editnews"/>
-                <input type="hidden" name="newsIdForEdit" value="${news.newsId}">
-                <input type="hidden" name="newses" value="${newses}"/>
-                <button type="submit" class="btn btn-info">edit this news page</button>
-            </form>
-        </th>
-        <th>
-            <%-- BUTTON FOR DELETE NEWS-PAGE --%>
+<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+    <table>
+        <caption><p class="custom-header-third-level">EDIT PANEL</p></caption>
+        <tr>
+            <c:if test="${(persontype eq 'ROLE_ADMIN')  || persontype eq 'ROLE_USER' && person.personId == news.person.personId}">
+                <th>
+                        <%-- BUTTON FOR EDIT NEWS-PAGE OR FOR EDIT CATEGORY. IF TALKING SIMPLE, IT`S BUTTON FOR EDIT PAGE, WHERE ROLE_USER IS LOCATED NOW  --%>
+                    <form method="post" action="edit_news.do">
+                        <input type="hidden" name="newsId" value="${news.newsId}">
+                            <%--<input type="hidden" name="newses" value="${newses}"/>--%>
+                        <button type="submit" class="btn btn-info">edit this news page</button>
+                    </form>
+                </th>
+                <th>
+                        <%-- BUTTON FOR DELETE NEWS-PAGE --%>
                     <c:if test="${news.category.categoryId != 1}">
                         <form name="delete_news_form" method="post" action="controller">
                             <input type="hidden" name="command" value="deletenews"/>
@@ -36,38 +36,18 @@
                             <button type="submit" class="btn btn-danger">DELETE this news page !!!</button>
                         </form>
                     </c:if>
-        </th>
-    </c:if>
-        <th>
-            <%-- BUTTON FOR ADDING NEWS IN CATEGORY OR FOR ADDING NEW CATEGORY --%>
-                <c:if test="${news.category.categoryId == 1}">
-                <form method="post" action="controller">
-                <input type="hidden" name="newses" value="${newses}"/>
-                <c:if test="${newses[0] != null}">
-                    <c:set var="category" scope="session" value="${newses[0].category.categoryName}"/>
-                    <%--<c:set var="newses" scope="session" value="${newses}"/>--%>
-                </c:if>
-                <c:if test="${newses[0] == null}">
-                    <c:set var="category" scope="session" value="${news.pageId}"/>
-                </c:if>
-
-                <c:if test="${news.pageId eq 'main'}">
-                    <input type="hidden" name="command" value="addcategory"/>
-                    <button type="submit"  class="btn btn-success">Add new category</button>
-                </c:if>
-                <c:if test="${news.category.categoryName eq 'main' && news.newsId != 1}">
-                    <input type="hidden" name="command" value="addnews"/>
-                    <button type="submit"  class="btn btn-success">Add new ${news.pageId} news</button>
-                </c:if>
-                <c:if test="${news.category.categoryName != 'main' && news.pageId != 'main'}">
-                    <input type="hidden" name="command" value="addnews"/>
-                    <button type="submit"  class="btn btn-success">Add new ${news.category.categoryName} news</button>
-                </c:if>
-            </form>
-                </c:if>
-        </th>
-    </tr>
-</table>
-</c:if>
+                </th>
+            </c:if>
+            <th>
+                    <%-- BUTTON FOR ADDING NEWS --%>
+                <a class="btn btn-info" href="add_news.do" role="button">Add new news</a>
+            </th>
+            <th>
+                    <%-- BUTTON FOR ADDING NEW CATEGORY --%>
+                <a class="btn btn-warning" href="add_category.do" role="button">Add new category</a>
+            </th>
+        </tr>
+    </table>
+</sec:authorize>
 </body>
 </html>

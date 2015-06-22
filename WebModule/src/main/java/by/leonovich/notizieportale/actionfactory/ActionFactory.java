@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 /**
  * Created by alexanderleonovich on 18.04.15.
  */
+@Deprecated
 public class ActionFactory {
 
     private static final Logger logger = Logger.getLogger(ActionFactory.class);

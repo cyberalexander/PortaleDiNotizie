@@ -5,7 +5,6 @@ import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by alexanderleonovich on 11.04.15.
@@ -20,7 +19,7 @@ public class News extends CustomEntity{
 
     @Id
     @Column(name = "F_NEWS_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long newsId;
 
     @Column(name = "F_PAGE_ID")
@@ -49,7 +48,7 @@ public class News extends CustomEntity{
     @JoinColumn(name = "F_CATEGORY_ID", nullable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "news", fetch = FetchType.LAZY)
     private List<Commentary> commentaries;
 
     public News() {
@@ -70,7 +69,7 @@ public class News extends CustomEntity{
         return newsId;
     }
 
-    protected void setNewsId(Long newsId) {
+    public void setNewsId(Long newsId) {
         this.newsId = newsId;
     }
 

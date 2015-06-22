@@ -1,8 +1,7 @@
 package by.leonovich.notizieportale.services;
 
-import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.Commentary;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 
 import java.util.List;
 
@@ -11,12 +10,12 @@ import java.util.List;
  */
 public interface ICommentaryService extends IService<Commentary> {
 
-    List<Commentary> getCommentaries() throws ServiceExcpetion;
+    List<Commentary> getCommentaries() throws ServiceLayerException;
 
-    List<Commentary> getCommentariesByAuthorId(Long PK) throws ServiceExcpetion;
+    List<Commentary> getCommentariesByAuthorId(Long PK) throws ServiceLayerException;
 
-    List<Commentary> getCommentariesByNewsId(Long PK) throws ServiceExcpetion;
+    List<Commentary> getCommentariesByNewsId(Long PK) throws ServiceLayerException;
 
-    Long save(Commentary commentary, Long newsId, Long personId) throws ServiceExcpetion;
+    Long save(Commentary commentary, Long newsId, String login) throws ServiceLayerException;
 
 }

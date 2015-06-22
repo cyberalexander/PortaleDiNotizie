@@ -11,8 +11,9 @@ import java.io.IOException;
  * Created by alexanderleonovich on 29.04.15.
  * filter that redirects all direct hits to the start page.
  */
+@Deprecated
 @WebFilter(filterName = "PageRedirectSecurityFilter", urlPatterns = {"/WEB-INF/view/*"},
-        initParams = {@WebInitParam(name = "INDEX_PATH", value = "/index.jspx")})
+        initParams = {@WebInitParam(name = "INDEX_PATH", value = "/index.jsp")})
 public class PageRedirectSecurityFilter implements Filter {
 
     private String indexPath;

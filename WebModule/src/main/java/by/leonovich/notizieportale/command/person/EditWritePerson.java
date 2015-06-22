@@ -8,13 +8,14 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.services.PersonService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.*;
 
 
 /**
  * Created by alexanderleonovich on 10.05.15.
  */
+@Deprecated
 public class EditWritePerson implements IActionCommand {
 
     private PersonService personService;
@@ -44,8 +45,8 @@ public class EditWritePerson implements IActionCommand {
         person.setPersonDetail(personDetail);
         try {
             personService.update(person);
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
 
         String page = URLManager.getInstance().getProperty(UrlEnum.URL_PERSONCABINET.getUrlCode());

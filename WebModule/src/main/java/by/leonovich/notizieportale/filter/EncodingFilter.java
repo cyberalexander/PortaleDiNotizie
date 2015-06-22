@@ -10,6 +10,7 @@ import java.io.IOException;
  * Implementation of the Filter interface for the task, changing coding focusing
  * of the request and response to the encoding specified filter parameter.
  */
+@Deprecated
 @WebFilter(filterName = "EncodingFilter", urlPatterns = {"/*"}, initParams =
         {@WebInitParam(name= "encoding", value = "UTF-8", description = "Encoding Param")})
 public class EncodingFilter implements Filter {

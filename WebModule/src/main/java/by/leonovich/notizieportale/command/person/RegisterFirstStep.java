@@ -1,21 +1,13 @@
 package by.leonovich.notizieportale.command.person;
 
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.PersonService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
-
-import java.util.Objects;
-
-import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
-import static by.leonovich.notizieportale.domain.enums.StatusEnum.UNCONFIRMED;
-import static by.leonovich.notizieportale.util.WebConstants.Const.*;
-import static by.leonovich.notizieportale.util.WebConstants.Const.P_NAME;
 
 /**
  * Created by alexanderleonovich on 02.05.15.
  */
+@Deprecated
 public class RegisterFirstStep implements IActionCommand {
 
     private AttributesManager attributesManager;
@@ -31,7 +23,7 @@ public class RegisterFirstStep implements IActionCommand {
         String page;
         Long id = null;
 
-        Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
+        /*Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
         if (Objects.nonNull(person.getPersonId())) {
             person.setName(sessionRequestContent.getParameter(P_NAME));
             person.setSurname(sessionRequestContent.getParameter(P_SURNAME));
@@ -53,7 +45,7 @@ public class RegisterFirstStep implements IActionCommand {
         }
         sessionRequestContent.setSessionAttribute(P_ID, id);
         sessionRequestContent.setSessionAttribute(P_PERSON, person);
-        //personService.putSessionInHttp(sessionRequestContent.getHttpSession());
+        //personService.putSessionInHttp(sessionRequestContent.getHttpSession());*/
         return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION_2.getUrlCode());
     }
 }

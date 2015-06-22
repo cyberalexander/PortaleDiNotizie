@@ -9,6 +9,7 @@ import by.leonovich.notizieportale.util.UrlEnum;
  * Created by alexanderleonovich on 03.05.15.
  * Class for forward response on user-cabinet page
  */
+@Deprecated
 public class GoInCabinet implements IActionCommand {
 
     @Override

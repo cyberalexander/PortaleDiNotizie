@@ -2,14 +2,13 @@ package by.leonovich.notizieportale.dao;
 
 import by.leonovich.notizieportale.domain.*;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.util.exception.PersistException;
+import by.leonovich.notizieportale.exception.PersistException;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,8 +25,7 @@ import static org.junit.Assert.*;
 @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 public class AbstractDaoTest {
     private static final Logger logger = Logger.getLogger(AbstractDaoTest.class);
-    private ClassPathXmlApplicationContext ac;
-    @Autowired
+    private ApplicationContext ac;
     private NewsDao dao;
     private Commentary commentary;
     private Category category;
@@ -37,8 +35,8 @@ public class AbstractDaoTest {
 
 
     public AbstractDaoTest() {
-        ac = new ClassPathXmlApplicationContext(new String[]{"test-beans-dao.xml"});
-        dao = (NewsDao) ac.getBean("newsDao");
+        /*ac = new AnnotationConfigApplicationContext(DaoTestConfig.class);
+        dao = (NewsDao) ac.getBean("newsDao");*/
     }
 
     @Before

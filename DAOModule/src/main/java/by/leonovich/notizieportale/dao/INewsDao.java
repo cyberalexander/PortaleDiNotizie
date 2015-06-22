@@ -2,7 +2,7 @@ package by.leonovich.notizieportale.dao;
 
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.util.exception.PersistException;
+import by.leonovich.notizieportale.exception.PersistException;
 
 import java.util.Date;
 import java.util.List;

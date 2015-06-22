@@ -8,7 +8,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.ICommentaryService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
+@Deprecated
 public class EditWriteCommentary implements IActionCommand {
 
     @Autowired
@@ -35,8 +36,8 @@ public class EditWriteCommentary implements IActionCommand {
         if (nonNull(commentaryId)) {
             try {
                 commentary = commentaryService.get(commentaryId);
-            } catch (ServiceExcpetion serviceExcpetion) {
-                serviceExcpetion.printStackTrace();
+            } catch (ServiceLayerException serviceLayerException) {
+                serviceLayerException.printStackTrace();
             }
             sessionRequestContent.setSessionAttribute(COMMENT_FOR_EDIT, commentary);
         } else {

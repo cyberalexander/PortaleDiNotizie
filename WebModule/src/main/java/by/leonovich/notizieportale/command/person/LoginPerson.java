@@ -1,11 +1,7 @@
 package by.leonovich.notizieportale.command.person;
 
-import static by.leonovich.notizieportale.util.WebConstants.Const.*;
-
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.PersonService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
 import org.springframework.context.ApplicationContext;
 
@@ -13,6 +9,7 @@ import org.springframework.context.ApplicationContext;
  * Created by alexanderleonovich on 18.04.15.
  * Command class where checking user, when he autorizated
  */
+@Deprecated
 public class LoginPerson implements IActionCommand {
 
     private PersonService personService;
@@ -27,7 +24,7 @@ public class LoginPerson implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
         String page = null;
-        // extracting from the request login and password
+        /*// extracting from the request login and password
         String email = sessionRequestContent.getParameter(EMAIL);
         String pass = sessionRequestContent.getParameter(PASSWORD);
         // checking login and password
@@ -35,7 +32,7 @@ public class LoginPerson implements IActionCommand {
             if (personService.checkPerson(email, pass)) {
                 Person person = personService.getByEmail(email);
                 sessionRequestContent.setSessionAttribute(P_PERSON, person);
-                // determination url-path to person_cabinet.jspx
+                // determination url-path to person_cabinet.jsp
                 page = URLManager.getInstance().getProperty(UrlEnum.URL_PERSONCABINET.getUrlCode());
             } else {
                 sessionRequestContent.setRequestAttribute("errorLoginPassMessage",
@@ -44,7 +41,7 @@ public class LoginPerson implements IActionCommand {
             }
         } catch (ServiceExcpetion serviceExcpetion) {
             serviceExcpetion.printStackTrace();
-        }
+        }*/
         return page;
     }
 

@@ -13,6 +13,7 @@ import static by.leonovich.notizieportale.util.WebConstants.Const.*;
 /**
  * Created by alexanderleonovich on 21.04.15.
  */
+@Deprecated
 public class EditWriteNews implements IActionCommand {
 
     private AttributesManager attributesManager;

@@ -1,14 +1,14 @@
 package by.leonovich.notizieportale.command;
 
-import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.util.URLManager;
 import by.leonovich.notizieportale.util.MessageManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
+import by.leonovich.notizieportale.util.URLManager;
 
 /**
  * Created by alexanderleonovich on 18.04.15.
  * Command class for redirect user on login page? if  he will get direct access to the controller
  */
+@Deprecated
 public class EmptyCommand implements IActionCommand {
 
     @Override

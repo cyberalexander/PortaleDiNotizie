@@ -2,7 +2,9 @@ package by.leonovich.notizieportale.services;
 
 
 import by.leonovich.notizieportale.dao.PersonDao;
+import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.Person;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,8 +24,9 @@ import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
  * Created by alexanderleonovich on 19.06.15.
  */
 
-@Service("userDetailsService")
+@Service
 public class UserDetailServiceImpl implements UserDetailsService {
+    private static final Logger logger = Logger.getLogger(UserDetailServiceImpl.class);
 
     @Autowired
     private PersonDao personDao;
@@ -46,13 +49,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     new org.springframework.security.core.userdetails.User(person.getPersonDetail().getEmail(),
                             person.getPersonDetail().getPassword(),
                             roles);
-                System.out.println(userDetails.getAuthorities());
-                System.out.println(userDetails.getPassword());
-                System.out.println(userDetails.getUsername());
-
+                logger.info("User is authorizated " + userDetails.getUsername() + ", user-authorities " + userDetails.getAuthorities());
             return userDetails;
             }else {
-                throw new UsernameNotFoundException("pisec");
+                throw new UsernameNotFoundException("error to check user. Email is empty");
             }
         }
         return null;

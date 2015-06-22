@@ -22,6 +22,7 @@ import static java.util.Objects.nonNull;
  * Created by alexanderleonovich on 26.04.15.
  * Autentification filter for requests to MainServlet
  */
+@Deprecated
 @WebFilter(filterName = "ServletSecurityFilter", urlPatterns = { "/controller" }, servletNames = { "MainServlet" })
 public class ServletSecurityFilter implements Filter {
 

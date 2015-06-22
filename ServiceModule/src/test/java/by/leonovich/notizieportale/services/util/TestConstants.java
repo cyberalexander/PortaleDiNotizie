@@ -2,7 +2,7 @@ package by.leonovich.notizieportale.services.util;
 
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by alexanderleonovich on 25.05.15.
@@ -14,7 +14,7 @@ public class TestConstants {
         public static final String CATEGORY_NAME = "testCategoryName";
         public static final String CATEGORY_NEW_NAME = "testSaveOrUpdateNameOfCategory";
         public static final int ZERO = 0;
-        public static final Date DATE = new Date();
+        public static final Date DATE = new Date(2015-01-01);
         public static final String COMMENTARY_CONTENT = "Test content of commentary";
         public static final String PAGE_ID = "Test_Page_ID";
         public static final String TITLE = "test_title";
@@ -30,6 +30,7 @@ public class TestConstants {
         public static final String UNIQUE_PAGE_ID_FOR_UPDATE = "unique_page_id_for_update_method";
         public static final StatusEnum DELETED = StatusEnum.DELETED;
         public static final String UNIQUE_COMMENT = "unique_comment";
+        public static final String COMMENTARY_SERVICE = "commentaryService";
         public static int THREE = 3;
 
 //        public static final String CANT_FIND_BY_PK = "Exception on findByPK new persist data.";

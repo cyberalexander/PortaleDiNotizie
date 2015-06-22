@@ -6,10 +6,6 @@
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
     <display-name>Portale de Notizie</display-name>
-<!--    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dispatcher-servlet.xml, /WEB-INF/spring-security.xml</param-value>
-    </context-param>-->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -19,35 +15,22 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-   <!-- <servlet>
-        <servlet-name>dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.do</url-pattern>
-    </servlet-mapping>-->
-<!--    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>-->
-
 
     <welcome-file-list>
-        <welcome-file>index.jspx</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/view/error.jspx</location>
+        <location>/WEB-INF/view/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/WEB-INF/view/error.jspx</location>
+        <location>/WEB-INF/view/error.jsp</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.RuntimeException</exception-type>
-        <location>/WEB-INF/view/error.jspx</location>
+        <location>/WEB-INF/view/error.jsp</location>
     </error-page>
 
 </web-app>

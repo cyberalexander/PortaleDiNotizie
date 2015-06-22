@@ -1,5 +1,8 @@
 package by.leonovich.notizieportale.config;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -12,6 +15,9 @@ import javax.servlet.ServletRegistration.Dynamic;
 /**
  * Created by alexanderleonovich on 19.06.15.
  */
+@ComponentScan("by.leonovich.notizieportale")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@ImportResource({"classpath*:DaoConfig.java", "classpath*:ServiceConfig.java"})
 public class Initializer implements WebApplicationInitializer {
 
     // Указываем имя нашему Servlet Dispatcher для мапинга

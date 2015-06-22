@@ -8,7 +8,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,20 +41,20 @@ public class AddNews implements IActionCommand {
         if (!(news.getPageId().equals(MAIN)) && (news.getCategory().getCategoryId() == ONE)) {
             try {
                 category = categoryService.getCategoryByName(news.getPageId());
-            } catch (ServiceExcpetion serviceExcpetion) {
-                serviceExcpetion.printStackTrace();
+            } catch (ServiceLayerException serviceLayerException) {
+                serviceLayerException.printStackTrace();
             }
             List<News> list = null;
             try {
                 list = newsService.getListOfNewsByCategoryIdNoOrder(category.getCategoryId());
-            } catch (ServiceExcpetion serviceExcpetion) {
-                serviceExcpetion.printStackTrace();
+            } catch (ServiceLayerException serviceLayerException) {
+                serviceLayerException.printStackTrace();
             }
             if (nonNull(list) && list.size() > ZERO) {
                 try {
                     pageId = newsService.get(list.get(list.size() - ONE).getNewsId()).getPageId();
-                } catch (ServiceExcpetion serviceExcpetion) {
-                    serviceExcpetion.printStackTrace();
+                } catch (ServiceLayerException serviceLayerException) {
+                    serviceLayerException.printStackTrace();
                 }
             } else {
                 pageId = news.getPageId() + "_" + ONE;

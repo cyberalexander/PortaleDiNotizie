@@ -76,7 +76,7 @@ public class CommentaryDaoTest {
         assertNull("Id before save() is not null.", commentary.getCommentaryId());
         Long identifier = commentaryDao.save(commentary);
         assertNotNull("After save() categoryId is null. ", identifier);
-        List<Commentary> list = commentaryDao.getByPersonPK(commentary.getPerson().getPersonId());
+        List<Commentary> list = commentaryDao.getByPersonId(commentary.getPerson().getPersonId());
         assertNotNull(list);
         assertTrue(list.size() > TestConst.ZERO);
     }

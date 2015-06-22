@@ -4,7 +4,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.*;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ import static java.util.Objects.nonNull;
  * Created by alexanderleonovich on 19.04.15.
  * Show news command
  */
+@Deprecated
 public class ShowNews implements IActionCommand {
     private static final Logger logger = Logger.getLogger(ShowNews.class);
     private INewsService newsService;
@@ -44,8 +45,8 @@ public class ShowNews implements IActionCommand {
         try {
         try {
             news = newsService.getNewsByPageId(getPageId(sessionRequestContent));
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
 
             if (nonNull(categoryService.getCategoryByName(news.getPageId()))
@@ -73,8 +74,8 @@ public class ShowNews implements IActionCommand {
         /** ---------------------------------------------- */
 
         page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
         return page;
     }
@@ -87,10 +88,10 @@ public class ShowNews implements IActionCommand {
         List<Category> categories = null;
         try {
             categories = categoryService.getCategories();
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
-        //categories.remove(WebConstants.Const.ZERO);
+        categories.remove(WebConstants.Const.ZERO);
         return categories;
     }
 

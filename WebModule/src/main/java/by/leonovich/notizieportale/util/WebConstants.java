@@ -9,8 +9,28 @@ public class WebConstants {
 
     public static class Const {
 
+
+        public static final String ROLE_ADMIN = "ROLE_ADMIN";
+        public static final String ROLE_USER = "ROLE_USER";
+        public static final String P_DATE_NOW = "dateNow";
+        public static final String NEWS = "news";
+        public static final String P_NEWS_ID = "newsId";
+        public static final String P_CATEGORY_ID = "categoryId";
+        public static final String P_PERSON_ID = "personId";
+
+
+
+
+
+
+
+
+
+
+
+
         public static final String CONTENT_TYPE = "text/html; charset=UTF-8";
-        public static final String MESSAGE_PROPERTIES = "messages.properties";
+        public static final String MESSAGE_PROPERTIES = "messi.properties";
         public static final String URL_PROPERTIES = "url.properties";
 
         public static final String COMMAND = "command";
@@ -21,13 +41,14 @@ public class WebConstants {
         public static final String COMMENT_FOR_EDIT = "commentForEdit";
 
         public static final String MAIN = "main";
-        public static final String NEWS = "news";
         public static final String NEWSES = "newses";
         public static final String COMMENTARIES = "commentaries";
         public static final String CATEGORIES = "categories";
         public static final String FROM_ADDWRITE = "addwrite";
         public static final String FROM_DELETE = "delete";
         public static final String FROM_EDITWRITE = "edit";
+
+
 
 
         public static final String PERSONTYPE = "persontype";
@@ -45,10 +66,7 @@ public class WebConstants {
 
         /* ! NAME OF PARAMETERS FROM CLIENT LAYER */
         public static final String P_PAGE_ID = "pageId";
-        public static final String P_CATEGORY_ID = "categoryId";
-        public static final String P_PERSON_ID = "personId";
         public static final String P_DATE = "date";
-        public static final String P_NEWS_ID = "newsId";
         public static final String P_COMMENTARY_ID = "commentaryId";
         public static final String P_CATEGORY = "category";
         public static final String P_NEWS_ID_4_DELETE = "newsIdForDelete";
@@ -69,6 +87,7 @@ public class WebConstants {
         public static final String PAGINATOR_LIST = "paginatorList";
         public static final String P_ID = "id";
         public static final String P_ANNOTATION = "annotation";
-        public static final String P_DATE_NOW = "dateNow";
+        public static final String COMMENTARY = "commentary";
+        public static final String CONTENT = "content";
     }
 }

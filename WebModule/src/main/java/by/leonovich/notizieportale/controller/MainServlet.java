@@ -19,6 +19,7 @@ import java.io.IOException;
  * Created by alexanderleonovich on 12.04.15.
  * Servltet-controller of web-application
  */
+@Deprecated
 @WebServlet(name = "MainServlet", urlPatterns = {"/controller"})
 public class MainServlet extends HttpServlet {
 

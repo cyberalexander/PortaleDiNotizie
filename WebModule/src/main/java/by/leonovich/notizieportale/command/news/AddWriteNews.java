@@ -6,7 +6,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.services.INewsService;
 import by.leonovich.notizieportale.services.NewsService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.*;
 
 /**
@@ -33,8 +33,8 @@ public class AddWriteNews implements IActionCommand {
         Long operationResult = null;
         try {
             operationResult = newsService.save(news);
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
         if (operationResult != null && operationResult > Const.ZERO) {
             showNews.execute(sessionRequestContent);

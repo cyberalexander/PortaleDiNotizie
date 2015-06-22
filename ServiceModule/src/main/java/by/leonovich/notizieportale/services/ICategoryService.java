@@ -1,7 +1,7 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.domain.Category;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface ICategoryService extends IService<Category> {
 
-    List<Category> getCategories() throws ServiceExcpetion;
+    List<Category> getCategories() throws ServiceLayerException;
 
-    Category getCategoryByName(String category) throws ServiceExcpetion;
+    Category getCategoryByName(String category) throws ServiceLayerException;
 }

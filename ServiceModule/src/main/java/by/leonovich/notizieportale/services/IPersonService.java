@@ -1,10 +1,7 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.PersonDetail;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
-
-import javax.servlet.http.HttpSession;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 
 /**
  * Created by alexanderleonovich on 29.04.15.
@@ -12,14 +9,10 @@ import javax.servlet.http.HttpSession;
 public interface IPersonService extends IService<Person> {
 
 
-    boolean checkPerson(String email, String password) throws ServiceExcpetion;
+    boolean checkPerson(String email, String password) throws ServiceLayerException;
 
-    Person getByEmail(String email) throws ServiceExcpetion;
+    Person getByEmail(String email) throws ServiceLayerException;
 
-    Long registerPersonFirstStep(Person person) throws ServiceExcpetion;
-
-    boolean registerPersonSecondStep(HttpSession httpSession, PersonDetail personDetail) throws ServiceExcpetion;
-
-    void logOutPerson() throws ServiceExcpetion;
+    void logOutPerson() throws ServiceLayerException;
 
 }

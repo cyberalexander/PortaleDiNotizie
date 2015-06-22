@@ -1,7 +1,7 @@
 package by.leonovich.notizieportale.dao;
 
 
-import by.leonovich.notizieportale.util.exception.PersistException;
+import by.leonovich.notizieportale.exception.PersistException;
 
 import java.util.List;
 

@@ -24,6 +24,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>by.leonovich.notizieportale</groupId>
+            <artifactId>EntityTOMod</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>

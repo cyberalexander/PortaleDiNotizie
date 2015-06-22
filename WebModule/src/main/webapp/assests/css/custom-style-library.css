@@ -4,7 +4,7 @@ body {
 
 .text {
 	color: white;
-	font-family: Consolas;
+	font-family: Times;
 	text-align: justify}
 
 em {
@@ -18,25 +18,25 @@ em {
 	text-align: center;
 	font-size: 16px}
 
-.headerfirstlevel {
+.custom-header-first-level {
 	color: navajowhite;
 	font-size: 25pt;
 	font-family: Georgia;
 	text-align: center}
 
-.headersecondlevel{
+.custom-header-second-level {
 	color: powderblue;
 	font-size: 25pt;
 	font-family: Georgia;
 	text-align: center}
 
-.mostpopnews {
+.custom-header-third-level {
 	color: white;
 	font-family: cursive;
 	font-size: 10pt;
 	text-align: inherit
 }
-.mostpopnewsheader{
+.most-popular-news-header {
 	color: #5bc0de;
 	font-family: cursive;
 	font-size: 13pt;
@@ -66,3 +66,4 @@ img {
 	-webkit-transform: scale(1.5);
 	-moz-transform: scale(1.5);
 	-o-transform: scale(1.5)}
+

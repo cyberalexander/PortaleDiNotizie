@@ -2,7 +2,11 @@ package by.leonovich.notizieportale.config;
 
 import by.leonovich.notizieportale.services.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -28,15 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth
                 .userDetailsService(userDetailServiceImpl)
-                /*.passwordEncoder(getShaPasswordEncoder())*/;
+                .passwordEncoder(getMd5PasswordEncoder());
     }
-
-    /*@Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("ROLE_USER");
-        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ROLE_ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
-    }*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -48,12 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources*", "*").permitAll()
                 .anyRequest().permitAll()
-                .and();
-
-        http.authorizeRequests()
-                .antMatchers("/protected/**").access("hasRole('ROLE_ADMIN')")
-                .and()
-                .exceptionHandling().accessDeniedPage("/403")
                 .and();
 
         http.formLogin()
@@ -76,7 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         // указываем URL логаута
                 .logoutUrl("/logout.do")
                         // указываем URL при удачном логауте
-                .logoutSuccessUrl("/index.jspx")
+                .logoutSuccessUrl("/index.jsp")
                         // делаем не валидной текущую сессию
                 .invalidateHttpSession(true);
 
@@ -84,9 +76,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // Указываем Spring контейнеру, что надо инициализировать <b></b>ShaPasswordEncoder
     // Это можно вынести в WebAppConfig, но для понимаемости оставил тут
-    /*@Bean
-    public ShaPasswordEncoder getShaPasswordEncoder(){
-        return new ShaPasswordEncoder();
-    }*/
+    @Bean
+    public Md5PasswordEncoder getMd5PasswordEncoder() {
+        return new Md5PasswordEncoder();
+    }
 
 }

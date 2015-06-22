@@ -4,7 +4,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.services.CommentaryService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.AttributesManager;
 import by.leonovich.notizieportale.util.SessionRequestContent;
 import by.leonovich.notizieportale.util.URLManager;
@@ -21,6 +21,7 @@ import static java.util.Objects.nonNull;
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
+@Deprecated
 public class AddWriteCommentary implements IActionCommand {
     private static final Logger logger = Logger.getLogger(AddWriteCommentary.class);
     @Autowired
@@ -34,14 +35,14 @@ public class AddWriteCommentary implements IActionCommand {
     public String execute(SessionRequestContent sessionRequestContent) {
         /*ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(new String[]{this.getClass().getClassLoader().getResource("dispatcher-servlet.xml").getPath()});
         commentaryService = (CommentaryService) ac.getBean("commentaryService");*/
-        Commentary commentary = new Commentary();
+        /*Commentary commentary = new Commentary();
         Long newsId = Long.parseLong(sessionRequestContent.getParameter(P_NEWS_ID));
         if (nonNull(sessionRequestContent.getSessionAttribute(COMMENT_FOR_EDIT))) {
             if (nonNull(sessionRequestContent.getParameter(P_CONTENT))) {
                 try {
                     commentaryService.update(updateCommentary(sessionRequestContent));
-                } catch (ServiceExcpetion serviceExcpetion) {
-                    serviceExcpetion.printStackTrace();
+                } catch (ServiceLayerException serviceLayerException) {
+                    serviceLayerException.printStackTrace();
                 }
                 sessionRequestContent.removeSessionAttribute(COMMENT_FOR_EDIT);
             }
@@ -50,9 +51,9 @@ public class AddWriteCommentary implements IActionCommand {
                 Person person = (Person) sessionRequestContent.getSessionAttribute(P_PERSON);
                 Long personId = person.getPersonId();
                 try {
-                    commentaryService.save(addCommentary(sessionRequestContent, commentary), newsId, personId);
-                } catch (ServiceExcpetion serviceExcpetion) {
-                    serviceExcpetion.printStackTrace();
+                   // commentaryService.save(addCommentary(sessionRequestContent, commentary), newsId, personId);
+                } catch (ServiceLayerException serviceLayerException) {
+                    serviceLayerException.printStackTrace();
                 }
             }
         }
@@ -60,14 +61,14 @@ public class AddWriteCommentary implements IActionCommand {
         List<Commentary> commentaries = null;
         try {
             commentaries = commentaryService.getCommentariesByNewsId(newsId);
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
         if (nonNull(commentaries) && commentaries.size() > ZERO) {
         sessionRequestContent.setSessionAttribute(COMMENTARIES , commentaries);
         }
-        String page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());
-        return page;
+        String page = URLManager.getInstance().getProperty(UrlEnum.URL_MAIN.getUrlCode());*/
+        return null;
     }
 
 
@@ -84,8 +85,8 @@ public class AddWriteCommentary implements IActionCommand {
         try {
             commentary = commentaryService.get(
                     Long.parseLong(sessionRequestContent.getParameter(P_COMMENTARY_ID)));
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
         commentary.setComment(sessionRequestContent.getParameter(P_CONTENT));
         Date date = (Date) sessionRequestContent.getSessionAttribute(P_DATE_NOW);

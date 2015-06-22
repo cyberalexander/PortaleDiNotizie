@@ -14,6 +14,7 @@ import by.leonovich.notizieportale.command.person.*;
  * Created by alexanderleonovich on 18.04.15.
  * COMMAND ENUMERATION
  */
+@Deprecated
 public enum CommandEnum {
 
 

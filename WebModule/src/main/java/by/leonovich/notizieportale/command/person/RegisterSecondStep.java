@@ -1,19 +1,13 @@
 package by.leonovich.notizieportale.command.person;
 
-import static by.leonovich.notizieportale.util.WebConstants.Const.PERSONTYPE;
-import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
-import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
-
 import by.leonovich.notizieportale.command.IActionCommand;
-import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.services.PersonService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
 import by.leonovich.notizieportale.util.*;
 
 /**
  * Created by alexanderleonovich on 02.05.15.
  */
+@Deprecated
 public class RegisterSecondStep implements IActionCommand {
 
     private AttributesManager attributesManager;
@@ -25,8 +19,8 @@ public class RegisterSecondStep implements IActionCommand {
     }
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {
-        String page;
-        Person person = null;
+        return null;
+        /*Person person = null;
         PersonDetail personDetail = new PersonDetail();
         personDetail = attributesManager.parseParametersOfPersonDetail(sessionRequestContent, personDetail);
         if (!(isNullOrEmpty(personDetail.getEmail()))
@@ -39,12 +33,12 @@ public class RegisterSecondStep implements IActionCommand {
                 serviceExcpetion.printStackTrace();
             }
             if (operationResult) {
-                try {
+                *//*try {
                     sessionRequestContent.setSessionAttribute(P_PERSON,
                            person = personService.getByEmail(personDetail.getEmail()));
                 } catch (ServiceExcpetion serviceExcpetion) {
                     serviceExcpetion.printStackTrace();
-                }
+                }*//*
                 sessionRequestContent.setSessionAttribute(PERSONTYPE, person.getPersonDetail().getRole());
                 return page = URLManager.getInstance().getProperty(UrlEnum.URL_PERSONCABINET.getUrlCode());
             } else {
@@ -56,6 +50,6 @@ public class RegisterSecondStep implements IActionCommand {
             sessionRequestContent.setRequestAttribute("nullemailorpassword",
                     MessageManager.getInstance().getProperty("message.nullemailorpassword"));
             return page = URLManager.getInstance().getProperty(UrlEnum.PATH_PAGE_REGISTRATION_2.getUrlCode());
-        }
+        }*/
     }
 }

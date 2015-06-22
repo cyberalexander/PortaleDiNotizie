@@ -5,18 +5,17 @@ import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
-import by.leonovich.notizieportale.util.exception.PersistException;
+import by.leonovich.notizieportale.exception.PersistException;
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 
 import java.util.List;
 
+import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.MINUS_ONE;
 import static java.util.Objects.nonNull;
 
 /**
@@ -35,92 +34,97 @@ public class CommentaryService implements ICommentaryService {
     private NewsService newsService;
 
     public CommentaryService() {
-
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Commentary> getCommentaries() throws ServiceExcpetion {
-        List<Commentary> commentaries = null;
+    public List<Commentary> getCommentaries() throws ServiceLayerException {
+        List<Commentary> commentaries;
         try {
             commentaries = commentaryDao.getAll();
         } catch (PersistException e) {
-            logger.error("Error get list of commentaries from database" + e);
-
+            logger.error("Error get list of commentaries from database => " + e);
+            throw new ServiceLayerException(e);
         }
         return commentaries;
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Commentary> getCommentariesByAuthorId(Long pK) throws ServiceExcpetion {
+    public List<Commentary> getCommentariesByAuthorId(Long personId) throws ServiceLayerException {
+        List<Commentary> commentaries;
+        try {
+            commentaries = commentaryDao.getByPersonId(personId);
+            logger.info("Commentary-list size: " + commentaries.size() + ", for Person with Id = " + personId);
+        } catch (PersistException e) {
+            logger.error("Error get list of Commentaries from database => " + e);
+            throw new ServiceLayerException(e);
+        }
+        return commentaries;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public List<Commentary> getCommentariesByNewsId(Long newsId) throws ServiceLayerException {
         List<Commentary> commentaries = null;
         try {
-            commentaries = commentaryDao.getByPersonPK(pK);
-            logger.info("Commentary-list size: " + commentaries.size());
+            commentaries = commentaryDao.getByNewsPK(newsId);
+            logger.info("Commentary-list size: " + commentaries.size() + ", for News with Id = " + newsId);
+        } catch (PersistException e) {
+            logger.error("Error get list of commentaries from database => " + e);
+            throw new ServiceLayerException(e);
+        }
+        return commentaries;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public Long save(Commentary commentary, Long newsId, String login) throws ServiceLayerException {
+        Long pK;
+        try {
+            Person person = personService.getByEmail(login);
+            News news = newsService.load(newsId);
+            commentary.setStatus(StatusEnum.PERSISTED);
+            commentary.setPerson(person);
+            commentary.setNews(news);
+            pK = commentaryDao.save(commentary);
+        } catch (PersistException e) {
+            logger.error("Error save commentary in Service layer => " + e);
+            throw new ServiceLayerException(e);
+        }
+        return pK;
+    }
+
+
+    @Override
+    public Long save(Commentary commentary) throws ServiceLayerException {
+        Long pK;
+        try {
+            commentary.setStatus(StatusEnum.PERSISTED);
+            pK = commentaryDao.save(commentary);
         } catch (PersistException e) {
             logger.error("Error get list of Categories from database" + e);
+            throw new ServiceLayerException(e);
         }
-        return commentaries;
+        return pK;
     }
 
     @Override
-    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Commentary> getCommentariesByNewsId(Long pK) throws ServiceExcpetion {
-        List<Commentary> commentaries = null;
-        try {
-            commentaries = commentaryDao.getByNewsPK(pK);
-        } catch (PersistException e) {
-            logger.error("Error get list of commentaries from database" + e);
-        }
-        return commentaries;
+    public Long saveOrUpdate(Commentary commentary) throws ServiceLayerException {
+        Long pK = (long) MINUS_ONE;
+        return pK;
     }
 
     @Override
-    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Long save(Commentary commentary, Long newsId, Long personId) throws ServiceExcpetion {
-        Long savedCommentaryId = null;
-        if (nonNull(commentary)) {
-            try {
-                Person person = personService.load(personId);
-                News news = newsService.load(newsId);
-                commentary.setStatus(StatusEnum.PERSISTED);
-                commentary.setPerson(person);
-                commentary.setNews(news);
-                savedCommentaryId = commentaryDao.save(commentary);
-            } catch (PersistException e) {
-                logger.error("Error get list of Categories from database" + e);
-            }
-            return savedCommentaryId;
-        }
-        return null;
-    }
-
-
-    @Override
-    public Long save(Commentary commentary) throws ServiceExcpetion {
-        Long savedCommentaryId = null;
-        if (nonNull(commentary)) {
-            try {
-                commentary.setStatus(StatusEnum.PERSISTED);
-                savedCommentaryId = commentaryDao.save(commentary);
-            } catch (PersistException e) {
-                logger.error("Error get list of Categories from database" + e);
-            }
-            return savedCommentaryId;
-        }
-        return null;
-    }
-
-    @Override
-    public Commentary update(Commentary commentary) throws ServiceExcpetion {
+    public Commentary update(Commentary commentary) throws ServiceLayerException {
         if (nonNull(commentary.getCommentaryId())) {
-            Long updatedCommentaryId = commentary.getCommentaryId();
+            Long pK = commentary.getCommentaryId();
             try {
                 commentaryDao.update(commentary);
-                commentary = commentaryDao.get(updatedCommentaryId);
+                commentary = commentaryDao.get(pK);
             } catch (PersistException e) {
                 logger.error("Error get list of Categories from database" + e);
+                throw new ServiceLayerException(e);
             }
             return commentary;
         }
@@ -128,22 +132,23 @@ public class CommentaryService implements ICommentaryService {
     }
 
     @Override
-    public Commentary delete(Commentary commentary) throws ServiceExcpetion {
+    public Long delete(Commentary commentary) throws ServiceLayerException {
         if (nonNull(commentary.getCommentaryId())) {
-            Long deletedCommentaryId = commentary.getCommentaryId();
+            Long pK = commentary.getCommentaryId();
             try {
                 commentary.setStatus(StatusEnum.DELETED);
                 commentaryDao.update(commentary);
-                commentary = commentaryDao.get(deletedCommentaryId);
+                return pK;
             } catch (PersistException e) {
                 logger.error("Error delete Commentary from database:   " + e);
+                throw new ServiceLayerException(e);
             }
         }
-        return commentary;
+        return (long) MINUS_ONE;
     }
 
     @Override
-    public void remove(Commentary commentary) throws ServiceExcpetion {
+    public void remove(Commentary commentary) throws ServiceLayerException {
         if (nonNull(commentary.getCommentaryId())) {
             try {
                 commentaryDao.remove(commentary);
@@ -151,23 +156,24 @@ public class CommentaryService implements ICommentaryService {
             } catch (PersistException e) {
                 logger.error("Error remove " + commentary.getClass().getName() + "from database:   " + e);
                 logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public Commentary get(Long pK) throws ServiceExcpetion {
+    public Commentary get(Long commentaryId) throws ServiceLayerException {
         try {
-            return commentaryDao.get(pK);
+            return commentaryDao.get(commentaryId);
         } catch (PersistException e) {
             logger.error(e);
+            throw new ServiceLayerException(e);
         }
-        return null;
     }
 
     @Override
-    public Commentary load(Long pK) throws ServiceExcpetion {
+    public Commentary load(Long pK) throws ServiceLayerException {
         return null;
     }
 

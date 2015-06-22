@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="base" template="/WEB-INF/view/layout/page.jsp">
+        <put-attribute name="title" value="/WEB-INF/view/layout/title.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/view/layout/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/view/layout/body.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/layout/footer.jsp"/>
+    </definition>
+
+    <definition name="welcome" extends="base">
+        <put-attribute name="title" value="welcome page"/>
+        <put-attribute name="body" value="/WEB-INF/view/welcome.jsp"/>
+    </definition>
+
+    <definition name="login" extends="base">
+        <put-attribute name="title" value="Spring Security form"/>
+        <put-attribute name="body" value="/WEB-INF/view/login.jsp"/>
+    </definition>
+
+    <definition name="main" extends="base">
+        <put-attribute name="title" expression="${news.title}"/>
+        <put-attribute name="body" value="/WEB-INF/view/main.jsp"/>
+    </definition>
+
+    <definition name="person_cabinet" extends="base">
+        <put-attribute name="body" value="/WEB-INF/view/person_cabinet.jsp"/>
+    </definition>
+
+    <definition name="registration_first" extends="base">
+        <put-attribute name="title" value="registration first step"/>
+        <put-attribute name="body" value="/WEB-INF/view/registration_first.jsp"/>
+    </definition>
+
+    <definition name="registration_second" extends="base">
+        <put-attribute name="title" value="registration second step"/>
+        <put-attribute name="body" value="/WEB-INF/view/registration_second.jsp"/>
+    </definition>
+
+    <definition name="edit_person_info" extends="base">
+        <put-attribute name="title" value="edit info about me"/>
+        <put-attribute name="body" value="/WEB-INF/view/edit_person_info.jsp"/>
+    </definition>
+
+    <definition name="add_news" extends="base">
+        <put-attribute name="title" value="Add news page"/>
+        <put-attribute name="body" value="/WEB-INF/view/add_news.jsp"/>
+    </definition>
+
+    <definition name="add_category" extends="base">
+        <put-attribute name="title" value="Add category page"/>
+        <put-attribute name="body" value="/WEB-INF/view/add_category.jsp"/>
+    </definition>
+
+    <definition name="edit_news" extends="base">
+        <put-attribute name="title" value="Edit news page"/>
+        <put-attribute name="body" value="/WEB-INF/view/edit_news.jsp"/>
+    </definition>
+
+    <definition name="edit_commentary" extends="base">
+        <put-attribute name="title" value="edit commentary"/>
+        <put-attribute name="body" value="/WEB-INF/view/edit_commentary.jsp"/>
+    </definition>
+
+    <definition name="test_page" extends="base">
+        <put-attribute name="title" value="test page"/>
+        <put-attribute name="body" value="/WEB-INF/view/test_page.jsp"/>
+    </definition>
+
+
+
+
+
+
+
+
+
+
+<!--    <definition name="home" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp"/>
+    </definition>
+
+    <definition name="registerForm" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
+    </definition>
+
+    <definition name="profile" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/profile.jsp"/>
+    </definition>
+
+    <definition name="spittles" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/spittles.jsp"/>
+    </definition>
+
+    <definition name="spittle" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/spittle.jsp"/>
+    </definition>-->
+</tiles-definitions>

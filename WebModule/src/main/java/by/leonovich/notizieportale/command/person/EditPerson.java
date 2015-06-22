@@ -8,6 +8,7 @@ import by.leonovich.notizieportale.util.UrlEnum;
 /**
  * Created by alexanderleonovich on 10.05.15.
  */
+@Deprecated
 public class EditPerson implements IActionCommand {
     @Override
     public String execute(SessionRequestContent sessionRequestContent) {

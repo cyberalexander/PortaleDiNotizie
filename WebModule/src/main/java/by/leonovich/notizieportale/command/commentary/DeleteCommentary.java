@@ -6,7 +6,7 @@ import by.leonovich.notizieportale.command.IActionCommand;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.ICommentaryService;
-import by.leonovich.notizieportale.services.util.exception.ServiceExcpetion;
+import by.leonovich.notizieportale.services.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * Created by alexanderleonovich on 03.05.15.
  */
+@Deprecated
 public class DeleteCommentary implements IActionCommand {
 
     @Autowired
@@ -29,20 +30,20 @@ public class DeleteCommentary implements IActionCommand {
         try {
             commentary = commentaryService.get(
                     Long.parseLong(sessionRequestContent.getParameter(Const.P_COMMENTARY_ID)));
-        } catch (ServiceExcpetion serviceExcpetion) {
-            serviceExcpetion.printStackTrace();
+        } catch (ServiceLayerException serviceLayerException) {
+            serviceLayerException.printStackTrace();
         }
         if (commentary != null) {
             try {
                 commentaryService.delete(commentary);
-            } catch (ServiceExcpetion serviceExcpetion) {
-                serviceExcpetion.printStackTrace();
+            } catch (ServiceLayerException serviceLayerException) {
+                serviceLayerException.printStackTrace();
             }
             List<Commentary> commentaries = null;
             try {
                 commentaries = commentaryService.getCommentariesByNewsId(commentary.getNews().getNewsId());
-            } catch (ServiceExcpetion serviceExcpetion) {
-                serviceExcpetion.printStackTrace();
+            } catch (ServiceLayerException serviceLayerException) {
+                serviceLayerException.printStackTrace();
             }
             sessionRequestContent.setSessionAttribute(Const.COMMENTARIES, commentaries);
         }else{

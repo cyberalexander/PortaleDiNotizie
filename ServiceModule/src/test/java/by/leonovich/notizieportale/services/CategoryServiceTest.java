@@ -1,17 +1,15 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.domain.Category;
+import by.leonovich.notizieportale.services.util.ServiceTestConfig;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.File;
 import java.util.List;
 
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
@@ -26,11 +24,11 @@ public class CategoryServiceTest {
 
     private Category category;
     private CategoryService categoryService;
-    private ClassPathXmlApplicationContext ac;
+    private ApplicationContext ac;
 
 
     public CategoryServiceTest() {
-        ac = new ClassPathXmlApplicationContext(new String[]{"test-beans-services.xml"});
+        ac = new AnnotationConfigApplicationContext(ServiceTestConfig.class);
         categoryService = (CategoryService) ac.getBean("categoryService");
         /*categoryService = CategoryService.getInstance();*/
     }

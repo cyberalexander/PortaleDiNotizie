@@ -50,7 +50,7 @@ public class Commentary extends CustomEntity{
         return commentaryId;
     }
 
-    protected void setCommentaryId(Long commentaryId) {
+    public void setCommentaryId(Long commentaryId) {
         this.commentaryId = commentaryId;
     }
 

@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.dao;
 
-import by.leonovich.notizieportale.util.exception.PersistException;
+import by.leonovich.notizieportale.exception.PersistException;
 import by.leonovich.notizieportale.util.DaoConstants;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -8,9 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
