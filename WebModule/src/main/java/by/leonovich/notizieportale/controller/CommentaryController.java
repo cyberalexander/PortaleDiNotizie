@@ -29,6 +29,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Created by alexanderleonovich on 20.06.15.
  */
 @Controller
+@Secured({ROLE_ADMIN, ROLE_USER})
 public class CommentaryController {
     private static final Logger logger = Logger.getLogger(CommentaryController.class);
 
@@ -39,10 +40,9 @@ public class CommentaryController {
     private AttributesManager attributesManager;
 
 
-    @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "deletecommentary", method = GET)
     public String deleteCommentary(@ModelAttribute(P_COMMENTARY_ID) String commentaryId,
-                                   @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap) throws WebLayerException{
+                                   @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap) throws WebLayerException {
         try {
             Commentary commentary = commentaryService.get(valueOf(commentaryId));
             commentaryService.delete(commentary);
@@ -54,7 +54,6 @@ public class CommentaryController {
         return "forward:/shownews.do";
     }
 
-    @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "edit_commentary", method = GET)
     public String editCommentary(@ModelAttribute(P_COMMENTARY_ID) String commentaryId,
                                  @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap,
@@ -70,7 +69,6 @@ public class CommentaryController {
         return "forward:/shownews.do";
     }
 
-    @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "edit_write_commentary.do", method = POST)
     public String editWriteCommentary(@ModelAttribute(CONTENT) String content,
                                       @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap,
@@ -87,7 +85,6 @@ public class CommentaryController {
         return "forward:/shownews.do";
     }
 
-    @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "add_write_commentary.do", method = POST)
     public String addWriteCommentary(@ModelAttribute(P_NEWS_ID) String newsId,
                                      @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap,

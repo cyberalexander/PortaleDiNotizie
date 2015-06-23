@@ -29,8 +29,8 @@
         <%-- BUTTONS FOR LOG-OUT AND FOR GOING IN USERCABINET --%>
         <sec:authorize access="!isAuthenticated()">
             <div style="text-align: right;  margin-top: 10px">
-                <a class="btn btn-success" href="/addperson.do" role="button"><locale:message code="button.signup"/></a>
-                <a class="btn btn-default" href="/login.do" role="button"><locale:message code="button.signin"/></a>
+                <a class="btn btn-success" href="addperson.do" role="button"><locale:message code="button.signup"/></a>
+                <a class="btn btn-default" href="login.do" role="button"><locale:message code="button.signin"/></a>
             </div>
         </sec:authorize>
         <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
@@ -41,10 +41,10 @@
                         <locale:message code="button.menu"/><span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/person_cabinet.do"><locale:message code="button.goincabinet"/></a></li>
-                        <li><a href="/editperson.do"><locale:message code="button.changeinfo"/></a></li>
+                        <li><a href="person_cabinet.do"><locale:message code="button.goincabinet"/></a></li>
+                        <li><a href="editperson.do"><locale:message code="button.changeinfo"/></a></li>
                         <li class="divider"></li>
-                        <li><a href="/logout.do"><locale:message code="button.logout"/></a></li>
+                        <li><a href="logout.do"><locale:message code="button.logout"/></a></li>
                     </ul>
                 </div>
             </div>

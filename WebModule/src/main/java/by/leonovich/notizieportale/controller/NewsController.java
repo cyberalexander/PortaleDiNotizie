@@ -48,7 +48,7 @@ public class NewsController {
     @Autowired
     private AttributesManager attributesManager;
     @Autowired
-    CloneUtil cloneUtil;
+    private CloneUtil cloneUtil;
 
     @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "delete_news", method = GET)

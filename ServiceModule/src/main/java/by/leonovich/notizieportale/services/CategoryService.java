@@ -36,7 +36,11 @@ public class CategoryService implements ICategoryService {
     public CategoryService() {
     }
 
-
+    /**
+     *
+     * @return list persisted objects
+     * @throws ServiceLayerException - custom service layer exception
+     */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Category> getCategories() throws ServiceLayerException {
@@ -50,6 +54,12 @@ public class CategoryService implements ICategoryService {
         return list;
     }
 
+    /**
+     *
+     * @param category
+     * @return persisted object
+     * @throws ServiceLayerException - custom service layer exception
+     */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Category getCategoryByName(String category) throws ServiceLayerException {
@@ -68,6 +78,13 @@ public class CategoryService implements ICategoryService {
         return null;
     }
 
+    /**
+     *
+     * @param category
+     * @param news -
+     * @return pK of persisted object
+     * @throws ServiceLayerException - custom service layer exception
+     */
     @Override
     public Long saveCategoryNews(Category category, News news) throws ServiceLayerException {
         Long pK;
@@ -89,7 +106,7 @@ public class CategoryService implements ICategoryService {
         try {
             category.setStatus(PERSISTED);
             pK = categoryDao.save(category);
-            logger.info("Category saved: " + pK);
+            logger.info("Category saved =>: " + pK);
         }catch (PersistException e) {
             logger.error(e);
             throw new ServiceLayerException(e);
@@ -98,8 +115,15 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public Long saveOrUpdate(Category category)  throws ServiceLayerException {
-        return null;
+    public void saveOrUpdate(Category category)  throws ServiceLayerException {
+        try {
+            category.setStatus(PERSISTED);
+            categoryDao.saveOrUpdate(category);
+            logger.info("Category saved or updated =>: ");
+        }catch (PersistException e) {
+            logger.error(e);
+            throw new ServiceLayerException(e);
+        }
     }
 
     @Override
@@ -135,6 +159,12 @@ public class CategoryService implements ICategoryService {
         }
     }
 
+    /**
+     *
+     * @param pK pK of persisted object
+     * @return persisted object
+     * @throws ServiceLayerException
+     */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Category get(Long pK) throws ServiceLayerException {

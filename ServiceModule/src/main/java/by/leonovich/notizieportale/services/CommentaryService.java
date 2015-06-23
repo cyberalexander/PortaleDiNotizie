@@ -112,9 +112,8 @@ public class CommentaryService implements ICommentaryService {
     }
 
     @Override
-    public Long saveOrUpdate(Commentary commentary) throws ServiceLayerException {
+    public void saveOrUpdate(Commentary commentary) throws ServiceLayerException {
         Long pK = (long) MINUS_ONE;
-        return pK;
     }
 
     @Override

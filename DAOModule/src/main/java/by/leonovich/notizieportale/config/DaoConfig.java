@@ -16,7 +16,6 @@ import java.util.Properties;
  * Created by alexanderleonovich on 20.06.15.
  */
 @Configuration
-@EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.PROXY)
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @ComponentScan("by.leonovich.notizieportale.dao")
 public class DaoConfig {

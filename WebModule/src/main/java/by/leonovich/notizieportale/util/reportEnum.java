@@ -1,11 +1,9 @@
 package by.leonovich.notizieportale.util;
 
-import org.springframework.stereotype.Component;
-
 /**
  * Created by alexanderleonovich on 06.05.15.
  */
-public enum UrlEnum {
+public enum reportEnum {
 
     URL_INDEX("url.index"),
     URL_LOGIN("url.login"),
@@ -21,7 +19,7 @@ public enum UrlEnum {
 
     private String urlCode;
 
-    UrlEnum(String urlCode) {
+    reportEnum(String urlCode) {
         this.urlCode = urlCode;
     }
 

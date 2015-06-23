@@ -30,7 +30,6 @@ public class CategoryServiceTest {
     public CategoryServiceTest() {
         ac = new AnnotationConfigApplicationContext(ServiceTestConfig.class);
         categoryService = (CategoryService) ac.getBean("categoryService");
-        /*categoryService = CategoryService.getInstance();*/
     }
 
     @Before

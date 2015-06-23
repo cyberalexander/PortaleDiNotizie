@@ -2,7 +2,6 @@ package by.leonovich.notizieportale.services;
 
 
 import by.leonovich.notizieportale.dao.PersonDao;
-import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.Person;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
             // на основании полученныйх даных формируем объект UserDetails
             // который позволит проверить введеный пользователем логин и пароль
             // и уже потом аутентифицировать пользователя
-            System.out.println("---------------------------------------------------------------");
             if (person != null) {
             roles.add(new SimpleGrantedAuthority(person.getPersonDetail().getRole().name()));
             UserDetails userDetails =

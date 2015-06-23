@@ -35,6 +35,7 @@ import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
  * Created by alexanderleonovich on 20.06.15.
  */
 @Controller
+@Secured({ROLE_ADMIN, ROLE_USER})
 public class CategoryController {
     private static final Logger logger = Logger.getLogger(CategoryController.class);
 
@@ -43,10 +44,9 @@ public class CategoryController {
     @Autowired
     private AttributesManager attributesManager;
     @Autowired
-    CloneUtil cloneUtil;
+    private CloneUtil cloneUtil;
 
 
-    @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "add_category", method = RequestMethod.GET)
     public String addCategory(Model model) throws WebLayerException {
         model.addAttribute(new News());
@@ -54,7 +54,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "add_write_category", method = RequestMethod.POST)
-    public String addWriteNews(@Validated News news, BindingResult bindingResult,
+    public String addWriteCategory(@Validated News news, BindingResult bindingResult,
                                HttpServletRequest request) throws WebLayerException {
         Category category = new Category();
         category.setCategoryName(news.getPageId());

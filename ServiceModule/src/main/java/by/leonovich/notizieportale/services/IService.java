@@ -10,7 +10,7 @@ public interface IService<T> {
 
     Long save(T t)  throws ServiceLayerException;
 
-    Long saveOrUpdate(T t)  throws ServiceLayerException;
+    void saveOrUpdate(T t)  throws ServiceLayerException;
 
     T update(T t) throws ServiceLayerException;
 

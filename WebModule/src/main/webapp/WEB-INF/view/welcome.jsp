@@ -26,7 +26,7 @@ To change this template use File | Settings | File Templates.
         <p class="lead"><locale:message code="label.salute"/></p>
         <sec:authorize access="!isAuthenticated()">
             <p>
-                <a class="btn btn-lg btn-info" href="shownews.do" role="button">
+                <a class="btn btn-lg btn-info" href="/shownews.do" role="button">
                     <locale:message code="button.gosite"/>
                 </a>
             </p>
@@ -35,8 +35,8 @@ To change this template use File | Settings | File Templates.
             <h4><locale:message code="label.congrat.username"/><sec:authentication property="principal.username"/></h4>
             <h4><locale:message code="label.congrat.role"/><sec:authentication property="principal.authorities"/></h4>
             <p>
-                <a class="btn btn-lg btn-danger" href="logout.do" role="button"><locale:message code="button.logout"/></a>
-                <a class="btn btn-lg btn-info" href="person_cabinet.do" role="button"><locale:message code="button.goincabinet"/></a>
+                <a class="btn btn-lg btn-danger" href="/logout.do" role="button"><locale:message code="button.logout"/></a>
+                <a class="btn btn-lg btn-info" href="/person_cabinet.do" role="button"><locale:message code="button.goincabinet"/></a>
                 <%--<a class="btn btn-lg btn-success" href="shownews.do" role="button"><locale:message code="button.watchnews"/></a>--%>
             </p>
         </sec:authorize>

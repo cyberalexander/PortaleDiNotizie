@@ -29,10 +29,7 @@ import java.util.*;
 public class AttributesManager {
     private static final Logger logger = Logger.getLogger(AttributesManager.class);
 
-    /**
-     * private constructor
-     */
-    private AttributesManager() {
+    public AttributesManager() {
     }
 
     /**
@@ -60,6 +57,11 @@ public class AttributesManager {
         return new java.sql.Date(dateObj.getTime());
     }
 
+    /**
+     * Method for parsing parameters of commentary
+     * @param request HttpServletRequest
+     * @return Commentary entity
+     */
     public Commentary addCommentary(HttpServletRequest request) {
         Commentary commentary = new Commentary();
         commentary.setComment(request.getParameter(P_CONTENT));

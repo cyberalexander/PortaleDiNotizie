@@ -55,14 +55,13 @@ public class NewsService implements INewsService {
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<News> getNewsesByPersonId(Long personId) {
+    public List<News> getNewsesByPersonId(Long personId) throws ServiceLayerException{
         List<News> newses = emptyList();
         try {
             newses = newsDao.getByPersonId(personId);
-        } catch (HibernateException e) {
+        }catch (PersistException e) {
             logger.error(ERROR_GET_NEWSES_BY_PERSON + e);
-        } catch (PersistException e) {
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return newses;
     }
@@ -73,29 +72,27 @@ public class NewsService implements INewsService {
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<News> getNewsesByCategoryId(Long categoryId) {
+    public List<News> getNewsesByCategoryId(Long categoryId) throws ServiceLayerException{
         List<News> newses = emptyList();
         try {
 
             newses = newsDao.getByCategoryId(categoryId);
-        } catch (HibernateException e) {
+        }catch (PersistException e) {
             logger.error("Error get list of Categories from database" + e);
-        } catch (PersistException e) {
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return newses;
     }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<News> getListOfNewsByCategoryIdNoOrder(Long categoryId) {
+    public List<News> getListOfNewsByCategoryIdNoOrder(Long categoryId) throws ServiceLayerException{
         List<News> newses = emptyList();
         try {
             newses = newsDao.getByCategoryIdNoOrder(categoryId);
-        } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
         } catch (PersistException e) {
-            logger.error(e);
+            logger.error("Error get list of Categories from database" + e);
+            throw new ServiceLayerException(e);
         }
         return newses;
     }
@@ -106,14 +103,13 @@ public class NewsService implements INewsService {
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<News> getNewsesByDate(Date date) {
+    public List<News> getNewsesByDate(Date date) throws ServiceLayerException{
         List<News> newses = null;
         try {
             newses = newsDao.getByDate(date);
-        } catch (HibernateException e) {
+        }catch (PersistException e) {
             logger.error("Error get list of Categories from database" + e);
-        } catch (PersistException e) {
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return newses;
     }
@@ -124,16 +120,15 @@ public class NewsService implements INewsService {
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public News getNewsByPageId(String pageId) {
+    public News getNewsByPageId(String pageId) throws ServiceLayerException{
         News news = null;
         if (!(isNullOrEmpty(pageId))) {
             try {
                 news = newsDao.getByPageId(pageId);
                 Hibernate.initialize(news.getCommentaries());
-            } catch (HibernateException e) {
+            }catch (PersistException e) {
                 logger.error("Error get list of Categories from database" + e);
-            } catch (PersistException e) {
-                logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return news;
@@ -147,15 +142,14 @@ public class NewsService implements INewsService {
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId) {
+    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long categoryId) throws ServiceLayerException{
         List<News> newses = new ArrayList<>();
         try {
 
             newses = newsDao.getNewsByCriteria(pageNumber, pageSize, categoryId);
-        } catch (HibernateException e) {
+        }catch (PersistException e) {
             logger.error("Error get list of Categories from database" + e);
-        } catch (PersistException e) {
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return newses;
     }
@@ -166,24 +160,21 @@ public class NewsService implements INewsService {
      */
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List getCountNews(Category category) {
+    public List getCountNews(Category category)  throws ServiceLayerException{
         List result = null;
         try {
             result = newsDao.countNews(category);
-        } catch (HibernateException e) {
+        }catch (PersistException e) {
             logger.error("Error get list of Categories from database" + e);
-        } catch (PersistException e) {
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return result;
     }
 
-    /**
-     * REFACTOR THIS METHOD
-     */
+
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<News> getMostPopularNewsList() {
+    public List<News> getMostPopularNewsList()  throws ServiceLayerException{
         List<News> newsList = new ArrayList<>();
         for (int i = ZERO; i < 3; ) {
             News news;
@@ -196,6 +187,7 @@ public class NewsService implements INewsService {
                 }
             } catch (PersistException e) {
                 logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return newsList;
@@ -210,7 +202,7 @@ public class NewsService implements INewsService {
      * @return
      */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Integer> getList(long numberOfPages, int pageNumber, int newsesPackageSize) {
+    public List<Integer> getList(long numberOfPages, int pageNumber, int newsesPackageSize){
         //**bigSize - number of all pageLists
         int bigSize = size(numberOfPages, newsesPackageSize);
         List<Integer> list = new ArrayList<Integer>(FIVE);
@@ -262,66 +254,41 @@ public class NewsService implements INewsService {
                 return pK;
             }catch (PersistException e) {
                 logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return (long) MINUS_ONE;
     }
 
-   /* @Override
-    public Long saveNews(News news, PersonTO personTo) throws ServiceLayerException {
-        if (nonNull(news.getNewsId())) {
-            Long pK = news.getNewsId();
-            try {
-                news.setStatus(PERSISTED);
-                news.setPerson(cloneUtil.unClonePersistentPerson(personTo));
-                newsDao.save(news);
-                return pK;
-            }catch (PersistException e) {
-                logger.error(e);
-            }
-        }
-        return (long) MINUS_ONE;
-    }
 
     @Override
-    public Long save(News news, Long categoryId, Long personId) throws ServiceLayerException {
-        if (nonNull(news.getNewsId())) {
-            Long pK = news.getNewsId();
-            try {
-                news.setStatus(PERSISTED);
-                news.setCategory(categoryService.get(categoryId));
-                news.setPerson(personService.get(personId));
-                newsDao.save(news);
-                return pK;
-            }catch (PersistException e) {
-                logger.error(e);
-            }
-        }
-        return (long) MINUS_ONE;
-    }*/
-
-
-    @Override
-    public Long save(News news) {
-        Long savedNewsId = null;
+    public Long save(News news) throws ServiceLayerException{
+        Long pK = null;
         try {
             news.setStatus(PERSISTED);
-            savedNewsId = newsDao.save(news);
+            pK = newsDao.save(news);
         } catch (HibernateException e) {
-            logger.error("Error get list of Categories from database" + e);
+            logger.error("Error save news" + e);
         } catch (PersistException e) {
             logger.error(e);
+            throw new ServiceLayerException(e);
         }
-        return savedNewsId;
+        return pK;
     }
 
     @Override
-    public Long saveOrUpdate(News news) throws ServiceLayerException {
-        return null;
+    public void saveOrUpdate(News news) throws ServiceLayerException {
+        try {
+            news.setStatus(PERSISTED);
+            newsDao.saveOrUpdate(news);
+        }catch (PersistException e) {
+            logger.error("Error save or update news" + e);
+            throw new ServiceLayerException(e);
+        }
     }
 
     @Override
-    public News update(News news) {
+    public News update(News news) throws ServiceLayerException{
         if (nonNull(news.getNewsId())) {
             Long updatedNewsId = news.getNewsId();
             try {
@@ -331,13 +298,14 @@ public class NewsService implements INewsService {
                 Hibernate.initialize(news.getCommentaries());
             }catch (PersistException e) {
                 logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return news;
     }
 
     @Override
-    public Long delete(News news) {
+    public Long delete(News news) throws ServiceLayerException {
         if (nonNull(news.getNewsId())) {
             Long deletedNewsId = news.getNewsId();
             try {
@@ -346,45 +314,45 @@ public class NewsService implements INewsService {
                 return deletedNewsId;
             }catch (PersistException e) {
                 logger.error("Error delete category from database:   " + e);
-                logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return (long) MINUS_ONE;
     }
 
     @Override
-    public void remove(News news) {
+    public void remove(News news) throws ServiceLayerException {
         try {
             newsDao.delete(news);
         }catch (PersistException e) {
             logger.error("Error remove category from database:   " + e);
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
     }
 
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public News get(Long pK) {
+    public News get(Long pK) throws ServiceLayerException {
         News news = null;
         try {
             news = newsDao.get(pK);
             Hibernate.initialize(news.getCommentaries());
         } catch (PersistException e) {
             logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return news;
     }
 
     @Override
-    public News load(Long pK) {
+    public News load(Long pK) throws ServiceLayerException {
         News news = null;
         try {
             news = newsDao.load(pK);
-        } catch (HibernateException e) {
+        }catch (PersistException e) {
             logger.error("Error get list of Categories from database" + e);
-        } catch (PersistException e) {
-            logger.error(e);
+            throw new ServiceLayerException(e);
         }
         return news;
     }

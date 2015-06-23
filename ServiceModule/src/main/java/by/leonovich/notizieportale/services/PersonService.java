@@ -140,6 +140,7 @@ public class PersonService implements IPersonService {
                     return pK;
                 } catch (PersistException e) {
                     logger.error(e);
+                    throw new ServiceLayerException(e);
                 }
             }
         }
@@ -172,8 +173,7 @@ public class PersonService implements IPersonService {
     }
 
     @Override
-    public Long saveOrUpdate(Person person) throws ServiceLayerException {
-        return null;
+    public void saveOrUpdate(Person person) throws ServiceLayerException {
     }
 
     @Override
@@ -194,6 +194,7 @@ public class PersonService implements IPersonService {
                 return personDao.get(pK);
             } catch (PersistException e) {
                 logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return null;
@@ -206,6 +207,7 @@ public class PersonService implements IPersonService {
                 return personDao.load(pK);
             } catch (PersistException e) {
                 logger.error(e);
+                throw new ServiceLayerException(e);
             }
         }
         return null;
