@@ -26,46 +26,47 @@
     </definition>
 
     <definition name="person_cabinet" extends="base">
+        <put-attribute name="header" value=""/>
         <put-attribute name="body" value="/WEB-INF/view/person_cabinet.jsp"/>
     </definition>
 
     <definition name="registration_first" extends="base">
-        <put-attribute name="title" value="registration first step"/>
+        <put-attribute name="title" value="Registration First Step"/>
         <put-attribute name="body" value="/WEB-INF/view/registration_first.jsp"/>
     </definition>
 
     <definition name="registration_second" extends="base">
-        <put-attribute name="title" value="registration second step"/>
+        <put-attribute name="title" value="Registration Second Step"/>
         <put-attribute name="body" value="/WEB-INF/view/registration_second.jsp"/>
     </definition>
 
     <definition name="edit_person_info" extends="base">
-        <put-attribute name="title" value="edit info about me"/>
+        <put-attribute name="title" value="Edit Info About Me"/>
         <put-attribute name="body" value="/WEB-INF/view/edit_person_info.jsp"/>
     </definition>
 
     <definition name="add_news" extends="base">
-        <put-attribute name="title" value="Add news page"/>
+        <put-attribute name="title" value="Add News Page"/>
         <put-attribute name="body" value="/WEB-INF/view/add_news.jsp"/>
     </definition>
 
     <definition name="add_category" extends="base">
-        <put-attribute name="title" value="Add category page"/>
+        <put-attribute name="title" value="Add Category Page"/>
         <put-attribute name="body" value="/WEB-INF/view/add_category.jsp"/>
     </definition>
 
     <definition name="edit_news" extends="base">
-        <put-attribute name="title" value="Edit news page"/>
+        <put-attribute name="title" value="Edit News Page"/>
         <put-attribute name="body" value="/WEB-INF/view/edit_news.jsp"/>
     </definition>
 
     <definition name="edit_commentary" extends="base">
-        <put-attribute name="title" value="edit commentary"/>
+        <put-attribute name="title" value="Edit Commentary"/>
         <put-attribute name="body" value="/WEB-INF/view/edit_commentary.jsp"/>
     </definition>
 
     <definition name="test_page" extends="base">
-        <put-attribute name="title" value="test page"/>
+        <put-attribute name="title" value="Test Page"/>
         <put-attribute name="body" value="/WEB-INF/view/test_page.jsp"/>
     </definition>
 

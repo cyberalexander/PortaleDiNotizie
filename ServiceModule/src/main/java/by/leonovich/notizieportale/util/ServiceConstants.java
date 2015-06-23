@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.services.util;
+package by.leonovich.notizieportale.util;
 
 /**
  * Created by alexanderleonovich on 15.05.15.

@@ -28,10 +28,10 @@ public class CategoryDao extends AbstractDao<Category> implements ICategoryDao {
     }
 
     /**
-     *
-     * @param session
-     * @return
-     * @throws PersistException
+     * Parse parameters of entity
+     * @param session org.hibernate.Session
+     * @return list of entities
+     * @throws  - custom exception
      */
     @Override
     protected List<Category> parseResultSet(Session session) throws PersistException {
@@ -42,10 +42,10 @@ public class CategoryDao extends AbstractDao<Category> implements ICategoryDao {
     }
 
     /**
-     *
-     * @param categoryName
-     * @return
-     * @throws PersistException
+     *  Get category object by input name of category
+     * @param categoryName name of category
+     * @return category object
+     * @throws PersistException - custom exception classs
      */
     @Override
     public Category getByName(String categoryName) throws PersistException {

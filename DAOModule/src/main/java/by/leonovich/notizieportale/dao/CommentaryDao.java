@@ -31,10 +31,10 @@ public class CommentaryDao extends AbstractDao<Commentary> implements ICommentar
     }
 
     /**
-     *
-     * @param session
-     * @return
-     * @throws PersistException
+     * Parse parameters of entity
+     * @param session org.hibernate.Session
+     * @return list of entities
+     * @throws PersistException  - custom exception
      */
     @Override
     protected List<Commentary> parseResultSet(Session session) throws PersistException {
@@ -45,10 +45,10 @@ public class CommentaryDao extends AbstractDao<Commentary> implements ICommentar
     }
 
     /**
-     *
-     * @param pK
-     * @return
-     * @throws PersistException
+     * get list of commentaries by news id
+     * @param pK - id of news
+     * @return List<Commentary>
+     * @throws PersistException - custom exception classs
      */
     @Override
     public List<Commentary> getByNewsPK(Long pK) throws PersistException {
@@ -67,6 +67,12 @@ public class CommentaryDao extends AbstractDao<Commentary> implements ICommentar
         return commentaries;
     }
 
+    /**
+     *  get list commentaries for one person by id
+     * @param pK - id of person
+     * @return List<Commentary>
+     * @throws PersistException - custom exception classs
+     */
     @Override
     public List<Commentary> getByPersonId(Long pK) throws PersistException {
         List<Commentary> commentaries;

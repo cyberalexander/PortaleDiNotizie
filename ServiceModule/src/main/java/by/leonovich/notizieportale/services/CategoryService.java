@@ -1,21 +1,22 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.dao.CategoryDao;
+import by.leonovich.notizieportale.dao.NewsDao;
 import by.leonovich.notizieportale.domain.Category;
+import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
-import by.leonovich.notizieportale.services.util.ServiceConstants;
-import by.leonovich.notizieportale.services.util.ServiceConstants.Const;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 
 import java.util.List;
 
-import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.MINUS_ONE;
+import static by.leonovich.notizieportale.domain.enums.StatusEnum.*;
+import static by.leonovich.notizieportale.util.ServiceConstants.Const.MINUS_ONE;
 import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
 import static java.util.Objects.nonNull;
 
@@ -29,6 +30,8 @@ public class CategoryService implements ICategoryService {
     private static final Logger logger = Logger.getLogger(CategoryService.class);
     @Autowired
     private CategoryDao categoryDao;
+    @Autowired
+    private INewsService newsService;
 
     public CategoryService() {
     }
@@ -66,17 +69,32 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public Long save(Category category) throws ServiceLayerException {
-        Long savedCategoryId;
+    public Long saveCategoryNews(Category category, News news) throws ServiceLayerException {
+        Long pK;
         try {
-            category.setStatus(StatusEnum.PERSISTED);
-            savedCategoryId = categoryDao.save(category);
-            logger.info("Category saved: " + savedCategoryId);
+            category.setStatus(PERSISTED);
+            newsService.save(news);
+            pK = categoryDao.save(category);
+            logger.info("Category saved and category-page saved. Congrats!: " + pK);
         }catch (PersistException e) {
             logger.error(e);
             throw new ServiceLayerException(e);
         }
-        return savedCategoryId;
+        return pK;
+    }
+
+    @Override
+    public Long save(Category category) throws ServiceLayerException {
+        Long pK;
+        try {
+            category.setStatus(PERSISTED);
+            pK = categoryDao.save(category);
+            logger.info("Category saved: " + pK);
+        }catch (PersistException e) {
+            logger.error(e);
+            throw new ServiceLayerException(e);
+        }
+        return pK;
     }
 
     @Override
@@ -94,7 +112,7 @@ public class CategoryService implements ICategoryService {
         if (nonNull(category.getCategoryId())) {
             Long deletedCategoryId = category.getCategoryId();
             try {
-                category.setStatus(StatusEnum.DELETED);
+                category.setStatus(DELETED);
                 categoryDao.update(category);
                 return deletedCategoryId;
             } catch (PersistException e) {

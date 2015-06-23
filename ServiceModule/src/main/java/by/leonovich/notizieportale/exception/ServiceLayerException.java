@@ -1,4 +1,4 @@
-package by.leonovich.notizieportale.services.exception;
+package by.leonovich.notizieportale.exception;
 
 /**
  * Created by alexanderleonovich on 16.06.15.

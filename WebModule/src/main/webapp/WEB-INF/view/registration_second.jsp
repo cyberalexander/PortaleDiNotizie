@@ -22,7 +22,7 @@
 
     </div>
     <div class="col-md-6" align="right">
-        <s:form modelAttribute="personDetail"  method="post" action="addwriteperson.do">
+        <s:form modelAttribute="personDetailTO"  method="post" action="addwriteperson.do">
 
             <label for="email" class="text">Email for entry to site:</label>
             <s:input size="30" id="email" placeholder="your email adress" path="email"/><br>

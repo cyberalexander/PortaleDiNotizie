@@ -1,7 +1,7 @@
 package by.leonovich.notizieportale.services;
 
 
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 
 /**
  * Created by alexanderleonovich on 03.06.15.

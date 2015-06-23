@@ -5,17 +5,19 @@ import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
+import by.leonovich.notizieportale.domainto.PersonTO;
 import by.leonovich.notizieportale.exception.PersistException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 
+import java.util.Collections;
 import java.util.List;
 
-import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.MINUS_ONE;
+import static by.leonovich.notizieportale.util.ServiceConstants.Const.MINUS_ONE;
 import static java.util.Objects.nonNull;
 
 /**
@@ -66,7 +68,7 @@ public class CommentaryService implements ICommentaryService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Commentary> getCommentariesByNewsId(Long newsId) throws ServiceLayerException {
-        List<Commentary> commentaries = null;
+        List<Commentary> commentaries = Collections.emptyList();
         try {
             commentaries = commentaryDao.getByNewsPK(newsId);
             logger.info("Commentary-list size: " + commentaries.size() + ", for News with Id = " + newsId);
@@ -82,7 +84,7 @@ public class CommentaryService implements ICommentaryService {
     public Long save(Commentary commentary, Long newsId, String login) throws ServiceLayerException {
         Long pK;
         try {
-            Person person = personService.getByEmail(login);
+            Person person = personService.getPersonByEmail(login);
             News news = newsService.load(newsId);
             commentary.setStatus(StatusEnum.PERSISTED);
             commentary.setPerson(person);

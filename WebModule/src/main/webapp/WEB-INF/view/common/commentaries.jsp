@@ -31,35 +31,31 @@
             <table>
                 <tr>
                     <th>
-                        <form method="post" action="edit_commentary.do">
-                            <input type="hidden" name="commentaryId" value="${commentary.commentaryId}">
-                            <button type="submit" class="btn btn-default">edit commentary</button>
-                        </form>
+                        <a class="btn btn-sm btn-warning"
+                           href="edit_commentary.do?commentaryId=${commentary.commentaryId}&pageId=${news.pageId}"
+                           role="button">edit commentary</a>
                     </th>
                     <th>
-                        <form method="post" action="deletecommentary.do">
-                            <input type="hidden" name="commentaryId" value="${commentary.commentaryId}">
-                            <button type="submit" class="btn btn-danger">delete commentary</button>
-                        </form>
+                        <a class="btn btn-sm btn-danger"
+                           href="deletecommentary.do?commentaryId=${commentary.commentaryId}&pageId=${news.pageId}"
+                           role="button">delete commentary</a>
                     </th>
                 </tr>
             </table>
         </sec:authorize>
         <sec:authorize access="hasRole('ROLE_USER')">
-            <c:if test="${person.personId == commentObj.person.personId}">
+            <c:if test="${personTo.personId == commentary.person.personId}">
                 <table>
                     <tr>
                         <th>
-                            <form method="post" action="edit_commentary.do">
-                                <input type="hidden" name="commentaryId" value="${commentary.commentaryId}">
-                                <button type="submit" class="btn btn-default">edit comment</button>
-                            </form>
+                            <a class="btn btn-sm btn-warning"
+                               href="edit_commentary.do?commentaryId=${commentary.commentaryId}&pageId=${news.pageId}"
+                               role="button">edit commentary</a>
                         </th>
                         <th>
-                            <form method="post" action="deletecommentary.do">
-                                <input type="hidden" name="commentaryId" value="${commentary.commentaryId}">
-                                <button type="submit" class="btn btn-danger">delete comment</button>
-                            </form>
+                            <a class="btn btn-sm btn-danger"
+                               href="deletecommentary.do?commentaryId=${commentary.commentaryId}&pageId=${news.pageId}"
+                               role="button">delete commentary</a>
                         </th>
                     </tr>
                 </table>

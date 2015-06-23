@@ -6,7 +6,7 @@ import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by alexanderleonovich on 20.05.15.
@@ -26,13 +26,13 @@ public class PersonDetail implements Serializable{
     @Column(name = "F_EMAIL", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "F_PASSWORD", nullable = false)
+    @Column(name = "F_PASSWORD", nullable = false, updatable = false)
     private String password;
 
     @Column(name = "F_BIRTHDAY", columnDefinition = "date")
     private Date birthday;
 
-    @Column(name = "F_ROLE")
+    @Column(name = "F_ROLE", nullable = false)
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
 

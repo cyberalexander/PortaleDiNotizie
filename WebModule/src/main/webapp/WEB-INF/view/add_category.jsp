@@ -1,10 +1,10 @@
-w<%--
-  Created by IntelliJ IDEA.
-  User: Alexander
-  Date: 17.11.2014
-  Time: 20:10
-  To change this template use File | Settings | File Templates.
---%>
+<!--
+Created by IntelliJ IDEA.
+User: Alexander
+Date: 17.11.2014
+Time: 20:10
+To change this template use File | Settings | File Templates.
+-->
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -14,18 +14,15 @@ w<%--
 <head>
 </head>
 <body>
-<h1 class="custom-header-first-level">Create new news page, please, and push "save" button.</h1>
+<h1 class="custom-header-first-level">Create new category, please, and put "save" button.</h1>
 
 <div class="container">
-    <div class="col-md-2"></div>
+    <div class="col-md-2"> </div>
     <div class="col-md-8" align="right">
-        <s:form modelAttribute="news" method="post" action="add_write_news.do">
-            <label for="categoryId" class="text">Category:</label><br/>
-            <select name="categoryId" id="categoryId">
-                <c:forEach items="${categories}" var="category">
-                    <option value="${category.categoryId}">${category.categoryName}</option>
-                </c:forEach>
-            </select><br/><br/>
+        <s:form modelAttribute="news" method="post" action="add_write_category.do">
+
+            <label for="pageId" class="text">Name of new CATEGORY:</label>
+            <s:input size="30" id="pageId" name="pageId" path="pageId"/><br/>
 
             <label for="title" class="text">Title:</label>
             <s:input size="30" id="title" name="title" path="title"/><br/>
@@ -33,9 +30,7 @@ w<%--
             <label for="menuTitle" class="text">Menu title:</label>
             <s:input size="30" id="menuTitle" name="menuTitle" path="menuTitle"/><br/>
 
-            <label for="personName" class="text">Author:</label>
-            <input size="30" id="personName" name="personName" value="${personTo.name}" readonly/><br/>
-
+            <label for="date" class="text">Date:</label>
             <label for="date" class="text">Date:</label>
             <input size="30" id="date" name="date" value="${dateNow}" readonly="true"/><br/>
 
@@ -49,9 +44,7 @@ w<%--
         </s:form>
     </div>
     <div class="col-md-2">
-
     </div>
 </div>
-
 </body>
 </html>

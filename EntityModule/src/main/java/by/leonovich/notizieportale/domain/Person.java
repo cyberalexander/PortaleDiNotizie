@@ -28,7 +28,7 @@ public class Person extends CustomEntity{
     @Column(name = "F_SURNAME")
     private String surname;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL, targetEntity = PersonDetail.class)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private PersonDetail personDetail;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
@@ -37,4 +38,5 @@ public class Initializer implements WebApplicationInitializer {
         servlet.addMapping("*.do");
         servlet.setLoadOnStartup(1);
     }
+
 }

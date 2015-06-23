@@ -13,7 +13,6 @@ import java.util.List;
  */
 public interface IGenericDao<T> {
 
-
     /** It creates a new entry, the corresponding object object */
      Long save(T object)  throws PersistException;
 

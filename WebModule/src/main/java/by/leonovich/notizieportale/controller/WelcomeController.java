@@ -22,9 +22,9 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = "/changelocale", method = RequestMethod.GET)
-    public ModelAndView changeLocale(ModelAndView modelAndView){
-        System.out.println(" in  changeLocale() method");
-
+    public ModelAndView changeLocale(ModelAndView modelAndView) {
+        modelAndView.addObject("languageChanged", "LANGUAGE CHANGED!");
+        modelAndView.setViewName("welcome");
         return modelAndView;
     }
 }

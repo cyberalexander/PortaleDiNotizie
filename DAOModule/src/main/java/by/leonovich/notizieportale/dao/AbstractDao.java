@@ -30,6 +30,12 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Obtains the current session.  The definition of what exactly "current"
+     * means controlled by the {@link org.hibernate.context.spi.CurrentSessionContext} impl configured
+     * for use.
+     * @return org.hibernate.Session
+     */
     protected Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
@@ -155,11 +161,8 @@ public abstract class AbstractDao<T> implements IGenericDao<T> {
     protected abstract List<T> parseResultSet(Session session) throws PersistException;
 
     private Class getPersistentClass() {
-        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-    }
-
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
+        return (Class<T>) ((ParameterizedType) getClass().
+                getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
 }

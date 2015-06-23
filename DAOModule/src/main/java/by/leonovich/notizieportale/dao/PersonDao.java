@@ -35,10 +35,10 @@ public class PersonDao extends AbstractDao<Person> implements IPersonDao {
     }
 
     /**
-     *
-     * @param session
-     * @return
-     * @throws PersistException
+     * Parse parameters of entity
+     * @param session org.hibernate.Session
+     * @return list of entities
+     * @throws PersistException  - custom exception my class of exception, abstracted from relational databases
      */
     @Override
     protected List<Person> parseResultSet(Session session) throws PersistException {
@@ -52,7 +52,7 @@ public class PersonDao extends AbstractDao<Person> implements IPersonDao {
      *
      * @param email
      * @return
-     * @throws PersistException
+     * @throws PersistException  my class of exception, abstracted from relational databases
      */
     @Override
     @SuppressWarnings("unchecked")

@@ -21,35 +21,33 @@
           <!-- Latest compiled and minified JavaScript -->
           <script src="./assests/js/bootstrap.js" type="text/javascript"></script>
           <script src="./assests/jquery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-            <title>SCUSI</title>
+            <title>-=SCUSI=-</title>
       </head>
       <body>
       <div class="row">
-            <h2 align="center" class="custom-header-first-level">Error page</h2>
+            <h2 align="center" class="custom-header-first-level">Нам очень жаль! Произошла досадная ошибка!
+                Пожалуйста, обратитсесь в службу технической поддержки!</h2>
       </div>
           <div class="container">
-              <div class="col-md-2">
-                  <br/>
-              </div>
+              <div class="col-md-2"></div>
                   <div class="col-md-8">
-                      <p class="text">
+                      <p class="text-success">
                           Request from ${pageContext.errorData.requestURI} is failed <br/>
                           Servlet name or type: ${pageContext.errorData.servletName} <br/>
                           Status code: ${pageContext.errorData.statusCode} <br/>
                           Exception: ${pageContext.errorData.throwable}<br/>
                       </p>
-                      <div style="align-content: center">
+                      <div style="text-align: center">
                           <img src="./assests/img/leopard.jpg"/>
                       </div>
-                      <div style="align-content: center">
+                      <div style="text-align: center">
                           <img src="./assests/img/scusi.jpg"/>
                       </div>
+                  </div>
+              <div class="col-md-2">
                       <%--<c:forEach var="trace" items="${pageContext.exception.stackTrace}">
                           <p>${trace}</p>
                       </c:forEach>--%>
-                  </div>
-              <div class="col-md-2">
-                  <br/>
               </div>
           </div>
       </body>

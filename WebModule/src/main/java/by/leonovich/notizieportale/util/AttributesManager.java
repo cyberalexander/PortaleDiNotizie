@@ -11,7 +11,7 @@ import by.leonovich.notizieportale.services.CategoryService;
 import by.leonovich.notizieportale.services.CommentaryService;
 import by.leonovich.notizieportale.services.NewsService;
 import by.leonovich.notizieportale.services.PersonService;
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,111 +28,11 @@ import java.util.*;
 @Component
 public class AttributesManager {
     private static final Logger logger = Logger.getLogger(AttributesManager.class);
-    private static AttributesManager attributesManagerInst;
-
-    @Autowired
-    private NewsService newsService;
-    @Autowired
-    private CategoryService categoryService;
-    @Autowired
-    private PersonService personService;
-    @Autowired
-    private CommentaryService commentaryService;
 
     /**
      * private constructor
      */
     private AttributesManager() {
-        newsService = new NewsService();
-        personService = new PersonService();
-        commentaryService = new CommentaryService();
-    }
-
-
-    /**
-     * -=SINGLETON=-
-     * Method for creating fabric
-     * 1. First, you must create an instance factory or get it, and then through it to create Dao objects to the entity
-     * over which you plan to perform CRUD operations.
-     * @return instance of AttributesManager
-     */
-    public static synchronized AttributesManager getInstance(){
-        if (attributesManagerInst == null){
-            attributesManagerInst = new AttributesManager();
-        }
-        return attributesManagerInst;
-    }
-
-    /**
-     *  The method in which the attributes of the session to fill the filling page after running the removal of the news.
-     * Get a list of news from the last page before deleting news and delete or add to the list of the news
-     * We have added or removed in the method execute (), one of the class command
-     * @param sessionRequestContent - HttpServletRequest object interface for operating the session attributes
-     * @param news - Adding / removing / edited news
-     */
-    public  void setAtributesForResponse(SessionRequestContent sessionRequestContent, News news) {
-        List<News> newses = newsService.getNewsByCriteria(getPageNumber(sessionRequestContent), PAGES_PACK_SIZE, news.getCategory().getCategoryId());
-
-        news = newsService.getNewsByPageId(news.getCategory().getCategoryName());
-        sessionRequestContent.setSessionAttribute(Const.NEWS, news);
-        sessionRequestContent.setSessionAttribute(Const.NEWSES, newses);
-    }
-
-
-    /**
-     * Get attributes and parameters from request for adding or updating News-object
-     * @param sessionRequestContent - object of class for saving request and session attributes
-     * @param news object of NEws persistence
-     * @return object of News with added parameters from request
-     */
-    public News parseParametersOfNews(SessionRequestContent sessionRequestContent, News news) {
-        if (news.getNewsId() == null) {
-            Category category = null;
-            try {
-                category = categoryService.getCategoryByName(sessionRequestContent.getParameter(P_CATEGORY));
-            } catch (ServiceLayerException serviceLayerException) {
-                serviceLayerException.printStackTrace();
-            }
-            news.setCategory(category);
-            news.setPerson((Person) sessionRequestContent.getSessionAttribute(P_PERSON));
-        }
-        Date date = (Date) sessionRequestContent.getSessionAttribute(P_DATE_NOW);
-        news.setPageId(sessionRequestContent.getParameter(P_PAGE_ID));
-        news.setTitle(sessionRequestContent.getParameter("title"));
-        news.setMenuTitle(sessionRequestContent.getParameter("menuTitle"));
-        news.setDate(parseDateTimeFromRequest(date));
-        news.setAnnotation(sessionRequestContent.getParameter(P_ANNOTATION));
-        news.setContent(sessionRequestContent.getParameter(P_CONTENT));
-        return news;
-    }
-
-    /**
-     * Get attributes and parameters from request for adding or updating User-object
-     * @param sessionRequestContent - object of class for saving request and session attributes
-     * @param person object of User persistence
-     * @return object of User with added parameters from request
-     */
-    public Person parseParametersOfPerson(SessionRequestContent sessionRequestContent, Person person) {
-        person.setName(sessionRequestContent.getParameter(Const.P_NAME));
-        person.setSurname(sessionRequestContent.getParameter(Const.P_SURNAME));
-
-        PersonDetail personDetail = new PersonDetail();
-        personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
-        personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
-        personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
-        personDetail.setRole(RoleEnum.ROLE_USER);
-        person.setStatus(StatusEnum.PERSISTED);
-        person.setPersonDetail(personDetail);
-        personDetail.setPerson(person);
-        return person;
-    }
-
-    public PersonDetail parseParametersOfPersonDetail(SessionRequestContent sessionRequestContent, PersonDetail personDetail) {
-        personDetail.setEmail(sessionRequestContent.getParameter(Const.P_EMAIL));
-        personDetail.setPassword(sessionRequestContent.getParameter(Const.P_PASSWORD));
-        personDetail.setBirthday(parseDateFromRequest(sessionRequestContent.getParameter(Const.P_BIRTHDAY)));
-        personDetail.setRole(RoleEnum.ROLE_USER);
-        return personDetail;
     }
 
     /**
@@ -160,37 +60,12 @@ public class AttributesManager {
         return new java.sql.Date(dateObj.getTime());
     }
 
-    /** Comments attributes getting for response */
-    public List<Commentary> getCommentariesByNewsId(News news) {
-        List<Commentary> commentaries = Collections.emptyList();
-        commentaries = news.getCommentaries();
-            return commentaries;
-    }
-
     public Commentary addCommentary(HttpServletRequest request) {
         Commentary commentary = new Commentary();
         commentary.setComment(request.getParameter(P_CONTENT));
         Date date = (Date) request.getSession().getAttribute(P_DATE_NOW);
         commentary.setDate(parseDateTimeFromRequest(date));
         return commentary;
-    }
-
-
-
-
-
-
-
-
-
-
-    public int getPageNumber(SessionRequestContent sessionRequestContent) {
-        if (nonNull(sessionRequestContent.getParameter(P_PAGE_NUMBER))
-                && Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER)) != ZERO) {
-            return Integer.parseInt(sessionRequestContent.getParameter(P_PAGE_NUMBER));
-        } else {
-            return ONE;
-        }
     }
 
 

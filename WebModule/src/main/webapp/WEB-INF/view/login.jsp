@@ -26,7 +26,7 @@ To change this template use File | Settings | File Templates.
                autofocus="autofocus" value="email@email.com"/>
         <input type="password" class="form-control" name="j_password" placeholder="Password" required="required"
                value="1234567890"/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"><locale:message code="button.signup"/></button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><locale:message code="button.signin"/></button>
     </form>
 </div>
 </body>

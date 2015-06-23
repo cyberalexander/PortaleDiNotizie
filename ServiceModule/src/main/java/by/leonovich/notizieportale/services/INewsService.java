@@ -2,7 +2,8 @@ package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.domainto.PersonTO;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 
 import java.util.Date;
 import java.util.List;
@@ -33,5 +34,7 @@ public interface INewsService extends IService<News> {
 
     Long update(News news, Long categoryId, Long personId) throws ServiceLayerException;
 
-    Long save(News news, Long categoryId, Long personId) throws ServiceLayerException;
+   /* Long save(News news, Long categoryId, Long personId) throws ServiceLayerException;
+
+    Long saveNews(News news, PersonTO personTo) throws ServiceLayerException;*/
 }

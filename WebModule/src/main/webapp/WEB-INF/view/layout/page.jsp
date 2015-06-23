@@ -27,9 +27,10 @@
     <title><t:insertAttribute name="title"/></title>
 </head>
 <body>
-<div style="float: right;">
-    <a href="?locale=ru" style="padding: 5px">RU</a>
-    <a href="?locale=en" style="padding: 5px">EN</a>
+<div style="float: right; margin: 5px">
+    <a href="#" style="padding: 10px"><input type="image" src="../assests/img/it.png"/></a>
+    <a href="changelocale.do?locale=en" style="padding: 10px"><input type="image" src="../assests/img/us.png"/></a>
+    <a type="image" src="" href="changelocale.do?locale=ru" style="padding: 10px"><input type="image" src="../assests/img/ru.png"/></a>
 </div>
 <div id="header" class="row">
     <t:insertAttribute name="header"/>

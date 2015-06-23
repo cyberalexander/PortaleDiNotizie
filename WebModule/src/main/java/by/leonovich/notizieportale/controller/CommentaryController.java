@@ -3,12 +3,14 @@ package by.leonovich.notizieportale.controller;
 import by.leonovich.notizieportale.domain.Commentary;
 import by.leonovich.notizieportale.exception.WebLayerException;
 import by.leonovich.notizieportale.services.ICommentaryService;
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.AttributesManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,7 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
+import static java.lang.Long.*;
+import static java.lang.Long.valueOf;
 import static java.util.Objects.nonNull;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * Created by alexanderleonovich on 20.06.15.
@@ -34,56 +40,65 @@ public class CommentaryController {
 
 
     @Secured({ROLE_ADMIN, ROLE_USER})
-    @RequestMapping(value = "deletecommentary", method = RequestMethod.POST)
-    public String deleteCommentary(HttpServletRequest request) {
+    @RequestMapping(value = "deletecommentary", method = GET)
+    public String deleteCommentary(@ModelAttribute(P_COMMENTARY_ID) String commentaryId,
+                                   @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap) throws WebLayerException{
         try {
-            Commentary commentary = commentaryService.get(Long.valueOf(request.getParameter(P_COMMENTARY_ID)));
-            System.out.println("\n" + commentary.toString() + "\n");
+            Commentary commentary = commentaryService.get(valueOf(commentaryId));
             commentaryService.delete(commentary);
         } catch (ServiceLayerException e) {
             logger.error(e);
+            throw new WebLayerException(e);
         }
-        return "redirect:/shownews.do";
+        modelMap.addAttribute(P_PAGE_ID, pageId);
+        return "forward:/shownews.do";
     }
 
     @Secured({ROLE_ADMIN, ROLE_USER})
-    @RequestMapping(value = "edit_commentary", method = RequestMethod.POST)
-    public String editCommentary(HttpServletRequest request) throws WebLayerException {
-        Long commentaryId = Long.parseLong(request.getParameter(P_COMMENTARY_ID));
+    @RequestMapping(value = "edit_commentary", method = GET)
+    public String editCommentary(@ModelAttribute(P_COMMENTARY_ID) String commentaryId,
+                                 @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap,
+                                 HttpServletRequest request) throws WebLayerException {
         if (nonNull(commentaryId)) {
             try {
-                request.getSession().setAttribute(COMMENTARY, commentaryService.get(commentaryId));
+                request.getSession().setAttribute(COMMENTARY_FOR_EDIT, commentaryService.get(valueOf(commentaryId)));
             } catch (ServiceLayerException e) {
                 logger.error(e);
             }
         }
-        return "edit_commentary";
+        modelMap.addAttribute(P_PAGE_ID, pageId);
+        return "forward:/shownews.do";
     }
 
     @Secured({ROLE_ADMIN, ROLE_USER})
-    @RequestMapping(value = "edit_write_commentary.do", method = RequestMethod.POST)
-    public String editWriteCommentary(HttpServletRequest request) throws WebLayerException {
-        Commentary commentary = (Commentary) request.getSession().getAttribute(COMMENTARY);
-        commentary.setComment(request.getParameter(CONTENT));
-        request.getSession().removeAttribute(COMMENTARY);
+    @RequestMapping(value = "edit_write_commentary.do", method = POST)
+    public String editWriteCommentary(@ModelAttribute(CONTENT) String content,
+                                      @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap,
+                                      HttpServletRequest request) throws WebLayerException {
+        Commentary commentary = (Commentary) request.getSession().getAttribute(COMMENTARY_FOR_EDIT);
+        commentary.setComment(content);
+        request.getSession().removeAttribute(COMMENTARY_FOR_EDIT);
         try {
             commentaryService.update(commentary);
         } catch (ServiceLayerException e) {
             logger.error(e);
         }
-        return "redirect:/shownews.do";
+        modelMap.addAttribute(P_PAGE_ID, pageId);
+        return "forward:/shownews.do";
     }
 
     @Secured({ROLE_ADMIN, ROLE_USER})
-    @RequestMapping(value = "add_write_commentary.do", method = RequestMethod.POST)
-    public String addWriteCommentary(Principal principal, HttpServletRequest request) throws WebLayerException {
-        Long newsId = Long.valueOf(request.getParameter(P_NEWS_ID));
+    @RequestMapping(value = "add_write_commentary.do", method = POST)
+    public String addWriteCommentary(@ModelAttribute(P_NEWS_ID) String newsId,
+                                     @ModelAttribute(P_PAGE_ID) String pageId, ModelMap modelMap,
+                                     Principal principal, HttpServletRequest request) throws WebLayerException {
         try {
-            commentaryService.save(attributesManager.addCommentary(request), newsId, principal.getName());
+            commentaryService.save(attributesManager.addCommentary(request), valueOf(newsId), principal.getName());
         } catch (ServiceLayerException e) {
             logger.error(e);
         }
-        return "redirect:/shownews.do";
+        modelMap.addAttribute(P_PAGE_ID, pageId);
+        return "forward:/shownews.do";
     }
 
 }

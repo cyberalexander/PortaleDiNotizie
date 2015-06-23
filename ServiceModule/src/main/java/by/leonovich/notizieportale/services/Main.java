@@ -1,6 +1,6 @@
 package by.leonovich.notizieportale.services;
 
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

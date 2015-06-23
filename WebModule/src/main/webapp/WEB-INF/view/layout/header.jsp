@@ -10,6 +10,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="t" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="locale" uri="http://www.springframework.org/tags" %>
 <%@ page session="false" %>
 <html>
 <head>
@@ -28,8 +29,8 @@
         <%-- BUTTONS FOR LOG-OUT AND FOR GOING IN USERCABINET --%>
         <sec:authorize access="!isAuthenticated()">
             <div style="text-align: right;  margin-top: 10px">
-                <a class="btn btn-success" href="/addperson.do" role="button">Зарегистрироваться</a>
-                <a class="btn btn-default" href="/login.do" role="button">Авторизоваться</a>
+                <a class="btn btn-success" href="/addperson.do" role="button"><locale:message code="button.signup"/></a>
+                <a class="btn btn-default" href="/login.do" role="button"><locale:message code="button.signin"/></a>
             </div>
         </sec:authorize>
         <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
@@ -37,13 +38,13 @@
                 <!-- Single button -->
                 <div class="btn-group" style="text-align: right">
                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            ${person.name} меню <span class="caret"></span>
+                        <locale:message code="button.menu"/><span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/person_cabinet.do">Go in my cabinet</a></li>
-                        <li><a href="/editperson.do">Change info about me</a></li>
+                        <li><a href="/person_cabinet.do"><locale:message code="button.goincabinet"/></a></li>
+                        <li><a href="/editperson.do"><locale:message code="button.changeinfo"/></a></li>
                         <li class="divider"></li>
-                        <li><a href="/logout.do">log out</a></li>
+                        <li><a href="/logout.do"><locale:message code="button.logout"/></a></li>
                     </ul>
                 </div>
             </div>
@@ -52,7 +53,7 @@
     </div>
     <div class="row">
         <h3 align="center" class="alert-success">
-            ${registrationSucces}${personInfoUpdated}${newsUpdated}${newsAdded}
+            ${registrationSucces}${personInfoUpdated}${newsUpdated}${newsAdded}${languageChanged}
         </h3>
         <h3 class="alert-danger" align="center">
             ${loginFailed}

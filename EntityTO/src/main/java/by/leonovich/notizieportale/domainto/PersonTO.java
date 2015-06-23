@@ -12,13 +12,13 @@ import java.util.Set;
 /**
  * Created by alexanderleonovich on 19.06.15.
  */
-public class PersonTO  extends CustomTobject  implements Serializable{
+public class PersonTO  extends CustomTobject  implements Serializable, Cloneable{
     private static final long serialVersionUID = -5061450486668650618L;
 
     private Long personId;
     private String name;
     private String surname;
-    private PersonDetail personDetail;
+    private PersonDetailTO personDetailTO;
     private Set<News> newses;
     private List<Commentary> commentaries;
     public PersonTO() {
@@ -55,12 +55,12 @@ public class PersonTO  extends CustomTobject  implements Serializable{
         this.surname = surname;
     }
 
-    public PersonDetail getPersonDetail() {
-        return personDetail;
+    public PersonDetailTO getPersonDetailTO() {
+        return personDetailTO;
     }
 
-    public void setPersonDetail(PersonDetail personDetail) {
-        this.personDetail = personDetail;
+    public void setPersonDetailTO(PersonDetailTO personDetailTO) {
+        this.personDetailTO = personDetailTO;
     }
 
     public Set<News> getNewses() {
@@ -124,5 +124,10 @@ public class PersonTO  extends CustomTobject  implements Serializable{
     @Override
     public String toString() {
         return getClass() + " [personId:" + personId + "; name:" + name + "; surname:" + surname + "]";
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

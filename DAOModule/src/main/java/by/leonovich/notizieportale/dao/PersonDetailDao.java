@@ -17,13 +17,18 @@ import java.util.List;
  */
 @Repository
 public class PersonDetailDao extends AbstractDao<PersonDetail> {
-    private static final Logger logger = Logger.getLogger(PersonDetailDao.class);
 
     @Autowired
     public PersonDetailDao(SessionFactory sessionFactory) {
         super(sessionFactory);
     }
 
+    /**
+     * Parse parameters of entity
+     * @param session org.hibernate.Session
+     * @return list of entities
+     * @throws PersistException - custom exception
+     */
     @Override
     protected List<PersonDetail> parseResultSet(Session session) throws PersistException {
         Criteria criteria = session.createCriteria(PersonDetail.class);

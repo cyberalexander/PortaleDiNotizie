@@ -10,7 +10,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <jsp:useBean id="news" class="by.leonovich.notizieportale.domain.News" scope="session"/>
-<jsp:useBean id="person" class="by.leonovich.notizieportale.domain.Person" scope="session"/>
+<jsp:useBean id="personTo" class="by.leonovich.notizieportale.domainto.PersonTO" scope="session"/>
 <jsp:useBean id="dateNow" class="java.util.Date" scope="session"/>
 <html>
 <head>

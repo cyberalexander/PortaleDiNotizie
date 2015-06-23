@@ -9,17 +9,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="locale" %>
-<jsp:useBean id="person" class="by.leonovich.notizieportale.domain.Person" scope="session"/>
-<jsp:useBean id="personD" class="by.leonovich.notizieportale.domain.PersonDetail" scope="session"/>
+<jsp:useBean id="personTo" class="by.leonovich.notizieportale.domainto.PersonTO" scope="session"/>
+<jsp:useBean id="personD" class="by.leonovich.notizieportale.domainto.PersonDetailTO" scope="session"/>
 <html>
 <head>
     <title>${person.name} cabinet</title>
 </head>
 <body>
 <div class="row" align="center">
-    <h3 class="custom-header-second-level">Welcome</h3>
+    <h3 class="custom-header-second-level"><locale:message code="label.welcome"/></h3>
     <hr/>
-    <h4 class="custom-header-second-level">${person.name} ${person.surname}, hello!</h4>
+    <h4 class="custom-header-second-level">${personTo.name} ${personTo.surname}<locale:message code="label.hello"/></h4>
     <hr/>
 </div>
 <div class="container">
@@ -27,75 +27,75 @@
         <table>
             <caption>MENU</caption>
             <tr>
-                <th>
-                    <a class="btn btn-lg btn-success" href="shownews.do" role="button"><locale:message code="button.watchnews"/></a>
+                <th  style="text-align: center">
+                    <a class="btn btn-lg btn-danger" href="logout.do" role="button"><locale:message code="button.logout"/></a>
+                </th>
+            </tr>
+            <tr >
+                <th  style="text-align: center">
+                    <a class="btn btn-lg btn-info" href="shownews.do" role="button"><locale:message code="button.watchnews"/></a>
                 </th>
             </tr>
             <tr>
-                <th>
-                    <a class="btn btn-lg btn-default" href="editperson.do" role="button"><locale:message code="button.changeinfo"/></a>
+                <th style="text-align: center">
+                    <a class="btn btn-lg btn-warning" href="editperson.do" role="button"><locale:message code="button.changeinfo"/></a>
                 </th>
             </tr>
             <tr>
-                <th>
-                    <a class="btn btn-lg btn-info" href="logout.do" role="button"><locale:message code="button.logout"/></a>
+                <th  style="text-align: center">
+                    <a class="btn btn-lg btn-success" href="add_news.do" role="button"><locale:message code="button.addnews"/></a>
                 </th>
             </tr>
             <tr>
-                <th>
-                    <a class="btn btn-lg btn-info" href="add_news.do" role="button">Add new news</a>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <a class="btn btn-lg btn-info" href="add_category.do" role="button">Add new Category</a>
+                <th style="text-align: center">
+                    <a class="btn btn-lg btn-success" href="add_category.do" role="button"><locale:message code="button.addcategory"/></a>
                 </th>
             </tr>
         </table>
     </div>
     <div class="col-md-8">
         <table>
-            <caption><h4 class="custom-header-second-level" style="text-align: center">User info</h4></caption>
+            <caption><h4 class="custom-header-second-level" style="text-align: center"><locale:message code="label.userinfo"/></h4></caption>
             <tr>
                 <td>
-                    <p class="text">Name: </p>
+                    <p class="text"><locale:message code="label.name"/>: </p>
                 </td>
                 <td>
-                    <p class="text">${person.name}</p>
+                    <p class="text">${personTo.name}</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p class="text">Surname: </p>
+                    <p class="text"><locale:message code="label.surname"/>: </p>
                 </td>
                 <td>
-                    <p class="text">${person.surname}</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="text">Email: </p>
-                </td>
-                <td>
-                    <p class="text">${person.personDetail.email}</p>
+                    <p class="text">${personTo.surname}</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p class="text">Birthday: </p>
+                    <p class="text"><locale:message code="label.email"/>: </p>
+                </td>
+                <td>
+                    <p class="text">${personTo.personDetailTO.email}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="text"><locale:message code="label.birthday"/>: </p>
                 </td>
                 <td>
                     <p class="text">
-                        ${person.personDetail.birthday}
+                        ${personTo.personDetailTO.birthday}
                     </p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p class="text">Your role on site: </p>
+                    <p class="text"><locale:message code="label.role"/>: </p>
                 </td>
                 <td>
-                    <p class="text">${person.personDetail.role}</p>
+                    <p class="text">${personTo.personDetailTO.role}</p>
                 </td>
             </tr>
         </table>

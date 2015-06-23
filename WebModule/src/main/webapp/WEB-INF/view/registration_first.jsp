@@ -20,7 +20,7 @@
 <div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6" align="right">
-        <s:form modelAttribute="person"  method="post" action="addperson_second_step.do">
+        <s:form modelAttribute="personTO"  method="post" action="addperson_second_step.do">
             <label for="name" class="text">Name:</label>
             <s:input size="30" id="name" placeholder="what`s your name?" path="name"/><br/>
             <label for="surname" class="text">Surname:</label>

@@ -1,10 +1,9 @@
 package by.leonovich.notizieportale.domainto;
 
-import by.leonovich.notizieportale.domain.Person;
 import by.leonovich.notizieportale.domain.enums.RoleEnum;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by alexanderleonovich on 19.06.15.
@@ -17,7 +16,7 @@ public class PersonDetailTO  extends CustomTobject implements Serializable {
     private String password;
     private Date birthday;
     private RoleEnum role;
-    private Person person;
+    private PersonTO personTO;
 
     public PersonDetailTO() {
     }
@@ -68,12 +67,12 @@ public class PersonDetailTO  extends CustomTobject implements Serializable {
         this.role = role;
     }
 
-    public Person getPerson() {
-        return person;
+    public PersonTO getPersonTO() {
+        return personTO;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersonTO(PersonTO personTO) {
+        this.personTO = personTO;
     }
 
     @Override

@@ -1,12 +1,13 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.dao.INewsDao;
-import by.leonovich.notizieportale.dao.NewsDao;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
 import by.leonovich.notizieportale.domain.enums.StatusEnum;
-import by.leonovich.notizieportale.services.exception.ServiceLayerException;
-import by.leonovich.notizieportale.services.util.IntComparator;
+import by.leonovich.notizieportale.domainto.PersonTO;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
+import by.leonovich.notizieportale.util.CloneUtil;
+import by.leonovich.notizieportale.util.IntComparator;
 import by.leonovich.notizieportale.exception.PersistException;
 import org.apache.log4j.Logger;
 import org.hibernate.Hibernate;
@@ -22,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
-import static by.leonovich.notizieportale.services.util.ServiceConstants.Const.*;
+import static by.leonovich.notizieportale.util.ServiceConstants.Const.*;
 import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
 import static java.util.Collections.emptyList;
 import static java.util.Objects.nonNull;
@@ -41,6 +42,8 @@ public class NewsService implements INewsService {
     ICategoryService categoryService;
     @Autowired
     IPersonService personService;
+    @Autowired
+    CloneUtil cloneUtil;
 
     public NewsService() {
 
@@ -264,6 +267,22 @@ public class NewsService implements INewsService {
         return (long) MINUS_ONE;
     }
 
+   /* @Override
+    public Long saveNews(News news, PersonTO personTo) throws ServiceLayerException {
+        if (nonNull(news.getNewsId())) {
+            Long pK = news.getNewsId();
+            try {
+                news.setStatus(PERSISTED);
+                news.setPerson(cloneUtil.unClonePersistentPerson(personTo));
+                newsDao.save(news);
+                return pK;
+            }catch (PersistException e) {
+                logger.error(e);
+            }
+        }
+        return (long) MINUS_ONE;
+    }
+
     @Override
     public Long save(News news, Long categoryId, Long personId) throws ServiceLayerException {
         if (nonNull(news.getNewsId())) {
@@ -279,7 +298,7 @@ public class NewsService implements INewsService {
             }
         }
         return (long) MINUS_ONE;
-    }
+    }*/
 
 
     @Override

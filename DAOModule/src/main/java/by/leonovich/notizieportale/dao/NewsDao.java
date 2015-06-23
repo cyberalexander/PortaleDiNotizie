@@ -34,10 +34,11 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     }
 
     /**
+     * Parse parameters of entity
      *
-     * @param session
-     * @return
-     * @throws PersistException
+     * @param session org.hibernate.Session
+     * @return list of entities
+     * @throws PersistException - custom exception
      */
     @Override
     protected List<News> parseResultSet(Session session) throws PersistException {
@@ -48,13 +49,14 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     }
 
     /**
+     * method for gettting newses by person
      *
-     * @param pK
-     * @return
-     * @throws PersistException
+     * @param pK id of person
+     * @return List<News> newses
+     * @throws PersistException - custom exception classs
      */
     @Override
-    public List<News> getByPersonId(Long pK) throws PersistException{
+    public List<News> getByPersonId(Long pK) throws PersistException {
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
@@ -71,13 +73,14 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     }
 
     /**
+     * method for gettting newses by category without order
      *
-     * @param pK
-     * @return
-     * @throws PersistException
+     * @param pK id of category
+     * @return List<News> newses
+     * @throws PersistException - custom exception classs
      */
     @Override
-    public List<News> getByCategoryId(Long pK) throws PersistException{
+    public List<News> getByCategoryId(Long pK) throws PersistException {
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
@@ -94,13 +97,14 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     }
 
     /**
+     * method for gettting newses by category with order
      *
-     * @param pK
-     * @return
-     * @throws PersistException
+     * @param pK id of category
+     * @return List<News> newses
+     * @throws PersistException - custom exception classs
      */
     @Override
-    public List<News> getByCategoryIdNoOrder(Long pK) throws PersistException  {
+    public List<News> getByCategoryIdNoOrder(Long pK) throws PersistException {
         List<News> newses = null;
         try {
             String hql = "SELECT n FROM News n WHERE n.category.categoryId=:pK";
@@ -115,18 +119,19 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     }
 
     /**
+     * method for gettting newses by date
      *
-     * @param date
-     * @return
-     * @throws PersistException
+     * @param date date of news
+     * @return List<News> newses
+     * @throws PersistException - custom exception classs
      */
     @Override
-    public List<News> getByDate(Date date) throws PersistException{
+    public List<News> getByDate(Date date) throws PersistException {
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
-            String hql = "SELECT n FROM News n WHERE n.date=:date and n.status=:status ORDER BY n.date DESC";
-            Query query = getCurrentSession().createQuery(hql)
+            final String HQL = "SELECT n FROM News n WHERE n.date=:date and n.status=:status ORDER BY n.date DESC";
+            Query query = getCurrentSession().createQuery(HQL)
                     .setParameter(DATE, date)
                     .setParameter(STATUS, status);
             newses = query.list();
@@ -139,8 +144,9 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
 
     /**
      * Get Object by string cretery
-     * @param pageId     value of column in database
-     * @return object
+     *
+     * @param pageId value of column in database
+     * @return object news object
      * @throws PersistException my class of exception, abstracted from relational databases
      */
     @Override
@@ -160,8 +166,17 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
         return news;
     }
 
+    /**
+     * pagination method
+     *
+     * @param pageNumber page number in pagination
+     * @param pageSize   size of newses in one pagination page
+     * @param pK         id of page
+     * @return List<News> newses
+     * @throws PersistException my class of exception, abstracted from relational databases
+     */
     @Override
-    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK) throws PersistException{
+    public List<News> getNewsByCriteria(int pageNumber, int pageSize, Long pK) throws PersistException {
         List<News> newses;
         try {
             StatusEnum status = PERSISTED;
@@ -179,10 +194,11 @@ public class NewsDao extends AbstractDao<News> implements INewsDao {
     }
 
     /**
+     * method count of news for one category
      *
      * @param category
-     * @return
-     * @throws PersistException
+     * @return count of news for one category
+     * @throws PersistException my class of exception, abstracted from relational databases
      */
     public List countNews(Category category) throws PersistException {
         List result;
