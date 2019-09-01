@@ -20,7 +20,7 @@ import java.util.List;
 
 import static by.leonovich.notizieportale.domain.enums.RoleEnum.ROLE_USER;
 import static by.leonovich.notizieportale.util.ServiceConstants.Const.MINUS_ONE;
-import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static com.mysql.cj.util.StringUtils.isNullOrEmpty;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 

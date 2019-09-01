@@ -2,12 +2,10 @@ package by.leonovich.notizieportale.controller;
 
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.domainto.PersonTO;
 import by.leonovich.notizieportale.exception.ServiceLayerException;
 import by.leonovich.notizieportale.exception.WebLayerException;
 import by.leonovich.notizieportale.services.ICategoryService;
-import by.leonovich.notizieportale.services.INewsService;
 import by.leonovich.notizieportale.util.AttributesManager;
 import by.leonovich.notizieportale.util.CloneUtil;
 import org.apache.log4j.Logger;
@@ -15,21 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.util.Date;
 
-import static by.leonovich.notizieportale.util.ServiceConstants.Const.ZERO;
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
-import static by.leonovich.notizieportale.util.WebConstants.Const.P_PERSON;
 
 /**
  * Created by alexanderleonovich on 20.06.15.

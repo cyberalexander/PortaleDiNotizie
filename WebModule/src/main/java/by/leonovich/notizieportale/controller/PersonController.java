@@ -1,19 +1,13 @@
 package by.leonovich.notizieportale.controller;
 
-import by.leonovich.notizieportale.domain.Person;
-import by.leonovich.notizieportale.domain.PersonDetail;
 import by.leonovich.notizieportale.domainto.PersonDetailTO;
 import by.leonovich.notizieportale.domainto.PersonTO;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 import by.leonovich.notizieportale.exception.WebLayerException;
 import by.leonovich.notizieportale.services.IPersonService;
-import by.leonovich.notizieportale.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.AttributesManager;
-import by.leonovich.notizieportale.util.WebConstants;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,16 +15,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.Map;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
-import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static com.mysql.cj.util.StringUtils.isNullOrEmpty;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -47,7 +39,7 @@ public class PersonController {
     private AttributesManager attributesManager;
 
     @RequestMapping(value = "login", method = GET)
-    public String goLoginPage(){
+    public String goLoginPage() {
         return "login";
     }
 
@@ -75,7 +67,7 @@ public class PersonController {
 
 
     @RequestMapping(value = "logout", method = GET)
-    public String goLogoutFormSite(){
+    public String goLogoutFormSite() {
         return "welcome";
     }
 
@@ -94,7 +86,7 @@ public class PersonController {
 
     @RequestMapping(value = "addwriteperson", method = POST)
     public ModelAndView addWritePerson(@Validated PersonDetailTO personDetailTo,
-                                       BindingResult bindingResult, HttpServletRequest request) throws WebLayerException{
+                                       BindingResult bindingResult, HttpServletRequest request) throws WebLayerException {
         ModelAndView modelAndView = new ModelAndView();
         PersonTO personTo = (PersonTO) request.getSession().getAttribute(TRANSIENT_PERSON);
         request.getSession().removeAttribute(TRANSIENT_PERSON);
@@ -120,7 +112,7 @@ public class PersonController {
 
     @Secured({ROLE_ADMIN, ROLE_USER})
     @RequestMapping(value = "editperson", method = GET)
-    public String editPerson(){
+    public String editPerson() {
         return "edit_person_info";
     }
 
@@ -131,7 +123,7 @@ public class PersonController {
                                   @ModelAttribute(P_BIRTHDAY) String birthday,
                                   @ModelAttribute(P_NEW_EMAIL) String newEmail,
                                   @ModelAttribute(P_NEW_PASSWORD) String newPassword,
-                                  HttpServletRequest request) throws WebLayerException{
+                                  HttpServletRequest request) throws WebLayerException {
         PersonTO personTo = (PersonTO) request.getSession().getAttribute(P_PERSON);
         if (!isNullOrEmpty(request.getParameter(newEmail))) personTo.getPersonDetailTO().setEmail(newEmail);
         if (!isNullOrEmpty(request.getParameter(newPassword))) personTo.getPersonDetailTO().setPassword(newPassword);

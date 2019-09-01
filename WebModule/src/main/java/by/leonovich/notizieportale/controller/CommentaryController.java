@@ -1,9 +1,9 @@
 package by.leonovich.notizieportale.controller;
 
 import by.leonovich.notizieportale.domain.Commentary;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 import by.leonovich.notizieportale.exception.WebLayerException;
 import by.leonovich.notizieportale.services.ICommentaryService;
-import by.leonovich.notizieportale.exception.ServiceLayerException;
 import by.leonovich.notizieportale.util.AttributesManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.security.Principal;
 
 import static by.leonovich.notizieportale.util.WebConstants.Const.*;
-import static java.lang.Long.*;
 import static java.lang.Long.valueOf;
 import static java.util.Objects.nonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;

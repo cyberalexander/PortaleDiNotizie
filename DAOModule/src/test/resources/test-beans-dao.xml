@@ -22,7 +22,7 @@
         <property name="url" value="jdbc:mysql://localhost:3306/mysitetest"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="root"/>
-        <property name="password" value="21021991"/>
+        <property name="password" value="mysqlalex21!"/>
         <property name="initialSize" value="20"/>
         <property name="maxActive" value="30"/>
         <property name="defaultTransactionIsolation" value="2"/>

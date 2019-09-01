@@ -27,7 +27,7 @@
         <spring.security.version>4.0.1.RELEASE</spring.security.version>
         <tiles.version>3.0.5</tiles.version>
         <jdk.version>1.8</jdk.version>
-        <mysql.version>5.1.35</mysql.version>
+        <mysql.version>8.0.12</mysql.version>
         <log4j.version>1.2.17</log4j.version>
         <slf4j.logger.version>1.7.12</slf4j.logger.version>
         <jstl.version>1.2</jstl.version>
@@ -42,6 +42,7 @@
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <cglib.version>3.1</cglib.version>
         <pass.encoder.version>1.9</pass.encoder.version>
+        <apache-commons>3.0</apache-commons>
         <compiler-plugin.version>3.3</compiler-plugin.version>
     </properties>
 
@@ -270,6 +271,13 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${pass.encoder.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons}</version>
             </dependency>
 
         </dependencies>

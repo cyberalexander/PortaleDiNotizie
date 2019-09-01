@@ -1,23 +1,22 @@
 package by.leonovich.notizieportale.services;
 
 import by.leonovich.notizieportale.dao.CategoryDao;
-import by.leonovich.notizieportale.dao.NewsDao;
 import by.leonovich.notizieportale.domain.Category;
 import by.leonovich.notizieportale.domain.News;
-import by.leonovich.notizieportale.domain.enums.StatusEnum;
 import by.leonovich.notizieportale.exception.PersistException;
+import by.leonovich.notizieportale.exception.ServiceLayerException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import by.leonovich.notizieportale.exception.ServiceLayerException;
 
 import java.util.List;
 
-import static by.leonovich.notizieportale.domain.enums.StatusEnum.*;
+import static by.leonovich.notizieportale.domain.enums.StatusEnum.DELETED;
+import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
 import static by.leonovich.notizieportale.util.ServiceConstants.Const.MINUS_ONE;
-import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static com.mysql.cj.util.StringUtils.isNullOrEmpty;
 import static java.util.Objects.nonNull;
 
 /**

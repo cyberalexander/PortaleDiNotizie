@@ -24,7 +24,7 @@ import java.util.List;
 
 import static by.leonovich.notizieportale.domain.enums.StatusEnum.PERSISTED;
 import static by.leonovich.notizieportale.util.ServiceConstants.Const.*;
-import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static com.mysql.cj.util.StringUtils.isNullOrEmpty;
 import static java.util.Collections.emptyList;
 import static java.util.Objects.nonNull;
 

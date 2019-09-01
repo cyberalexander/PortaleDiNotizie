@@ -29,7 +29,7 @@ public class ServiceTestConfig {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/mysitetest");
         dataSource.setUsername("root");
-        dataSource.setPassword("21021991");
+        dataSource.setPassword("mysqlalex21!");
 
         return dataSource;
     }

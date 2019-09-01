@@ -17,12 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.mysql.jdbc.StringUtils.isNullOrEmpty;
+import static com.mysql.cj.util.StringUtils.isNullOrEmpty;
+
 
 /**
  * Created by alexanderleonovich on 19.06.15.
  */
-
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
     private static final Logger logger = Logger.getLogger(UserDetailServiceImpl.class);
@@ -34,22 +34,22 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
         if (!(isNullOrEmpty(email))) {
-            // с помощью нашего сервиса UserService получаем User
+            // with help of UserService getting User object
             Person person = personDao.getByEmail(email);
-            // указываем роли для этого пользователя
+            // Set roles for User
             Set<GrantedAuthority> roles = new HashSet();
-            // на основании полученныйх даных формируем объект UserDetails
-            // который позволит проверить введеный пользователем логин и пароль
-            // и уже потом аутентифицировать пользователя
+            // Based on received data create an object UserDetails
+            // which allows to check isnerted by user login/password
+            // and allow/deny to login
             if (person != null) {
-            roles.add(new SimpleGrantedAuthority(person.getPersonDetail().getRole().name()));
-            UserDetails userDetails =
-                    new org.springframework.security.core.userdetails.User(person.getPersonDetail().getEmail(),
-                            person.getPersonDetail().getPassword(),
-                            roles);
+                roles.add(new SimpleGrantedAuthority(person.getPersonDetail().getRole().name()));
+                UserDetails userDetails =
+                        new org.springframework.security.core.userdetails.User(person.getPersonDetail().getEmail(),
+                                person.getPersonDetail().getPassword(),
+                                roles);
                 logger.info("User is authorizated " + userDetails.getUsername() + ", user-authorities " + userDetails.getAuthorities());
-            return userDetails;
-            }else {
+                return userDetails;
+            } else {
                 throw new UsernameNotFoundException("error to check user. Email is empty");
             }
         }

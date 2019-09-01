@@ -2,13 +2,14 @@ package by.leonovich.notizieportale.config;
 
 import by.leonovich.notizieportale.util.CustomNamingStrategy;
 import org.apache.commons.dbcp.BasicDataSource;
-import org.hibernate.annotations.Proxy;
 import org.hibernate.ejb.HibernatePersistence;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Properties;
 
@@ -26,7 +27,7 @@ public class DaoConfig {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/mysitetonight");
         dataSource.setUsername("root");
-        dataSource.setPassword("21021991");
+        dataSource.setPassword("mysqlalex21!");
 
         return dataSource;
     }
