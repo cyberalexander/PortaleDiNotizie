@@ -34,7 +34,7 @@
         <taglibs.version>1.1.2</taglibs.version>
         <servlet.jstl.version>1.2</servlet.jstl.version>
         <servlet-api.version>3.1.0</servlet-api.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <tomcat.version>8.0.21</tomcat.version>
         <ehcache-core.version>2.6.9</ehcache-core.version>
         <aspect.version>1.5.4</aspect.version>
